@@ -65,7 +65,9 @@ OpenCode Go 的 35 个模型并非三种协议通吃，这是所有配置问题�
 codeg-config/
 ├── README.md                 本文件
 ├── inventory.md               15 个 agent 的版本/模型/协议对照表
-├── restore.sh                 一键还原全部配置
+├── restore.sh                 一键还原全部配置（含 codeg 应用配置）
+├── export.py                  从现网 codeg.db 导出配置（脱敏）
+├── import_codeg_db.py         把配置写回 codeg.db（需先停 codeg）
 ├── install/
 │   ├── opencode-go-proxy          :8899 代理脚本
 │   ├── opencode-go-proxy.service
@@ -73,7 +75,7 @@ codeg-config/
 │   ├── litellm/config.yaml         :4000 协议转换层配置
 │   ├── litellm.service
 │   └── codeg-web-timeout-patch     前端超时补丁（开机自动重打）
-├── config/                        各 agent 配置副本（已脱敏）
+├── config/                        各 agent 配置文件副本（已脱敏）
 │   ├── codeg.env
 │   ├── opencode-go-proxy.env
 │   ├── claude/settings.json
@@ -82,8 +84,27 @@ codeg-config/
 │   ├── hermes/config.yaml
 │   ├── opencode/opencode.jsonc
 │   └── cline-providers.json
-└── docs/                          原始数据快照
+└── codeg-app/                     codeg 应用自身的配置（从 SQLite 导出，已脱敏）
+    ├── agent_setting.json       15 个 agent 的启用状态/排序/环境变量/绑定 provider
+    ├── model_provider.json      4 个模型提供商
+    ├── app_metadata.json        应用级设置（语言、终端、委派、浏览器工具…）
+    ├── chat_channel.json        微信 / Telegram 渠道
+    ├── folder.json              工作区目录
+    └── skills.json              codeg 托管的 38 个技能
 ```
+
+## codeg 自身的配置在哪
+
+codeg 是 Rust 应用，配置分三处：
+
+| 位置 | 内容 | 本项目是否收录 |
+| --- | --- | --- |
+| `/etc/codeg.env` | `CODEG_TOKEN` / 端口 / 静态目录 | ✓ config/ |
+| `/etc/systemd/system/codeg.service.d/` | 开机自动重打前端补丁 | ✓ restore.sh 会写 |
+| `~/.local/share/codeg/codeg.db` | agent 配置、模型提供商、应用设置、聊天渠道、工作区 | ✓ codeg-app/ |
+
+`codeg.db` 里还有 `conversation` / `token_usage_*` / `work_task` 等表，那些是**用户数据不是配置**，
+本项目**不导出**（聊天记录、用量统计留在本机）。
 
 ## 快速上手
 
@@ -93,12 +114,23 @@ sudo cp config/opencode-go-proxy.env.example /etc/opencode-go-proxy.env
 sudo chmod 600 /etc/opencode-go-proxy.env
 # 编辑填入 OPENCODE_GO_API_KEY=<你的 key>
 
-# 2. 还原全部配置
+# 2. 还原全部配置（会停 codeg 写库再启动，约 30 秒）
 sudo ./restore.sh
-
-# 3. 验证
-systemctl status opencode-go-proxy litellm
+# 先预览不改动：
+sudo ./restore.sh --dry-run
 ```
+
+### 备份当前配置
+
+改动配置后重新导出，让仓库保持最新：
+
+```bash
+sudo python3 export.py
+git add codeg-app/ && git commit -m "更新 codeg 配置快照"
+```
+
+`export.py` 自动脱敏：`web_service_token`、GitHub OAuth 令牌、各类 api_key 都会替换成
+`${REDACTED}`。写回时遇到占位符会**跳过该字段、保留库中原值**，所以重复还原不会把真实凭据冲掉。
 
 ## 重要提醒
 

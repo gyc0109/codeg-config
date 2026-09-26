@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "GYCのCodeG",
+    "channel_type": "weixin",
+    "enabled": 1,
+    "config_json": "{\"base_url\":\"https://ilinkai.weixin.qq.com\"}",
+    "event_filter_json": null,
+    "daily_report_enabled": 1,
+    "daily_report_time": "22:00",
+    "created_at": "2026-09-14T15:01:33.821646933+00:00",
+    "updated_at": "2026-09-14T15:27:47.792421052+00:00"
+  },
+  {
+    "id": 2,
+    "name": "GYC の Codeg Bot",
+    "channel_type": "telegram",
+    "enabled": 1,
+    "config_json": "{\"chat_id\":\"1733068318\",\"topic_mode\":true}",
+    "event_filter_json": null,
+    "daily_report_enabled": 1,
+    "daily_report_time": "22:00",
+    "created_at": "2026-09-14T15:27:01.524182863+00:00",
+    "updated_at": "2026-09-14T15:27:01.524182863+00:00"
+  }
+]

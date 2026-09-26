@@ -108,22 +108,44 @@ for f in /root/.local/share/opencode/auth.json /root/.pi/agent/auth.json; do
   if [[ -f "$f" ]]; then say "保留现网凭据： $f"; else say "⚠ $f 不存在，需手动重建"; fi
 done
 
-# ---------- 7. 重启 ----------
-step "7. 重启服务"
+# ---------- 7. codeg 应用配置（SQLite，需先停 codeg）----------
+step "7. 还原 codeg 应用配置（agent_setting / model_provider / app_metadata …）"
+if [[ -d "$PROJ/codeg-app" ]]; then
+  if (( DRY )); then
+    say "[dry-run] systemctl stop codeg"
+    say "[dry-run] python3 $PROJ/import_codeg_db.py   # 写回配置表"
+    say "[dry-run] systemctl start codeg"
+  else
+    say "停止 codeg（写库前必须停）…"
+    systemctl stop codeg
+    sleep 3
+    if python3 "$PROJ/import_codeg_db.py" "$PROJ/codeg-app"; then
+      say "配置表已写回"
+    else
+      say "✗ 写回失败，保持 codeg 停止状态，请手动检查后 systemctl start codeg"
+    fi
+    systemctl start codeg
+    say "已启动 codeg"
+  fi
+else
+  say "⚠ 未找到 codeg-app/ 目录，跳过"
+fi
+
+# ---------- 8. 重启 ----------
+step "8. 重启网关服务"
 if (( DRY )); then
   say "[dry-run] systemctl daemon-reload"
   say "[dry-run] systemctl restart opencode-go-proxy litellm"
-  say "[dry-run] # 建议重启 codeg 让 agent 配置生效（会中断正在运行的会话）"
 else
   systemctl daemon-reload
   systemctl restart opencode-go-proxy
   if [[ -x /opt/litellm-venv/bin/litellm ]]; then systemctl restart litellm; fi
   say "已重启 opencode-go-proxy / litellm"
-  say "⚠ codeg 需要你手动重启才会重载 agent 配置： systemctl restart codeg"
+  say "codeg 已在第 7 步重启过"
 fi
 
-# ---------- 8. 验证 ----------
-step "8. 验证"
+# ---------- 9. 验证 ----------
+step "9. 验证"
 if (( ! DRY )); then
   sleep 5
   for s in opencode-go-proxy litellm; do
@@ -146,4 +168,8 @@ if (( ! DRY )); then
 fi
 
 echo
-echo "完成。记得执行： sudo systemctl restart codeg"
+if (( DRY )); then
+  echo "预览完成，未做任何修改。去掉 --dry-run 实际执行。"
+else
+  echo "全部完成。codeg 已在第 7 步重启，agent 配置已生效。"
+fi

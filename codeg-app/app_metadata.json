@@ -1,0 +1,170 @@
+[
+  {
+    "id": 1,
+    "key": "app_version",
+    "value": "0.32.2",
+    "created_at": "2026-09-11T17:23:16.757850641+00:00",
+    "updated_at": "2026-09-24T19:58:07.939251145+00:00",
+    "deleted_at": null
+  },
+  {
+    "id": 2,
+    "key": "db_initialized_at",
+    "value": "2026-09-11T17:23:16.757850641+00:00",
+    "created_at": "2026-09-11T17:23:16.757850641+00:00",
+    "updated_at": "2026-09-11T17:23:16.757850641+00:00",
+    "deleted_at": null
+  },
+  {
+    "id": 3,
+    "key": "web_service_token",
+    "value": "${REDACTED}",
+    "created_at": "2026-09-11T17:23:16.762106280+00:00",
+    "updated_at": "2026-09-19T08:52:23.166410093+00:00",
+    "deleted_at": null
+  },
+  {
+    "id": 14,
+    "key": "pet.config",
+    "value": "{\"enabled\":false,\"activePetId\":\"guga\",\"x\":null,\"y\":null,\"scale\":0.75,\"alwaysOnTop\":true}",
+    "created_at": "2026-09-11T17:32:24.477656067+00:00",
+    "updated_at": "2026-09-11T17:32:24.477656067+00:00",
+    "deleted_at": null
+  },
+  {
+    "id": 15,
+    "key": "system_terminal_settings",
+    "value": "{\"default_shell\":null,\"colorize_command_output\":true}",
+    "created_at": "2026-09-11T17:44:16.425239091+00:00",
+    "updated_at": "2026-09-11T17:44:49.458393343+00:00",
+    "deleted_at": null
+  },
+  {
+    "id": 16,
+    "key": "delegation.enabled",
+    "value": "true",
+    "created_at": "2026-09-11T17:44:37.191472204+00:00",
+    "updated_at": "2026-09-20T06:27:56.395067694+00:00",
+    "deleted_at": null
+  },
+  {
+    "id": 17,
+    "key": "delegation.depth_limit",
+    "value": "3",
+    "created_at": "2026-09-11T17:44:37.193247837+00:00",
+    "updated_at": "2026-09-20T06:27:56.396180582+00:00",
+    "deleted_at": null
+  },
+  {
+    "id": 18,
+    "key": "delegation.completed_cache_max_mb",
+    "value": "512",
+    "created_at": "2026-09-11T17:44:37.193509985+00:00",
+    "updated_at": "2026-09-20T06:27:56.397051803+00:00",
+    "deleted_at": null
+  },
+  {
+    "id": 19,
+    "key": "delegation.agent_defaults",
+    "value": "{}",
+    "created_at": "2026-09-11T17:44:37.195163775+00:00",
+    "updated_at": "2026-09-20T06:27:56.397842453+00:00",
+    "deleted_at": null
+  },
+  {
+    "id": 20,
+    "key": "feedback.enabled",
+    "value": "true",
+    "created_at": "2026-09-11T17:44:43.641747180+00:00",
+    "updated_at": "2026-09-12T18:36:29.853902271+00:00",
+    "deleted_at": null
+  },
+  {
+    "id": 21,
+    "key": "chat_authoring.automations_enabled",
+    "value": "true",
+    "created_at": "2026-09-11T17:44:43.643732336+00:00",
+    "updated_at": "2026-09-20T06:43:33.573335599+00:00",
+    "deleted_at": null
+  },
+  {
+    "id": 22,
+    "key": "chat_authoring.work_tasks_enabled",
+    "value": "true",
+    "created_at": "2026-09-11T17:44:43.645181001+00:00",
+    "updated_at": "2026-09-20T06:43:33.575449843+00:00",
+    "deleted_at": null
+  },
+  {
+    "id": 24,
+    "key": "opened_tabs_version",
+    "value": "347",
+    "created_at": "2026-09-11T17:52:56.273692474+00:00",
+    "updated_at": "2026-09-26T06:54:19.639947263+00:00",
+    "deleted_at": null
+  },
+  {
+    "id": 25,
+    "key": "token_usage_fact_schema_version",
+    "value": "3",
+    "created_at": "2026-09-11T18:27:16.530484246+00:00",
+    "updated_at": "2026-09-23T07:20:19.275859569+00:00",
+    "deleted_at": null
+  },
+  {
+    "id": 36,
+    "key": "canvas_revision",
+    "value": "0",
+    "created_at": "2026-09-11T19:38:46.629979733+00:00",
+    "updated_at": "2026-09-25T07:38:05.931053802+00:00",
+    "deleted_at": null
+  },
+  {
+    "id": 63,
+    "key": "system_language_settings",
+    "value": "{\"mode\":\"manual\",\"language\":\"zh_cn\"}",
+    "created_at": "2026-09-13T07:00:03.676009414+00:00",
+    "updated_at": "2026-09-26T06:41:22.035647990+00:00",
+    "deleted_at": null
+  },
+  {
+    "id": 64,
+    "key": "github_accounts",
+    "value": "${REDACTED}",
+    "created_at": "2026-09-13T07:01:50.680692872+00:00",
+    "updated_at": "2026-09-13T07:01:50.680692872+00:00",
+    "deleted_at": null
+  },
+  {
+    "id": 114,
+    "key": "web_service_port",
+    "value": "3080",
+    "created_at": "2026-09-19T08:46:04.847171522+00:00",
+    "updated_at": "2026-09-19T08:52:23.166633938+00:00",
+    "deleted_at": null
+  },
+  {
+    "id": 115,
+    "key": "web_service_auto_start",
+    "value": "false",
+    "created_at": "2026-09-19T08:46:04.847226506+00:00",
+    "updated_at": "2026-09-19T08:52:23.166683912+00:00",
+    "deleted_at": null
+  },
+  {
+    "id": 147,
+    "key": "browser_tools.enabled",
+    "value": "true",
+    "created_at": "2026-09-20T06:27:23.768227900+00:00",
+    "updated_at": "2026-09-20T06:27:23.768227900+00:00",
+    "deleted_at": null
+  },
+  {
+    "id": 148,
+    "key": "browser_tools.eval_enabled",
+    "value": "true",
+    "created_at": "2026-09-20T06:27:23.770114396+00:00",
+    "updated_at": "2026-09-20T06:27:23.770114396+00:00",
+    "deleted_at": null
+  }
+]
