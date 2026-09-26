@@ -31,7 +31,17 @@ def main():
         return 1
     db = sqlite3.connect(DB)
     db.row_factory = sqlite3.Row
+    try:
+        return _run(db)
+    except sqlite3.Error as e:
+        db.rollback()
+        print(f"✗ 导入失败，已回滚：{e}")
+        return 1
+    finally:
+        db.close()
 
+
+def _run(db):
     # 安全闸：codeg 还在跑就别写
     try:
         r = db.execute("select value from app_metadata where key='db_initialized_at'").fetchone()
@@ -97,7 +107,14 @@ def main():
                 )
                 applied += 1
             else:
-                # INSERT：自增主键列不指定
+                # INSERT：自增主键列不指定；必填(NOT NULL)字段缺失则跳过该行
+                notnull = {
+                    c[1] for c in db.execute(f"PRAGMA table_info({table})") if c[3] == 1
+                }
+                missing = notnull - set(new_vals)
+                if missing:
+                    print(f"    ⚠ 跳过 {table} 一行（缺少必填字段 {sorted(missing)}）")
+                    continue
                 ins_cols = [c for c in new_vals if not (pk_is_rowid and c == pk)]
                 if not ins_cols:
                     continue
@@ -113,7 +130,6 @@ def main():
             db.rollback()
             print("    (dry-run，已回滚)")
             return 0
-
     if not DRY:
         db.commit()
     print(f"\n更新 {applied} 行，插入 {inserted} 行，因占位符跳过 {skipped} 项")
