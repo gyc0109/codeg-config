@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "lastUsedProvider": "openai-compatible",
+  "modes": {},
+  "providers": {
+    "openai-compatible": {
+      "settings": {
+        "provider": "openai-compatible",
+        "apiKey": "dummy",
+        "model": "space-bunny-free",
+        "baseUrl": "http://127.0.0.1:8899/v1"
+      },
+      "updatedAt": "2026-09-24T02:26:57.662Z",
+      "tokenSource": "manual"
+    }
+  }
+}

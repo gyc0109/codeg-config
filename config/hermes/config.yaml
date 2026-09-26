@@ -1,0 +1,137 @@
+model: deepseek-v4.1-flash
+custom_providers:
+- name: OpenCode Go DeepSeek
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: deepseek-v4.1-flash
+- name: OpenCode Go Qwen
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: qwen3.8-max
+- name: OpenCode Go GLM
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: glm-5.3
+- name: OpenCode Go Kimi
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: kimi-k3
+- name: OpenCode Go MiniMax
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: minimax-m3
+
+- name: OpenCode Go Deepseek Flash
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: deepseek-flash
+
+- name: OpenCode Go Deepseek V4 Flash
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: deepseek-v4-flash
+
+- name: OpenCode Go Deepseek V4 Flash Vision Exp
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: deepseek-v4-flash-vision-exp
+
+- name: OpenCode Go Deepseek V4 Pro
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: deepseek-v4-pro
+
+- name: OpenCode Go Glm 5.1
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: glm-5.1
+
+- name: OpenCode Go Glm 5.2
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: glm-5.2
+
+- name: OpenCode Go Glm 5.3 Flash
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: glm-5.3-flash
+
+- name: OpenCode Go Hy3
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: hy3
+
+- name: OpenCode Go Hy4 Preview
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: hy4-preview
+
+- name: OpenCode Go Kimi K2.6
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: kimi-k2.6
+
+- name: OpenCode Go Kimi K2.7 Code
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: kimi-k2.7-code
+
+- name: OpenCode Go Longcat 2.0
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: longcat-2.0
+
+- name: OpenCode Go Mimo V2.5
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: mimo-v2.5
+
+- name: OpenCode Go Mimo V2.5 Pro
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: mimo-v2.5-pro
+
+- name: OpenCode Go Minimax M2.5
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: minimax-m2.5
+
+- name: OpenCode Go Omen Alpha
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: omen-alpha
+
+- name: OpenCode Go Qwen3.6 Plus
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: qwen3.6-plus
+
+- name: OpenCode Go Qwen3.7 Max
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: qwen3.7-max
+
+- name: OpenCode Go Qwen3.7 Plus
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: qwen3.7-plus
+
+- name: OpenCode Go Qwen3.8 Flash
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: qwen3.8-flash
+
+- name: OpenCode Go Mimo V2.6 Flash
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: mimo-v2.6-flash
+
+- name: OpenCode Go Mimo V2.6 Pro
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: mimo-v2.6-pro
+
+- name: OpenCode Go Space Bunny Free
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: space-bunny-free

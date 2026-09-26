@@ -1,0 +1,15 @@
+{
+  "env": {
+    "ANTHROPIC_BASE_URL": "http://127.0.0.1:4000",
+    "ANTHROPIC_AUTH_TOKEN": "local",
+    "ANTHROPIC_CUSTOM_MODEL_OPTION": "space-bunny-free",
+    "ANTHROPIC_CUSTOM_MODEL_OPTION_DESCRIPTION": "Space Bunny Free (Free) via LiteLLM",
+    "ANTHROPIC_CUSTOM_MODEL_OPTION_NAME": "Space Bunny Free",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "glm-5.3-flash",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "qwen3.8-max",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "mimo-v2.6-flash",
+    "ANTHROPIC_MODEL": "deepseek-v4.1-flash",
+    "ANTHROPIC_REASONING_MODEL": "space-bunny-free",
+    "CLAUDE_CODE_AUTO_MODE_SERVER": "0"
+  }
+}

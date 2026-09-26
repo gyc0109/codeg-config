@@ -1,0 +1,15 @@
+model = "deepseek-v4.1-flash"
+model_provider = "litellm-bridge"
+model_catalog_json = "codeg-model-catalog.json"
+
+[model_providers.litellm-bridge]
+name = "LiteLLM Bridge"
+base_url = "http://127.0.0.1:4000/v1"
+env_key = "OPENCODE_GO_KEY"
+wire_api = "responses"
+
+[model_providers.opencode-direct]
+name = "OpenCode Go Direct"
+base_url = "http://127.0.0.1:8899/v1"
+env_key = "OPENCODE_GO_KEY"
+wire_api = "responses"

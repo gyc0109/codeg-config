@@ -1,0 +1,17 @@
+[Unit]
+Description=LiteLLM Proxy (Anthropic <-> OpenAI protocol bridge for Claude Code)
+After=network-online.target opencode-go-proxy.service
+Wants=network-online.target
+Requires=opencode-go-proxy.service
+
+[Service]
+Type=simple
+ExecStart=/opt/litellm-venv/bin/litellm --config /opt/litellm/config.yaml --host 127.0.0.1 --port 4000 --num_workers 1
+Restart=always
+RestartSec=5
+WorkingDirectory=/opt/litellm
+StandardOutput=append:/var/log/litellm.log
+StandardError=append:/var/log/litellm.log
+
+[Install]
+WantedBy=multi-user.target

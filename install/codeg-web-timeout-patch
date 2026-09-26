@@ -1,0 +1,107 @@
+#!/usr/bin/env python3
+"""Apply codeg frontend RPC timeout overrides to the served web assets.
+
+Why this exists
+---------------
+codeg's web UI issues RPC calls through a transport whose default timeout is
+hard-coded to 60s (`timeoutMs ?? 6e4`). The agent-binary download RPC
+(`acp_download_agent_binary`) does not override that default, so a slow GitHub
+release download (>60s, e.g. OpenCode's ~60MB linux-x64 tarball) gets aborted
+client-side and the server-side download is cancelled mid-flight.
+
+This script rewrites the bundled frontend JS to read the timeout from the
+environment instead. It is idempotent and is meant to run on every codeg start
+(see the systemd drop-in), so it survives codeg upgrades that replace the web
+directory.
+
+Configuration (read from the environment / /etc/codeg.env)
+----------------------------------------------------------
+  CODEG_STATIC_DIR                  web root, default /usr/local/share/codeg/web
+  CODEG_AGENT_DOWNLOAD_TIMEOUT_MS   timeout for acp_download_agent_binary,
+                                    default 600000 (10 min)
+  CODEG_RPC_DEFAULT_TIMEOUT_MS      optional override of the transport-wide
+                                    default RPC timeout (default left at 6e4)
+"""
+import glob
+import os
+import re
+import sys
+
+
+def read_ms(name, default=None):
+    raw = os.environ.get(name, "").strip()
+    if not raw:
+        return default
+    if not raw.isdigit():
+        print(
+            f"codeg-web-timeout-patch: {name} must be a positive integer (ms), got {raw!r}",
+            file=sys.stderr,
+        )
+        return None
+    return int(raw)
+
+
+def main() -> int:
+    web = os.environ.get("CODEG_STATIC_DIR", "/usr/local/share/codeg/web")
+    static = os.path.join(web, "_next", "static")
+    if not os.path.isdir(static):
+        print(f"codeg-web-timeout-patch: static dir not found: {static}", file=sys.stderr)
+        return 1
+
+    dl = read_ms("CODEG_AGENT_DOWNLOAD_TIMEOUT_MS", 600000)
+    if dl is None:
+        return 1
+    rpc = read_ms("CODEG_RPC_DEFAULT_TIMEOUT_MS", None)
+    if os.environ.get("CODEG_RPC_DEFAULT_TIMEOUT_MS", "").strip() and rpc is None:
+        return 1
+
+    # Already-patched call: refresh the numeric timeout to the configured value.
+    patched_re = re.compile(
+        r'(call\("acp_download_agent_binary",\{[^{}]*\},\{timeoutMs:)'
+        r'([0-9.eE+]+)'
+        r'(\}\))'
+    )
+    # Untouched call: add an explicit options argument.
+    unpatched_re = re.compile(r'(call\("acp_download_agent_binary",\{[^{}]*\})(\))')
+    # Transport-wide default: `r?.timeoutMs ?? 6e4`.
+    default_re = re.compile(r'(r\?\.timeoutMs\?\?)([0-9.eE+]+)')
+
+    changed = 0
+    scanned = 0
+    for path in glob.glob(os.path.join(static, "**", "*.js"), recursive=True):
+        scanned += 1
+        try:
+            with open(path, "r", encoding="utf-8", errors="surrogateescape") as fh:
+                src = fh.read()
+        except OSError:
+            continue
+        orig = src
+
+        src, _ = patched_re.subn(lambda m: m.group(1) + str(dl) + m.group(3), src)
+        if not patched_re.search(orig):
+            src, _ = unpatched_re.subn(
+                lambda m: m.group(1) + ",{timeoutMs:" + str(dl) + "}" + m.group(2), src
+            )
+
+        if rpc is not None:
+            src, _ = default_re.subn(lambda m: m.group(1) + str(rpc), src)
+
+        if src != orig:
+            tmp = path + ".codeg-timeout-patch.tmp"
+            with open(tmp, "w", encoding="utf-8", errors="surrogateescape") as fh:
+                fh.write(src)
+            os.replace(tmp, path)
+            changed += 1
+            print(f"codeg-web-timeout-patch: patched {path}")
+
+    print(
+        "codeg-web-timeout-patch: "
+        f"agent_download={dl}ms"
+        + (f" rpc_default={rpc}ms" if rpc is not None else " rpc_default=unchanged")
+        + f"; scanned={scanned} changed={changed}"
+    )
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

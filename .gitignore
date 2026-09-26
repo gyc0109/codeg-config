@@ -1,0 +1,6 @@
+# 严禁提交真实密钥
+*.env
+!*.env.example
+secrets/
+docs/.agents.json
+docs/.providers.json

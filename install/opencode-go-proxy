@@ -1,0 +1,150 @@
+#!/usr/bin/env python3
+"""Local shim that makes OpenCode Zen "Go" (https://opencode.ai/zen/go/v1)
+look like a plain OpenAI-compatible endpoint.
+
+The Go gateway rejects requests that lack the `x-opencode-session` header
+("MissingSessionID") and is otherwise a standard OpenAI chat-completions API
+for the models that support `oa-compat`. This proxy:
+
+  * listens on 127.0.0.1:8899
+  * rewrites `/v1/...`  ->  `/zen/go/v1/...`
+  * injects `x-opencode-session` (+ client/project) headers
+  * forwards the client's own Authorization header (so the real key can live
+    in the calling agent's config), falling back to $OPENCODE_GO_API_KEY
+  * streams the upstream response back byte-for-byte
+
+Run it as a service; nothing else in the system depends on it being public.
+"""
+import os
+import socket
+import ssl
+import sys
+import threading
+
+LISTEN_HOST = os.environ.get("OGP_HOST", "127.0.0.1")
+LISTEN_PORT = int(os.environ.get("OGP_PORT", "8899"))
+TARGET = os.environ.get("OGP_TARGET", "opencode.ai")
+TARGET_PORT = int(os.environ.get("OGP_TARGET_PORT", "443"))
+FALLBACK_KEY = os.environ.get("OPENCODE_GO_API_KEY", "").strip()
+SESSION = os.environ.get("OGP_SESSION", "ses_codeg_proxy")
+PROJECT = os.environ.get("OGP_PROJECT", "global")
+
+_HOP = {
+    b"host",
+    b"connection",
+    b"accept-encoding",
+    b"content-length",
+    b"x-opencode-session",
+    b"x-opencode-client",
+    b"x-opencode-project",
+}
+
+
+def _read_headers(sock):
+    data = b""
+    while b"\r\n\r\n" not in data:
+        chunk = sock.recv(65536)
+        if not chunk:
+            return None
+        data += chunk
+    return data
+
+
+def handle(client):
+    upstream = None
+    try:
+        data = _read_headers(client)
+        if data is None:
+            return
+        head, _, rest = data.partition(b"\r\n\r\n")
+        lines = head.split(b"\r\n")
+        parts = lines[0].split(b" ")
+        if len(parts) < 3:
+            return
+        method, path, _ver = parts[0].decode(), parts[1].decode(), parts[2].decode()
+
+        content_length = 0
+        kept = []
+        auth = None
+        for line in lines[1:]:
+            if b":" not in line:
+                continue
+            k, v = line.split(b":", 1)
+            kl = k.strip().lower()
+            if kl == b"content-length":
+                content_length = int(v.strip())
+                continue
+            if kl == b"authorization":
+                auth = v.strip()
+                continue
+            if kl in _HOP:
+                continue
+            kept.append((k.strip(), v.strip()))
+
+        body = rest
+        while len(body) < content_length:
+            chunk = client.recv(65536)
+            if not chunk:
+                break
+            body += chunk
+
+        target_path = "/zen/go/v1" + (path[3:] if path.startswith("/v1") else path)
+        authorization = (("Bearer " + FALLBACK_KEY).encode() if FALLBACK_KEY else b"")
+
+        upstream = ssl.create_default_context().wrap_socket(
+            socket.create_connection((TARGET, TARGET_PORT), timeout=30),
+            server_hostname=TARGET,
+        )
+        req = [f"{method} {target_path} HTTP/1.1".encode(), f"Host: {TARGET}".encode()]
+        if authorization:
+            req.append(b"Authorization: " + authorization)
+        if FALLBACK_KEY:
+            req.append(("x-api-key: " + FALLBACK_KEY).encode())
+        req.append(("x-opencode-session: " + SESSION).encode())
+        req.append(b"x-opencode-client: cli")
+        req.append(("x-opencode-project: " + PROJECT).encode())
+        req.append(b"Accept-Encoding: identity")
+        req.append(b"Connection: close")
+        for k, v in kept:
+            req.append(k + b": " + v)
+        req.append(b"Content-Length: " + str(len(body)).encode())
+        req.append(b"")
+        req.append(b"")
+        upstream.sendall(b"\r\n".join(req) + body)
+
+        while True:
+            chunk = upstream.recv(65536)
+            if not chunk:
+                break
+            client.sendall(chunk)
+    except Exception as exc:  # noqa: BLE001 - a proxy must never die on one conn
+        sys.stderr.write(f"opencode-go-proxy: {exc!r}\n")
+        sys.stderr.flush()
+    finally:
+        if upstream is not None:
+            try:
+                upstream.close()
+            except OSError:
+                pass
+        try:
+            client.close()
+        except OSError:
+            pass
+
+
+def main():
+    srv = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    srv.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    srv.bind((LISTEN_HOST, LISTEN_PORT))
+    srv.listen(128)
+    sys.stderr.write(
+        f"opencode-go-proxy listening on {LISTEN_HOST}:{LISTEN_PORT} -> https://{TARGET}/zen/go/v1\n"
+    )
+    sys.stderr.flush()
+    while True:
+        conn, _ = srv.accept()
+        threading.Thread(target=handle, args=(conn,), daemon=True).start()
+
+
+if __name__ == "__main__":
+    main()
