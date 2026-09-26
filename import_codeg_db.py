@@ -42,7 +42,7 @@ def main():
         print(f"✗ 读取失败：{e}")
         return 1
 
-    applied = skipped = 0
+    applied = skipped = inserted = 0
     for table, fname, pk in TABLES:
         path = os.path.join(SRC, fname)
         if not os.path.exists(path):
@@ -50,14 +50,15 @@ def main():
             continue
         rows = json.load(open(path, encoding="utf-8"))
         cols = [c[1] for c in db.execute(f"PRAGMA table_info({table})")]
+        # 目标表主键列（自增 id 的表用 id，其它用业务列）
+        pk_is_rowid = pk == "id"
 
         for row in rows:
             payload = {k: v for k, v in row.items() if k in cols}
-            if pk not in payload:
-                continue
 
-            # 占位符值 → 保留库中原值
-            new_vals, has_ph = {}, False
+            # 占位符值 → 跳过该字段（保留库中原值或用默认值）
+            new_vals = {}
+            has_ph = False
             for c in cols:
                 if c not in payload:
                     continue
@@ -71,15 +72,43 @@ def main():
             if not new_vals:
                 continue
 
-            where = f"{pk} = ?"
-            args = [new_vals[pk]] if pk in new_vals else [payload[pk]]
-            sets = ", ".join(f"{c} = ?" for c in new_vals if c != pk)
-            if sets:
-                sql = f"update {table} set {sets} where {where}"
-                db.execute(sql, [*[v for c, v in new_vals.items() if c != pk], *args])
-                applied += 1
+            # 已存在则 UPDATE，不存在则 INSERT
+            exists = False
+            if pk_is_rowid and new_vals.get(pk) is not None:
+                exists = db.execute(
+                    f"select 1 from {table} where {pk} = ?", (new_vals[pk],)
+                ).fetchone() is not None
+            elif pk in payload:
+                exists = db.execute(
+                    f"select 1 from {table} where {pk} = ?", (payload[pk],)
+                ).fetchone() is not None
 
-        print(f"  ✓ {table:16} 处理 {len(rows):>3} 行")
+            if exists:
+                sets = ", ".join(f"{c} = ?" for c in new_vals if c != pk)
+                if not sets:
+                    continue
+                if pk_is_rowid:
+                    where, args = f"{pk} = ?", [new_vals[pk]]
+                else:
+                    where, args = f"{pk} = ?", [payload[pk]]
+                db.execute(
+                    f"update {table} set {sets} where {where}",
+                    [*[v for c, v in new_vals.items() if c != pk], *args],
+                )
+                applied += 1
+            else:
+                # INSERT：自增主键列不指定
+                ins_cols = [c for c in new_vals if not (pk_is_rowid and c == pk)]
+                if not ins_cols:
+                    continue
+                db.execute(
+                    f"insert into {table} ({', '.join(ins_cols)}) values ({', '.join('?' * len(ins_cols))})",
+                    [new_vals[c] for c in ins_cols],
+                )
+                inserted += 1
+
+        verb = "已存在则更新/不存在则插入"
+        print(f"  ✓ {table:16} 处理 {len(rows):>3} 行（{verb}）")
         if DRY:
             db.rollback()
             print("    (dry-run，已回滚)")
@@ -87,7 +116,7 @@ def main():
 
     if not DRY:
         db.commit()
-    print(f"\n更新 {applied} 行，因占位符跳过 {skipped} 项")
+    print(f"\n更新 {applied} 行，插入 {inserted} 行，因占位符跳过 {skipped} 项")
     print("提示：部分 app_metadata 是 codeg 运行时自动写入的，重启后可能变化")
     return 0
 

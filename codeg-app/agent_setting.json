@@ -8,7 +8,7 @@
     "installed_version": "0.81.1",
     "env_json": "{\"ANTHROPIC_AUTH_TOKEN\":\"local\",\"ANTHROPIC_BASE_URL\":\"http://127.0.0.1:4000\",\"ANTHROPIC_CUSTOM_MODEL_OPTION\":\"space-bunny-free\",\"ANTHROPIC_CUSTOM_MODEL_OPTION_DESCRIPTION\":\"Space Bunny Free (Free) via LiteLLM\",\"ANTHROPIC_CUSTOM_MODEL_OPTION_NAME\":\"Space Bunny Free\",\"ANTHROPIC_DEFAULT_HAIKU_MODEL\":\"glm-5.3-flash\",\"ANTHROPIC_DEFAULT_OPUS_MODEL\":\"qwen3.8-max\",\"ANTHROPIC_DEFAULT_SONNET_MODEL\":\"mimo-v2.6-flash\",\"ANTHROPIC_MODEL\":\"deepseek-v4.1-flash\",\"ANTHROPIC_REASONING_MODEL\":\"space-bunny-free\"}",
     "created_at": "2026-09-11T17:31:02.600197409+00:00",
-    "updated_at": "2026-09-24T20:14:41.354415437+00:00",
+    "updated_at": "2026-09-26T08:30:36.353076719+00:00",
     "model_provider_id": 4
   },
   {
@@ -20,7 +20,7 @@
     "installed_version": "1.13.1",
     "env_json": "{\"OPENAI_BASE_URL\":\"http://127.0.0.1:8899/v1\",\"OPENAI_MODEL\":\"deepseek-flash\",\"OPENCODE_GO_KEY\":\"local\"}",
     "created_at": "2026-09-11T17:31:02.602867301+00:00",
-    "updated_at": "2026-09-24T20:14:41.323275467+00:00",
+    "updated_at": "2026-09-26T08:30:36.560103522+00:00",
     "model_provider_id": null
   },
   {
@@ -32,7 +32,7 @@
     "installed_version": "0.60.0",
     "env_json": null,
     "created_at": "2026-09-11T17:31:02.603695284+00:00",
-    "updated_at": "2026-09-24T20:14:41.276838197+00:00",
+    "updated_at": "2026-09-26T08:30:36.740983045+00:00",
     "model_provider_id": null
   },
   {
@@ -44,7 +44,7 @@
     "installed_version": "2026.9.5",
     "env_json": null,
     "created_at": "2026-09-11T17:31:02.605418334+00:00",
-    "updated_at": "2026-09-24T20:14:41.245002879+00:00",
+    "updated_at": "2026-09-26T08:30:36.655954839+00:00",
     "model_provider_id": null
   },
   {
@@ -56,7 +56,7 @@
     "installed_version": "1.18.32",
     "env_json": null,
     "created_at": "2026-09-11T17:31:02.605936350+00:00",
-    "updated_at": "2026-09-26T07:00:42.511922217+00:00",
+    "updated_at": "2026-09-26T08:52:05.220066057+00:00",
     "model_provider_id": null
   },
   {
@@ -68,7 +68,7 @@
     "installed_version": "3.0.65",
     "env_json": null,
     "created_at": "2026-09-11T17:31:02.608362155+00:00",
-    "updated_at": "2026-09-24T20:14:41.287734737+00:00",
+    "updated_at": "2026-09-26T08:30:36.746897057+00:00",
     "model_provider_id": null
   },
   {
@@ -80,7 +80,7 @@
     "installed_version": "0.21.4",
     "env_json": "{\"HERMES_INFERENCE_PROVIDER\":\"custom:opencode-go-space-bunny-free\"}",
     "created_at": "2026-09-11T17:31:02.609713809+00:00",
-    "updated_at": "2026-09-24T20:14:41.122784631+00:00",
+    "updated_at": "2026-09-26T08:30:36.874189711+00:00",
     "model_provider_id": null
   },
   {
@@ -92,7 +92,7 @@
     "installed_version": "2.157.0",
     "env_json": null,
     "created_at": "2026-09-11T17:31:02.611143292+00:00",
-    "updated_at": "2026-09-24T20:14:41.380508042+00:00",
+    "updated_at": "2026-09-26T08:30:36.428629880+00:00",
     "model_provider_id": null
   },
   {
@@ -104,7 +104,7 @@
     "installed_version": "2.1.0",
     "env_json": "{\"KIMI_MODEL_API_KEY\":\"local\",\"KIMI_MODEL_BASE_URL\":\"http://127.0.0.1:8899/v1\",\"KIMI_MODEL_NAME\":\"space-bunny-free\"}",
     "created_at": "2026-09-11T17:31:02.611707097+00:00",
-    "updated_at": "2026-09-24T20:14:41.222549564+00:00",
+    "updated_at": "2026-09-26T08:30:36.884267838+00:00",
     "model_provider_id": 1
   },
   {
@@ -116,7 +116,7 @@
     "installed_version": "0.0.33",
     "env_json": null,
     "created_at": "2026-09-11T17:31:02.613622583+00:00",
-    "updated_at": "2026-09-24T20:14:41.322565632+00:00",
+    "updated_at": "2026-09-26T08:30:36.732205379+00:00",
     "model_provider_id": null
   },
   {
@@ -128,7 +128,7 @@
     "installed_version": "1.0.41",
     "env_json": "{\"GROK_DEFAULT_MODEL\":\"space-bunny-free\",\"OPENAI_MODEL\":\"space-bunny-free\"}",
     "created_at": "2026-09-11T17:31:02.615047110+00:00",
-    "updated_at": "2026-09-24T20:14:41.352627007+00:00",
+    "updated_at": "2026-09-26T08:30:36.588155784+00:00",
     "model_provider_id": 2
   },
   {
@@ -140,7 +140,7 @@
     "installed_version": "2026.09.18-9a7762b",
     "env_json": null,
     "created_at": "2026-09-11T17:31:02.616319730+00:00",
-    "updated_at": "2026-09-26T07:00:42.516004077+00:00",
+    "updated_at": "2026-09-26T08:52:05.227901514+00:00",
     "model_provider_id": null
   },
   {
@@ -152,7 +152,7 @@
     "installed_version": "0.9.0",
     "env_json": "{\"DEEPSEEK_ACP_MODEL\":\"deepseek-flash\",\"DEEPSEEK_API_KEY\":\"local\",\"DEEPSEEK_BASE_URL\":\"http://127.0.0.1:8899/v1\"}",
     "created_at": "2026-09-11T17:31:02.616862301+00:00",
-    "updated_at": "2026-09-24T20:14:41.388984320+00:00",
+    "updated_at": "2026-09-26T08:30:35.646728092+00:00",
     "model_provider_id": 3
   },
   {
@@ -164,7 +164,7 @@
     "installed_version": "1.1.62",
     "env_json": null,
     "created_at": "2026-09-11T17:31:02.618996327+00:00",
-    "updated_at": "2026-09-24T20:14:41.361236173+00:00",
+    "updated_at": "2026-09-26T08:30:36.852018171+00:00",
     "model_provider_id": null
   },
   {
@@ -176,7 +176,7 @@
     "installed_version": "1.2.1",
     "env_json": null,
     "created_at": "2026-09-11T17:31:02.620404896+00:00",
-    "updated_at": "2026-09-26T07:00:42.520473279+00:00",
+    "updated_at": "2026-09-26T08:52:05.230504195+00:00",
     "model_provider_id": null
   }
 ]

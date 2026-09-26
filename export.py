@@ -26,12 +26,16 @@ EXPORT_TABLES = {
 }
 
 # 整列强制脱敏（值是凭据，不看内容一律替换）
-SECRET_COLUMNS = {"token", "access_token", "refresh_token", "api_key", "secret", "password"}
+# 注：model_provider.api_key 不在此列——它存的是占位符 "local"，真实 key 由
+# opencode-go-proxy 注入，代理从不把真 key 写进 agent 配置。
+SECRET_COLUMNS = {"token", "access_token", "refresh_token", "secret", "password"}
 # key 名命中即脱敏
+# api_key 例外：model_provider.api_key 存的是占位符 "local"，非真实凭据
 SECRET_KEY_RE = re.compile(
-    r"(web_service_token|api_?key|access_?token|refresh_?token|^token$|secret|password|private_key|credential)",
+    r"(web_service_token|access_?token|refresh_?token|^token$|secret|password|private_key|credential)",
     re.I,
 )
+API_KEY_RE = re.compile(r"^api_?key$", re.I)
 # app_metadata 这类 key/value 宽表：命中敏感 key 的行，其 value 整体脱敏
 KV_SECRET_KEY_RE = re.compile(
     r"(web_service_token|api_?key|access_?token|refresh_?token|secret|password|private_key|credential|account)",
@@ -54,7 +58,10 @@ def scrub_row(row):
         else:
             row["value"] = scrub(row["value"], "value")
     for k, v in row.items():
-        if SECRET_KEY_RE.search(str(k)):
+        # api_key 可能是占位符 local（model_provider），也可能是真 key（其他表）
+        if API_KEY_RE.match(str(k)) and str(v).strip().lower() in ("local", "", "none"):
+            row[k] = v
+        elif SECRET_KEY_RE.search(str(k)) or API_KEY_RE.match(str(k)):
             row[k] = REDACTED
         elif k not in ("key", "value"):
             row[k] = scrub(v, k)
