@@ -2,5 +2,10 @@
 *.env
 !*.env.example
 secrets/
-docs/.agents.json
-docs/.providers.json
+
+# Python 缓存
+__pycache__/
+*.py[cod]
+
+# 实时数据快照（含运行时信息，不入版本库）
+docs/
