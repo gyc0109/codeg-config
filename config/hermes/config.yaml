@@ -135,3 +135,8 @@ custom_providers:
   base_url: http://127.0.0.1:8899/v1
   api_key: local
   model: space-bunny-free
+
+- name: OpenCode Go longcat-2.5-preview-free
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: longcat-2.5-preview-free

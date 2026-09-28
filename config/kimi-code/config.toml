@@ -146,3 +146,8 @@ max_context_size = 1000000
 provider = "opencode-go"
 model = "space-bunny-free"
 max_context_size = 1000000
+
+[models."longcat-2.5-preview-free"]
+provider = "opencode-go"
+model = "longcat-2.5-preview-free"
+max_context_size = 1000000

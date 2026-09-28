@@ -5,8 +5,8 @@
       "npm": "@ai-sdk/openai-compatible",
       "name": "OpenCode Go",
       "options": {
-        "baseURL": "https://opencode.ai/zen/go/v1",
-        "apiKey": "${OPENCODE_GO_API_KEY}"
+        "baseURL": "http://127.0.0.1:8899/v1",
+        "apiKey": "local"
       },
       "models": {
         "deepseek-v4.1-flash": {
@@ -448,6 +448,22 @@
         },
         "space-bunny-free": {
           "name": "space-bunny-free",
+          "reasoning": true,
+          "tool_call": true,
+          "attachment": true,
+          "limit": {
+            "context": 1000000,
+            "output": 131072
+          },
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cache_read": 0,
+            "cache_write": 0
+          }
+        },
+        "longcat-2.5-preview-free": {
+          "name": "longcat-2.5-preview-free",
           "reasoning": true,
           "tool_call": true,
           "attachment": true,
