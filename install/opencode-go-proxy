@@ -103,8 +103,10 @@ def handle(client):
         req.append(("x-opencode-session: " + SESSION).encode())
         req.append(b"x-opencode-client: cli")
         req.append(("x-opencode-project: " + PROJECT).encode())
-        req.append(b"Accept-Encoding: identity")
-        req.append(b"Connection: close")
+        # 不强制 Accept-Encoding/Connection：让上游按流式 (chunked) 正常返回，
+        # 客户端（Codex/Claude）的 stream:true 才能被逐块转发。之前强制
+        # `Connection: close` + identity 会让部分模型（如 grok）拿不到可用的
+        # 流式分片，导致 Codex 反复 reconnect。
         for k, v in kept:
             req.append(k + b": " + v)
         req.append(b"Content-Length: " + str(len(body)).encode())
@@ -112,11 +114,22 @@ def handle(client):
         req.append(b"")
         upstream.sendall(b"\r\n".join(req) + body)
 
-        while True:
+        # 完整转发上游响应头（保持 Transfer-Encoding/Content-Length 不变），
+        # 然后逐块透传 body。这样 chunked 流式与普通响应都能被客户端正确解析。
+        head = b""
+        while b"\r\n\r\n" not in head:
             chunk = upstream.recv(65536)
             if not chunk:
                 break
-            client.sendall(chunk)
+            head += chunk
+        if head:
+            client.sendall(head)
+            # 逐块透传剩余 body（保留 chunked framing）
+            while True:
+                chunk = upstream.recv(65536)
+                if not chunk:
+                    break
+                client.sendall(chunk)
     except Exception as exc:  # noqa: BLE001 - a proxy must never die on one conn
         sys.stderr.write(f"opencode-go-proxy: {exc!r}\n")
         sys.stderr.flush()
