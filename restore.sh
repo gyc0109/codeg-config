@@ -155,6 +155,7 @@ restore_agent "$PROJ/config/opencode/opencode.jsonc"     /root/.config/opencode/
 restore_agent "$PROJ/config/pi/settings.json"               /root/.pi/agent/settings.json
 restore_agent "$PROJ/config/pi/models.json"               /root/.pi/agent/models.json
 restore_agent "$PROJ/config/cline-providers.json"        /root/.cline/data/settings/providers.json
+restore_agent "$PROJ/config/codebuddy/models.json"        /root/.codebuddy/models.json
 restore_agent "$PROJ/config/codex-model-catalog.json"    /root/.codex/codeg-model-catalog.json
 
 # ---------- 5b. open_claw（Gateway + 双 provider）----------

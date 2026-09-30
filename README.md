@@ -125,8 +125,9 @@ codeg 前端把 agent 上报的 model configOption 拆成「分组 + 条目」
 | grok | ✅ | ✅ `xai/grok-4.7` | 经 LiteLLM 前缀 | ✅ |
 | deepseek | ✅ | ✅ `deepseek-v4.1-flash` | 经 LiteLLM 前缀 | ✅ |
 | cline | ✅ | ✅ | 单 provider 指向 LiteLLM，改 model 字符串即可 | ✅ |
+| code_buddy | ✅ 29 | ✅ 57 | `~/.codebuddy/models.json` + `CODEBUDDY_BASE_URL` | ✅ |
 | **open_claw** | ✅ 29 | ✅ 57 | `models.providers` 自定义 `ocg`/`ccg` | ✅ |
-| code_buddy / gemini / cursor / qoder / antigravity | ❌ | ❌ | 私有客户端，无自定义端点配置 | — |
+| code_buddy | ~~❌~~ ✅ |  |  |  |
 
 > pi 的坑：`models-store.json` 只是**模型缓存**，provider 定义在 **`models.json`**
 > （`{"providers": {"<id>": {"name","baseUrl","apiKey","api","models":[…]}}}`，
@@ -173,6 +174,21 @@ codeg 前端把 agent 上报的 model configOption 拆成「分组 + 条目」
 > LiteLLM 的坑：对**不带 `/`** 的模型名会做后缀匹配。所以 `space-bunny-free` 能
 > “蒙对”到 `ocg/space-bunny-free`，但 `gpt-6-luna` 会歧义命中（ocg 和 ccg 都存在）
 > 从而走错供应商。所有调用方都应写全 `ocg/` / `ccg/` 前缀。
+>
+> CodeBuddy 的坑：它默认走腾讯账号体系（`~/.codebuddy/.credentials.json`），没登录时
+> 报“没有可用的登录凭据”。但它支持自托管端点，不需要登录：
+>
+> ```bash
+> CODEBUDDY_BASE_URL=http://127.0.0.1:4000/v1   # 指向本机 LiteLLM
+> CODEBUDDY_API_KEY=local
+> CODEBUDDY_MODEL=ocg/space-bunny-free
+> CODEBUDDY_DISABLE_BUILTIN_MODELS=1           # 隐藏腾讯内置模型
+> ```
+>
+> 模型清单写在 `~/.codebuddy/models.json`（`{"models":[…],"availableModels":[…]}`，
+> 每项需 `id`/`name`/`url`/`apiKey`；`url` 与 `apiKey` 支持环境变量插值）。
+> CodeBuddy 会给自己的自定义模型 id 加上 `custom-local:` 前缀（`CustomModelIdPrefix`），
+> 所以 ACP 里看到的 value 是 `custom-local:ocg/…`，但显示名和实际上线的 id 都是我们定的。
 
 ---
 
