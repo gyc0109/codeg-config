@@ -1132,368 +1132,8 @@
       "api": "openai-completions",
       "models": [
         {
-          "id": "gpt-6-luna",
-          "name": "CCG GPT-6 Luna",
-          "contextWindow": 1050000,
-          "maxTokens": 131072,
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
-          "provider": "ccg"
-        },
-        {
-          "id": "gpt-5.6-sol",
-          "name": "CCG GPT-5.6 Sol",
-          "contextWindow": 1050000,
-          "maxTokens": 131072,
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
-          "provider": "ccg"
-        },
-        {
-          "id": "gpt-5.6-luna",
-          "name": "CCG GPT-5.6 Luna",
-          "contextWindow": 1050000,
-          "maxTokens": 131072,
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
-          "provider": "ccg"
-        },
-        {
-          "id": "deepseek/deepseek-v4-pro",
-          "name": "CCG DeepSeek V4 Pro (latest)",
-          "contextWindow": 1000000,
-          "maxTokens": 131072,
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
-          "provider": "ccg"
-        },
-        {
-          "id": "deepseek/deepseek-v4-flash",
-          "name": "CCG DeepSeek V4 Flash (latest)",
-          "contextWindow": 1000000,
-          "maxTokens": 131072,
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
-          "provider": "ccg"
-        },
-        {
-          "id": "deepseek/deepseek-v4-flash-vision-exp",
-          "name": "CCG DeepSeek V4 Flash Vision (exp)",
-          "contextWindow": 1000000,
-          "maxTokens": 131072,
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
-          "provider": "ccg"
-        },
-        {
-          "id": "deepseek/deepseek-v4-flash-fast",
-          "name": "CCG DeepSeek V4 Flash Fast",
-          "contextWindow": 1000000,
-          "maxTokens": 131072,
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
-          "provider": "ccg"
-        },
-        {
-          "id": "deepseek/deepseek-v4.1-flash",
-          "name": "CCG DeepSeek V4.1 Flash",
-          "contextWindow": 1000000,
-          "maxTokens": 131072,
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
-          "provider": "ccg"
-        },
-        {
-          "id": "deepseek/deepseek-v4.1-flash-fast",
-          "name": "CCG DeepSeek V4.1 Flash Fast",
-          "contextWindow": 1000000,
-          "maxTokens": 131072,
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
-          "provider": "ccg"
-        },
-        {
-          "id": "moonshotai/Kimi-K3",
-          "name": "CCG Kimi K3",
-          "contextWindow": 1000000,
-          "maxTokens": 131072,
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
-          "provider": "ccg"
-        },
-        {
-          "id": "moonshotai/Kimi-K2.7-Code",
-          "name": "CCG Kimi K2.7 Code",
-          "contextWindow": 256000,
-          "maxTokens": 131072,
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
-          "provider": "ccg"
-        },
-        {
-          "id": "moonshotai/Kimi-K2.7-Code-Highspeed",
-          "name": "CCG Kimi K2.7 Code HighSpeed",
-          "contextWindow": 262000,
-          "maxTokens": 131072,
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
-          "provider": "ccg"
-        },
-        {
-          "id": "moonshotai/Kimi-K2.6",
-          "name": "CCG Kimi K2.6",
-          "contextWindow": 256000,
-          "maxTokens": 131072,
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
-          "provider": "ccg"
-        },
-        {
-          "id": "moonshotai/Kimi-K2.5",
-          "name": "CCG Kimi K2.5",
-          "contextWindow": 256000,
-          "maxTokens": 131072,
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
-          "provider": "ccg"
-        },
-        {
-          "id": "z-ai/glm-5.3-flash",
-          "name": "CCG GLM-5.3 Flash",
-          "contextWindow": 1048576,
-          "maxTokens": 131072,
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
-          "provider": "ccg"
-        },
-        {
-          "id": "z-ai/glm-5.3-flashx",
-          "name": "CCG GLM-5.3 FlashX",
-          "contextWindow": 1000000,
-          "maxTokens": 131072,
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
-          "provider": "ccg"
-        },
-        {
-          "id": "zai-org/GLM-5.3",
-          "name": "CCG GLM-5.3",
-          "contextWindow": 1000000,
-          "maxTokens": 131072,
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
-          "provider": "ccg"
-        },
-        {
-          "id": "zai-org/GLM-5.2",
-          "name": "CCG GLM-5.2",
-          "contextWindow": 1000000,
-          "maxTokens": 131072,
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
-          "provider": "ccg"
-        },
-        {
-          "id": "zai-org/GLM-5.2-Fast",
-          "name": "CCG GLM-5.2 Fast",
-          "contextWindow": 1000000,
-          "maxTokens": 131072,
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
-          "provider": "ccg"
-        },
-        {
-          "id": "zai-org/GLM-5.1",
-          "name": "CCG GLM-5.1",
-          "contextWindow": 200000,
-          "maxTokens": 131072,
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
-          "provider": "ccg"
-        },
-        {
-          "id": "zai-org/GLM-5",
-          "name": "CCG GLM-5",
+          "id": "MiniMaxAI/MiniMax-M2.5",
+          "name": "CCG MiniMax M2.5",
           "contextWindow": 200000,
           "maxTokens": 131072,
           "reasoning": true,
@@ -1528,8 +1168,8 @@
           "provider": "ccg"
         },
         {
-          "id": "MiniMaxAI/MiniMax-M2.5",
-          "name": "CCG MiniMax M2.5",
+          "id": "Qwen/Qwen3.6-Max-Preview",
+          "name": "CCG Qwen 3.6 Max Preview",
           "contextWindow": 200000,
           "maxTokens": 131072,
           "reasoning": true,
@@ -1546,170 +1186,8 @@
           "provider": "ccg"
         },
         {
-          "id": "xiaomi/mimo-v2.6-pro",
-          "name": "CCG MiMo V2.6 Pro",
-          "contextWindow": 1048576,
-          "maxTokens": 131072,
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
-          "provider": "ccg"
-        },
-        {
-          "id": "xiaomi/mimo-v2.6-pro-ultraspeed",
-          "name": "CCG MiMo V2.6 Pro UltraSpeed",
-          "contextWindow": 1048576,
-          "maxTokens": 131072,
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
-          "provider": "ccg"
-        },
-        {
-          "id": "xiaomi/mimo-v2.6-flash",
-          "name": "CCG MiMo V2.6 Flash",
-          "contextWindow": 1048576,
-          "maxTokens": 131072,
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
-          "provider": "ccg"
-        },
-        {
-          "id": "xiaomi/mimo-v2.5-pro",
-          "name": "CCG MiMo V2.5 Pro",
-          "contextWindow": 1000000,
-          "maxTokens": 131072,
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
-          "provider": "ccg"
-        },
-        {
-          "id": "xiaomi/mimo-v2.5",
-          "name": "CCG MiMo V2.5",
-          "contextWindow": 1000000,
-          "maxTokens": 131072,
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
-          "provider": "ccg"
-        },
-        {
-          "id": "Qwen/Qwen3.8-Omni-Flash",
-          "name": "CCG Qwen 3.8 Omni Flash",
-          "contextWindow": 1000000,
-          "maxTokens": 131072,
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
-          "provider": "ccg"
-        },
-        {
-          "id": "Qwen/Qwen3.8-Max-0902",
-          "name": "CCG Qwen 3.8 Max 0902",
-          "contextWindow": 1000000,
-          "maxTokens": 131072,
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
-          "provider": "ccg"
-        },
-        {
-          "id": "Qwen/Qwen3.8-Max",
-          "name": "CCG Qwen 3.8 Max",
-          "contextWindow": 1000000,
-          "maxTokens": 131072,
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
-          "provider": "ccg"
-        },
-        {
-          "id": "Qwen/Qwen3.8-27B",
-          "name": "CCG Qwen 3.8 27B",
-          "contextWindow": 262144,
-          "maxTokens": 131072,
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
-          "provider": "ccg"
-        },
-        {
-          "id": "Qwen/Qwen3.8-Flash",
-          "name": "CCG Qwen 3.8 Flash",
+          "id": "Qwen/Qwen3.7-Flash",
+          "name": "CCG Qwen 3.7 Flash",
           "contextWindow": 1000000,
           "maxTokens": 131072,
           "reasoning": true,
@@ -1762,98 +1240,8 @@
           "provider": "ccg"
         },
         {
-          "id": "Qwen/Qwen3.7-Flash",
-          "name": "CCG Qwen 3.7 Flash",
-          "contextWindow": 1000000,
-          "maxTokens": 131072,
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
-          "provider": "ccg"
-        },
-        {
-          "id": "Qwen/Qwen3.6-Max-Preview",
-          "name": "CCG Qwen 3.6 Max Preview",
-          "contextWindow": 200000,
-          "maxTokens": 131072,
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
-          "provider": "ccg"
-        },
-        {
-          "id": "meituan/LongCat-2.0",
-          "name": "CCG LongCat 2.0",
-          "contextWindow": 1048576,
-          "maxTokens": 131072,
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
-          "provider": "ccg"
-        },
-        {
-          "id": "stepfun/Step-5-Preview",
-          "name": "CCG Step 5 Preview",
-          "contextWindow": 1000000,
-          "maxTokens": 131072,
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
-          "provider": "ccg"
-        },
-        {
-          "id": "stepfun/Step-3.7-Flash",
-          "name": "CCG Step 3.7 Flash",
-          "contextWindow": 256000,
-          "maxTokens": 131072,
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
-          "provider": "ccg"
-        },
-        {
-          "id": "stepfun/Step-3.5-Flash",
-          "name": "CCG Step 3.5 Flash",
+          "id": "Qwen/Qwen3.8-27B",
+          "name": "CCG Qwen 3.8 27B",
           "contextWindow": 262144,
           "maxTokens": 131072,
           "reasoning": true,
@@ -1870,9 +1258,9 @@
           "provider": "ccg"
         },
         {
-          "id": "tencent/hy3-paid",
-          "name": "CCG Tencent Hy3",
-          "contextWindow": 262144,
+          "id": "Qwen/Qwen3.8-Flash",
+          "name": "CCG Qwen 3.8 Flash",
+          "contextWindow": 1000000,
           "maxTokens": 131072,
           "reasoning": true,
           "input": [
@@ -1888,9 +1276,9 @@
           "provider": "ccg"
         },
         {
-          "id": "tencent/hy4-preview",
-          "name": "CCG Tencent Hy4 Preview",
-          "contextWindow": 1048576,
+          "id": "Qwen/Qwen3.8-Max",
+          "name": "CCG Qwen 3.8 Max",
+          "contextWindow": 1000000,
           "maxTokens": 131072,
           "reasoning": true,
           "input": [
@@ -1906,8 +1294,134 @@
           "provider": "ccg"
         },
         {
-          "id": "google/gemini-3.8-flash",
-          "name": "CCG Gemini 3.8 Flash",
+          "id": "Qwen/Qwen3.8-Max-0902",
+          "name": "CCG Qwen 3.8 Max 0902",
+          "contextWindow": 1000000,
+          "maxTokens": 131072,
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "provider": "ccg"
+        },
+        {
+          "id": "Qwen/Qwen3.8-Omni-Flash",
+          "name": "CCG Qwen 3.8 Omni Flash",
+          "contextWindow": 1000000,
+          "maxTokens": 131072,
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "provider": "ccg"
+        },
+        {
+          "id": "deepseek/deepseek-v4-flash",
+          "name": "CCG DeepSeek V4 Flash (latest)",
+          "contextWindow": 1000000,
+          "maxTokens": 131072,
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "provider": "ccg"
+        },
+        {
+          "id": "deepseek/deepseek-v4-flash-fast",
+          "name": "CCG DeepSeek V4 Flash Fast",
+          "contextWindow": 1000000,
+          "maxTokens": 131072,
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "provider": "ccg"
+        },
+        {
+          "id": "deepseek/deepseek-v4-flash-vision-exp",
+          "name": "CCG DeepSeek V4 Flash Vision (exp)",
+          "contextWindow": 1000000,
+          "maxTokens": 131072,
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "provider": "ccg"
+        },
+        {
+          "id": "deepseek/deepseek-v4-pro",
+          "name": "CCG DeepSeek V4 Pro (latest)",
+          "contextWindow": 1000000,
+          "maxTokens": 131072,
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "provider": "ccg"
+        },
+        {
+          "id": "deepseek/deepseek-v4.1-flash",
+          "name": "CCG DeepSeek V4.1 Flash",
+          "contextWindow": 1000000,
+          "maxTokens": 131072,
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "provider": "ccg"
+        },
+        {
+          "id": "deepseek/deepseek-v4.1-flash-fast",
+          "name": "CCG DeepSeek V4.1 Flash Fast",
           "contextWindow": 1000000,
           "maxTokens": 131072,
           "reasoning": true,
@@ -1942,8 +1456,8 @@
           "provider": "ccg"
         },
         {
-          "id": "nvidia/nemotron-3-ultra-550b-a55b",
-          "name": "CCG Nemotron 3 Ultra",
+          "id": "google/gemini-3.8-flash",
+          "name": "CCG Gemini 3.8 Flash",
           "contextWindow": 1000000,
           "maxTokens": 131072,
           "reasoning": true,
@@ -1960,9 +1474,9 @@
           "provider": "ccg"
         },
         {
-          "id": "stealth/space-bunny-alpha",
-          "name": "CCG Space Bunny Alpha",
-          "contextWindow": 1000000,
+          "id": "gpt-5.6-luna",
+          "name": "CCG GPT-5.6 Luna",
+          "contextWindow": 1050000,
           "maxTokens": 131072,
           "reasoning": true,
           "input": [
@@ -1978,9 +1492,9 @@
           "provider": "ccg"
         },
         {
-          "id": "stealth/pixel-canary",
-          "name": "CCG Pixel Canary",
-          "contextWindow": 262144,
+          "id": "gpt-5.6-sol",
+          "name": "CCG GPT-5.6 Sol",
+          "contextWindow": 1050000,
           "maxTokens": 131072,
           "reasoning": true,
           "input": [
@@ -1996,9 +1510,9 @@
           "provider": "ccg"
         },
         {
-          "id": "poolside/laguna-s-2.1-free",
-          "name": "CCG Laguna S 2.1",
-          "contextWindow": 256000,
+          "id": "gpt-6-luna",
+          "name": "CCG GPT-6 Luna",
+          "contextWindow": 1050000,
           "maxTokens": 131072,
           "reasoning": true,
           "input": [
@@ -2050,6 +1564,60 @@
           "provider": "ccg"
         },
         {
+          "id": "meituan/LongCat-2.0",
+          "name": "CCG LongCat 2.0",
+          "contextWindow": 1048576,
+          "maxTokens": 131072,
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "provider": "ccg"
+        },
+        {
+          "id": "meta/muse-spark-1.2",
+          "name": "CCG Muse Spark 1.2",
+          "contextWindow": 1048576,
+          "maxTokens": 131072,
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "provider": "ccg"
+        },
+        {
+          "id": "meta/muse-spark-1.2-contributor",
+          "name": "CCG Muse Spark 1.2 Contributor",
+          "contextWindow": 1048576,
+          "maxTokens": 131072,
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "provider": "ccg"
+        },
+        {
           "id": "meta/muse-spark-1.3",
           "name": "CCG Muse Spark 1.3",
           "contextWindow": 1048576,
@@ -2070,6 +1638,240 @@
         {
           "id": "meta/muse-spark-1.3-contributor",
           "name": "CCG Muse Spark 1.3 Contributor",
+          "contextWindow": 1048576,
+          "maxTokens": 131072,
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "provider": "ccg"
+        },
+        {
+          "id": "moonshotai/Kimi-K2.5",
+          "name": "CCG Kimi K2.5",
+          "contextWindow": 256000,
+          "maxTokens": 131072,
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "provider": "ccg"
+        },
+        {
+          "id": "moonshotai/Kimi-K2.6",
+          "name": "CCG Kimi K2.6",
+          "contextWindow": 256000,
+          "maxTokens": 131072,
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "provider": "ccg"
+        },
+        {
+          "id": "moonshotai/Kimi-K2.7-Code",
+          "name": "CCG Kimi K2.7 Code",
+          "contextWindow": 256000,
+          "maxTokens": 131072,
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "provider": "ccg"
+        },
+        {
+          "id": "moonshotai/Kimi-K2.7-Code-Highspeed",
+          "name": "CCG Kimi K2.7 Code HighSpeed",
+          "contextWindow": 262000,
+          "maxTokens": 131072,
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "provider": "ccg"
+        },
+        {
+          "id": "moonshotai/Kimi-K3",
+          "name": "CCG Kimi K3",
+          "contextWindow": 1000000,
+          "maxTokens": 131072,
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "provider": "ccg"
+        },
+        {
+          "id": "nvidia/nemotron-3-ultra-550b-a55b",
+          "name": "CCG Nemotron 3 Ultra",
+          "contextWindow": 1000000,
+          "maxTokens": 131072,
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "provider": "ccg"
+        },
+        {
+          "id": "poolside/laguna-s-2.1-free",
+          "name": "CCG Laguna S 2.1",
+          "contextWindow": 256000,
+          "maxTokens": 131072,
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "provider": "ccg"
+        },
+        {
+          "id": "stealth/space-bunny-alpha",
+          "name": "CCG Space Bunny Alpha",
+          "contextWindow": 1000000,
+          "maxTokens": 131072,
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "provider": "ccg"
+        },
+        {
+          "id": "stepfun/Step-3.5-Flash",
+          "name": "CCG Step 3.5 Flash",
+          "contextWindow": 262144,
+          "maxTokens": 131072,
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "provider": "ccg"
+        },
+        {
+          "id": "stepfun/Step-3.7-Flash",
+          "name": "CCG Step 3.7 Flash",
+          "contextWindow": 256000,
+          "maxTokens": 131072,
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "provider": "ccg"
+        },
+        {
+          "id": "stepfun/Step-5-Preview",
+          "name": "CCG Step 5 Preview",
+          "contextWindow": 1000000,
+          "maxTokens": 131072,
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "provider": "ccg"
+        },
+        {
+          "id": "tencent/hy3-paid",
+          "name": "CCG Tencent Hy3",
+          "contextWindow": 262144,
+          "maxTokens": 131072,
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "provider": "ccg"
+        },
+        {
+          "id": "tencent/hy4-preview",
+          "name": "CCG Tencent Hy4 Preview",
           "contextWindow": 1048576,
           "maxTokens": 131072,
           "reasoning": true,
@@ -2125,6 +1927,222 @@
           "id": "xai/grok-4.7",
           "name": "CCG Grok 4.7",
           "contextWindow": 500000,
+          "maxTokens": 131072,
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "provider": "ccg"
+        },
+        {
+          "id": "xiaomi/mimo-v2.5",
+          "name": "CCG MiMo V2.5",
+          "contextWindow": 1000000,
+          "maxTokens": 131072,
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "provider": "ccg"
+        },
+        {
+          "id": "xiaomi/mimo-v2.5-pro",
+          "name": "CCG MiMo V2.5 Pro",
+          "contextWindow": 1000000,
+          "maxTokens": 131072,
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "provider": "ccg"
+        },
+        {
+          "id": "xiaomi/mimo-v2.6-flash",
+          "name": "CCG MiMo V2.6 Flash",
+          "contextWindow": 1048576,
+          "maxTokens": 131072,
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "provider": "ccg"
+        },
+        {
+          "id": "xiaomi/mimo-v2.6-pro",
+          "name": "CCG MiMo V2.6 Pro",
+          "contextWindow": 1048576,
+          "maxTokens": 131072,
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "provider": "ccg"
+        },
+        {
+          "id": "xiaomi/mimo-v2.6-pro-ultraspeed",
+          "name": "CCG MiMo V2.6 Pro UltraSpeed",
+          "contextWindow": 1048576,
+          "maxTokens": 131072,
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "provider": "ccg"
+        },
+        {
+          "id": "z-ai/glm-5.3-flash",
+          "name": "CCG GLM-5.3 Flash",
+          "contextWindow": 1048576,
+          "maxTokens": 131072,
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "provider": "ccg"
+        },
+        {
+          "id": "z-ai/glm-5.3-flashx",
+          "name": "CCG GLM-5.3 FlashX",
+          "contextWindow": 1000000,
+          "maxTokens": 131072,
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "provider": "ccg"
+        },
+        {
+          "id": "zai-org/GLM-5",
+          "name": "CCG GLM-5",
+          "contextWindow": 200000,
+          "maxTokens": 131072,
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "provider": "ccg"
+        },
+        {
+          "id": "zai-org/GLM-5.1",
+          "name": "CCG GLM-5.1",
+          "contextWindow": 200000,
+          "maxTokens": 131072,
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "provider": "ccg"
+        },
+        {
+          "id": "zai-org/GLM-5.2",
+          "name": "CCG GLM-5.2",
+          "contextWindow": 1000000,
+          "maxTokens": 131072,
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "provider": "ccg"
+        },
+        {
+          "id": "zai-org/GLM-5.2-Fast",
+          "name": "CCG GLM-5.2 Fast",
+          "contextWindow": 1000000,
+          "maxTokens": 131072,
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "provider": "ccg"
+        },
+        {
+          "id": "zai-org/GLM-5.3",
+          "name": "CCG GLM-5.3",
+          "contextWindow": 1000000,
           "maxTokens": 131072,
           "reasoning": true,
           "input": [

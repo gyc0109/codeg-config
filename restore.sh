@@ -158,11 +158,12 @@ if [[ -f /root/.pi/agent/auth.json ]]; then
 import json
 p = "/root/.pi/agent/auth.json"
 d = json.load(open(p))
-if d.pop("opencode-go", None) is not None:
+dropped = [k for k in ("opencode-go", "commandcode") if d.pop(k, None) is not None]
+if dropped:
     json.dump(d, open(p, "w"), indent=2)
-    print("  ✓ pi auth.json 已移除 opencode-go")
+    print("  ✓ pi auth.json 已移除：" + ", ".join(dropped))
 else:
-    print("  - pi auth.json 无 opencode-go，跳过")
+    print("  - pi auth.json 无多余条目，跳过")
 PY
   fi
 fi

@@ -64,27 +64,43 @@
 - claude_code：LiteLLM 的 `model_name` 改成 `ocg/<真实id>`；Command Code 侧由
   `commandcode-proxy` 剥掉 `ccg/`
 
-### Command Code 的三个坑（实测）
+### Command Code 模型清单怎么来的（重要）
 
-1. **Claude Code 会把 `system` 角色塞进 `messages`**
-   （mid-conversation-system beta，环境块/上下文块）。Command Code 的
-   `/provider/v1/messages` 比 Anthropic 严格，直接返回
-   `400 Invalid input at messages.N.role`。
-   → 用 `commandcode-proxy`（:8898）把 `system` 提到顶层 `system` 字段。
-   试过但**无效**的手段：`CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS`、
-   `ANTHROPIC_BETAS`（只能追加不能移除）、LiteLLM 透传（原样转发）。
-2. **GOAT 套餐里只有 1 个 Claude 模型**：`claude-sonnet-5-5`，且只支持 `/messages` 协议。
-3. **各 agent 接法不同**：
+**不要靠逐个探测猜协议**，`GET /provider/v1/models` 的每个模型都带
+`supported_endpoints`，这是权威依据：
 
-| Agent | 接法 | 配置文件 |
+| `supported_endpoints` | 个数 | 能用于 |
 | --- | --- | --- |
-| opencode | 双 provider，`ocg/` `ccg/` 前缀别名（29 + 57） | `~/.config/opencode/opencode.jsonc` |
-| kimi | 双 provider，前缀别名（29 + 56） | `~/.kimi-code/config.toml` |
-| hermes | `custom_providers`，`OCG`/`CCG` 名（29 + 56） | `~/.hermes/config.yaml` |
-| pi | **`models.json`** 里定义 provider `ocg` + `ccg`（不是 models-store.json！） | `~/.pi/agent/models.json` |
-| codex | **单入口 `litellm-bridge` :4000**，按模型名前缀分流 + catalog 前缀 | `~/.codex/config.toml` |
-| claude_code | LiteLLM `ocg/…` + `commandcode-proxy` :8898 `ccg/…` | codeg provider #4 / #5 |
-| grok / deepseek / kimi_code | codeg 里各两个 provider，UI 切换 | codeg 应用配置 |
+| `['/chat/completions','/responses']` | 67 | 两类 agent 都行 |
+| `['/chat/completions']` | 9 | 仅 chat agent |
+| `['/messages']` | 10 | 仅 Claude 协议 |
+
+再叠上“套餐是否包含”（探测返回 `MODEL_NOT_IN_PLAN`）和“上游是否可用”
+（`No available providers match`），当前 GOAT 套餐的**实际可用集**：
+
+| 用途 | 数量 | 备注 |
+| --- | --- | --- |
+| chat 可用 | **57** | 所有 chat agent（opencode/kimi/hermes/pi/cline/grok/deepseek） |
+| responses 可用 | **48** | codex（必须是 responses 的子集） |
+| messages 可用 | **1** | 仅 `claude-sonnet-5-5` |
+| 套餐外 | 14 | `gpt-5.5/5.4/6-sol/6-astra`、`gemini-3.5/3.6` 等 |
+| 在套餐但上游不可用 | 5 | `MiniMax-M2.7`、`Qwen3.6-Plus`、`inkling`×2、`pixel-canary` |
+
+### 各 agent 接入情况（全量审计）
+
+| Agent | OCG | CCG | 前缀形式 | 实测 |
+| --- | --- | --- | --- | --- |
+| opencode (`open_code`) | ✅ 29 | ✅ 57 | `ocg/` `ccg/` 别名 | ✅ |
+| kimi (`kimi_code`) | ✅ 29 | ✅ 57 | `ocg/` `ccg/` 别名 | ✅ |
+| hermes | ✅ 29 | ✅ 57 | `OCG`/`CCG` 名 | ✅ |
+| pi | ✅ 29 | ✅ 57 | provider `ocg`/`ccg` | ✅ |
+| claude_code | ✅ 36 | ✅ 1 | `ocg/`(LiteLLM) `ccg/`(:8898) | ✅ |
+| codex | ✅ 10 | ✅ 48 | catalog `OCG`/`CCG` | ✅ |
+| grok | ✅ | ✅ `xai/grok-4.7` | 经 LiteLLM 前缀 | ✅ |
+| deepseek | ✅ | ✅ `deepseek-v4.1-flash` | 经 LiteLLM 前缀 | ✅ |
+| cline | ✅ | ✅ | 单 provider 指向 LiteLLM，改 model 字符串即可 | ✅ |
+| **open_claw** | ✅ 5 | ❌ | 内置 `opencode-go/` provider，无自定义 provider 机制 | — |
+| code_buddy / gemini / cursor / qoder / antigravity | ❌ | ❌ | 私有客户端，无自定义端点配置 | — |
 
 > pi 的坑：`models-store.json` 只是**模型缓存**，provider 定义在 **`models.json`**
 > （`{"providers": {"<id>": {"name","baseUrl","apiKey","api","models":[…]}}}`，
@@ -94,8 +110,14 @@
 >
 > codex 的坑：1.13.1 已**删除** `wire_api = "chat"`（只能 `responses`），而 LiteLLM
 > 只做 chat→responses 单向桥接，所以 codex 走 LiteLLM 时只能用 responses 兼容的模型
-> （ocg 钀 10 个 + ccg 47 个）。这跟「直连 :8899」的覆盖面一样，但不用再切 provider。
+> （ocg 10 个 + ccg 48 个）。这跟「直连 :8899」的覆盖面一样，但不用再切 provider。
 > 具体的 codex 模型配置：`model = "ocg/gpt-6-luna"` + `model_provider = "litellm-bridge"`。
+>
+> Claude Code 的坑：它会把 `system` 角色塞进 `messages`（mid-conversation-system
+> beta），而 CC 的 `/provider/v1/messages` 比 Anthropic 严格，直接返回
+> `400 Invalid input at messages.N.role`。试过但**无效**：
+> `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS`、`ANTHROPIC_BETAS`（只能追加不能移除）、
+> LiteLLM 透传。→ 所以必需 `commandcode-proxy`（:8898）把 `system` 提到顶层。
 
 ---
 
