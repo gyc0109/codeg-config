@@ -5,10 +5,10 @@
     "registry_id": "claude-acp",
     "enabled": 1,
     "sort_order": 1,
-    "installed_version": "0.81.1",
+    "installed_version": "0.84.0",
     "env_json": "{\"ANTHROPIC_AUTH_TOKEN\":\"local\",\"ANTHROPIC_BASE_URL\":\"http://127.0.0.1:4000\",\"ANTHROPIC_CUSTOM_MODEL_OPTION\":\"ocg/longcat-2.5-preview-free\",\"ANTHROPIC_DEFAULT_HAIKU_MODEL\":\"ocg/space-bunny-free\",\"ANTHROPIC_DEFAULT_OPUS_MODEL\":\"ocg/deepseek-v4.1-flash\",\"ANTHROPIC_DEFAULT_SONNET_MODEL\":\"ocg/space-bunny-free\",\"ANTHROPIC_MODEL\":\"ocg/space-bunny-free\",\"ANTHROPIC_REASONING_MODEL\":\"ocg/space-bunny-free\"}",
     "created_at": "2026-09-11T17:31:02.600197409+00:00",
-    "updated_at": "2026-09-30T02:23:47.450994183+00:00",
+    "updated_at": "2026-09-30T09:34:12.963400711+00:00",
     "model_provider_id": 4
   },
   {
@@ -17,10 +17,10 @@
     "registry_id": "codex-acp",
     "enabled": 1,
     "sort_order": 7,
-    "installed_version": "1.13.1",
+    "installed_version": "2.0.1",
     "env_json": "{\"OPENAI_BASE_URL\":\"http://127.0.0.1:4000/v1\",\"OPENAI_MODEL\":\"ocg/gpt-6-luna\",\"OPENCODE_GO_KEY\":\"local\"}",
     "created_at": "2026-09-11T17:31:02.602867301+00:00",
-    "updated_at": "2026-09-30T03:07:46.721616403+00:00",
+    "updated_at": "2026-09-30T09:47:27.886947053+00:00",
     "model_provider_id": null
   },
   {
@@ -29,10 +29,10 @@
     "registry_id": "gemini",
     "enabled": 1,
     "sort_order": 10,
-    "installed_version": "0.60.0",
+    "installed_version": "0.62.0",
     "env_json": null,
     "created_at": "2026-09-11T17:31:02.603695284+00:00",
-    "updated_at": "2026-09-30T02:23:55.463067070+00:00",
+    "updated_at": "2026-09-30T09:34:43.412680166+00:00",
     "model_provider_id": null
   },
   {
@@ -41,10 +41,10 @@
     "registry_id": "openclaw-acp",
     "enabled": 1,
     "sort_order": 9,
-    "installed_version": "2026.9.5",
+    "installed_version": "2026.9.7",
     "env_json": null,
     "created_at": "2026-09-11T17:31:02.605418334+00:00",
-    "updated_at": "2026-09-30T02:23:55.521675791+00:00",
+    "updated_at": "2026-09-30T09:26:58.345693120+00:00",
     "model_provider_id": null
   },
   {
@@ -53,10 +53,10 @@
     "registry_id": "opencode",
     "enabled": 1,
     "sort_order": 2,
-    "installed_version": "1.18.32",
+    "installed_version": "1.18.33",
     "env_json": null,
     "created_at": "2026-09-11T17:31:02.605936350+00:00",
-    "updated_at": "2026-09-30T08:52:08.400586325+00:00",
+    "updated_at": "2026-09-30T09:53:01.385680188+00:00",
     "model_provider_id": null
   },
   {
@@ -65,10 +65,10 @@
     "registry_id": "cline",
     "enabled": 1,
     "sort_order": 8,
-    "installed_version": "3.0.65",
+    "installed_version": "3.0.66",
     "env_json": null,
     "created_at": "2026-09-11T17:31:02.608362155+00:00",
-    "updated_at": "2026-09-30T02:23:47.427595844+00:00",
+    "updated_at": "2026-09-30T09:26:57.328250963+00:00",
     "model_provider_id": null
   },
   {
@@ -77,10 +77,10 @@
     "registry_id": "hermes",
     "enabled": 1,
     "sort_order": 4,
-    "installed_version": "0.21.4",
+    "installed_version": "0.21.5",
     "env_json": "{\"HERMES_INFERENCE_MODEL\":\"space-bunny-free\",\"HERMES_INFERENCE_PROVIDER\":\"custom:ocg-space-bunny-free\"}",
     "created_at": "2026-09-11T17:31:02.609713809+00:00",
-    "updated_at": "2026-09-30T08:32:19.857677096+00:00",
+    "updated_at": "2026-09-30T09:26:58.043014423+00:00",
     "model_provider_id": null
   },
   {
@@ -92,7 +92,7 @@
     "installed_version": "2.157.0",
     "env_json": "{\"CODEBUDDY_API_KEY\":\"local\",\"CODEBUDDY_BASE_URL\":\"http://127.0.0.1:4000/v1\",\"CODEBUDDY_DISABLE_BUILTIN_MODELS\":\"1\",\"CODEBUDDY_MODEL\":\"ocg/space-bunny-free\"}",
     "created_at": "2026-09-11T17:31:02.611143292+00:00",
-    "updated_at": "2026-09-30T08:54:11.365444133+00:00",
+    "updated_at": "2026-09-30T09:26:58.084068398+00:00",
     "model_provider_id": null
   },
   {
@@ -101,10 +101,10 @@
     "registry_id": "kimi-code",
     "enabled": 1,
     "sort_order": 6,
-    "installed_version": "2.1.0",
+    "installed_version": "2.1.1",
     "env_json": "{\"KIMI_MODEL_API_KEY\":\"local\",\"KIMI_MODEL_BASE_URL\":\"http://127.0.0.1:4000/v1\",\"KIMI_MODEL_NAME\":\"ocg/space-bunny-free\"}",
     "created_at": "2026-09-11T17:31:02.611707097+00:00",
-    "updated_at": "2026-09-30T03:25:38.478573743+00:00",
+    "updated_at": "2026-09-30T09:28:12.391940734+00:00",
     "model_provider_id": 1
   },
   {
@@ -113,10 +113,10 @@
     "registry_id": "pi-acp",
     "enabled": 1,
     "sort_order": 0,
-    "installed_version": "0.0.33",
+    "installed_version": "0.0.34",
     "env_json": null,
     "created_at": "2026-09-11T17:31:02.613622583+00:00",
-    "updated_at": "2026-09-30T02:23:55.440290391+00:00",
+    "updated_at": "2026-09-30T09:34:46.548268480+00:00",
     "model_provider_id": null
   },
   {
@@ -125,10 +125,10 @@
     "registry_id": "grok-build",
     "enabled": 1,
     "sort_order": 11,
-    "installed_version": "1.0.41",
+    "installed_version": "1.0.44",
     "env_json": "{\"GROK_DEFAULT_MODEL\":\"ocg/space-bunny-free\",\"GROK_XAI_API_BASE_URL\":\"http://127.0.0.1:4000/v1\",\"OPENAI_MODEL\":\"ocg/space-bunny-free\",\"XAI_API_KEY\":\"local\"}",
     "created_at": "2026-09-11T17:31:02.615047110+00:00",
-    "updated_at": "2026-09-30T08:27:50.537668011+00:00",
+    "updated_at": "2026-09-30T09:30:06.787341560+00:00",
     "model_provider_id": null
   },
   {
@@ -140,7 +140,7 @@
     "installed_version": "2026.09.18-9a7762b",
     "env_json": null,
     "created_at": "2026-09-11T17:31:02.616319730+00:00",
-    "updated_at": "2026-09-30T08:52:08.404673829+00:00",
+    "updated_at": "2026-09-30T09:53:01.390788314+00:00",
     "model_provider_id": null
   },
   {
@@ -152,7 +152,7 @@
     "installed_version": "0.9.0",
     "env_json": "{\"DEEPSEEK_ACP_MODEL\":\"ocg/space-bunny-free\",\"DEEPSEEK_API_KEY\":\"local\",\"DEEPSEEK_BASE_URL\":\"http://127.0.0.1:4000/v1\"}",
     "created_at": "2026-09-11T17:31:02.616862301+00:00",
-    "updated_at": "2026-09-30T03:25:38.552178805+00:00",
+    "updated_at": "2026-09-30T09:26:58.274104064+00:00",
     "model_provider_id": 3
   },
   {
@@ -164,7 +164,7 @@
     "installed_version": "1.1.62",
     "env_json": null,
     "created_at": "2026-09-11T17:31:02.618996327+00:00",
-    "updated_at": "2026-09-30T02:23:55.615249588+00:00",
+    "updated_at": "2026-09-30T09:26:58.425707295+00:00",
     "model_provider_id": null
   },
   {
@@ -176,7 +176,7 @@
     "installed_version": "1.2.1",
     "env_json": null,
     "created_at": "2026-09-11T17:31:02.620404896+00:00",
-    "updated_at": "2026-09-30T08:52:08.406959754+00:00",
+    "updated_at": "2026-09-30T09:53:01.393550743+00:00",
     "model_provider_id": null
   }
 ]
