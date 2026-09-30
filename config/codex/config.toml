@@ -13,3 +13,9 @@ name = "OpenCode Go Direct"
 base_url = "http://127.0.0.1:8899/v1"
 env_key = "OPENCODE_GO_KEY"
 wire_api = "responses"
+
+[model_providers.commandcode]
+name = "Command Code GOAT"
+base_url = "https://api.commandcode.ai/provider/v1"
+experimental_bearer_token = "${COMMANDCODE_API_KEY}"
+wire_api = "responses"

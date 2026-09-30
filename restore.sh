@@ -29,8 +29,23 @@ if [[ -z "$KEY" || "$KEY" == *填入* ]]; then
   echo "  ✗ $KEYFILE 里的 OPENCODE_GO_API_KEY 未填写"
   exit 1
 fi
-say "密钥已就绪（${KEY:0:6}…${KEY: -4}）"
+say "OpenCode Go 密钥已就绪（${KEY:0:6}…${KEY: -4}）"
 say "LiteLLM 解释器： $( [[ -x /opt/litellm-venv/bin/litellm ]] && echo 存在 || echo '缺失，需重新安装' )"
+
+# Command Code GOAT 是可选第二个供应商：只有配了才启用
+CCKEYFILE=/etc/commandcode-proxy.env
+CCKEY=""
+if [[ -f "$CCKEYFILE" ]]; then
+  CCKEY="$(grep -E '^COMMANDCODE_API_KEY=' "$CCKEYFILE" | cut -d= -f2- | tr -d '\"\047' || true)"
+  if [[ -n "$CCKEY" && "$CCKEY" != *填入* ]]; then
+    say "Command Code 密钥已就绪（${CCKEY:0:9}…${CCKEY: -4}）"
+  else
+    say "⚠ $CCKEYFILE 存在但 key 未填写，将跳过 Command Code 相关配置"
+    CCKEY=""
+  fi
+else
+  say "未发现 $CCKEYFILE —— 只还原 OpenCode Go，跳过 Command Code"
+fi
 
 # ---------- 1. 代理（:8899）----------
 step "1. 部署 opencode-go-proxy（:8899）"
@@ -38,6 +53,18 @@ run install -m 0755 "$PROJ/install/opencode-go-proxy" /usr/local/bin/opencode-go
 run install -m 0644 "$PROJ/install/opencode-go-proxy.service" /etc/systemd/system/opencode-go-proxy.service
 say "已部署 opencode-go-proxy + systemd unit"
 say "注意：代理从 $KEYFILE 读取密钥，install 目录里的 env 是占位符，不覆盖真实文件"
+
+# ---------- 1b. Command Code 代理（:8898，Claude Code 专用）----------
+if [[ -n "$CCKEY" ]]; then
+  step "1b. 部署 commandcode-proxy（:8898）"
+  run install -m 0755 "$PROJ/install/commandcode-proxy" /usr/local/bin/commandcode-proxy
+  run install -m 0644 "$PROJ/install/commandcode-proxy.service" /etc/systemd/system/commandcode-proxy.service
+  say "已部署 commandcode-proxy + systemd unit"
+  say "作用：Claude Code 会把 system 角色塞进 messages，Command Code 会 400 拒绝；"
+  say "      该代理把 system 提到顶层，并注入真实 key。"
+else
+  step "1b. 跳过 commandcode-proxy（未配置 Command Code 密钥）"
+fi
 
 # ---------- 2. LiteLLM（:4000）----------
 step "2. 部署 LiteLLM（:4000）"
@@ -85,13 +112,18 @@ fi
 # ---------- 5. 各 agent 配置 ----------
 step "5. 还原各 agent 配置（密钥统一写 local）"
 restore_agent() {  # $1=源文件 $2=目标文件
-  local src="$1" dst="$2"
+  local src="$1" dst="$2" tmp
   if [[ ! -f "$src" ]]; then say "跳过（快照缺失）：$src"; return; fi
   if [[ -f "$dst" ]]; then
     if (( DRY )); then say "[dry-run] 备份 $dst"
     else cp "$dst" "$dst.bak.$(date +%s)"; fi
   fi
-  run install -D -m 0644 "$src" "$dst"
+  # 快照里的 ${...} 占位符 → 真实密钥（仓库里永远不存明文 key）
+  tmp="$(mktemp)"
+  sed -e "s|\${OPENCODE_GO_API_KEY}|${KEY}|g" \
+      -e "s|\${COMMANDCODE_API_KEY}|${CCKEY}|g" "$src" > "$tmp"
+  if (( DRY )); then say "[dry-run] install -D -m 0644 <已注入密钥> $dst"; rm -f "$tmp"
+  else install -D -m 0644 "$tmp" "$dst"; rm -f "$tmp"; fi
   say "→ $dst"
 }
 restore_agent "$PROJ/config/claude/settings.json"        /root/.claude/settings.json
@@ -100,7 +132,9 @@ restore_agent "$PROJ/config/kimi-code/config.toml"       /root/.kimi-code/config
 restore_agent "$PROJ/config/hermes/config.yaml"          /root/.hermes/config.yaml
 restore_agent "$PROJ/config/opencode/opencode.jsonc"     /root/.config/opencode/opencode.jsonc
 restore_agent "$PROJ/config/settings.json"                /root/.pi/agent/settings.json
+restore_agent "$PROJ/config/pi/models.json"               /root/.pi/agent/models.json
 restore_agent "$PROJ/config/cline-providers.json"        /root/.cline/data/settings/providers.json
+restore_agent "$PROJ/config/codex-model-catalog.json"    /root/.codex/codeg-model-catalog.json
 
 # opencode / pi 的 auth.json 里存真实 key，从活文件复制而不是用快照
 step "6. 还原 agent 凭据文件（从现网复制，避免动 key）"
@@ -124,6 +158,22 @@ if [[ -d "$PROJ/codeg-app" ]]; then
     else
       say "✗ 写回失败，保持 codeg 停止状态，请手动检查后 systemctl start codeg"
     fi
+    # model_provider 里的 Command Code key 导出时被脱敏成 ${REDACTED}，
+    # 这里把指向 commandcode.ai 的行重新填上真实 key（其余行不动）。
+    if [[ -n "$CCKEY" ]]; then
+      python3 - "$CCKEY" <<'PY'
+import sqlite3, sys
+key = sys.argv[1]
+db = "/root/.local/share/codeg/codeg.db"
+c = sqlite3.connect(db)
+n = c.execute(
+    "UPDATE model_provider SET api_key=? WHERE api_url LIKE '%commandcode.ai%' AND (api_key=? OR api_key LIKE '%REDACTED%')",
+    (key, "${REDACTED}"),
+).rowcount
+c.commit(); c.close()
+print(f"  ✓ 已回填 Command Code key：{n} 个 provider")
+PY
+    fi
     systemctl start codeg
     say "已启动 codeg"
   fi
@@ -140,7 +190,8 @@ else
   systemctl daemon-reload
   systemctl restart opencode-go-proxy
   if [[ -x /opt/litellm-venv/bin/litellm ]]; then systemctl restart litellm; fi
-  say "已重启 opencode-go-proxy / litellm"
+  if [[ -n "$CCKEY" ]]; then systemctl enable --now commandcode-proxy; fi
+  say "已重启 opencode-go-proxy / litellm$([[ -n "$CCKEY" ]] && echo ' / commandcode-proxy')"
   say "codeg 已在第 7 步重启过"
 fi
 
@@ -148,7 +199,7 @@ fi
 step "9. 验证"
 if (( ! DRY )); then
   sleep 5
-  for s in opencode-go-proxy litellm; do
+  for s in opencode-go-proxy litellm commandcode-proxy; do
     printf '  %-20s %s\n' "$s" "$(systemctl is-active "$s" 2>/dev/null || echo 未安装)"
   done
   say ""
@@ -164,6 +215,15 @@ if (( ! DRY )); then
     say "  ✓ :4000 LiteLLM 正常"
   else
     say "  ✗ :4000 LiteLLM 异常"
+  fi
+  if [[ -n "$CCKEY" ]]; then
+    if curl -sf --max-time 60 http://127.0.0.1:8898/v1/messages \
+        -H 'Content-Type: application/json' -H 'x-api-key: local' -H 'anthropic-version: 2023-06-01' \
+        -d '{"model":"claude-sonnet-5-5","max_tokens":16,"system":"t","messages":[{"role":"user","content":"hi"},{"role":"system","content":[{"type":"text","text":"ctx"}]}]}' >/dev/null 2>&1; then
+      say "  ✓ :8898 代理 → Command Code 正常（system 角色已自动归并）"
+    else
+      say "  ✗ :8898 代理异常，检查 systemctl status commandcode-proxy"
+    fi
   fi
 fi
 

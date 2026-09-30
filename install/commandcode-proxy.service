@@ -1,0 +1,15 @@
+[Unit]
+Description=Command Code GOAT proxy (Anthropic system-role normalizer for Claude Code)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+EnvironmentFile=/etc/commandcode-proxy.env
+ExecStart=/usr/bin/python3 /usr/local/bin/commandcode-proxy
+Restart=always
+RestartSec=3
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

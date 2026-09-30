@@ -1,0 +1,209 @@
+#!/usr/bin/env python3
+"""Local shim that lets Claude Code talk to Command Code GOAT.
+
+Command Code's Anthropic endpoint (`/provider/v1/messages`) is stricter than
+Anthropic's own: it rejects any message whose role is `system`.  Claude Code
+(>= the mid-conversation-system beta) routinely injects environment/context
+blocks as `system` turns *inside* the `messages` array, so every request comes
+back as:
+
+    400 Invalid input at messages.N.role
+
+This proxy sits between Claude Code and Command Code and:
+
+  * listens on 127.0.0.1:8898
+  * rewrites `/v1/...`  ->  `/provider/v1/...`
+  * injects the real `Authorization: Bearer <key>` (the agent config only ever
+    sees a dummy key)
+  * hoists any `role: "system"` entries out of `messages` and merges their text
+    into the top-level `system` field
+  * makes sure `messages` starts with a `user` turn (Anthropic requires it)
+  * streams the upstream response back byte-for-byte
+
+Run it as a service; nothing else in the system depends on it being public.
+"""
+import gzip
+import json
+import os
+import socket
+import ssl
+import sys
+import threading
+
+LISTEN_HOST = os.environ.get("CCP_HOST", "127.0.0.1")
+LISTEN_PORT = int(os.environ.get("CCP_PORT", "8898"))
+TARGET = os.environ.get("CCP_TARGET", "api.commandcode.ai")
+TARGET_PORT = int(os.environ.get("CCP_TARGET_PORT", "443"))
+API_KEY = os.environ.get("COMMANDCODE_API_KEY", "").strip()
+
+_HOP = {
+    b"host",
+    b"connection",
+    b"content-length",
+    b"authorization",
+    b"x-api-key",
+}
+
+
+def _read_headers(sock):
+    data = b""
+    while b"\r\n\r\n" not in data:
+        chunk = sock.recv(65536)
+        if not chunk:
+            return None
+        data += chunk
+    return data
+
+
+def _text_of(content):
+    """Flatten an Anthropic content value into plain text."""
+    if isinstance(content, str):
+        return content
+    out = []
+    if isinstance(content, list):
+        for blk in content:
+            if isinstance(blk, dict) and blk.get("type") == "text":
+                out.append(blk.get("text", ""))
+    return "\n".join(out)
+
+
+def normalize_messages(body):
+    """Hoist `system` turns out of `messages` into the top-level `system`."""
+    try:
+        doc = json.loads(body)
+    except (ValueError, TypeError):
+        return body, False
+    if not isinstance(doc, dict):
+        return body, False
+    msgs = doc.get("messages")
+    if not isinstance(msgs, list):
+        return body, False
+
+    kept, extra = [], []
+    for msg in msgs:
+        if isinstance(msg, dict) and msg.get("role") == "system":
+            extra.append(_text_of(msg.get("content")))
+        else:
+            kept.append(msg)
+    if not extra:
+        return body, False
+
+    parts = []
+    cur = doc.get("system")
+    if isinstance(cur, str):
+        parts.append(cur)
+    elif isinstance(cur, list):
+        parts.extend(_text_of(cur).split("\n"))
+    parts.extend(extra)
+    doc["system"] = "\n\n".join(p for p in parts if p)
+
+    # Anthropic requires the first turn to be `user`.
+    while kept and isinstance(kept[0], dict) and kept[0].get("role") == "assistant":
+        kept.pop(0)
+    doc["messages"] = kept
+    return json.dumps(doc).encode(), True
+
+
+def handle(client):
+    upstream = None
+    try:
+        data = _read_headers(client)
+        if data is None:
+            return
+        head, _, rest = data.partition(b"\r\n\r\n")
+        lines = head.split(b"\r\n")
+        parts = lines[0].split(b" ")
+        if len(parts) < 3:
+            return
+        method, path = parts[0].decode(), parts[1].decode()
+
+        content_length = 0
+        kept = []
+        for line in lines[1:]:
+            if b":" not in line:
+                continue
+            k, v = line.split(b":", 1)
+            kl = k.strip().lower()
+            if kl == b"content-length":
+                content_length = int(v.strip())
+                continue
+            if kl in _HOP:
+                continue
+            kept.append((k.strip(), v.strip()))
+
+        body = rest
+        while len(body) < content_length:
+            chunk = client.recv(65536)
+            if not chunk:
+                break
+            body += chunk
+
+        enc = next((v for k, v in kept if k.lower() == b"content-encoding"), b"")
+        raw = gzip.decompress(body) if b"gzip" in enc.lower() else body
+
+        transformed = False
+        if method == "POST" and path.startswith("/v1/messages"):
+            raw, transformed = normalize_messages(raw)
+
+        target_path = "/provider/v1" + (path[3:] if path.startswith("/v1") else path)
+
+        upstream = ssl.create_default_context().wrap_socket(
+            socket.create_connection((TARGET, TARGET_PORT), timeout=30),
+            server_hostname=TARGET,
+        )
+        req = [f"{method} {target_path} HTTP/1.1".encode(), f"Host: {TARGET}".encode()]
+        if API_KEY:
+            req.append(("Authorization: Bearer " + API_KEY).encode())
+        for k, v in kept:
+            if transformed and k.lower() == b"content-encoding":
+                continue
+            req.append(k + b": " + v)
+        req.append(b"Content-Length: " + str(len(raw)).encode())
+        req.append(b"")
+        req.append(b"")
+        upstream.sendall(b"\r\n".join(req) + raw)
+
+        head = b""
+        while b"\r\n\r\n" not in head:
+            chunk = upstream.recv(65536)
+            if not chunk:
+                break
+            head += chunk
+        if head:
+            client.sendall(head)
+            while True:
+                chunk = upstream.recv(65536)
+                if not chunk:
+                    break
+                client.sendall(chunk)
+    except Exception as exc:  # noqa: BLE001 - a proxy must never die on one conn
+        sys.stderr.write(f"commandcode-proxy: {exc!r}\n")
+        sys.stderr.flush()
+    finally:
+        if upstream is not None:
+            try:
+                upstream.close()
+            except OSError:
+                pass
+        try:
+            client.close()
+        except OSError:
+            pass
+
+
+def main():
+    srv = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    srv.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    srv.bind((LISTEN_HOST, LISTEN_PORT))
+    srv.listen(128)
+    sys.stderr.write(
+        f"commandcode-proxy listening on {LISTEN_HOST}:{LISTEN_PORT} -> https://{TARGET}/provider/v1\n"
+    )
+    sys.stderr.flush()
+    while True:
+        conn, _ = srv.accept()
+        threading.Thread(target=handle, args=(conn,), daemon=True).start()
+
+
+if __name__ == "__main__":
+    main()
