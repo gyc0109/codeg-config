@@ -56,7 +56,7 @@
     "installed_version": "1.18.32",
     "env_json": null,
     "created_at": "2026-09-11T17:31:02.605936350+00:00",
-    "updated_at": "2026-09-30T03:45:18.002482559+00:00",
+    "updated_at": "2026-09-30T08:34:58.544462276+00:00",
     "model_provider_id": null
   },
   {
@@ -78,9 +78,9 @@
     "enabled": 1,
     "sort_order": 4,
     "installed_version": "0.21.4",
-    "env_json": "{\"HERMES_INFERENCE_PROVIDER\":\"custom:opencode-go-space-bunny-free\"}",
+    "env_json": "{\"HERMES_INFERENCE_MODEL\":\"space-bunny-free\",\"HERMES_INFERENCE_PROVIDER\":\"custom:ocg-space-bunny-free\"}",
     "created_at": "2026-09-11T17:31:02.609713809+00:00",
-    "updated_at": "2026-09-30T02:23:55.488669095+00:00",
+    "updated_at": "2026-09-30T08:32:19.857677096+00:00",
     "model_provider_id": null
   },
   {
@@ -126,10 +126,10 @@
     "enabled": 1,
     "sort_order": 11,
     "installed_version": "1.0.41",
-    "env_json": "{\"GROK_DEFAULT_MODEL\":\"space-bunny-free\",\"GROK_XAI_API_BASE_URL\":\"http://127.0.0.1:4000/v1\",\"OPENAI_MODEL\":\"ocg/space-bunny-free\",\"XAI_API_KEY\":\"local\"}",
+    "env_json": "{\"GROK_DEFAULT_MODEL\":\"ocg/space-bunny-free\",\"GROK_XAI_API_BASE_URL\":\"http://127.0.0.1:4000/v1\",\"OPENAI_MODEL\":\"ocg/space-bunny-free\",\"XAI_API_KEY\":\"local\"}",
     "created_at": "2026-09-11T17:31:02.615047110+00:00",
-    "updated_at": "2026-09-30T03:25:38.517005053+00:00",
-    "model_provider_id": 2
+    "updated_at": "2026-09-30T08:27:50.537668011+00:00",
+    "model_provider_id": null
   },
   {
     "id": 12,
@@ -140,7 +140,7 @@
     "installed_version": "2026.09.18-9a7762b",
     "env_json": null,
     "created_at": "2026-09-11T17:31:02.616319730+00:00",
-    "updated_at": "2026-09-30T03:45:18.018394616+00:00",
+    "updated_at": "2026-09-30T08:34:58.548851767+00:00",
     "model_provider_id": null
   },
   {
@@ -176,7 +176,7 @@
     "installed_version": "1.2.1",
     "env_json": null,
     "created_at": "2026-09-11T17:31:02.620404896+00:00",
-    "updated_at": "2026-09-30T03:45:18.039671083+00:00",
+    "updated_at": "2026-09-30T08:34:58.550954704+00:00",
     "model_provider_id": null
   }
 ]

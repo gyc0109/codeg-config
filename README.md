@@ -132,7 +132,9 @@ codeg 前端把 agent 上报的 model configOption 拆成「分组 + 条目」
 > （`{"providers": {"<id>": {"name","baseUrl","apiKey","api","models":[…]}}}`，
 > `models` 必须是**数组**）。往 models-store.json 里加 provider 是无效的。
 > 内置的 `opencode-go` provider 无法删，但把 `auth.json` 里的 `opencode-go` 条目
-> 移除后它就不再显示，避免与 `ocg` 重复。
+> 移除后它就不再显示，避免与 `ocg` 重复。另外 `settings.json` 的
+> `defaultProvider` 也要跟着改成 `ocg`，否则 pi 会静默回退到列表第一个模型
+> （不报错，但 codeg 里显示的当前模型就跟实际不符了）。
 >
 > codex 的坑：1.13.1 已**删除** `wire_api = "chat"`（只能 `responses`），而 LiteLLM
 > 只做 chat→responses 单向桥接，所以 codex 走 LiteLLM 时只能用 responses 兼容的模型
@@ -145,8 +147,7 @@ codeg 前端把 agent 上报的 model configOption 拆成「分组 + 条目」
 > `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS`、`ANTHROPIC_BETAS`（只能追加不能移除）、
 > LiteLLM 透传。→ 所以必需 `commandcode-proxy`（:8898）把 `system` 提到顶层。
 >
-> open_claw 的坑（两个）：
-> 1. 它的 ACP 桥接（`openclaw acp`）**没有本地/内嵌模式**，必须连后台 Gateway
+> open_claw 的坑（两个）：> 1. 它的 ACP 桥接（`openclaw acp`）**没有本地/内嵌模式**，必须连后台 Gateway
 >    （loopback `127.0.0.1:18789`）。Gateway 未运行时直接报
 >    `ACP bridge failed: connect ECONNREFUSED 127.0.0.1:18789`。
 >    → `openclaw gateway install` 装的是 **systemd user 服务**，而 root 默认
@@ -156,6 +157,22 @@ codeg 前端把 agent 上报的 model configOption 拆成「分组 + 条目」
 >    （字段：`baseUrl` / `apiKey` / `api` / `models[]`，model 项必填 `id`+`name`）。
 >    所以定义了 `ocg`（→ :8899）和 `ccg`（→ CC 直连，key 在配置里）两个 provider。
 >    原来的 `agents.defaults.models` 用的是内置 `opencode-go/`，已换成带前缀的。
+>
+> hermes 的坑：模型是**两个**环境变量成对生效，缺一个就报
+> `Unknown provider 'custom:xxx'`（或退回到 OpenRouter 报 401）：
+>
+> ```bash
+> HERMES_INFERENCE_PROVIDER=custom:ocg-space-bunny-free   # provider 名转 slug（小写、非字母数字转 -）
+> HERMES_INFERENCE_MODEL=space-bunny-free                # 上游真实 model id（不带前缀）
+> ```
+>
+> `custom_providers[].name` 决定 slug（`OCG Space Bunny Free` → `ocg-space-bunny-free`），
+> 改名字就会让 codeg 里已存的引用失效。`~/.hermes/config.yaml` 里对应
+> `provider:` / `model:` 两个顶层键。
+>
+> LiteLLM 的坑：对**不带 `/`** 的模型名会做后缀匹配。所以 `space-bunny-free` 能
+> “蒙对”到 `ocg/space-bunny-free`，但 `gpt-6-luna` 会歧义命中（ocg 和 ccg 都存在）
+> 从而走错供应商。所有调用方都应写全 `ocg/` / `ccg/` 前缀。
 
 ---
 

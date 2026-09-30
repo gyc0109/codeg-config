@@ -152,7 +152,7 @@ restore_agent "$PROJ/config/codex/config.toml"           /root/.codex/config.tom
 restore_agent "$PROJ/config/kimi-code/config.toml"       /root/.kimi-code/config.toml
 restore_agent "$PROJ/config/hermes/config.yaml"          /root/.hermes/config.yaml
 restore_agent "$PROJ/config/opencode/opencode.jsonc"     /root/.config/opencode/opencode.jsonc
-restore_agent "$PROJ/config/settings.json"                /root/.pi/agent/settings.json
+restore_agent "$PROJ/config/pi/settings.json"               /root/.pi/agent/settings.json
 restore_agent "$PROJ/config/pi/models.json"               /root/.pi/agent/models.json
 restore_agent "$PROJ/config/cline-providers.json"        /root/.cline/data/settings/providers.json
 restore_agent "$PROJ/config/codex-model-catalog.json"    /root/.codex/codeg-model-catalog.json

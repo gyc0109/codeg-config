@@ -1,4 +1,5 @@
-model: deepseek-v4.1-flash
+provider: custom:ocg-space-bunny-free
+model: space-bunny-free
 custom_providers:
 - name: OCG DeepSeek
   base_url: http://127.0.0.1:8899/v1

@@ -39,7 +39,7 @@
     "mode": "local",
     "auth": {
       "mode": "token",
-      "token": "${OPENCLAW_GATEWAY_TOKEN}"
+      "token": "2db2228e84824c72489aeca8597a07ec2d4b13a887dd88cd"
     }
   },
   "models": {
