@@ -144,6 +144,38 @@ restore_agent "$PROJ/config/pi/models.json"               /root/.pi/agent/models
 restore_agent "$PROJ/config/cline-providers.json"        /root/.cline/data/settings/providers.json
 restore_agent "$PROJ/config/codex-model-catalog.json"    /root/.codex/codeg-model-catalog.json
 
+# ---------- 5b. open_claw（Gateway + 双 provider）----------
+step "5b. 还原 OpenClaw（open_claw）"
+if [[ -f "$PROJ/config/openclaw/openclaw.json" ]] && command -v openclaw >/dev/null 2>&1; then
+  if (( DRY )); then say "[dry-run] 写入 ~/.openclaw/openclaw.json（注入 CC key）"
+  else
+    [[ -f /root/.openclaw/openclaw.json ]] && cp /root/.openclaw/openclaw.json "/root/.openclaw/openclaw.json.bak.$(date +%s)"
+    mkdir -p /root/.openclaw
+    sed -e "s|\${COMMANDCODE_API_KEY}|${CCKEY}|g" \
+        -e "s|\${OPENCODE_GO_API_KEY}|${KEY}|g" \
+        "$PROJ/config/openclaw/openclaw.json" > /root/.openclaw/openclaw.json
+    chmod 600 /root/.openclaw/openclaw.json
+    say "→ /root/.openclaw/openclaw.json"
+  fi
+  # ACP 桥接没有本地模式，必须靠 Gateway（loopback :18789）。
+  # openclaw 会装成 systemd **user** 服务，但 root 默认没有 linger，
+  # 开机/登出后会僵，所以必须 enable-linger。
+  if (( DRY )); then
+    say "[dry-run] openclaw gateway install && loginctl enable-linger root"
+  else
+    loginctl enable-linger root 2>/dev/null || true
+    if ! systemctl --user is-enabled openclaw-gateway >/dev/null 2>&1; then
+      XDG_RUNTIME_DIR=/run/user/0 openclaw gateway install >/dev/null 2>&1 || \
+        say "⚠ Gateway 服务安装失败，手工执行：openclaw gateway install"
+    else
+      XDG_RUNTIME_DIR=/run/user/0 openclaw gateway restart >/dev/null 2>&1 || true
+    fi
+    say "Gateway 服务已就绪（linger=on）"
+  fi
+else
+  say "跳过（无 openclaw 或快照缺失）"
+fi
+
 # opencode / pi 的 auth.json 里存真实 key，从活文件复制而不是用快照
 step "6. 还原 agent 凭据文件（从现网复制，避免动 key）"
 for f in /root/.local/share/opencode/auth.json /root/.pi/agent/auth.json; do
@@ -228,6 +260,9 @@ if (( ! DRY )); then
   for s in opencode-go-proxy litellm commandcode-proxy; do
     printf '  %-20s %s\n' "$s" "$(systemctl is-active "$s" 2>/dev/null || echo 未安装)"
   done
+  if command -v openclaw >/dev/null 2>&1; then
+    printf '  %-20s %s\n' "openclaw-gateway" "$(XDG_RUNTIME_DIR=/run/user/0 systemctl --user is-active openclaw-gateway 2>/dev/null || echo 未运行)"
+  fi
   say ""
   say "端到端自检："
   if curl -sf --max-time 20 http://127.0.0.1:8899/v1/chat/completions \

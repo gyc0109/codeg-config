@@ -99,7 +99,7 @@
 | grok | ✅ | ✅ `xai/grok-4.7` | 经 LiteLLM 前缀 | ✅ |
 | deepseek | ✅ | ✅ `deepseek-v4.1-flash` | 经 LiteLLM 前缀 | ✅ |
 | cline | ✅ | ✅ | 单 provider 指向 LiteLLM，改 model 字符串即可 | ✅ |
-| **open_claw** | ✅ 5 | ❌ | 内置 `opencode-go/` provider，无自定义 provider 机制 | — |
+| **open_claw** | ✅ 29 | ✅ 57 | `models.providers` 自定义 `ocg`/`ccg` | ✅ |
 | code_buddy / gemini / cursor / qoder / antigravity | ❌ | ❌ | 私有客户端，无自定义端点配置 | — |
 
 > pi 的坑：`models-store.json` 只是**模型缓存**，provider 定义在 **`models.json`**
@@ -118,6 +118,18 @@
 > `400 Invalid input at messages.N.role`。试过但**无效**：
 > `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS`、`ANTHROPIC_BETAS`（只能追加不能移除）、
 > LiteLLM 透传。→ 所以必需 `commandcode-proxy`（:8898）把 `system` 提到顶层。
+>
+> open_claw 的坑（两个）：
+> 1. 它的 ACP 桥接（`openclaw acp`）**没有本地/内嵌模式**，必须连后台 Gateway
+>    （loopback `127.0.0.1:18789`）。Gateway 未运行时直接报
+>    `ACP bridge failed: connect ECONNREFUSED 127.0.0.1:18789`。
+>    → `openclaw gateway install` 装的是 **systemd user 服务**，而 root 默认
+>    `Linger=no`，所以还得 `loginctl enable-linger root` 才能开机自启
+>    （否则 `systemctl --user` 也会因没有 D-Bus session 而拒绝执行）。
+> 2. 它**不自带** Command Code provider，但支持在 `models.providers` 下自定义
+>    （字段：`baseUrl` / `apiKey` / `api` / `models[]`，model 项必填 `id`+`name`）。
+>    所以定义了 `ocg`（→ :8899）和 `ccg`（→ CC 直连，key 在配置里）两个 provider。
+>    原来的 `agents.defaults.models` 用的是内置 `opencode-go/`，已换成带前缀的。
 
 ---
 
@@ -168,6 +180,7 @@ codeg-config/
 │   ├── hermes/config.yaml
 │   ├── opencode/opencode.jsonc
 │   ├── pi/models.json             pi 的 provider 定义（双供应商）
+│   ├── openclaw/openclaw.json     OpenClaw 双 provider（ocg/ccg）+ gateway 配置
 │   └── cline-providers.json
 └── codeg-app/                     codeg 应用自身的配置（从 SQLite 导出，已脱敏）
     ├── agent_setting.json       15 个 agent 的启用状态/排序/环境变量/绑定 provider
