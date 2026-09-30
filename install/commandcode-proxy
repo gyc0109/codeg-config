@@ -15,6 +15,8 @@ This proxy sits between Claude Code and Command Code and:
   * rewrites `/v1/...`  ->  `/provider/v1/...`
   * injects the real `Authorization: Bearer <key>` (the agent config only ever
     sees a dummy key)
+  * strips the `ccg/` model-name alias (`ccg/claude-sonnet-5-5` -> `claude-sonnet-5-5`),
+    matching the `ocg/` / `ccg/` naming used by the other agents
   * hoists any `role: "system"` entries out of `messages` and merges their text
     into the top-level `system` field
   * makes sure `messages` starts with a `user` turn (Anthropic requires it)
@@ -68,39 +70,47 @@ def _text_of(content):
 
 
 def normalize_messages(body):
-    """Hoist `system` turns out of `messages` into the top-level `system`."""
+    """Strip the `ccg/` alias and hoist `system` turns out of `messages`."""
     try:
         doc = json.loads(body)
     except (ValueError, TypeError):
         return body, False
     if not isinstance(doc, dict):
         return body, False
+    changed = False
+
+    # 模型名别名：ccg/xxx -> xxx（Claude Code 侧显示前缀，上游只认真实 id）
+    mdl = doc.get("model")
+    if isinstance(mdl, str) and mdl.startswith("ccg/"):
+        doc["model"] = mdl[len("ccg/"):]
+        changed = True
+
     msgs = doc.get("messages")
-    if not isinstance(msgs, list):
+    if isinstance(msgs, list):
+        kept, extra = [], []
+        for msg in msgs:
+            if isinstance(msg, dict) and msg.get("role") == "system":
+                extra.append(_text_of(msg.get("content")))
+            else:
+                kept.append(msg)
+        if extra:
+            parts = []
+            cur = doc.get("system")
+            if isinstance(cur, str):
+                parts.append(cur)
+            elif isinstance(cur, list):
+                parts.extend(_text_of(cur).split("\n"))
+            parts.extend(extra)
+            doc["system"] = "\n\n".join(p for p in parts if p)
+
+            # Anthropic requires the first turn to be `user`.
+            while kept and isinstance(kept[0], dict) and kept[0].get("role") == "assistant":
+                kept.pop(0)
+            doc["messages"] = kept
+            changed = True
+
+    if not changed:
         return body, False
-
-    kept, extra = [], []
-    for msg in msgs:
-        if isinstance(msg, dict) and msg.get("role") == "system":
-            extra.append(_text_of(msg.get("content")))
-        else:
-            kept.append(msg)
-    if not extra:
-        return body, False
-
-    parts = []
-    cur = doc.get("system")
-    if isinstance(cur, str):
-        parts.append(cur)
-    elif isinstance(cur, list):
-        parts.extend(_text_of(cur).split("\n"))
-    parts.extend(extra)
-    doc["system"] = "\n\n".join(p for p in parts if p)
-
-    # Anthropic requires the first turn to be `user`.
-    while kept and isinstance(kept[0], dict) and kept[0].get("role") == "assistant":
-        kept.pop(0)
-    doc["messages"] = kept
     return json.dumps(doc).encode(), True
 
 

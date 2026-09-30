@@ -47,15 +47,22 @@
 除 OpenCode Go 外，本项目同时接入了第二个供应商 **Command Code GOAT**
 （`https://api.commandcode.ai/provider/v1`，GOAT 套餐 $10/月，~57 个实测可用模型）。
 
-**命名前缀**（用于在模型列表里一眼区分来源）：
+**命名前缀**（所有 agent 的模型名统一带前缀，一眼区分来源）：
 
-| 前缀 | 供应商 | 说明 |
+| 前缀 | 供应商 | 含义 |
 | --- | --- | --- |
-| `ocg/` | OpenCode Go | 有别名层的 agent 使用 |
-| `ccg/` | Command Code GOAT | 同上 |
+| `ocg/` | OpenCode Go | 例：`ocg/space-bunny-free` |
+| `ccg/` | Command Code GOAT | 例：`ccg/claude-sonnet-5-5` |
 
-有 provider 列/分组显示的 agent（pi、opencode、hermes、codex）直接靠 provider 名区分，
-无别名层的 agent（kimi）靠 `ocg/`、`ccg/` 前缀区分。
+**注意前缀是「别名」不是「真实 id」**：每个 agent 都把别名映射回上游真正要的 model id
+（`ocg/space-bunny-free` → 上游 `space-bunny-free`）。各 agent 的实现方式不同：
+
+- opencode / kimi：模型段自带 `id`（opencode）或 `model`（kimi）字段，天然支持别名
+- hermes：靠 provider 的 `name` 转 slug（`OCG ...` / `CCG ...`）
+- pi：用 provider 名当命名空间（models.json 里定义 provider `ocg` / `ccg`）
+- codex：catalog 的 `display_name` 加前缀，`slug` 仍是真实 id
+- claude_code：LiteLLM 的 `model_name` 改成 `ocg/<真实id>`；Command Code 侧由
+  `commandcode-proxy` 剥掉 `ccg/`
 
 ### Command Code 的三个坑（实测）
 
@@ -71,17 +78,19 @@
 
 | Agent | 接法 | 配置文件 |
 | --- | --- | --- |
-| opencode | 多 provider，`ccg/` 前缀别名 | `~/.config/opencode/opencode.jsonc` |
-| kimi | 多 provider，`ccg/` 前缀别名 | `~/.kimi-code/config.toml` |
-| hermes | `custom_providers`（名字转 slug） | `~/.hermes/config.yaml` |
-| pi | **`models.json`** 的 `providers` 段（不是 models-store.json！） | `~/.pi/agent/models.json` |
-| codex | 第二个 `model_providers.commandcode` 块 | `~/.codex/config.toml` |
-| claude_code | 经 `commandcode-proxy` :8898 | codeg provider #5 |
-| grok / deepseek / kimi_code | codeg 里再加一个 provider，UI 切换 | codeg 应用配置 |
+| opencode | 双 provider，`ocg/` `ccg/` 前缀别名（29 + 57） | `~/.config/opencode/opencode.jsonc` |
+| kimi | 双 provider，前缀别名（29 + 56） | `~/.kimi-code/config.toml` |
+| hermes | `custom_providers`，`OCG`/`CCG` 名（29 + 56） | `~/.hermes/config.yaml` |
+| pi | **`models.json`** 里定义 provider `ocg` + `ccg`（不是 models-store.json！） | `~/.pi/agent/models.json` |
+| codex | 第二个 `model_providers.commandcode` 块 + catalog 前缀 | `~/.codex/config.toml` |
+| claude_code | LiteLLM `ocg/…` + `commandcode-proxy` :8898 `ccg/…` | codeg provider #4 / #5 |
+| grok / deepseek / kimi_code | codeg 里各两个 provider，UI 切换 | codeg 应用配置 |
 
 > pi 的坑：`models-store.json` 只是**模型缓存**，provider 定义在 **`models.json`**
 > （`{"providers": {"<id>": {"name","baseUrl","apiKey","api","models":[…]}}}`，
 > `models` 必须是**数组**）。往 models-store.json 里加 provider 是无效的。
+> 内置的 `opencode-go` provider 无法删，但把 `auth.json` 里的 `opencode-go` 条目
+> 移除后它就不再显示，避免与 `ocg` 重复。
 
 ---
 

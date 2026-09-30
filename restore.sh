@@ -141,6 +141,23 @@ step "6. 还原 agent 凭据文件（从现网复制，避免动 key）"
 for f in /root/.local/share/opencode/auth.json /root/.pi/agent/auth.json; do
   if [[ -f "$f" ]]; then say "保留现网凭据： $f"; else say "⚠ $f 不存在，需手动重建"; fi
 done
+# pi 内置的 opencode-go provider 无法删除，会把模型列成 opencode-go/xxx；
+# 从 auth.json 移除它的凭据就不显示了，统一用 models.json 里的 ocg/ 命名空间。
+if [[ -f /root/.pi/agent/auth.json ]]; then
+  if (( DRY )); then say "[dry-run] 移除 pi auth.json 里的 opencode-go（避免与 ocg 重复）"
+  else
+    python3 - <<'PY'
+import json
+p = "/root/.pi/agent/auth.json"
+d = json.load(open(p))
+if d.pop("opencode-go", None) is not None:
+    json.dump(d, open(p, "w"), indent=2)
+    print("  ✓ pi auth.json 已移除 opencode-go")
+else:
+    print("  - pi auth.json 无 opencode-go，跳过")
+PY
+  fi
+fi
 
 # ---------- 7. codeg 应用配置（SQLite，需先停 codeg）----------
 step "7. 还原 codeg 应用配置（agent_setting / model_provider / app_metadata …）"
