@@ -57,6 +57,32 @@
 **注意前缀是「别名」不是「真实 id」**：每个 agent 都把别名映射回上游真正要的 model id
 （`ocg/space-bunny-free` → 上游 `space-bunny-free`）。各 agent 的实现方式不同：
 
+### codeg 的模型分组怎么来的（影响 UI 显示）
+
+codeg 前端把 agent 上报的 model configOption 拆成「分组 + 条目」
+（代码在 web chunk `5e84a74a31a6c31b.js` 的 `deriveModelGroups`）：
+
+| UI 元素 | 取自 |
+| --- | --- |
+| 分组 **key** | `option.value` 里第一个 `/` 之前的部分 |
+| 分组 **显示名** | 该组内所有 `option.name` 的**公共 head**（同样按第一个 `/` 切） |
+| 条目文字 | `option.name` 去掉 head 后的 tail |
+
+所以：**要改分组显示名就改 `option.name` 的 head；`option.value` 必须保持
+`ocg/<id>` 不动**（选完后回传时 agent 靠它路由）。
+
+| Agent | option.name 形式 | 分组显示 |
+| --- | --- | --- |
+| opencode | `OpenCode Go/DeepSeek V4 Flash` | OpenCode Go ✅ |
+| pi | `OpenCode Go/OCG DeepSeek V4 Flash` | OpenCode Go ✅（靠 `pi-acp-provider-label-patch`） |
+| open_claw | 不暴露 model configOption（模型在它自己的配置里选） | — |
+
+> pi 的坑：`pi-acp` 把 `option.name` 硬编码成 `${providerId}/${模型名}`，providerId 就是
+> `ocg`/`ccg`，于是 UI 分组名变成了缩写。`option.value` 又不能改（回传要路由），
+> 所以用 `install/pi-acp-provider-label-patch` **只改 name、不动 value**；显示名直接
+> 读 pi 自己的 `~/.pi/agent/models.json`（单一数据源）。补丁幂等，并用 codeg 的
+> systemd drop-in 在每次启动前重打（防 pi-acp 升级冲掉）。
+
 - opencode / kimi：模型段自带 `id`（opencode）或 `model`（kimi）字段，天然支持别名
 - hermes：靠 provider 的 `name` 转 slug（`OCG ...` / `CCG ...`）
 - pi：用 provider 名当命名空间（models.json 里定义 provider `ocg` / `ccg`）
@@ -169,6 +195,8 @@ codeg-config/
 │   ├── commandcode-proxy            Command Code 专用转换代理（system 角色归并）
 │   ├── commandcode-proxy.service
 │   ├── commandcode-proxy.env.example
+│   ├── pi-acp-provider-label-patch  pi 分组名补丁（幂等）
+│   ├── pi-acp-provider-label-dropin.conf
 │   └── codeg-web-timeout-patch     前端超时补丁（开机自动重打）
 ├── config/                        各 agent 配置文件副本（已脱敏）
 │   ├── codeg.env

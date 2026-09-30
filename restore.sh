@@ -100,6 +100,19 @@ else
   say "✗ 未找到 codeg.service.d，跳过（如需要请手动创建）"
 fi
 
+# ---------- 3b. pi-acp 分组名补丁 ----------
+step "3b. 部署 pi-acp provider 显示名补丁"
+if [[ -f /usr/lib/node_modules/pi-acp/dist/index.js ]]; then
+  run install -m 0755 "$PROJ/install/pi-acp-provider-label-patch" /usr/local/bin/pi-acp-provider-label-patch
+  run install -m 0644 "$PROJ/install/pi-acp-provider-label-dropin.conf" /etc/systemd/system/codeg.service.d/20-pi-acp-provider-label.conf
+  if (( DRY )); then say "[dry-run] /usr/local/bin/pi-acp-provider-label-patch"
+  else /usr/local/bin/pi-acp-provider-label-patch || say "⚠ 打补丁失败"; fi
+  say "作用：pi 在 ACP 里把分组名从 provider id（ocg）改成可读名（OpenCode Go）；"
+  say "      modelId（option.value）不变，所以 ocg/ 路由不受影响。"
+else
+  say "跳过（未安装 pi-acp）"
+fi
+
 # ---------- 4. codeg.env ----------
 step "4. 还原 /etc/codeg.env"
 ENV_SRC="$PROJ/config/codeg.env"

@@ -1,0 +1,101 @@
+#!/usr/bin/env python3
+"""让 pi 在 ACP 里上报「可读的」provider 分组名。
+
+背景
+----
+codeg 前端把 agent 上报的模型 option 拆成「分组 + 条目」：
+
+  * 分组 **key**        取自 option.value 里第一个 "/" 之前的部分
+                        （例：`ocg/deepseek-v4-flash` -> `ocg`）
+  * 分组 **显示名**     取自该组内所有 option.name 的**公共 head**
+                        （同样按第一个 "/" 切）
+
+pi-acp 把 option.name 硬编码成 `${provider}/${模型名}`，而这里的 provider 是
+provider **id**（`ocg` / `ccg`）。于是 UI 上分组名就变成了 `ocg` 这种缩写。
+
+但 modelId（option.value）必须是 `provider/id`，因为回传时 pi 靠它路由
+（`setSessionModel` 按第一个 "/" 拆 provider）。所以 id 不能改，只能改显示名。
+
+本补丁把
+    name: `${provider}/${name}`
+改成
+    name: `${__providerLabel(provider)}/${name}`
+
+显示名直接读 pi 自己的 `~/.pi/agent/models.json`（provider 的 `name` 字段），
+单一数据源，避免两处维护。可用 `PI_PROVIDER_LABELS_FILE` 覆盖文件路径。
+
+幂等：重复执行只打一次。
+"""
+import os
+import re
+import sys
+
+TARGET = os.environ.get(
+    "PI_ACP_DIST", "/usr/lib/node_modules/pi-acp/dist/index.js"
+)
+MARK = "/* codeg-pi-acp-provider-label-patch */"
+
+HELPER = MARK + """
+import __patchFs from "node:fs";
+import __patchOs from "node:os";
+const __providerLabels = (() => {
+  try {
+    const file =
+      process.env.PI_PROVIDER_LABELS_FILE ||
+      __patchOs.homedir() + "/.pi/agent/models.json";
+    const cfg = JSON.parse(__patchFs.readFileSync(file, "utf8"));
+    const out = {};
+    for (const [id, prov] of Object.entries(cfg.providers || {})) {
+      const label = prov && typeof prov.name === "string" ? prov.name.trim() : "";
+      if (label) out[id] = label;
+    }
+    return out;
+  } catch {
+    return {};
+  }
+})();
+function __providerLabel(id) {
+  return __providerLabels[id] || id;
+}
+"""
+
+OLD = "      name: `${provider}/${name}`,"
+NEW = "      name: `${__providerLabel(provider)}/${name}`,"
+
+
+def main() -> int:
+    if not os.path.exists(TARGET):
+        print(f"  跳过（未安装 pi-acp）：{TARGET}")
+        return 0
+
+    src = open(TARGET, encoding="utf-8").read()
+
+    if MARK in src:
+        print("  已是打过补丁的状态，跳过")
+        return 0
+
+    if OLD not in src:
+        print(f"  ✗ 找不到目标行，pi-acp 可能已升级改版：{TARGET}", file=sys.stderr)
+        return 1
+
+    anchor = "async function getModelState(proc, pre) {"
+    if anchor not in src:
+        print("  ✗ 找不到插入锚点 getModelState", file=sys.stderr)
+        return 1
+
+    patched = src.replace(anchor, HELPER + "\n" + anchor, 1)
+    patched = patched.replace(OLD, NEW, 1)
+
+    if MARK not in patched or NEW not in patched:
+        print("  ✗ 补丁校验失败", file=sys.stderr)
+        return 1
+
+    import shutil
+    shutil.copy2(TARGET, TARGET + ".orig")
+    open(TARGET, "w", encoding="utf-8").write(patched)
+    print(f"  ✓ 已打补丁：{TARGET}（原始文件备份为 index.js.orig）")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
