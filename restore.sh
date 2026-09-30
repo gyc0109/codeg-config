@@ -70,7 +70,15 @@ fi
 step "2. 部署 LiteLLM（:4000）"
 if [[ -x /opt/litellm-venv/bin/litellm ]]; then
   run mkdir -p /opt/litellm
-  run cp "$PROJ/install/litellm/config.yaml" /opt/litellm/config.yaml
+  # 快照里 Command Code 的 api_key 是 ${COMMANDCODE_API_KEY} 占位符，写入前注入真实 key
+  if (( DRY )); then
+    say "[dry-run] 注入 Command Code key 后写入 /opt/litellm/config.yaml"
+  else
+    sed -e "s|\${COMMANDCODE_API_KEY}|${CCKEY}|g" \
+        -e "s|\${OPENCODE_GO_API_KEY}|${KEY}|g" \
+        "$PROJ/install/litellm/config.yaml" > /opt/litellm/config.yaml
+    say "已写入 /opt/litellm/config.yaml（已注入密钥）"
+  fi
   run install -m 0644 "$PROJ/install/litellm.service" /etc/systemd/system/litellm.service
   say "已部署 LiteLLM 配置与 systemd unit"
 else

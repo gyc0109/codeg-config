@@ -56,7 +56,7 @@
     "installed_version": "1.18.32",
     "env_json": null,
     "created_at": "2026-09-11T17:31:02.605936350+00:00",
-    "updated_at": "2026-09-30T02:27:44.371605050+00:00",
+    "updated_at": "2026-09-30T03:05:56.703796009+00:00",
     "model_provider_id": null
   },
   {
@@ -140,7 +140,7 @@
     "installed_version": "2026.09.18-9a7762b",
     "env_json": null,
     "created_at": "2026-09-11T17:31:02.616319730+00:00",
-    "updated_at": "2026-09-30T02:27:44.376207379+00:00",
+    "updated_at": "2026-09-30T03:05:56.709777195+00:00",
     "model_provider_id": null
   },
   {
@@ -176,7 +176,7 @@
     "installed_version": "1.2.1",
     "env_json": null,
     "created_at": "2026-09-11T17:31:02.620404896+00:00",
-    "updated_at": "2026-09-30T02:27:44.385327408+00:00",
+    "updated_at": "2026-09-30T03:05:56.716447186+00:00",
     "model_provider_id": null
   }
 ]

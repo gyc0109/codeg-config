@@ -1,5 +1,5 @@
-model = "gpt-6-luna"
-model_provider = "opencode-direct"
+model = "ocg/gpt-6-luna"
+model_provider = "litellm-bridge"
 model_catalog_json = "codeg-model-catalog.json"
 
 [model_providers.litellm-bridge]

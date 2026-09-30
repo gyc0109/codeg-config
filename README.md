@@ -82,7 +82,7 @@
 | kimi | 双 provider，前缀别名（29 + 56） | `~/.kimi-code/config.toml` |
 | hermes | `custom_providers`，`OCG`/`CCG` 名（29 + 56） | `~/.hermes/config.yaml` |
 | pi | **`models.json`** 里定义 provider `ocg` + `ccg`（不是 models-store.json！） | `~/.pi/agent/models.json` |
-| codex | 第二个 `model_providers.commandcode` 块 + catalog 前缀 | `~/.codex/config.toml` |
+| codex | **单入口 `litellm-bridge` :4000**，按模型名前缀分流 + catalog 前缀 | `~/.codex/config.toml` |
 | claude_code | LiteLLM `ocg/…` + `commandcode-proxy` :8898 `ccg/…` | codeg provider #4 / #5 |
 | grok / deepseek / kimi_code | codeg 里各两个 provider，UI 切换 | codeg 应用配置 |
 
@@ -91,6 +91,11 @@
 > `models` 必须是**数组**）。往 models-store.json 里加 provider 是无效的。
 > 内置的 `opencode-go` provider 无法删，但把 `auth.json` 里的 `opencode-go` 条目
 > 移除后它就不再显示，避免与 `ocg` 重复。
+>
+> codex 的坑：1.13.1 已**删除** `wire_api = "chat"`（只能 `responses`），而 LiteLLM
+> 只做 chat→responses 单向桥接，所以 codex 走 LiteLLM 时只能用 responses 兼容的模型
+> （ocg 钀 10 个 + ccg 47 个）。这跟「直连 :8899」的覆盖面一样，但不用再切 provider。
+> 具体的 codex 模型配置：`model = "ocg/gpt-6-luna"` + `model_provider = "litellm-bridge"`。
 
 ---
 
