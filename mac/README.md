@@ -25,6 +25,8 @@
 | hermes | `custom_providers`（name → slug） | `OCG`/`CCG` 名 |
 | pi | `models.json` 的 providers `ocg`/`ccg` | provider 命名空间 |
 | cline / code_buddy | codeg env 指向 :15825 | `ocg/…` |
+| deepseek | codeg env（`DEEPSEEK_BASE_URL`/`_API_KEY`/`_ACP_MODEL`） | `ocg/…` |
+| grok | codeg env（`GROK_XAI_API_BASE_URL`/`XAI_API_KEY`/`GROK_DEFAULT_MODEL`） | `ocg/…` |
 | claude_code / codex | codeg 里新增 CC provider → :15825 | `ccg/…` |
 | open_claw | `models.providers.ocg`/`ccg` | provider 命名空间 |
 
@@ -38,6 +40,28 @@
    - `CCG DeepSeek V4 Flash (latest)` → `custom:ccg-deepseek-v4-flash-(latest)`
 3. **Zen 不能自定义 provider**：服务端 `FreeTierError: only be used from within
    OpenCode`，伪造完整 UA / `x-session-*` 头均无效，只能保留内置 `opencode` provider。
+
+## deepseek / grok 的环境变量
+
+两者都用 codeg 的 `acp_update_agent_env` 配置，base URL 指向 :15825：
+
+```bash
+# deepseek-acp
+DEEPSEEK_BASE_URL=http://127.0.0.1:15825/v1
+DEEPSEEK_API_KEY=local
+DEEPSEEK_ACP_MODEL=ocg/space-bunny-free
+
+# grok（GROK_XAI_API_BASE_URL 与 GROK_MODELS_BASE_URL 实测都可用）
+GROK_XAI_API_BASE_URL=http://127.0.0.1:15825/v1
+XAI_API_KEY=local
+GROK_DEFAULT_MODEL=ocg/space-bunny-free
+OPENAI_MODEL=ocg/space-bunny-free
+```
+
+另外 codeg 里各建了 2 个 model_provider（`OpenCode Go (ocg/)` / `Command Code GOAT (ccg/)`），
+这样 UI 里能直接切换两套模型：
+- deepseek: #5 ocg / #6 ccg
+- grok: #7 ocg / #8 ccg
 
 ## 端点
 
