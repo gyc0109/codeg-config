@@ -3,20 +3,20 @@
 | agent | 版本 | 分发 | 备注 |
 | --- | --- | --- | --- |
 | pi | 0.0.34 | npx | 升级会覆盖 `dist/index.js`，需重跑 `pi-acp-provider-label-patch` |
-| claude_code | 0.84.0 | npx |  |
-| open_code | 1.18.33 | binary | 二进制在 `~/.local/share/codeg/acp-binaries/opencode/<ver>/`，升级后需手动同步 `agent_setting` |
+| claude_code | 0.85.1 | npx |  |
+| open_code | 1.18.34 | binary | 二进制在 `~/.local/share/codeg/acp-binaries/opencode/<ver>/`，升级后需手动同步 `agent_setting` |
 | deepseek | 0.9.0 | npx | 已是最新 |
 | hermes | 0.21.5 | npx |  |
-| code_buddy | 2.160.0 | npx | **升级会丢 symlink**，需按 `package.json` 的 bin 重建 |
+| code_buddy | 2.161.1 | npx | **升级会丢 symlink**，需按 `package.json` 的 bin 重建 |
 | kimi_code | 2.1.1 | npx |  |
-| codex | 2.0.1 | npx | 内含 codex-cli 0.159.2，config.toml 格式兼容 |
-| cline | 3.0.66 | npx |  |
-| open_claw | 2026.9.7 | npx | 升级后 `openclaw gateway restart` |
+| codex | 2.1.1 | npx | 内含 codex-cli 0.159.2，config.toml 格式兼容 |
+| cline | 3.0.68 | npx |  |
+| open_claw | 2026.9.8 | npx | 升级后 `openclaw gateway restart` |
 | gemini | 0.62.0 | npx | 无 Gemini key，暂不可用 |
-| grok | 1.0.44 | npx |  |
+| grok | 1.0.46 | npx |  |
 | qoder | 1.1.65 | npx | **升级会丢 symlink**，需按 bin 重建 |
-| cursor | 2026.09.28-64d2043 | binary | 升级后需手动同步 `agent_setting` |
-| antigravity | 1.2.1 | binary | 已是最新 |
+| cursor | 2026.10.01-14929f9 | binary | 升级后需手动同步 `agent_setting` |
+| antigravity | 1.3.0 | binary | 已是最新 |
 
 ## 升级踩的坑
 
@@ -43,3 +43,22 @@ provider key 直接用 `ocg` / `ccg`，模型键用真实 model id，于是 ACP 
 伪造 `x-session-id` / `x-session-affinity` 头全部被拒。所以只能保留内置 `opencode`
 provider（分组显示名 "OpenCode Zen"，模型名无前缀）。另外该账号余额为 0，
 只有免费模型（big-pickle）能用，付费模型报 Insufficient account funds。
+
+## open_claw 升级要跑迁移（2026.9.8）
+
+升级到 2026.9.8 后 gateway 会直接 `status=78/CONFIG` 起不来：
+
+```
+OpenClaw agent database .../openclaw-agent.sqlite uses schema version 21;
+stop active agents and run openclaw doctor --fix to migrate session identities before using it.
+```
+
+修复：
+
+```bash
+systemctl --user stop openclaw-gateway
+openclaw doctor --fix
+systemctl --user start openclaw-gateway
+```
+
+注意首次启动要等约 20~30s 才会 listen（要跑 session-sqlite reclamation）。
