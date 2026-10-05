@@ -5,10 +5,10 @@
     "registry_id": "claude-acp",
     "enabled": 1,
     "sort_order": 1,
-    "installed_version": "0.84.0",
+    "installed_version": "0.85.1",
     "env_json": "{\"ANTHROPIC_AUTH_TOKEN\":\"local\",\"ANTHROPIC_BASE_URL\":\"http://127.0.0.1:4000\",\"ANTHROPIC_CUSTOM_MODEL_OPTION\":\"ocg/longcat-2.5-preview-free\",\"ANTHROPIC_DEFAULT_HAIKU_MODEL\":\"ocg/space-bunny-free\",\"ANTHROPIC_DEFAULT_OPUS_MODEL\":\"ocg/deepseek-v4.1-flash\",\"ANTHROPIC_DEFAULT_SONNET_MODEL\":\"ocg/space-bunny-free\",\"ANTHROPIC_MODEL\":\"ocg/space-bunny-free\",\"ANTHROPIC_REASONING_MODEL\":\"ocg/space-bunny-free\"}",
     "created_at": "2026-09-11T17:31:02.600197409+00:00",
-    "updated_at": "2026-09-30T12:09:21.444101258+00:00",
+    "updated_at": "2026-10-03T05:40:25.385311561+00:00",
     "model_provider_id": 4
   },
   {
@@ -17,10 +17,10 @@
     "registry_id": "codex-acp",
     "enabled": 1,
     "sort_order": 7,
-    "installed_version": "2.0.1",
+    "installed_version": "2.1.1",
     "env_json": "{\"OPENAI_BASE_URL\":\"http://127.0.0.1:4000/v1\",\"OPENAI_MODEL\":\"ocg/gpt-6-luna\",\"OPENCODE_GO_KEY\":\"local\"}",
     "created_at": "2026-09-11T17:31:02.602867301+00:00",
-    "updated_at": "2026-09-30T12:09:22.176486979+00:00",
+    "updated_at": "2026-10-03T05:41:22.852463163+00:00",
     "model_provider_id": null
   },
   {
@@ -32,7 +32,7 @@
     "installed_version": "0.62.0",
     "env_json": null,
     "created_at": "2026-09-11T17:31:02.603695284+00:00",
-    "updated_at": "2026-09-30T12:09:22.483238249+00:00",
+    "updated_at": "2026-10-03T05:36:51.971071760+00:00",
     "model_provider_id": null
   },
   {
@@ -41,10 +41,10 @@
     "registry_id": "openclaw-acp",
     "enabled": 1,
     "sort_order": 9,
-    "installed_version": "2026.9.7",
+    "installed_version": "2026.9.8",
     "env_json": null,
     "created_at": "2026-09-11T17:31:02.605418334+00:00",
-    "updated_at": "2026-09-30T12:09:22.325800684+00:00",
+    "updated_at": "2026-10-03T05:43:51.241808014+00:00",
     "model_provider_id": null
   },
   {
@@ -53,10 +53,10 @@
     "registry_id": "opencode",
     "enabled": 1,
     "sort_order": 2,
-    "installed_version": "1.18.33",
+    "installed_version": "1.18.34",
     "env_json": null,
     "created_at": "2026-09-11T17:31:02.605936350+00:00",
-    "updated_at": "2026-09-30T12:21:47.718492474+00:00",
+    "updated_at": "2026-10-05T02:08:24.596059558+00:00",
     "model_provider_id": null
   },
   {
@@ -65,10 +65,10 @@
     "registry_id": "cline",
     "enabled": 1,
     "sort_order": 8,
-    "installed_version": "3.0.66",
+    "installed_version": "3.0.68",
     "env_json": null,
     "created_at": "2026-09-11T17:31:02.608362155+00:00",
-    "updated_at": "2026-09-30T12:09:21.742512698+00:00",
+    "updated_at": "2026-10-03T05:42:43.791679862+00:00",
     "model_provider_id": null
   },
   {
@@ -80,7 +80,7 @@
     "installed_version": "0.21.5",
     "env_json": "{\"HERMES_INFERENCE_MODEL\":\"space-bunny-free\",\"HERMES_INFERENCE_PROVIDER\":\"custom:ocg-space-bunny-free\"}",
     "created_at": "2026-09-11T17:31:02.609713809+00:00",
-    "updated_at": "2026-09-30T12:09:21.962270940+00:00",
+    "updated_at": "2026-10-03T05:36:51.949787163+00:00",
     "model_provider_id": null
   },
   {
@@ -89,10 +89,10 @@
     "registry_id": "codebuddy-code",
     "enabled": 1,
     "sort_order": 5,
-    "installed_version": "2.160.0",
+    "installed_version": "2.161.1",
     "env_json": "{\"CODEBUDDY_API_KEY\":\"local\",\"CODEBUDDY_BASE_URL\":\"http://127.0.0.1:4000/v1\",\"CODEBUDDY_DISABLE_BUILTIN_MODELS\":\"1\",\"CODEBUDDY_MODEL\":\"ocg/space-bunny-free\"}",
     "created_at": "2026-09-11T17:31:02.611143292+00:00",
-    "updated_at": "2026-09-30T12:09:22.314971330+00:00",
+    "updated_at": "2026-10-03T05:42:08.736857112+00:00",
     "model_provider_id": null
   },
   {
@@ -104,7 +104,7 @@
     "installed_version": "2.1.1",
     "env_json": "{\"KIMI_MODEL_API_KEY\":\"local\",\"KIMI_MODEL_BASE_URL\":\"http://127.0.0.1:4000/v1\",\"KIMI_MODEL_NAME\":\"ocg/space-bunny-free\"}",
     "created_at": "2026-09-11T17:31:02.611707097+00:00",
-    "updated_at": "2026-09-30T12:09:22.015418179+00:00",
+    "updated_at": "2026-10-03T05:36:52.262133071+00:00",
     "model_provider_id": 1
   },
   {
@@ -116,7 +116,7 @@
     "installed_version": "0.0.34",
     "env_json": null,
     "created_at": "2026-09-11T17:31:02.613622583+00:00",
-    "updated_at": "2026-09-30T12:09:22.132227306+00:00",
+    "updated_at": "2026-10-03T05:36:52.129615601+00:00",
     "model_provider_id": null
   },
   {
@@ -125,10 +125,10 @@
     "registry_id": "grok-build",
     "enabled": 1,
     "sort_order": 11,
-    "installed_version": "1.0.44",
+    "installed_version": "1.0.46",
     "env_json": "{\"GROK_DEFAULT_MODEL\":\"ocg/space-bunny-free\",\"GROK_XAI_API_BASE_URL\":\"http://127.0.0.1:4000/v1\",\"OPENAI_MODEL\":\"ocg/space-bunny-free\",\"XAI_API_KEY\":\"local\"}",
     "created_at": "2026-09-11T17:31:02.615047110+00:00",
-    "updated_at": "2026-09-30T12:09:22.234528986+00:00",
+    "updated_at": "2026-10-03T05:41:46.114140259+00:00",
     "model_provider_id": null
   },
   {
@@ -137,10 +137,10 @@
     "registry_id": "cursor",
     "enabled": 1,
     "sort_order": 12,
-    "installed_version": "2026.09.28-64d2043",
+    "installed_version": "2026.10.01-14929f9",
     "env_json": null,
     "created_at": "2026-09-11T17:31:02.616319730+00:00",
-    "updated_at": "2026-09-30T12:21:47.727781957+00:00",
+    "updated_at": "2026-10-05T02:08:24.602558869+00:00",
     "model_provider_id": null
   },
   {
@@ -150,10 +150,10 @@
     "enabled": 1,
     "sort_order": 3,
     "installed_version": "0.9.0",
-    "env_json": "{\"DEEPSEEK_ACP_MODEL\":\"ocg/space-bunny-free\",\"DEEPSEEK_API_KEY\":\"local\",\"DEEPSEEK_BASE_URL\":\"http://127.0.0.1:4000/v1\"}",
+    "env_json": "{\"DEEPSEEK_ACP_MODEL\":\"ocg/space-bunny-free\",\"DEEPSEEK_ACP_PROVIDER\":\"ocg\",\"DEEPSEEK_API_KEY\":\"local\",\"DEEPSEEK_BASE_URL\":\"http://127.0.0.1:4000/v1\"}",
     "created_at": "2026-09-11T17:31:02.616862301+00:00",
-    "updated_at": "2026-09-30T12:09:21.731472486+00:00",
-    "model_provider_id": 3
+    "updated_at": "2026-10-05T02:07:07.379401510+00:00",
+    "model_provider_id": null
   },
   {
     "id": 14,
@@ -164,7 +164,7 @@
     "installed_version": "1.1.65",
     "env_json": null,
     "created_at": "2026-09-11T17:31:02.618996327+00:00",
-    "updated_at": "2026-09-30T12:12:29.807178076+00:00",
+    "updated_at": "2026-10-03T05:36:52.404851127+00:00",
     "model_provider_id": null
   },
   {
@@ -173,10 +173,10 @@
     "registry_id": "antigravity-acp",
     "enabled": 1,
     "sort_order": 14,
-    "installed_version": "1.2.1",
+    "installed_version": "1.3.0",
     "env_json": null,
     "created_at": "2026-09-11T17:31:02.620404896+00:00",
-    "updated_at": "2026-09-30T12:21:47.729738891+00:00",
+    "updated_at": "2026-10-05T02:08:24.604508542+00:00",
     "model_provider_id": null
   }
 ]

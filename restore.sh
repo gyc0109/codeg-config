@@ -156,6 +156,18 @@ restore_agent "$PROJ/config/pi/settings.json"               /root/.pi/agent/sett
 restore_agent "$PROJ/config/pi/models.json"               /root/.pi/agent/models.json
 restore_agent "$PROJ/config/cline-providers.json"        /root/.cline/data/settings/providers.json
 restore_agent "$PROJ/config/codebuddy/models.json"        /root/.codebuddy/models.json
+
+# DeepSeek Harness 的模型路由（~/.dsh/settings.yaml）
+# 内置 deepseek-official 只有 2 个已下线的模型；这里用 pi-ai 多 provider
+# 适配器补上 ocg/ccg 两条路由，指向本机 LiteLLM :4000。
+step "5c. 还原 DeepSeek Harness 模型路由（~/.dsh/settings.yaml）"
+if [[ -f "$PROJ/config/dsh/settings.yaml" ]]; then
+  run mkdir -p /root/.dsh
+  run install -m 0600 "$PROJ/config/dsh/settings.yaml" /root/.dsh/settings.yaml
+  say "→ /root/.dsh/settings.yaml（ocg 29 + ccg 57）"
+else
+  say "跳过（快照缺失）"
+fi
 restore_agent "$PROJ/config/codex-model-catalog.json"    /root/.codex/codeg-model-catalog.json
 
 # ---------- 5b. open_claw（Gateway + 双 provider）----------
