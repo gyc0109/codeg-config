@@ -6,9 +6,9 @@
     "api_key": "local",
     "agent_types_json": "[\"kimi_code\"]",
     "created_at": "2026-09-11T19:00:42.117788985+00:00",
-    "updated_at": "2026-09-30T03:25:38.473069985+00:00",
+    "updated_at": "2026-10-08T03:17:52.457425201+00:00",
     "agent_type": "kimi_code",
-    "model": "ocg/space-bunny-free"
+    "model": "ocg/longcat-2.5-preview-free"
   },
   {
     "id": 2,
@@ -17,9 +17,9 @@
     "api_key": "local",
     "agent_types_json": "[\"grok\"]",
     "created_at": "2026-09-11T19:03:45.743269217+00:00",
-    "updated_at": "2026-09-30T03:25:38.514898572+00:00",
+    "updated_at": "2026-10-08T03:17:52.477973972+00:00",
     "agent_type": "grok",
-    "model": "ocg/space-bunny-free"
+    "model": "ocg/longcat-2.5-preview-free"
   },
   {
     "id": 3,
@@ -28,9 +28,9 @@
     "api_key": "local",
     "agent_types_json": "[\"deepseek\"]",
     "created_at": "2026-09-11T19:03:45.764299823+00:00",
-    "updated_at": "2026-09-30T03:25:38.550041532+00:00",
+    "updated_at": "2026-10-08T03:17:52.498703017+00:00",
     "agent_type": "deepseek",
-    "model": "ocg/space-bunny-free"
+    "model": "ocg/longcat-2.5-preview-free"
   },
   {
     "id": 4,
@@ -39,9 +39,9 @@
     "api_key": "local",
     "agent_types_json": "[\"claude_code\"]",
     "created_at": "2026-09-11T19:12:12.552332676+00:00",
-    "updated_at": "2026-09-30T02:21:09.552354734+00:00",
+    "updated_at": "2026-10-08T03:17:52.591617615+00:00",
     "agent_type": "claude_code",
-    "model": "{\"main\":\"ocg/space-bunny-free\",\"reasoning\":\"ocg/space-bunny-free\",\"haiku\":\"ocg/space-bunny-free\",\"sonnet\":\"ocg/space-bunny-free\",\"opus\":\"ocg/deepseek-v4.1-flash\",\"customOption\":\"ocg/longcat-2.5-preview-free\"}"
+    "model": "{\"main\": \"ocg/longcat-2.5-preview-free\", \"reasoning\": \"ocg/longcat-2.5-preview-free\", \"haiku\": \"ocg/longcat-2.5-preview-free\", \"sonnet\": \"ocg/longcat-2.5-preview-free\", \"opus\": \"ocg/deepseek-v4.1-flash\", \"customOption\": \"ocg/longcat-2.5-preview-free\", \"customOptionName\": \"OCG LongCat 2.5 Free\", \"customOptionDescription\": \"OpenCode Go \\u514d\\u8d39\\u6863\"}"
   },
   {
     "id": 5,

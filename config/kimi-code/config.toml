@@ -5,7 +5,7 @@ default_provider = "opencode-go"
 type = "openai"
 base_url = "http://127.0.0.1:8899/v1"
 api_key = "local"
-default_model = "space-bunny-free"
+default_model = "longcat-2.5-preview-free"
 
 [providers.commandcode]
 type = "openai"
