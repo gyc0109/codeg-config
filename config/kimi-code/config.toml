@@ -453,3 +453,104 @@ max_context_size = 1048576
 provider = "deepseek"
 model = "deepseek-v4-pro"
 max_context_size = 1048576
+
+[providers.ark]
+type = "openai"
+base_url = "http://127.0.0.1:8899/v1"
+api_key = "local"
+default_model = "deepseek-v4-1-flash-260910"
+
+[models."ark/deepseek-v4-1-flash-260910"]
+provider = "ark"
+model = "deepseek-v4-1-flash-260910"
+max_context_size = 262144
+
+[models."ark/deepseek-v4-flash-ga-260731"]
+provider = "ark"
+model = "deepseek-v4-flash-ga-260731"
+max_context_size = 262144
+
+[models."ark/deepseek-v4-pro-ga-260813"]
+provider = "ark"
+model = "deepseek-v4-pro-ga-260813"
+max_context_size = 262144
+
+[models."ark/doubao-seed-2-0-code-preview-260215"]
+provider = "ark"
+model = "doubao-seed-2-0-code-preview-260215"
+max_context_size = 262144
+
+[models."ark/doubao-seed-2-0-lite-260428"]
+provider = "ark"
+model = "doubao-seed-2-0-lite-260428"
+max_context_size = 262144
+
+[models."ark/doubao-seed-2-0-mini-260428"]
+provider = "ark"
+model = "doubao-seed-2-0-mini-260428"
+max_context_size = 262144
+
+[models."ark/doubao-seed-2-1-lite-260915"]
+provider = "ark"
+model = "doubao-seed-2-1-lite-260915"
+max_context_size = 262144
+
+[models."ark/doubao-seed-2-1-pro-260628"]
+provider = "ark"
+model = "doubao-seed-2-1-pro-260628"
+max_context_size = 262144
+
+[models."ark/doubao-seed-2-1-pro-260915"]
+provider = "ark"
+model = "doubao-seed-2-1-pro-260915"
+max_context_size = 262144
+
+[models."ark/doubao-seed-2-1-turbo-260628"]
+provider = "ark"
+model = "doubao-seed-2-1-turbo-260628"
+max_context_size = 262144
+
+[models."ark/doubao-smart-router-250928"]
+provider = "ark"
+model = "doubao-smart-router-250928"
+max_context_size = 262144
+
+[models."ark/glm-4-5-air-20250728"]
+provider = "ark"
+model = "glm-4-5-air-20250728"
+max_context_size = 262144
+
+[models."ark/glm-5-2-260617"]
+provider = "ark"
+model = "glm-5-2-260617"
+max_context_size = 262144
+
+[models."ark/glm-5-3-flash-260828"]
+provider = "ark"
+model = "glm-5-3-flash-260828"
+max_context_size = 262144
+
+[models."ark/qwen2-5-72b-20240919"]
+provider = "ark"
+model = "qwen2-5-72b-20240919"
+max_context_size = 262144
+
+[models."ark/qwen3-0-6b-20250429"]
+provider = "ark"
+model = "qwen3-0-6b-20250429"
+max_context_size = 262144
+
+[models."ark/qwen3-14b-20250429"]
+provider = "ark"
+model = "qwen3-14b-20250429"
+max_context_size = 262144
+
+[models."ark/qwen3-32b-20250429"]
+provider = "ark"
+model = "qwen3-32b-20250429"
+max_context_size = 262144
+
+[models."ark/qwen3-8b-20250429"]
+provider = "ark"
+model = "qwen3-8b-20250429"
+max_context_size = 262144

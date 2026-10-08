@@ -349,3 +349,79 @@ custom_providers:
   base_url: http://127.0.0.1:8899/v1
   api_key: local
   model: deepseek-v4-pro
+- name: ARK deepseek-v4-1-flash-260910
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: deepseek-v4-1-flash-260910
+- name: ARK deepseek-v4-flash-ga-260731
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: deepseek-v4-flash-ga-260731
+- name: ARK deepseek-v4-pro-ga-260813
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: deepseek-v4-pro-ga-260813
+- name: ARK doubao-seed-2-0-code-preview-260215
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: doubao-seed-2-0-code-preview-260215
+- name: ARK doubao-seed-2-0-lite-260428
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: doubao-seed-2-0-lite-260428
+- name: ARK doubao-seed-2-0-mini-260428
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: doubao-seed-2-0-mini-260428
+- name: ARK doubao-seed-2-1-lite-260915
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: doubao-seed-2-1-lite-260915
+- name: ARK doubao-seed-2-1-pro-260628
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: doubao-seed-2-1-pro-260628
+- name: ARK doubao-seed-2-1-pro-260915
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: doubao-seed-2-1-pro-260915
+- name: ARK doubao-seed-2-1-turbo-260628
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: doubao-seed-2-1-turbo-260628
+- name: ARK doubao-smart-router-250928
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: doubao-smart-router-250928
+- name: ARK glm-4-5-air-20250728
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: glm-4-5-air-20250728
+- name: ARK glm-5-2-260617
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: glm-5-2-260617
+- name: ARK glm-5-3-flash-260828
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: glm-5-3-flash-260828
+- name: ARK qwen2-5-72b-20240919
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: qwen2-5-72b-20240919
+- name: ARK qwen3-0-6b-20250429
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: qwen3-0-6b-20250429
+- name: ARK qwen3-14b-20250429
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: qwen3-14b-20250429
+- name: ARK qwen3-32b-20250429
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: qwen3-32b-20250429
+- name: ARK qwen3-8b-20250429
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: qwen3-8b-20250429

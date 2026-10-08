@@ -1,6 +1,196 @@
 {
   "models": [
     {
+      "id": "ark/deepseek-v4-1-flash-260910",
+      "name": "ARK deepseek-v4-1-flash-260910",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 262144,
+      "maxOutputTokens": 32768,
+      "supportsReasoning": true,
+      "supportsImages": false
+    },
+    {
+      "id": "ark/deepseek-v4-flash-ga-260731",
+      "name": "ARK deepseek-v4-flash-ga-260731",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 262144,
+      "maxOutputTokens": 32768,
+      "supportsReasoning": true,
+      "supportsImages": false
+    },
+    {
+      "id": "ark/deepseek-v4-pro-ga-260813",
+      "name": "ARK deepseek-v4-pro-ga-260813",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 262144,
+      "maxOutputTokens": 32768,
+      "supportsReasoning": true,
+      "supportsImages": false
+    },
+    {
+      "id": "ark/doubao-seed-2-0-code-preview-260215",
+      "name": "ARK doubao-seed-2-0-code-preview-260215",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 262144,
+      "maxOutputTokens": 32768,
+      "supportsReasoning": true,
+      "supportsImages": false
+    },
+    {
+      "id": "ark/doubao-seed-2-0-lite-260428",
+      "name": "ARK doubao-seed-2-0-lite-260428",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 262144,
+      "maxOutputTokens": 32768,
+      "supportsReasoning": true,
+      "supportsImages": false
+    },
+    {
+      "id": "ark/doubao-seed-2-0-mini-260428",
+      "name": "ARK doubao-seed-2-0-mini-260428",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 262144,
+      "maxOutputTokens": 32768,
+      "supportsReasoning": true,
+      "supportsImages": false
+    },
+    {
+      "id": "ark/doubao-seed-2-1-lite-260915",
+      "name": "ARK doubao-seed-2-1-lite-260915",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 262144,
+      "maxOutputTokens": 32768,
+      "supportsReasoning": true,
+      "supportsImages": false
+    },
+    {
+      "id": "ark/doubao-seed-2-1-pro-260628",
+      "name": "ARK doubao-seed-2-1-pro-260628",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 262144,
+      "maxOutputTokens": 32768,
+      "supportsReasoning": true,
+      "supportsImages": false
+    },
+    {
+      "id": "ark/doubao-seed-2-1-pro-260915",
+      "name": "ARK doubao-seed-2-1-pro-260915",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 262144,
+      "maxOutputTokens": 32768,
+      "supportsReasoning": true,
+      "supportsImages": false
+    },
+    {
+      "id": "ark/doubao-seed-2-1-turbo-260628",
+      "name": "ARK doubao-seed-2-1-turbo-260628",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 262144,
+      "maxOutputTokens": 32768,
+      "supportsReasoning": true,
+      "supportsImages": false
+    },
+    {
+      "id": "ark/doubao-smart-router-250928",
+      "name": "ARK doubao-smart-router-250928",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 262144,
+      "maxOutputTokens": 32768,
+      "supportsReasoning": true,
+      "supportsImages": false
+    },
+    {
+      "id": "ark/glm-4-5-air-20250728",
+      "name": "ARK glm-4-5-air-20250728",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 262144,
+      "maxOutputTokens": 32768,
+      "supportsReasoning": true,
+      "supportsImages": false
+    },
+    {
+      "id": "ark/glm-5-2-260617",
+      "name": "ARK glm-5-2-260617",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 262144,
+      "maxOutputTokens": 32768,
+      "supportsReasoning": true,
+      "supportsImages": false
+    },
+    {
+      "id": "ark/glm-5-3-flash-260828",
+      "name": "ARK glm-5-3-flash-260828",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 262144,
+      "maxOutputTokens": 32768,
+      "supportsReasoning": true,
+      "supportsImages": false
+    },
+    {
+      "id": "ark/qwen2-5-72b-20240919",
+      "name": "ARK qwen2-5-72b-20240919",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 262144,
+      "maxOutputTokens": 32768,
+      "supportsReasoning": true,
+      "supportsImages": false
+    },
+    {
+      "id": "ark/qwen3-0-6b-20250429",
+      "name": "ARK qwen3-0-6b-20250429",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 262144,
+      "maxOutputTokens": 32768,
+      "supportsReasoning": true,
+      "supportsImages": false
+    },
+    {
+      "id": "ark/qwen3-14b-20250429",
+      "name": "ARK qwen3-14b-20250429",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 262144,
+      "maxOutputTokens": 32768,
+      "supportsReasoning": true,
+      "supportsImages": false
+    },
+    {
+      "id": "ark/qwen3-32b-20250429",
+      "name": "ARK qwen3-32b-20250429",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 262144,
+      "maxOutputTokens": 32768,
+      "supportsReasoning": true,
+      "supportsImages": false
+    },
+    {
+      "id": "ark/qwen3-8b-20250429",
+      "name": "ARK qwen3-8b-20250429",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 262144,
+      "maxOutputTokens": 32768,
+      "supportsReasoning": true,
+      "supportsImages": false
+    },
+    {
       "id": "ds/deepseek-flash",
       "name": "DS DeepSeek-V4.1-Flash",
       "url": "http://127.0.0.1:4000/v1",
@@ -872,6 +1062,25 @@
     }
   ],
   "availableModels": [
+    "ark/deepseek-v4-1-flash-260910",
+    "ark/deepseek-v4-flash-ga-260731",
+    "ark/deepseek-v4-pro-ga-260813",
+    "ark/doubao-seed-2-0-code-preview-260215",
+    "ark/doubao-seed-2-0-lite-260428",
+    "ark/doubao-seed-2-0-mini-260428",
+    "ark/doubao-seed-2-1-lite-260915",
+    "ark/doubao-seed-2-1-pro-260628",
+    "ark/doubao-seed-2-1-pro-260915",
+    "ark/doubao-seed-2-1-turbo-260628",
+    "ark/doubao-smart-router-250928",
+    "ark/glm-4-5-air-20250728",
+    "ark/glm-5-2-260617",
+    "ark/glm-5-3-flash-260828",
+    "ark/qwen2-5-72b-20240919",
+    "ark/qwen3-0-6b-20250429",
+    "ark/qwen3-14b-20250429",
+    "ark/qwen3-32b-20250429",
+    "ark/qwen3-8b-20250429",
     "ds/deepseek-flash",
     "ds/deepseek-v4-pro",
     "ocg/deepseek-flash",

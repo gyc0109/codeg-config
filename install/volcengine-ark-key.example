@@ -1,0 +1,4 @@
+# 火山引擎方舟（豆包）API key，chmod 600
+# 代理 :8899 读这个文件，把 ark/<model> 路由到 ark.cn-beijing.volces.com/api/v3
+# 注意：key 有效还不够，必须在方舟控制台「开通」对应模型（否则报 ModelNotOpen）
+VOLCENGINE_ARK_API_KEY=${VOLCENGINE_ARK_API_KEY}

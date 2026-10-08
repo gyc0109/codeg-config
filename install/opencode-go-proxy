@@ -34,6 +34,14 @@ DS_HOST = "api.deepseek.com"
 DS_BASE = "/v1"
 DS_KEY = os.environ.get("DEEPSEEK_OFFICIAL_API_KEY", "").strip()
 DS_KEY_FILE = os.environ.get("DEEPSEEK_OFFICIAL_KEY_FILE", "/etc/deepseek-official-key")
+
+ARK_HOST = "ark.cn-beijing.volces.com"
+ARK_BASE = "/api/v3"
+ARK_KEY = os.environ.get("VOLCENGINE_ARK_API_KEY", "").strip()
+ARK_KEY_FILE = os.environ.get("VOLCENGINE_ARK_KEY_FILE", "/etc/volcengine-ark-key")
+if not ARK_KEY and os.path.exists(ARK_KEY_FILE):
+    with open(ARK_KEY_FILE) as fh:
+        ARK_KEY = fh.read().strip()
 if not DS_KEY and os.path.exists(DS_KEY_FILE):
     with open(DS_KEY_FILE) as fh:
         DS_KEY = fh.read().strip()
@@ -89,6 +97,8 @@ def _split_model(body):
         return "ocg", model[4:]
     if model.startswith("ds/"):
         return "ds", model[3:]
+    if model.startswith("ark/"):
+        return "ark", model[4:]
     return "ocg", model
 
 
@@ -131,7 +141,16 @@ def handle(client):
         body = _read_body(client, rest, content_length)
 
         prefix, wire = _split_model(body)
-        if prefix == "ds":
+        if prefix == "ark":
+            if not ARK_KEY:
+                client.sendall(b"HTTP/1.1 500 Internal Server Error\r\n"
+                               b"Content-Type: application/json\r\nContent-Length: 58\r\n\r\n"
+                               b'{"error":{"type":"proxy_error","message":"Ark key missing"}}')
+                return
+            host, base, key = ARK_HOST, ARK_BASE, ARK_KEY
+            if wire is not None:
+                body = _strip_prefix(body, wire)
+        elif prefix == "ds":
             if not DS_KEY:
                 client.sendall(b"HTTP/1.1 500 Internal Server Error\r\n"
                                b"Content-Type: application/json\r\nContent-Length: 62\r\n\r\n"
@@ -153,7 +172,7 @@ def handle(client):
         req = [f"{method} {target_path} HTTP/1.1".encode(), f"Host: {host}".encode()]
         if key:
             req.append(f"Authorization: Bearer {key}".encode())
-        if prefix != "ds":
+        if prefix not in ("ds", "ark"):
             if key:
                 req.append(f"x-api-key: {key}".encode())
             req.append(f"x-opencode-session: {SESSION}".encode())
@@ -205,6 +224,7 @@ def main():
         f"codeg-proxy listening on {LISTEN_HOST}:{LISTEN_PORT}\n"
         f"  ocg/* -> https://{OGP_HOST}{OGP_BASE}\n"
         f"  ds/*  -> https://{DS_HOST}{DS_BASE or '/v1'}\n"
+        f"  ark/* -> https://{ARK_HOST}{ARK_BASE}\n"
         f"  <id>  -> https://{OGP_HOST}{OGP_BASE} (兼容)\n")
     sys.stderr.flush()
     while True:
