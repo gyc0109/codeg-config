@@ -7,1121 +7,564 @@
       "api": "openai-completions",
       "models": [
         {
-          "id": "deepseek-v4-flash",
-          "name": "OCG DeepSeek V4 Flash",
-          "api": "openai-completions",
+          "id": "deepseek-flash",
+          "name": "OCG deepseek-flash",
           "provider": "ocg",
           "baseUrl": "http://127.0.0.1:8899/v1",
+          "api": "openai-completions",
           "reasoning": true,
           "input": [
-            "text"
+            "text",
+            "image"
           ],
+          "contextWindow": 1000000,
+          "maxTokens": 384000,
           "cost": {
             "input": 0,
             "output": 0,
             "cacheRead": 0,
             "cacheWrite": 0
-          },
-          "compat": {
-            "supportsStore": false,
-            "supportsDeveloperRole": false,
-            "supportsStrictMode": true,
-            "maxTokensField": "max_tokens",
-            "requiresReasoningContentOnAssistantMessages": true,
-            "thinkingFormat": "deepseek"
-          },
+          }
+        },
+        {
+          "id": "deepseek-v4-flash",
+          "name": "OCG DeepSeek V4 Flash",
+          "provider": "ocg",
+          "baseUrl": "http://127.0.0.1:8899/v1",
+          "api": "openai-completions",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
           "contextWindow": 1000000,
           "maxTokens": 384000,
-          "thinkingLevelMap": {
-            "minimal": null,
-            "low": "low",
-            "medium": null,
-            "high": "high",
-            "max": "max"
-          },
-          "type": "chat"
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
         },
         {
           "id": "deepseek-v4-flash-vision-exp",
           "name": "OCG DeepSeek V4 Flash Vision Exp",
-          "api": "openai-completions",
           "provider": "ocg",
           "baseUrl": "http://127.0.0.1:8899/v1",
+          "api": "openai-completions",
           "reasoning": true,
           "input": [
             "text",
             "image"
           ],
+          "contextWindow": 1000000,
+          "maxTokens": 384000,
           "cost": {
             "input": 0,
             "output": 0,
             "cacheRead": 0,
             "cacheWrite": 0
-          },
-          "compat": {
-            "supportsStore": false,
-            "supportsDeveloperRole": false,
-            "supportsStrictMode": true,
-            "maxTokensField": "max_tokens",
-            "requiresReasoningContentOnAssistantMessages": true,
-            "thinkingFormat": "deepseek"
-          },
-          "contextWindow": 1000000,
-          "maxTokens": 384000,
-          "thinkingLevelMap": {
-            "minimal": null,
-            "low": "low",
-            "medium": null,
-            "high": "high",
-            "max": "max"
-          },
-          "inputLimits": {
-            "images": {
-              "resize": {
-                "maxWidth": 2000,
-                "maxHeight": 2000,
-                "maxBytes": 4718592,
-                "jpegQuality": 80
-              }
-            }
-          },
-          "type": "chat"
+          }
         },
         {
           "id": "deepseek-v4-pro",
           "name": "OCG DeepSeek V4 Pro (New)",
-          "api": "openai-completions",
           "provider": "ocg",
           "baseUrl": "http://127.0.0.1:8899/v1",
+          "api": "openai-completions",
           "reasoning": true,
           "input": [
-            "text"
+            "text",
+            "image"
           ],
+          "contextWindow": 1000000,
+          "maxTokens": 384000,
           "cost": {
             "input": 0,
             "output": 0,
             "cacheRead": 0,
             "cacheWrite": 0
-          },
-          "compat": {
-            "supportsStore": false,
-            "supportsDeveloperRole": false,
-            "supportsStrictMode": true,
-            "maxTokensField": "max_tokens",
-            "requiresReasoningContentOnAssistantMessages": true,
-            "thinkingFormat": "deepseek"
-          },
-          "contextWindow": 1000000,
-          "maxTokens": 384000,
-          "thinkingLevelMap": {
-            "minimal": null,
-            "low": null,
-            "medium": null,
-            "high": "high",
-            "max": "max"
-          },
-          "type": "chat"
+          }
         },
         {
           "id": "deepseek-v4.1-flash",
           "name": "OCG DeepSeek V4.1 Flash",
-          "api": "openai-completions",
           "provider": "ocg",
           "baseUrl": "http://127.0.0.1:8899/v1",
+          "api": "openai-completions",
           "reasoning": true,
-          "thinkingLevelMap": {
-            "off": null,
-            "minimal": null,
-            "low": "low",
-            "medium": null,
-            "high": "high",
-            "xhigh": null,
-            "max": "max"
-          },
           "input": [
             "text",
             "image"
           ],
+          "contextWindow": 1000000,
+          "maxTokens": 384000,
           "cost": {
             "input": 0,
             "output": 0,
             "cacheRead": 0,
             "cacheWrite": 0
-          },
-          "compat": {
-            "supportsStore": false,
-            "supportsDeveloperRole": false,
-            "supportsStrictMode": true,
-            "maxTokensField": "max_tokens",
-            "requiresReasoningContentOnAssistantMessages": true,
-            "thinkingFormat": "deepseek"
-          },
-          "contextWindow": 1000000,
-          "maxTokens": 384000,
-          "inputLimits": {
-            "images": {
-              "resize": {
-                "maxWidth": 2000,
-                "maxHeight": 2000,
-                "maxBytes": 4718592,
-                "jpegQuality": 80
-              }
-            }
-          },
-          "type": "chat"
+          }
+        },
+        {
+          "id": "glm-5.1",
+          "name": "OCG glm-5.1",
+          "provider": "ocg",
+          "baseUrl": "http://127.0.0.1:8899/v1",
+          "api": "openai-completions",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 200000,
+          "maxTokens": 131072,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
         },
         {
           "id": "glm-5.2",
           "name": "OCG GLM-5.2",
-          "api": "openai-completions",
           "provider": "ocg",
           "baseUrl": "http://127.0.0.1:8899/v1",
+          "api": "openai-completions",
           "reasoning": true,
           "input": [
-            "text"
+            "text",
+            "image"
           ],
+          "contextWindow": 1000000,
+          "maxTokens": 131072,
           "cost": {
             "input": 0,
             "output": 0,
             "cacheRead": 0,
             "cacheWrite": 0
-          },
-          "compat": {
-            "supportsStore": false,
-            "supportsDeveloperRole": false,
-            "supportsStrictMode": true,
-            "maxTokensField": "max_tokens"
-          },
-          "contextWindow": 1000000,
-          "maxTokens": 131072,
-          "thinkingLevelMap": {
-            "off": null,
-            "minimal": null,
-            "low": null,
-            "medium": null,
-            "high": "high",
-            "xhigh": null,
-            "max": "max"
-          },
-          "type": "chat"
+          }
         },
         {
           "id": "glm-5.3",
           "name": "OCG GLM-5.3",
-          "api": "openai-completions",
           "provider": "ocg",
           "baseUrl": "http://127.0.0.1:8899/v1",
+          "api": "openai-completions",
           "reasoning": true,
           "input": [
-            "text"
+            "text",
+            "image"
           ],
+          "contextWindow": 1000000,
+          "maxTokens": 131072,
           "cost": {
             "input": 0,
             "output": 0,
             "cacheRead": 0,
             "cacheWrite": 0
-          },
-          "compat": {
-            "supportsStore": false,
-            "supportsDeveloperRole": false,
-            "supportsStrictMode": true,
-            "maxTokensField": "max_tokens"
-          },
-          "contextWindow": 1000000,
-          "maxTokens": 131072,
-          "thinkingLevelMap": {
-            "off": null,
-            "minimal": null,
-            "low": "low",
-            "medium": null,
-            "high": "high",
-            "xhigh": null,
-            "max": "max"
-          },
-          "type": "chat"
+          }
         },
         {
           "id": "glm-5.3-flash",
           "name": "OCG GLM-5.3-Flash",
-          "api": "openai-completions",
           "provider": "ocg",
           "baseUrl": "http://127.0.0.1:8899/v1",
+          "api": "openai-completions",
           "reasoning": true,
           "input": [
             "text",
             "image"
           ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
-          "compat": {
-            "supportsStore": false,
-            "supportsDeveloperRole": false,
-            "supportsStrictMode": true,
-            "maxTokensField": "max_tokens"
-          },
           "contextWindow": 1000000,
           "maxTokens": 131072,
-          "thinkingLevelMap": {
-            "off": null,
-            "minimal": null,
-            "low": "low",
-            "medium": null,
-            "high": "high",
-            "xhigh": null,
-            "max": "max"
-          },
-          "inputLimits": {
-            "images": {
-              "resize": {
-                "maxWidth": 2000,
-                "maxHeight": 2000,
-                "maxBytes": 4718592,
-                "jpegQuality": 80
-              }
-            }
-          },
-          "type": "chat"
-        },
-        {
-          "id": "gpt-5.6-luna",
-          "name": "OCG GPT-5.6 Luna",
-          "api": "openai-responses",
-          "provider": "ocg",
-          "baseUrl": "http://127.0.0.1:8899/v1",
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
           "cost": {
             "input": 0,
             "output": 0,
             "cacheRead": 0,
             "cacheWrite": 0
-          },
-          "compat": {
-            "sessionAffinityFormat": "openai-nosession",
-            "supportsMidConvoSystemMessages": true,
-            "supportsAdditionalTools": true
-          },
-          "contextWindow": 1050000,
-          "maxTokens": 128000,
-          "thinkingLevelMap": {
-            "off": null,
-            "minimal": null,
-            "low": "low",
-            "medium": "medium",
-            "high": "high",
-            "xhigh": "xhigh",
-            "max": "max"
-          },
-          "inputLimits": {
-            "images": {
-              "resize": {
-                "maxWidth": 2000,
-                "maxHeight": 2000,
-                "maxBytes": 4718592,
-                "jpegQuality": 80
-              }
-            }
-          },
-          "type": "chat"
-        },
-        {
-          "id": "gpt-6-luna",
-          "name": "OCG GPT-6 Luna",
-          "api": "openai-responses",
-          "provider": "ocg",
-          "baseUrl": "http://127.0.0.1:8899/v1",
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
-          "compat": {
-            "sessionAffinityFormat": "openai-nosession",
-            "supportsMidConvoSystemMessages": true,
-            "supportsAdditionalTools": true
-          },
-          "contextWindow": 1050000,
-          "maxTokens": 128000,
-          "thinkingLevelMap": {
-            "off": "none",
-            "minimal": null,
-            "low": "low",
-            "medium": "medium",
-            "high": "high",
-            "xhigh": "xhigh",
-            "max": "max"
-          },
-          "inputLimits": {
-            "images": {
-              "resize": {
-                "maxWidth": 2000,
-                "maxHeight": 2000,
-                "maxBytes": 4718592,
-                "jpegQuality": 80
-              }
-            }
-          },
-          "type": "chat"
-        },
-        {
-          "id": "grok-4.6",
-          "name": "OCG Grok 4.6",
-          "api": "openai-responses",
-          "provider": "ocg",
-          "baseUrl": "http://127.0.0.1:8899/v1",
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
-          "compat": {
-            "sessionAffinityFormat": "openai-nosession"
-          },
-          "contextWindow": 500000,
-          "maxTokens": 500000,
-          "thinkingLevelMap": {
-            "off": null,
-            "minimal": null,
-            "low": "low",
-            "medium": "medium",
-            "high": "high",
-            "xhigh": "xhigh",
-            "max": null
-          },
-          "inputLimits": {
-            "images": {
-              "resize": {
-                "maxWidth": 2000,
-                "maxHeight": 2000,
-                "maxBytes": 4718592,
-                "jpegQuality": 80
-              }
-            }
-          },
-          "type": "chat"
-        },
-        {
-          "id": "grok-4.7",
-          "name": "OCG Grok 4.7",
-          "api": "openai-responses",
-          "provider": "ocg",
-          "baseUrl": "http://127.0.0.1:8899/v1",
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
-          "compat": {
-            "sessionAffinityFormat": "openai-nosession"
-          },
-          "contextWindow": 500000,
-          "maxTokens": 500000,
-          "thinkingLevelMap": {
-            "off": null,
-            "minimal": null,
-            "low": "low",
-            "medium": "medium",
-            "high": "high",
-            "xhigh": "xhigh",
-            "max": null
-          },
-          "inputLimits": {
-            "images": {
-              "resize": {
-                "maxWidth": 2000,
-                "maxHeight": 2000,
-                "maxBytes": 4718592,
-                "jpegQuality": 80
-              }
-            }
-          },
-          "type": "chat"
+          }
         },
         {
           "id": "hy3",
           "name": "OCG Hy3",
-          "api": "openai-completions",
           "provider": "ocg",
           "baseUrl": "http://127.0.0.1:8899/v1",
+          "api": "openai-completions",
           "reasoning": true,
           "input": [
-            "text"
+            "text",
+            "image"
           ],
+          "contextWindow": 256000,
+          "maxTokens": 128000,
           "cost": {
             "input": 0,
             "output": 0,
             "cacheRead": 0,
             "cacheWrite": 0
-          },
-          "compat": {
-            "supportsStore": false,
-            "supportsDeveloperRole": false,
-            "supportsStrictMode": true,
-            "maxTokensField": "max_tokens"
-          },
-          "contextWindow": 256000,
-          "maxTokens": 128000,
-          "thinkingLevelMap": {
-            "off": "none",
-            "minimal": null,
-            "low": "low",
-            "medium": null,
-            "high": "high",
-            "xhigh": null,
-            "max": null
-          },
-          "type": "chat"
+          }
         },
         {
           "id": "hy4-preview",
           "name": "OCG Hy4 preview",
-          "api": "openai-completions",
           "provider": "ocg",
           "baseUrl": "http://127.0.0.1:8899/v1",
+          "api": "openai-completions",
           "reasoning": true,
           "input": [
-            "text"
+            "text",
+            "image"
           ],
+          "contextWindow": 1024000,
+          "maxTokens": 64000,
           "cost": {
             "input": 0,
             "output": 0,
             "cacheRead": 0,
             "cacheWrite": 0
-          },
-          "compat": {
-            "supportsStore": false,
-            "supportsDeveloperRole": false,
-            "supportsStrictMode": true,
-            "maxTokensField": "max_tokens"
-          },
-          "contextWindow": 1024000,
-          "maxTokens": 64000,
-          "thinkingLevelMap": {
-            "off": "none",
-            "minimal": null,
-            "low": null,
-            "medium": null,
-            "high": "high",
-            "xhigh": null,
-            "max": null
-          },
-          "type": "chat"
+          }
+        },
+        {
+          "id": "kimi-k2.6",
+          "name": "OCG Kimi K2.6",
+          "provider": "ocg",
+          "baseUrl": "http://127.0.0.1:8899/v1",
+          "api": "openai-completions",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 262144,
+          "maxTokens": 65536,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
         },
         {
           "id": "kimi-k2.7-code",
           "name": "OCG Kimi K2.7 Code",
-          "api": "openai-completions",
           "provider": "ocg",
           "baseUrl": "http://127.0.0.1:8899/v1",
+          "api": "openai-completions",
           "reasoning": true,
           "input": [
             "text",
             "image"
           ],
+          "contextWindow": 262144,
+          "maxTokens": 262144,
           "cost": {
             "input": 0,
             "output": 0,
             "cacheRead": 0,
             "cacheWrite": 0
-          },
-          "compat": {
-            "supportsStore": false,
-            "supportsDeveloperRole": false,
-            "supportsStrictMode": true,
-            "maxTokensField": "max_tokens"
-          },
-          "contextWindow": 262144,
-          "maxTokens": 262144,
-          "inputLimits": {
-            "images": {
-              "resize": {
-                "maxWidth": 2000,
-                "maxHeight": 2000,
-                "maxBytes": 4718592,
-                "jpegQuality": 80
-              }
-            }
-          },
-          "type": "chat"
+          }
         },
         {
           "id": "kimi-k3",
           "name": "OCG Kimi K3",
-          "api": "openai-completions",
           "provider": "ocg",
           "baseUrl": "http://127.0.0.1:8899/v1",
+          "api": "openai-completions",
           "reasoning": true,
           "input": [
             "text",
             "image"
           ],
+          "contextWindow": 1048576,
+          "maxTokens": 131072,
           "cost": {
             "input": 0,
             "output": 0,
             "cacheRead": 0,
             "cacheWrite": 0
-          },
-          "compat": {
-            "supportsStore": false,
-            "supportsDeveloperRole": false,
-            "supportsStrictMode": true,
-            "maxTokensField": "max_tokens",
-            "supportsMidConvoSystemMessages": true,
-            "supportsMidConvoToolAdditions": true
-          },
-          "contextWindow": 1048576,
-          "maxTokens": 131072,
-          "thinkingLevelMap": {
-            "off": null,
-            "minimal": null,
-            "low": null,
-            "medium": null,
-            "high": null,
-            "xhigh": null,
-            "max": "max"
-          },
-          "inputLimits": {
-            "images": {
-              "resize": {
-                "maxWidth": 2000,
-                "maxHeight": 2000,
-                "maxBytes": 4718592,
-                "jpegQuality": 80
-              }
-            }
-          },
-          "type": "chat"
+          }
         },
         {
           "id": "longcat-2.0",
           "name": "OCG LongCat-2.0",
-          "api": "openai-completions",
           "provider": "ocg",
           "baseUrl": "http://127.0.0.1:8899/v1",
+          "api": "openai-completions",
           "reasoning": true,
           "input": [
-            "text"
+            "text",
+            "image"
           ],
+          "contextWindow": 1000000,
+          "maxTokens": 131072,
           "cost": {
             "input": 0,
             "output": 0,
             "cacheRead": 0,
             "cacheWrite": 0
-          },
-          "compat": {
-            "supportsStore": false,
-            "supportsDeveloperRole": false,
-            "supportsStrictMode": true,
-            "maxTokensField": "max_tokens"
-          },
-          "contextWindow": 1000000,
-          "maxTokens": 131072,
-          "type": "chat"
+          }
         },
         {
           "id": "longcat-2.5-preview-free",
           "name": "OCG LongCat 2.5 Preview Free",
-          "api": "openai-completions",
           "provider": "ocg",
           "baseUrl": "http://127.0.0.1:8899/v1",
+          "api": "openai-completions",
           "reasoning": true,
           "input": [
             "text",
             "image"
           ],
+          "contextWindow": 1000000,
+          "maxTokens": 131072,
           "cost": {
             "input": 0,
             "output": 0,
             "cacheRead": 0,
             "cacheWrite": 0
-          },
-          "compat": {
-            "supportsStore": false,
-            "supportsDeveloperRole": false,
-            "supportsStrictMode": true,
-            "maxTokensField": "max_tokens"
-          },
-          "contextWindow": 1000000,
-          "maxTokens": 131072,
-          "inputLimits": {
-            "images": {
-              "resize": {
-                "maxWidth": 2000,
-                "maxHeight": 2000,
-                "maxBytes": 4718592,
-                "jpegQuality": 80
-              }
-            }
-          },
-          "type": "chat"
+          }
         },
         {
           "id": "mimo-v2.5",
           "name": "OCG MiMo V2.5",
-          "api": "openai-completions",
           "provider": "ocg",
           "baseUrl": "http://127.0.0.1:8899/v1",
+          "api": "openai-completions",
           "reasoning": true,
           "input": [
             "text",
             "image"
           ],
+          "contextWindow": 1000000,
+          "maxTokens": 128000,
           "cost": {
             "input": 0,
             "output": 0,
             "cacheRead": 0,
             "cacheWrite": 0
-          },
-          "compat": {
-            "supportsStore": false,
-            "supportsDeveloperRole": false,
-            "supportsStrictMode": true,
-            "maxTokensField": "max_tokens"
-          },
-          "contextWindow": 1000000,
-          "maxTokens": 128000,
-          "inputLimits": {
-            "images": {
-              "resize": {
-                "maxWidth": 2000,
-                "maxHeight": 2000,
-                "maxBytes": 4718592,
-                "jpegQuality": 80
-              }
-            }
-          },
-          "type": "chat"
+          }
         },
         {
           "id": "mimo-v2.5-pro",
           "name": "OCG MiMo V2.5 Pro",
-          "api": "openai-completions",
           "provider": "ocg",
           "baseUrl": "http://127.0.0.1:8899/v1",
+          "api": "openai-completions",
           "reasoning": true,
           "input": [
-            "text"
+            "text",
+            "image"
           ],
+          "contextWindow": 1048576,
+          "maxTokens": 128000,
           "cost": {
             "input": 0,
             "output": 0,
             "cacheRead": 0,
             "cacheWrite": 0
-          },
-          "compat": {
-            "supportsStore": false,
-            "supportsDeveloperRole": false,
-            "supportsStrictMode": true,
-            "maxTokensField": "max_tokens"
-          },
-          "contextWindow": 1048576,
-          "maxTokens": 128000,
-          "type": "chat"
+          }
         },
         {
           "id": "mimo-v2.6-flash",
           "name": "OCG MiMo-V2.6-Flash",
-          "api": "openai-completions",
           "provider": "ocg",
           "baseUrl": "http://127.0.0.1:8899/v1",
+          "api": "openai-completions",
           "reasoning": true,
           "input": [
             "text",
             "image"
           ],
+          "contextWindow": 1048576,
+          "maxTokens": 131072,
           "cost": {
             "input": 0,
             "output": 0,
             "cacheRead": 0,
             "cacheWrite": 0
-          },
-          "compat": {
-            "supportsStore": false,
-            "supportsDeveloperRole": false,
-            "supportsStrictMode": true,
-            "maxTokensField": "max_tokens"
-          },
-          "contextWindow": 1048576,
-          "maxTokens": 131072,
-          "inputLimits": {
-            "images": {
-              "resize": {
-                "maxWidth": 2000,
-                "maxHeight": 2000,
-                "maxBytes": 4718592,
-                "jpegQuality": 80
-              }
-            }
-          },
-          "type": "chat"
+          }
         },
         {
           "id": "mimo-v2.6-pro",
           "name": "OCG MiMo-V2.6-Pro",
-          "api": "openai-completions",
           "provider": "ocg",
           "baseUrl": "http://127.0.0.1:8899/v1",
+          "api": "openai-completions",
           "reasoning": true,
           "input": [
             "text",
             "image"
           ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
-          "compat": {
-            "supportsStore": false,
-            "supportsDeveloperRole": false,
-            "supportsStrictMode": true,
-            "maxTokensField": "max_tokens"
-          },
           "contextWindow": 1048576,
           "maxTokens": 131072,
-          "inputLimits": {
-            "images": {
-              "resize": {
-                "maxWidth": 2000,
-                "maxHeight": 2000,
-                "maxBytes": 4718592,
-                "jpegQuality": 80
-              }
-            }
-          },
-          "type": "chat"
-        },
-        {
-          "id": "minimax-m2.7",
-          "name": "OCG MiniMax-M2.7",
-          "api": "openai-completions",
-          "provider": "ocg",
-          "baseUrl": "http://127.0.0.1:8899/v1",
-          "reasoning": true,
-          "input": [
-            "text"
-          ],
           "cost": {
             "input": 0,
             "output": 0,
             "cacheRead": 0,
             "cacheWrite": 0
-          },
-          "compat": {
-            "supportsStore": false,
-            "supportsDeveloperRole": false,
-            "supportsStrictMode": true,
-            "maxTokensField": "max_tokens"
-          },
-          "contextWindow": 204800,
+          }
+        },
+        {
+          "id": "minimax-m2.5",
+          "name": "OCG minimax-m2.5",
+          "provider": "ocg",
+          "baseUrl": "http://127.0.0.1:8899/v1",
+          "api": "openai-completions",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 200000,
           "maxTokens": 131072,
-          "type": "chat"
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
         },
         {
           "id": "minimax-m3",
           "name": "OCG MiniMax-M3",
-          "api": "anthropic-messages",
           "provider": "ocg",
           "baseUrl": "http://127.0.0.1:8899/v1",
+          "api": "openai-completions",
           "reasoning": true,
           "input": [
             "text",
             "image"
           ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
           "contextWindow": 1000000,
           "maxTokens": 131072,
-          "inputLimits": {
-            "images": {
-              "resize": {
-                "maxWidth": 2000,
-                "maxHeight": 2000,
-                "maxBytes": 4718592,
-                "jpegQuality": 80
-              }
-            }
-          },
-          "type": "chat"
-        },
-        {
-          "id": "muse-spark-1.2-contributor",
-          "name": "OCG Muse Spark 1.2 Contributor",
-          "api": "openai-responses",
-          "provider": "ocg",
-          "baseUrl": "http://127.0.0.1:8899/v1",
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
           "cost": {
             "input": 0,
             "output": 0,
             "cacheRead": 0,
             "cacheWrite": 0
-          },
-          "compat": {
-            "sessionAffinityFormat": "openai-nosession"
-          },
-          "contextWindow": 1048576,
-          "maxTokens": 131072,
-          "thinkingLevelMap": {
-            "off": null,
-            "minimal": "minimal",
-            "low": "low",
-            "medium": "medium",
-            "high": "high",
-            "xhigh": "xhigh",
-            "max": null
-          },
-          "inputLimits": {
-            "images": {
-              "resize": {
-                "maxWidth": 2000,
-                "maxHeight": 2000,
-                "maxBytes": 4718592,
-                "jpegQuality": 80
-              }
-            }
-          },
-          "type": "chat"
+          }
         },
         {
-          "id": "muse-spark-1.3-contributor",
-          "name": "OCG Muse Spark 1.3 Contributor",
-          "api": "openai-responses",
+          "id": "omen-alpha",
+          "name": "OCG omen-alpha",
           "provider": "ocg",
           "baseUrl": "http://127.0.0.1:8899/v1",
+          "api": "openai-completions",
           "reasoning": true,
           "input": [
             "text",
             "image"
           ],
+          "contextWindow": 262144,
+          "maxTokens": 131072,
           "cost": {
             "input": 0,
             "output": 0,
             "cacheRead": 0,
             "cacheWrite": 0
-          },
-          "compat": {
-            "sessionAffinityFormat": "openai-nosession"
-          },
-          "contextWindow": 1048576,
-          "maxTokens": 131072,
-          "thinkingLevelMap": {
-            "off": null,
-            "minimal": "minimal",
-            "low": "low",
-            "medium": "medium",
-            "high": "high",
-            "xhigh": "xhigh",
-            "max": null
-          },
-          "inputLimits": {
-            "images": {
-              "resize": {
-                "maxWidth": 2000,
-                "maxHeight": 2000,
-                "maxBytes": 4718592,
-                "jpegQuality": 80
-              }
-            }
-          },
-          "type": "chat"
+          }
+        },
+        {
+          "id": "qwen3.6-plus",
+          "name": "OCG Qwen3.6 Plus",
+          "provider": "ocg",
+          "baseUrl": "http://127.0.0.1:8899/v1",
+          "api": "openai-completions",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 1000000,
+          "maxTokens": 65536,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        },
+        {
+          "id": "qwen3.7-max",
+          "name": "OCG Qwen3.7 Max",
+          "provider": "ocg",
+          "baseUrl": "http://127.0.0.1:8899/v1",
+          "api": "openai-completions",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 1000000,
+          "maxTokens": 65536,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
         },
         {
           "id": "qwen3.7-plus",
           "name": "OCG Qwen3.7 Plus",
-          "api": "openai-completions",
           "provider": "ocg",
           "baseUrl": "http://127.0.0.1:8899/v1",
+          "api": "openai-completions",
           "reasoning": true,
           "input": [
             "text",
             "image"
           ],
+          "contextWindow": 1000000,
+          "maxTokens": 65536,
           "cost": {
             "input": 0,
             "output": 0,
             "cacheRead": 0,
             "cacheWrite": 0
-          },
-          "compat": {
-            "supportsStore": false,
-            "supportsDeveloperRole": false,
-            "supportsStrictMode": true,
-            "maxTokensField": "max_tokens"
-          },
-          "contextWindow": 1000000,
-          "maxTokens": 65536,
-          "inputLimits": {
-            "images": {
-              "resize": {
-                "maxWidth": 2000,
-                "maxHeight": 2000,
-                "maxBytes": 4718592,
-                "jpegQuality": 80
-              }
-            }
-          },
-          "type": "chat"
+          }
         },
         {
           "id": "qwen3.8-flash",
           "name": "OCG Qwen3.8 Flash",
-          "api": "anthropic-messages",
           "provider": "ocg",
           "baseUrl": "http://127.0.0.1:8899/v1",
+          "api": "openai-completions",
           "reasoning": true,
           "input": [
             "text",
             "image"
           ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
           "contextWindow": 1000000,
           "maxTokens": 131072,
-          "compat": {
-            "allowEmptySignature": true
-          },
-          "inputLimits": {
-            "images": {
-              "resize": {
-                "maxWidth": 2000,
-                "maxHeight": 2000,
-                "maxBytes": 4718592,
-                "jpegQuality": 80
-              }
-            }
-          },
-          "type": "chat"
-        },
-        {
-          "id": "qwen3.8-max",
-          "name": "OCG Qwen3.8 Max",
-          "api": "openai-completions",
-          "provider": "ocg",
-          "baseUrl": "http://127.0.0.1:8899/v1",
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
           "cost": {
             "input": 0,
             "output": 0,
             "cacheRead": 0,
             "cacheWrite": 0
-          },
-          "compat": {
-            "supportsStore": false,
-            "supportsDeveloperRole": false,
-            "supportsStrictMode": true,
-            "maxTokensField": "max_tokens"
-          },
-          "contextWindow": 1000000,
-          "maxTokens": 131072,
-          "thinkingLevelMap": {
-            "off": null,
-            "minimal": null,
-            "low": "low",
-            "medium": "medium",
-            "high": null,
-            "xhigh": "xhigh",
-            "max": null
-          },
-          "inputLimits": {
-            "images": {
-              "resize": {
-                "maxWidth": 2000,
-                "maxHeight": 2000,
-                "maxBytes": 4718592,
-                "jpegQuality": 80
-              }
-            }
-          },
-          "type": "chat"
+          }
         },
         {
-          "id": "space-bunny-free",
-          "name": "OCG Space Bunny Free",
-          "api": "openai-completions",
+          "id": "space-bunny",
+          "name": "OCG Space Bunny",
           "provider": "ocg",
           "baseUrl": "http://127.0.0.1:8899/v1",
+          "api": "openai-completions",
           "reasoning": true,
           "input": [
             "text",
             "image"
           ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
-          "compat": {
-            "supportsStore": false,
-            "supportsDeveloperRole": false,
-            "supportsStrictMode": true,
-            "maxTokensField": "max_tokens"
-          },
           "contextWindow": 1048576,
           "maxTokens": 524288,
-          "thinkingLevelMap": {
-            "off": null,
-            "minimal": null,
-            "low": "low",
-            "medium": "medium",
-            "high": "high",
-            "xhigh": "xhigh",
-            "max": "max"
-          },
-          "inputLimits": {
-            "images": {
-              "resize": {
-                "maxWidth": 2000,
-                "maxHeight": 2000,
-                "maxBytes": 4718592,
-                "jpegQuality": 80
-              }
-            }
-          },
-          "type": "chat"
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
         }
       ]
     },

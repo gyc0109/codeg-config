@@ -1,4 +1,4 @@
-default_model = "ocg/space-bunny-free"
+default_model = "ocg/longcat-2.5-preview-free"
 default_provider = "opencode-go"
 
 [providers.opencode-go]
@@ -6,151 +6,6 @@ type = "openai"
 base_url = "http://127.0.0.1:8899/v1"
 api_key = "local"
 default_model = "space-bunny-free"
-
-[models."ocg/deepseek-flash"]
-provider = "opencode-go"
-model = "deepseek-flash"
-max_context_size = 1000000
-
-[models."ocg/deepseek-v4-flash"]
-provider = "opencode-go"
-model = "deepseek-v4-flash"
-max_context_size = 1000000
-
-[models."ocg/deepseek-v4-flash-vision-exp"]
-provider = "opencode-go"
-model = "deepseek-v4-flash-vision-exp"
-max_context_size = 1000000
-
-[models."ocg/deepseek-v4-pro"]
-provider = "opencode-go"
-model = "deepseek-v4-pro"
-max_context_size = 1000000
-
-[models."ocg/deepseek-v4.1-flash"]
-provider = "opencode-go"
-model = "deepseek-v4.1-flash"
-max_context_size = 1000000
-
-[models."ocg/glm-5.1"]
-provider = "opencode-go"
-model = "glm-5.1"
-max_context_size = 202752
-
-[models."ocg/glm-5.2"]
-provider = "opencode-go"
-model = "glm-5.2"
-max_context_size = 1000000
-
-[models."ocg/glm-5.3"]
-provider = "opencode-go"
-model = "glm-5.3"
-max_context_size = 1000000
-
-[models."ocg/glm-5.3-flash"]
-provider = "opencode-go"
-model = "glm-5.3-flash"
-max_context_size = 1000000
-
-[models."ocg/hy3"]
-provider = "opencode-go"
-model = "hy3"
-max_context_size = 256000
-
-[models."ocg/hy4-preview"]
-provider = "opencode-go"
-model = "hy4-preview"
-max_context_size = 1024000
-
-[models."ocg/kimi-k2.6"]
-provider = "opencode-go"
-model = "kimi-k2.6"
-max_context_size = 262144
-
-[models."ocg/kimi-k2.7-code"]
-provider = "opencode-go"
-model = "kimi-k2.7-code"
-max_context_size = 262144
-
-[models."ocg/kimi-k3"]
-provider = "opencode-go"
-model = "kimi-k3"
-max_context_size = 1048576
-
-[models."ocg/longcat-2.0"]
-provider = "opencode-go"
-model = "longcat-2.0"
-max_context_size = 1000000
-
-[models."ocg/mimo-v2.5"]
-provider = "opencode-go"
-model = "mimo-v2.5"
-max_context_size = 1000000
-
-[models."ocg/mimo-v2.5-pro"]
-provider = "opencode-go"
-model = "mimo-v2.5-pro"
-max_context_size = 1048576
-
-[models."ocg/mimo-v2.6-flash"]
-provider = "opencode-go"
-model = "mimo-v2.6-flash"
-max_context_size = 1048576
-
-[models."ocg/mimo-v2.6-pro"]
-provider = "opencode-go"
-model = "mimo-v2.6-pro"
-max_context_size = 1048576
-
-[models."ocg/minimax-m2.5"]
-provider = "opencode-go"
-model = "minimax-m2.5"
-max_context_size = 1000000
-
-[models."ocg/minimax-m3"]
-provider = "opencode-go"
-model = "minimax-m3"
-max_context_size = 1000000
-
-[models."ocg/omen-alpha"]
-provider = "opencode-go"
-model = "omen-alpha"
-max_context_size = 1000000
-
-[models."ocg/qwen3.6-plus"]
-provider = "opencode-go"
-model = "qwen3.6-plus"
-max_context_size = 1000000
-
-[models."ocg/qwen3.7-max"]
-provider = "opencode-go"
-model = "qwen3.7-max"
-max_context_size = 1000000
-
-[models."ocg/qwen3.7-plus"]
-provider = "opencode-go"
-model = "qwen3.7-plus"
-max_context_size = 1000000
-
-[models."ocg/qwen3.8-flash"]
-provider = "opencode-go"
-model = "qwen3.8-flash"
-max_context_size = 1000000
-
-[models."ocg/qwen3.8-max"]
-provider = "opencode-go"
-model = "qwen3.8-max"
-max_context_size = 1000000
-
-[models."ocg/space-bunny-free"]
-provider = "opencode-go"
-model = "space-bunny-free"
-max_context_size = 1000000
-
-[models."ocg/longcat-2.5-preview-free"]
-provider = "opencode-go"
-model = "longcat-2.5-preview-free"
-max_context_size = 1000000
 
 [providers.commandcode]
 type = "openai"
@@ -442,3 +297,144 @@ max_context_size = 1000000
 provider = "commandcode"
 model = "zai-org/GLM-5.3"
 max_context_size = 1000000
+
+[models."ocg/deepseek-flash"]
+provider = "opencode-go"
+model = "deepseek-flash"
+max_context_size = 1000000
+
+[models."ocg/deepseek-v4-flash"]
+provider = "opencode-go"
+model = "deepseek-v4-flash"
+max_context_size = 1000000
+
+[models."ocg/deepseek-v4-flash-vision-exp"]
+provider = "opencode-go"
+model = "deepseek-v4-flash-vision-exp"
+max_context_size = 1000000
+
+[models."ocg/deepseek-v4-pro"]
+provider = "opencode-go"
+model = "deepseek-v4-pro"
+max_context_size = 1000000
+
+[models."ocg/deepseek-v4.1-flash"]
+provider = "opencode-go"
+model = "deepseek-v4.1-flash"
+max_context_size = 1000000
+
+[models."ocg/glm-5.1"]
+provider = "opencode-go"
+model = "glm-5.1"
+max_context_size = 200000
+
+[models."ocg/glm-5.2"]
+provider = "opencode-go"
+model = "glm-5.2"
+max_context_size = 1000000
+
+[models."ocg/glm-5.3"]
+provider = "opencode-go"
+model = "glm-5.3"
+max_context_size = 1000000
+
+[models."ocg/glm-5.3-flash"]
+provider = "opencode-go"
+model = "glm-5.3-flash"
+max_context_size = 1000000
+
+[models."ocg/hy3"]
+provider = "opencode-go"
+model = "hy3"
+max_context_size = 256000
+
+[models."ocg/hy4-preview"]
+provider = "opencode-go"
+model = "hy4-preview"
+max_context_size = 1024000
+
+[models."ocg/kimi-k2.6"]
+provider = "opencode-go"
+model = "kimi-k2.6"
+max_context_size = 262144
+
+[models."ocg/kimi-k2.7-code"]
+provider = "opencode-go"
+model = "kimi-k2.7-code"
+max_context_size = 262144
+
+[models."ocg/kimi-k3"]
+provider = "opencode-go"
+model = "kimi-k3"
+max_context_size = 1048576
+
+[models."ocg/longcat-2.0"]
+provider = "opencode-go"
+model = "longcat-2.0"
+max_context_size = 1000000
+
+[models."ocg/longcat-2.5-preview-free"]
+provider = "opencode-go"
+model = "longcat-2.5-preview-free"
+max_context_size = 1000000
+
+[models."ocg/mimo-v2.5"]
+provider = "opencode-go"
+model = "mimo-v2.5"
+max_context_size = 1000000
+
+[models."ocg/mimo-v2.5-pro"]
+provider = "opencode-go"
+model = "mimo-v2.5-pro"
+max_context_size = 1048576
+
+[models."ocg/mimo-v2.6-flash"]
+provider = "opencode-go"
+model = "mimo-v2.6-flash"
+max_context_size = 1048576
+
+[models."ocg/mimo-v2.6-pro"]
+provider = "opencode-go"
+model = "mimo-v2.6-pro"
+max_context_size = 1048576
+
+[models."ocg/minimax-m2.5"]
+provider = "opencode-go"
+model = "minimax-m2.5"
+max_context_size = 200000
+
+[models."ocg/minimax-m3"]
+provider = "opencode-go"
+model = "minimax-m3"
+max_context_size = 1000000
+
+[models."ocg/omen-alpha"]
+provider = "opencode-go"
+model = "omen-alpha"
+max_context_size = 262144
+
+[models."ocg/qwen3.6-plus"]
+provider = "opencode-go"
+model = "qwen3.6-plus"
+max_context_size = 1000000
+
+[models."ocg/qwen3.7-max"]
+provider = "opencode-go"
+model = "qwen3.7-max"
+max_context_size = 1000000
+
+[models."ocg/qwen3.7-plus"]
+provider = "opencode-go"
+model = "qwen3.7-plus"
+max_context_size = 1000000
+
+[models."ocg/qwen3.8-flash"]
+provider = "opencode-go"
+model = "qwen3.8-flash"
+max_context_size = 1000000
+
+[models."ocg/space-bunny"]
+provider = "opencode-go"
+model = "space-bunny"
+max_context_size = 1048576
+

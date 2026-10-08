@@ -1,6 +1,16 @@
 {
   "models": [
     {
+      "id": "ocg/deepseek-flash",
+      "name": "OCG deepseek-flash",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 1000000,
+      "maxOutputTokens": 384000,
+      "supportsReasoning": true,
+      "supportsImages": true
+    },
+    {
       "id": "ocg/deepseek-v4-flash",
       "name": "OCG DeepSeek V4 Flash",
       "url": "http://127.0.0.1:4000/v1",
@@ -41,6 +51,16 @@
       "supportsImages": true
     },
     {
+      "id": "ocg/glm-5.1",
+      "name": "OCG glm-5.1",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 200000,
+      "maxOutputTokens": 131072,
+      "supportsReasoning": true,
+      "supportsImages": true
+    },
+    {
       "id": "ocg/glm-5.2",
       "name": "OCG GLM-5.2",
       "url": "http://127.0.0.1:4000/v1",
@@ -71,46 +91,6 @@
       "supportsImages": true
     },
     {
-      "id": "ocg/gpt-5.6-luna",
-      "name": "OCG GPT-5.6 Luna",
-      "url": "http://127.0.0.1:4000/v1",
-      "apiKey": "local",
-      "maxInputTokens": 1050000,
-      "maxOutputTokens": 128000,
-      "supportsReasoning": true,
-      "supportsImages": true
-    },
-    {
-      "id": "ocg/gpt-6-luna",
-      "name": "OCG GPT-6 Luna",
-      "url": "http://127.0.0.1:4000/v1",
-      "apiKey": "local",
-      "maxInputTokens": 1050000,
-      "maxOutputTokens": 128000,
-      "supportsReasoning": true,
-      "supportsImages": true
-    },
-    {
-      "id": "ocg/grok-4.6",
-      "name": "OCG Grok 4.6",
-      "url": "http://127.0.0.1:4000/v1",
-      "apiKey": "local",
-      "maxInputTokens": 500000,
-      "maxOutputTokens": 500000,
-      "supportsReasoning": true,
-      "supportsImages": true
-    },
-    {
-      "id": "ocg/grok-4.7",
-      "name": "OCG Grok 4.7",
-      "url": "http://127.0.0.1:4000/v1",
-      "apiKey": "local",
-      "maxInputTokens": 500000,
-      "maxOutputTokens": 500000,
-      "supportsReasoning": true,
-      "supportsImages": true
-    },
-    {
       "id": "ocg/hy3",
       "name": "OCG Hy3",
       "url": "http://127.0.0.1:4000/v1",
@@ -127,6 +107,16 @@
       "apiKey": "local",
       "maxInputTokens": 1024000,
       "maxOutputTokens": 64000,
+      "supportsReasoning": true,
+      "supportsImages": true
+    },
+    {
+      "id": "ocg/kimi-k2.6",
+      "name": "OCG Kimi K2.6",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 262144,
+      "maxOutputTokens": 65536,
       "supportsReasoning": true,
       "supportsImages": true
     },
@@ -211,11 +201,11 @@
       "supportsImages": true
     },
     {
-      "id": "ocg/minimax-m2.7",
-      "name": "OCG MiniMax-M2.7",
+      "id": "ocg/minimax-m2.5",
+      "name": "OCG minimax-m2.5",
       "url": "http://127.0.0.1:4000/v1",
       "apiKey": "local",
-      "maxInputTokens": 204800,
+      "maxInputTokens": 200000,
       "maxOutputTokens": 131072,
       "supportsReasoning": true,
       "supportsImages": true
@@ -231,22 +221,32 @@
       "supportsImages": true
     },
     {
-      "id": "ocg/muse-spark-1.2-contributor",
-      "name": "OCG Muse Spark 1.2 Contributor",
+      "id": "ocg/omen-alpha",
+      "name": "OCG omen-alpha",
       "url": "http://127.0.0.1:4000/v1",
       "apiKey": "local",
-      "maxInputTokens": 1048576,
+      "maxInputTokens": 262144,
       "maxOutputTokens": 131072,
       "supportsReasoning": true,
       "supportsImages": true
     },
     {
-      "id": "ocg/muse-spark-1.3-contributor",
-      "name": "OCG Muse Spark 1.3 Contributor",
+      "id": "ocg/qwen3.6-plus",
+      "name": "OCG Qwen3.6 Plus",
       "url": "http://127.0.0.1:4000/v1",
       "apiKey": "local",
-      "maxInputTokens": 1048576,
-      "maxOutputTokens": 131072,
+      "maxInputTokens": 1000000,
+      "maxOutputTokens": 65536,
+      "supportsReasoning": true,
+      "supportsImages": true
+    },
+    {
+      "id": "ocg/qwen3.7-max",
+      "name": "OCG Qwen3.7 Max",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 1000000,
+      "maxOutputTokens": 65536,
       "supportsReasoning": true,
       "supportsImages": true
     },
@@ -271,18 +271,8 @@
       "supportsImages": true
     },
     {
-      "id": "ocg/qwen3.8-max",
-      "name": "OCG Qwen3.8 Max",
-      "url": "http://127.0.0.1:4000/v1",
-      "apiKey": "local",
-      "maxInputTokens": 1000000,
-      "maxOutputTokens": 131072,
-      "supportsReasoning": true,
-      "supportsImages": true
-    },
-    {
-      "id": "ocg/space-bunny-free",
-      "name": "OCG Space Bunny Free",
+      "id": "ocg/space-bunny",
+      "name": "OCG Space Bunny",
       "url": "http://127.0.0.1:4000/v1",
       "apiKey": "local",
       "maxInputTokens": 1048576,
@@ -862,19 +852,18 @@
     }
   ],
   "availableModels": [
+    "ocg/deepseek-flash",
     "ocg/deepseek-v4-flash",
     "ocg/deepseek-v4-flash-vision-exp",
     "ocg/deepseek-v4-pro",
     "ocg/deepseek-v4.1-flash",
+    "ocg/glm-5.1",
     "ocg/glm-5.2",
     "ocg/glm-5.3",
     "ocg/glm-5.3-flash",
-    "ocg/gpt-5.6-luna",
-    "ocg/gpt-6-luna",
-    "ocg/grok-4.6",
-    "ocg/grok-4.7",
     "ocg/hy3",
     "ocg/hy4-preview",
+    "ocg/kimi-k2.6",
     "ocg/kimi-k2.7-code",
     "ocg/kimi-k3",
     "ocg/longcat-2.0",
@@ -883,14 +872,14 @@
     "ocg/mimo-v2.5-pro",
     "ocg/mimo-v2.6-flash",
     "ocg/mimo-v2.6-pro",
-    "ocg/minimax-m2.7",
+    "ocg/minimax-m2.5",
     "ocg/minimax-m3",
-    "ocg/muse-spark-1.2-contributor",
-    "ocg/muse-spark-1.3-contributor",
+    "ocg/omen-alpha",
+    "ocg/qwen3.6-plus",
+    "ocg/qwen3.7-max",
     "ocg/qwen3.7-plus",
     "ocg/qwen3.8-flash",
-    "ocg/qwen3.8-max",
-    "ocg/space-bunny-free",
+    "ocg/space-bunny",
     "ccg/MiniMaxAI/MiniMax-M2.5",
     "ccg/MiniMaxAI/MiniMax-M3",
     "ccg/Qwen/Qwen3.6-Max-Preview",

@@ -1,122 +1,6 @@
-provider: custom:ocg-space-bunny-free
-model: space-bunny-free
+provider: custom:ocg-longcat-2.5-preview-free
+model: longcat-2.5-preview-free
 custom_providers:
-- name: OCG DeepSeek
-  base_url: http://127.0.0.1:8899/v1
-  api_key: local
-  model: deepseek-v4.1-flash
-- name: OCG Qwen
-  base_url: http://127.0.0.1:8899/v1
-  api_key: local
-  model: qwen3.8-max
-- name: OCG GLM
-  base_url: http://127.0.0.1:8899/v1
-  api_key: local
-  model: glm-5.3
-- name: OCG Kimi
-  base_url: http://127.0.0.1:8899/v1
-  api_key: local
-  model: kimi-k3
-- name: OCG MiniMax
-  base_url: http://127.0.0.1:8899/v1
-  api_key: local
-  model: minimax-m3
-- name: OCG Deepseek Flash
-  base_url: http://127.0.0.1:8899/v1
-  api_key: local
-  model: deepseek-flash
-- name: OCG Deepseek V4 Flash
-  base_url: http://127.0.0.1:8899/v1
-  api_key: local
-  model: deepseek-v4-flash
-- name: OCG Deepseek V4 Flash Vision Exp
-  base_url: http://127.0.0.1:8899/v1
-  api_key: local
-  model: deepseek-v4-flash-vision-exp
-- name: OCG Deepseek V4 Pro
-  base_url: http://127.0.0.1:8899/v1
-  api_key: local
-  model: deepseek-v4-pro
-- name: OCG Glm 5.1
-  base_url: http://127.0.0.1:8899/v1
-  api_key: local
-  model: glm-5.1
-- name: OCG Glm 5.2
-  base_url: http://127.0.0.1:8899/v1
-  api_key: local
-  model: glm-5.2
-- name: OCG Glm 5.3 Flash
-  base_url: http://127.0.0.1:8899/v1
-  api_key: local
-  model: glm-5.3-flash
-- name: OCG Hy3
-  base_url: http://127.0.0.1:8899/v1
-  api_key: local
-  model: hy3
-- name: OCG Hy4 Preview
-  base_url: http://127.0.0.1:8899/v1
-  api_key: local
-  model: hy4-preview
-- name: OCG Kimi K2.6
-  base_url: http://127.0.0.1:8899/v1
-  api_key: local
-  model: kimi-k2.6
-- name: OCG Kimi K2.7 Code
-  base_url: http://127.0.0.1:8899/v1
-  api_key: local
-  model: kimi-k2.7-code
-- name: OCG Longcat 2.0
-  base_url: http://127.0.0.1:8899/v1
-  api_key: local
-  model: longcat-2.0
-- name: OCG Mimo V2.5
-  base_url: http://127.0.0.1:8899/v1
-  api_key: local
-  model: mimo-v2.5
-- name: OCG Mimo V2.5 Pro
-  base_url: http://127.0.0.1:8899/v1
-  api_key: local
-  model: mimo-v2.5-pro
-- name: OCG Minimax M2.5
-  base_url: http://127.0.0.1:8899/v1
-  api_key: local
-  model: minimax-m2.5
-- name: OCG Omen Alpha
-  base_url: http://127.0.0.1:8899/v1
-  api_key: local
-  model: omen-alpha
-- name: OCG Qwen3.6 Plus
-  base_url: http://127.0.0.1:8899/v1
-  api_key: local
-  model: qwen3.6-plus
-- name: OCG Qwen3.7 Max
-  base_url: http://127.0.0.1:8899/v1
-  api_key: local
-  model: qwen3.7-max
-- name: OCG Qwen3.7 Plus
-  base_url: http://127.0.0.1:8899/v1
-  api_key: local
-  model: qwen3.7-plus
-- name: OCG Qwen3.8 Flash
-  base_url: http://127.0.0.1:8899/v1
-  api_key: local
-  model: qwen3.8-flash
-- name: OCG Mimo V2.6 Flash
-  base_url: http://127.0.0.1:8899/v1
-  api_key: local
-  model: mimo-v2.6-flash
-- name: OCG Mimo V2.6 Pro
-  base_url: http://127.0.0.1:8899/v1
-  api_key: local
-  model: mimo-v2.6-pro
-- name: OCG Space Bunny Free
-  base_url: http://127.0.0.1:8899/v1
-  api_key: local
-  model: space-bunny-free
-- name: OCG longcat-2.5-preview-free
-  base_url: http://127.0.0.1:8899/v1
-  api_key: local
-  model: longcat-2.5-preview-free
 - name: CCG MiniMax M2.5
   base_url: https://api.commandcode.ai/provider/v1
   api_key: ${COMMANDCODE_API_KEY}
@@ -345,3 +229,115 @@ custom_providers:
   base_url: https://api.commandcode.ai/provider/v1
   api_key: ${COMMANDCODE_API_KEY}
   model: zai-org/GLM-5.3
+- name: OCG deepseek-flash
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: deepseek-flash
+- name: OCG DeepSeek V4 Flash
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: deepseek-v4-flash
+- name: OCG DeepSeek V4 Flash Vision Exp
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: deepseek-v4-flash-vision-exp
+- name: OCG DeepSeek V4 Pro (New)
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: deepseek-v4-pro
+- name: OCG DeepSeek V4.1 Flash
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: deepseek-v4.1-flash
+- name: OCG glm-5.1
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: glm-5.1
+- name: OCG GLM-5.2
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: glm-5.2
+- name: OCG GLM-5.3
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: glm-5.3
+- name: OCG GLM-5.3-Flash
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: glm-5.3-flash
+- name: OCG Hy3
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: hy3
+- name: OCG Hy4 preview
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: hy4-preview
+- name: OCG Kimi K2.6
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: kimi-k2.6
+- name: OCG Kimi K2.7 Code
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: kimi-k2.7-code
+- name: OCG Kimi K3
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: kimi-k3
+- name: OCG LongCat-2.0
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: longcat-2.0
+- name: OCG LongCat 2.5 Preview Free
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: longcat-2.5-preview-free
+- name: OCG MiMo V2.5
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: mimo-v2.5
+- name: OCG MiMo V2.5 Pro
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: mimo-v2.5-pro
+- name: OCG MiMo-V2.6-Flash
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: mimo-v2.6-flash
+- name: OCG MiMo-V2.6-Pro
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: mimo-v2.6-pro
+- name: OCG minimax-m2.5
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: minimax-m2.5
+- name: OCG MiniMax-M3
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: minimax-m3
+- name: OCG omen-alpha
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: omen-alpha
+- name: OCG Qwen3.6 Plus
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: qwen3.6-plus
+- name: OCG Qwen3.7 Max
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: qwen3.7-max
+- name: OCG Qwen3.7 Plus
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: qwen3.7-plus
+- name: OCG Qwen3.8 Flash
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: qwen3.8-flash
+- name: OCG Space Bunny
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: space-bunny

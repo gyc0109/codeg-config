@@ -90,6 +90,30 @@ codeg 前端把 agent 上报的 model configOption 拆成「分组 + 条目」
 - claude_code：LiteLLM 的 `model_name` 改成 `ocg/<真实id>`；Command Code 侧由
   `commandcode-proxy` 剥掉 `ccg/`
 
+
+### OpenCode Go 模型变更（2026-10 实测）
+
+**`space-bunny-free` 已下线**（改成付费的 `space-bunny`）。免费档只剩
+**`longcat-2.5-preview-free`**，因此所有默认模型改用它。
+
+实测 37 个模型（权威来源 `GET /zen/go/v1/models`）：
+
+| 分类 | 数量 | 说明 |
+| --- | --- | --- |
+| chat 可用 | **28** | 所有 chat agent |
+| responses 可用 | **11** | codex |
+| 两种都不可用 | 3 | `claude-haiku-5-5`（套餐外）、`minimax-m2.7`、`qwen3.8-max`（messages 报 Invalid credential） |
+
+> 注意 `GET /zen/go/v1/models` **只返回 id**，不带上下文窗口；上下文要从
+> opencode 的 models.dev 缓存 `~/.cache/opencode/models.json` 取（provider `opencode-go`）。
+
+**LiteLLM 的 ocg/ 必须是 chat ∪ responses 的并集（34 个）**，不能只放 responses 子集——
+因为 cline / code_buddy / grok / deepseek 走的是 LiteLLM 的 **chat** 端点，
+只放 responses 子集会让它们连默认模型都找不到。
+
+另：LiteLLM 配置里 `additional_drop_params` 用了 YAML 锚点 `&id001`。重建 ocg 段时
+**必须先确保锚点还在**（它原本挂在第一条 ocg 条目上，删掉就会 `found undefined alias`）。
+
 ### Command Code 模型清单怎么来的（重要）
 
 **不要靠逐个探测猜协议**，`GET /provider/v1/models` 的每个模型都带

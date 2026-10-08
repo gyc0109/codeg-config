@@ -9,503 +9,173 @@
         "apiKey": "local"
       },
       "models": {
-        "deepseek-v4.1-flash": {
-          "name": "DeepSeek V4.1 Flash",
-          "reasoning": true,
-          "tool_call": true,
-          "attachment": true,
-          "limit": {
-            "context": 1000000,
-            "output": 384000
-          },
-          "cost": {
-            "input": 0.15,
-            "output": 0.6,
-            "cache_read": 0.003,
-            "cache_write": 0
-          },
-          "interleaved": "reasoning_content",
-          "id": "deepseek-v4.1-flash"
-        },
-        "qwen3.8-max": {
-          "name": "Qwen3.8 Max",
-          "reasoning": true,
-          "tool_call": true,
-          "attachment": true,
-          "limit": {
-            "context": 1000000,
-            "output": 131072
-          },
-          "cost": {
-            "input": 2,
-            "output": 6,
-            "cache_read": 0.25,
-            "cache_write": 0
-          },
-          "id": "qwen3.8-max"
-        },
-        "qwen3.8-flash": {
-          "name": "Qwen3.8 Flash",
-          "reasoning": true,
-          "tool_call": true,
-          "attachment": true,
-          "limit": {
-            "context": 1000000,
-            "output": 131072
-          },
-          "cost": {
-            "input": 0.15,
-            "output": 0.47,
-            "cache_read": 0.016,
-            "cache_write": 0
-          },
-          "id": "qwen3.8-flash"
-        },
-        "glm-5.3": {
-          "name": "GLM-5.3",
-          "reasoning": true,
-          "tool_call": true,
-          "attachment": false,
-          "limit": {
-            "context": 1000000,
-            "output": 131072
-          },
-          "cost": {
-            "input": 1.4,
-            "output": 4.4,
-            "cache_read": 0.26,
-            "cache_write": 0
-          },
-          "id": "glm-5.3"
-        },
-        "glm-5.3-flash": {
-          "name": "GLM-5.3 Flash",
-          "reasoning": true,
-          "tool_call": true,
-          "attachment": true,
-          "limit": {
-            "context": 1000000,
-            "output": 131072
-          },
-          "cost": {
-            "input": 0.15,
-            "output": 0.5,
-            "cache_read": 0.03,
-            "cache_write": 0
-          },
-          "id": "glm-5.3-flash"
-        },
-        "kimi-k2.7-code": {
-          "name": "Kimi K2.7 Code",
-          "reasoning": true,
-          "tool_call": true,
-          "attachment": true,
-          "limit": {
-            "context": 262144,
-            "output": 262144
-          },
-          "cost": {
-            "input": 0.95,
-            "output": 4,
-            "cache_read": 0.19,
-            "cache_write": 0
-          },
-          "id": "kimi-k2.7-code"
-        },
-        "kimi-k3": {
-          "name": "Kimi K3",
-          "reasoning": true,
-          "tool_call": true,
-          "attachment": true,
-          "limit": {
-            "context": 1048576,
-            "output": 131072
-          },
-          "cost": {
-            "input": 3,
-            "output": 15,
-            "cache_read": 0.3,
-            "cache_write": 0
-          },
-          "id": "kimi-k3"
-        },
-        "minimax-m3": {
-          "name": "MiniMax M3",
-          "reasoning": true,
-          "tool_call": true,
-          "attachment": true,
-          "limit": {
-            "context": 1000000,
-            "output": 131072
-          },
-          "cost": {
-            "input": 0.3,
-            "output": 1.2,
-            "cache_read": 0.06,
-            "cache_write": 0
-          },
-          "id": "minimax-m3"
-        },
-        "mimo-v2.5": {
-          "name": "MiMo V2.5",
-          "reasoning": true,
-          "tool_call": true,
-          "attachment": true,
-          "limit": {
-            "context": 1000000,
-            "output": 128000
-          },
-          "cost": {
-            "input": 0.14,
-            "output": 0.28,
-            "cache_read": 0.0028,
-            "cache_write": 0
-          },
-          "id": "mimo-v2.5"
-        },
-        "longcat-2.0": {
-          "name": "LongCat-2.0",
-          "reasoning": true,
-          "tool_call": true,
-          "attachment": false,
-          "limit": {
-            "context": 1000000,
-            "output": 131072
-          },
-          "cost": {
-            "input": 0.3,
-            "output": 1.2,
-            "cache_read": 0.006,
-            "cache_write": 0
-          },
-          "id": "longcat-2.0"
-        },
         "deepseek-flash": {
-          "name": "Deepseek Flash",
-          "reasoning": true,
-          "tool_call": true,
-          "attachment": true,
-          "limit": {
-            "context": 1000000,
-            "output": 131072
-          },
-          "cost": {
-            "input": 0.5,
-            "output": 2,
-            "cache_read": 0.05,
-            "cache_write": 0
-          },
-          "interleaved": "reasoning_content",
-          "id": "deepseek-flash"
-        },
-        "deepseek-v4-flash-vision-exp": {
-          "name": "Deepseek V4 Flash Vision Exp",
-          "reasoning": true,
-          "tool_call": true,
-          "attachment": true,
-          "limit": {
-            "context": 1000000,
-            "output": 384000
-          },
-          "cost": {
-            "input": 0.15,
-            "output": 0.6,
-            "cache_read": 0.003,
-            "cache_write": 0
-          },
-          "interleaved": "reasoning_content",
-          "id": "deepseek-v4-flash-vision-exp"
-        },
-        "deepseek-v4-pro": {
-          "name": "Deepseek V4 Pro",
-          "reasoning": true,
-          "tool_call": true,
-          "attachment": false,
-          "limit": {
-            "context": 1000000,
-            "output": 384000
-          },
-          "cost": {
-            "input": 0.66,
-            "output": 1.98,
-            "cache_read": 0.022,
-            "cache_write": 0
-          },
-          "interleaved": "reasoning_content",
-          "id": "deepseek-v4-pro"
-        },
-        "glm-5.1": {
-          "name": "Glm 5.1",
-          "reasoning": true,
-          "tool_call": true,
-          "attachment": false,
-          "limit": {
-            "context": 202752,
-            "output": 32768
-          },
-          "cost": {
-            "input": 1.4,
-            "output": 4.4,
-            "cache_read": 0.26,
-            "cache_write": 0
-          },
-          "id": "glm-5.1"
-        },
-        "glm-5.2": {
-          "name": "Glm 5.2",
-          "reasoning": true,
-          "tool_call": true,
-          "attachment": false,
-          "limit": {
-            "context": 1000000,
-            "output": 131072
-          },
-          "cost": {
-            "input": 1.4,
-            "output": 4.4,
-            "cache_read": 0.26,
-            "cache_write": 0
-          },
-          "id": "glm-5.2"
-        },
-        "hy3": {
-          "name": "Hy3",
-          "reasoning": true,
-          "tool_call": true,
-          "attachment": false,
-          "limit": {
-            "context": 256000,
-            "output": 128000
-          },
-          "cost": {
-            "input": 0.14,
-            "output": 0.58,
-            "cache_read": 0.035,
-            "cache_write": 0
-          },
-          "id": "hy3"
-        },
-        "hy4-preview": {
-          "name": "Hy4 Preview",
-          "reasoning": true,
-          "tool_call": true,
-          "attachment": false,
-          "limit": {
-            "context": 1024000,
-            "output": 64000
-          },
-          "cost": {
-            "input": 0.834,
-            "output": 2.501,
-            "cache_read": 0.042,
-            "cache_write": 0
-          },
-          "id": "hy4-preview"
-        },
-        "kimi-k2.6": {
-          "name": "Kimi K2.6",
-          "reasoning": true,
-          "tool_call": true,
-          "attachment": true,
-          "limit": {
-            "context": 262144,
-            "output": 65536
-          },
-          "cost": {
-            "input": 0.95,
-            "output": 4,
-            "cache_read": 0.16,
-            "cache_write": 0
-          },
-          "id": "kimi-k2.6"
-        },
-        "mimo-v2.5-pro": {
-          "name": "Mimo V2.5 Pro",
-          "reasoning": true,
-          "tool_call": true,
-          "attachment": false,
-          "limit": {
-            "context": 1048576,
-            "output": 128000
-          },
-          "cost": {
-            "input": 0.435,
-            "output": 0.87,
-            "cache_read": 0.003625,
-            "cache_write": 0
-          },
-          "id": "mimo-v2.5-pro"
-        },
-        "minimax-m2.5": {
-          "name": "Minimax M2.5",
-          "reasoning": true,
-          "tool_call": true,
-          "attachment": true,
-          "limit": {
-            "context": 1000000,
-            "output": 131072
-          },
-          "cost": {
-            "input": 0.5,
-            "output": 2,
-            "cache_read": 0.05,
-            "cache_write": 0
-          },
-          "id": "minimax-m2.5"
-        },
-        "omen-alpha": {
-          "name": "Omen Alpha",
-          "reasoning": true,
-          "tool_call": true,
-          "attachment": true,
-          "limit": {
-            "context": 1000000,
-            "output": 131072
-          },
-          "cost": {
-            "input": 0.5,
-            "output": 2,
-            "cache_read": 0.05,
-            "cache_write": 0
-          },
-          "id": "omen-alpha"
-        },
-        "qwen3.6-plus": {
-          "name": "Qwen3.6 Plus",
-          "reasoning": true,
-          "tool_call": true,
-          "attachment": true,
-          "limit": {
-            "context": 1000000,
-            "output": 65536
-          },
-          "cost": {
-            "input": 0.5,
-            "output": 3,
-            "cache_read": 0.05,
-            "cache_write": 0
-          },
-          "id": "qwen3.6-plus"
-        },
-        "qwen3.7-max": {
-          "name": "Qwen3.7 Max",
-          "reasoning": true,
-          "tool_call": true,
-          "attachment": false,
-          "limit": {
-            "context": 1000000,
-            "output": 65536
-          },
-          "cost": {
-            "input": 2.5,
-            "output": 7.5,
-            "cache_read": 0.5,
-            "cache_write": 0
-          },
-          "id": "qwen3.7-max"
-        },
-        "qwen3.7-plus": {
-          "name": "Qwen3.7 Plus",
-          "reasoning": true,
-          "tool_call": true,
-          "attachment": true,
-          "limit": {
-            "context": 1000000,
-            "output": 65536
-          },
-          "cost": {
-            "input": 0.4,
-            "output": 1.6,
-            "cache_read": 0.04,
-            "cache_write": 0
-          },
-          "id": "qwen3.7-plus"
-        },
-        "mimo-v2.6-flash": {
-          "name": "mimo-v2.6-flash",
-          "reasoning": true,
-          "tool_call": true,
-          "attachment": true,
-          "limit": {
-            "context": 1048576,
-            "output": 131072
-          },
-          "cost": {
-            "input": 0.14,
-            "output": 0.28,
-            "cache_read": 0.0028,
-            "cache_write": 0
-          },
-          "id": "mimo-v2.6-flash"
-        },
-        "mimo-v2.6-pro": {
-          "name": "mimo-v2.6-pro",
-          "reasoning": true,
-          "tool_call": true,
-          "attachment": true,
-          "limit": {
-            "context": 1048576,
-            "output": 131072
-          },
-          "cost": {
-            "input": 0.435,
-            "output": 0.87,
-            "cache_read": 0.003625,
-            "cache_write": 0
-          },
-          "id": "mimo-v2.6-pro"
+          "name": "OCG deepseek-flash",
+          "id": "deepseek-flash",
+          "contextWindow": 1000000,
+          "maxTokens": 384000
         },
         "deepseek-v4-flash": {
-          "name": "deepseek-v4-flash",
-          "reasoning": true,
-          "tool_call": true,
-          "attachment": false,
-          "limit": {
-            "context": 1000000,
-            "output": 384000
-          },
-          "cost": {
-            "input": 0.15,
-            "output": 0.6,
-            "cache_read": 0.003,
-            "cache_write": 0
-          },
-          "interleaved": "reasoning_content",
-          "id": "deepseek-v4-flash"
+          "name": "OCG DeepSeek V4 Flash",
+          "id": "deepseek-v4-flash",
+          "contextWindow": 1000000,
+          "maxTokens": 384000
         },
-        "space-bunny-free": {
-          "name": "space-bunny-free",
-          "reasoning": true,
-          "tool_call": true,
-          "attachment": true,
-          "limit": {
-            "context": 1000000,
-            "output": 131072
-          },
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cache_read": 0,
-            "cache_write": 0
-          },
-          "id": "space-bunny-free"
+        "deepseek-v4-flash-vision-exp": {
+          "name": "OCG DeepSeek V4 Flash Vision Exp",
+          "id": "deepseek-v4-flash-vision-exp",
+          "contextWindow": 1000000,
+          "maxTokens": 384000
+        },
+        "deepseek-v4-pro": {
+          "name": "OCG DeepSeek V4 Pro (New)",
+          "id": "deepseek-v4-pro",
+          "contextWindow": 1000000,
+          "maxTokens": 384000
+        },
+        "deepseek-v4.1-flash": {
+          "name": "OCG DeepSeek V4.1 Flash",
+          "id": "deepseek-v4.1-flash",
+          "contextWindow": 1000000,
+          "maxTokens": 384000
+        },
+        "glm-5.1": {
+          "name": "OCG glm-5.1",
+          "id": "glm-5.1",
+          "contextWindow": 200000,
+          "maxTokens": 131072
+        },
+        "glm-5.2": {
+          "name": "OCG GLM-5.2",
+          "id": "glm-5.2",
+          "contextWindow": 1000000,
+          "maxTokens": 131072
+        },
+        "glm-5.3": {
+          "name": "OCG GLM-5.3",
+          "id": "glm-5.3",
+          "contextWindow": 1000000,
+          "maxTokens": 131072
+        },
+        "glm-5.3-flash": {
+          "name": "OCG GLM-5.3-Flash",
+          "id": "glm-5.3-flash",
+          "contextWindow": 1000000,
+          "maxTokens": 131072
+        },
+        "hy3": {
+          "name": "OCG Hy3",
+          "id": "hy3",
+          "contextWindow": 256000,
+          "maxTokens": 128000
+        },
+        "hy4-preview": {
+          "name": "OCG Hy4 preview",
+          "id": "hy4-preview",
+          "contextWindow": 1024000,
+          "maxTokens": 64000
+        },
+        "kimi-k2.6": {
+          "name": "OCG Kimi K2.6",
+          "id": "kimi-k2.6",
+          "contextWindow": 262144,
+          "maxTokens": 65536
+        },
+        "kimi-k2.7-code": {
+          "name": "OCG Kimi K2.7 Code",
+          "id": "kimi-k2.7-code",
+          "contextWindow": 262144,
+          "maxTokens": 262144
+        },
+        "kimi-k3": {
+          "name": "OCG Kimi K3",
+          "id": "kimi-k3",
+          "contextWindow": 1048576,
+          "maxTokens": 131072
+        },
+        "longcat-2.0": {
+          "name": "OCG LongCat-2.0",
+          "id": "longcat-2.0",
+          "contextWindow": 1000000,
+          "maxTokens": 131072
         },
         "longcat-2.5-preview-free": {
-          "name": "longcat-2.5-preview-free",
-          "reasoning": true,
-          "tool_call": true,
-          "attachment": true,
-          "limit": {
-            "context": 1000000,
-            "output": 131072
-          },
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cache_read": 0,
-            "cache_write": 0
-          },
-          "id": "longcat-2.5-preview-free"
+          "name": "OCG LongCat 2.5 Preview Free",
+          "id": "longcat-2.5-preview-free",
+          "contextWindow": 1000000,
+          "maxTokens": 131072
+        },
+        "mimo-v2.5": {
+          "name": "OCG MiMo V2.5",
+          "id": "mimo-v2.5",
+          "contextWindow": 1000000,
+          "maxTokens": 128000
+        },
+        "mimo-v2.5-pro": {
+          "name": "OCG MiMo V2.5 Pro",
+          "id": "mimo-v2.5-pro",
+          "contextWindow": 1048576,
+          "maxTokens": 128000
+        },
+        "mimo-v2.6-flash": {
+          "name": "OCG MiMo-V2.6-Flash",
+          "id": "mimo-v2.6-flash",
+          "contextWindow": 1048576,
+          "maxTokens": 131072
+        },
+        "mimo-v2.6-pro": {
+          "name": "OCG MiMo-V2.6-Pro",
+          "id": "mimo-v2.6-pro",
+          "contextWindow": 1048576,
+          "maxTokens": 131072
+        },
+        "minimax-m2.5": {
+          "name": "OCG minimax-m2.5",
+          "id": "minimax-m2.5",
+          "contextWindow": 200000,
+          "maxTokens": 131072
+        },
+        "minimax-m3": {
+          "name": "OCG MiniMax-M3",
+          "id": "minimax-m3",
+          "contextWindow": 1000000,
+          "maxTokens": 131072
+        },
+        "omen-alpha": {
+          "name": "OCG omen-alpha",
+          "id": "omen-alpha",
+          "contextWindow": 262144,
+          "maxTokens": 131072
+        },
+        "qwen3.6-plus": {
+          "name": "OCG Qwen3.6 Plus",
+          "id": "qwen3.6-plus",
+          "contextWindow": 1000000,
+          "maxTokens": 65536
+        },
+        "qwen3.7-max": {
+          "name": "OCG Qwen3.7 Max",
+          "id": "qwen3.7-max",
+          "contextWindow": 1000000,
+          "maxTokens": 65536
+        },
+        "qwen3.7-plus": {
+          "name": "OCG Qwen3.7 Plus",
+          "id": "qwen3.7-plus",
+          "contextWindow": 1000000,
+          "maxTokens": 65536
+        },
+        "qwen3.8-flash": {
+          "name": "OCG Qwen3.8 Flash",
+          "id": "qwen3.8-flash",
+          "contextWindow": 1000000,
+          "maxTokens": 131072
+        },
+        "space-bunny": {
+          "name": "OCG Space Bunny",
+          "id": "space-bunny",
+          "contextWindow": 1048576,
+          "maxTokens": 524288
         }
       }
     },
@@ -862,7 +532,7 @@
       }
     }
   },
-  "model": "ocg/space-bunny-free",
+  "model": "ocg/longcat-2.5-preview-free",
   "disabled_providers": [
     "opencode-go"
   ]

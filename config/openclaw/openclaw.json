@@ -2,11 +2,9 @@
   "agents": {
     "defaults": {
       "models": {
-        "ocg/space-bunny-free": {},
+        "ocg/longcat-2.5-preview-free": {},
         "ccg/deepseek/deepseek-v4.1-flash": {},
-        "ccg/gpt-6-luna": {},
-        "ccg/zai-org/GLM-5.3": {},
-        "ccg/moonshotai/Kimi-K3": {}
+        "ccg/gpt-6-luna": {}
       }
     },
     "entries": {
@@ -53,12 +51,25 @@
         "api": "openai-completions",
         "models": [
           {
+            "id": "deepseek-flash",
+            "name": "OCG deepseek-flash",
+            "api": "openai-completions",
+            "reasoning": true,
+            "input": [
+              "text",
+              "image"
+            ],
+            "contextWindow": 1000000,
+            "maxTokens": 384000
+          },
+          {
             "id": "deepseek-v4-flash",
             "name": "OCG DeepSeek V4 Flash",
             "api": "openai-completions",
             "reasoning": true,
             "input": [
-              "text"
+              "text",
+              "image"
             ],
             "contextWindow": 1000000,
             "maxTokens": 384000
@@ -81,7 +92,8 @@
             "api": "openai-completions",
             "reasoning": true,
             "input": [
-              "text"
+              "text",
+              "image"
             ],
             "contextWindow": 1000000,
             "maxTokens": 384000
@@ -99,12 +111,25 @@
             "maxTokens": 384000
           },
           {
+            "id": "glm-5.1",
+            "name": "OCG glm-5.1",
+            "api": "openai-completions",
+            "reasoning": true,
+            "input": [
+              "text",
+              "image"
+            ],
+            "contextWindow": 200000,
+            "maxTokens": 131072
+          },
+          {
             "id": "glm-5.2",
             "name": "OCG GLM-5.2",
             "api": "openai-completions",
             "reasoning": true,
             "input": [
-              "text"
+              "text",
+              "image"
             ],
             "contextWindow": 1000000,
             "maxTokens": 131072
@@ -115,7 +140,8 @@
             "api": "openai-completions",
             "reasoning": true,
             "input": [
-              "text"
+              "text",
+              "image"
             ],
             "contextWindow": 1000000,
             "maxTokens": 131072
@@ -133,60 +159,13 @@
             "maxTokens": 131072
           },
           {
-            "id": "gpt-5.6-luna",
-            "name": "OCG GPT-5.6 Luna",
-            "api": "openai-completions",
-            "reasoning": true,
-            "input": [
-              "text",
-              "image"
-            ],
-            "contextWindow": 1050000,
-            "maxTokens": 128000
-          },
-          {
-            "id": "gpt-6-luna",
-            "name": "OCG GPT-6 Luna",
-            "api": "openai-completions",
-            "reasoning": true,
-            "input": [
-              "text",
-              "image"
-            ],
-            "contextWindow": 1050000,
-            "maxTokens": 128000
-          },
-          {
-            "id": "grok-4.6",
-            "name": "OCG Grok 4.6",
-            "api": "openai-completions",
-            "reasoning": true,
-            "input": [
-              "text",
-              "image"
-            ],
-            "contextWindow": 500000,
-            "maxTokens": 500000
-          },
-          {
-            "id": "grok-4.7",
-            "name": "OCG Grok 4.7",
-            "api": "openai-completions",
-            "reasoning": true,
-            "input": [
-              "text",
-              "image"
-            ],
-            "contextWindow": 500000,
-            "maxTokens": 500000
-          },
-          {
             "id": "hy3",
             "name": "OCG Hy3",
             "api": "openai-completions",
             "reasoning": true,
             "input": [
-              "text"
+              "text",
+              "image"
             ],
             "contextWindow": 256000,
             "maxTokens": 128000
@@ -197,10 +176,23 @@
             "api": "openai-completions",
             "reasoning": true,
             "input": [
-              "text"
+              "text",
+              "image"
             ],
             "contextWindow": 1024000,
             "maxTokens": 64000
+          },
+          {
+            "id": "kimi-k2.6",
+            "name": "OCG Kimi K2.6",
+            "api": "openai-completions",
+            "reasoning": true,
+            "input": [
+              "text",
+              "image"
+            ],
+            "contextWindow": 262144,
+            "maxTokens": 65536
           },
           {
             "id": "kimi-k2.7-code",
@@ -232,7 +224,8 @@
             "api": "openai-completions",
             "reasoning": true,
             "input": [
-              "text"
+              "text",
+              "image"
             ],
             "contextWindow": 1000000,
             "maxTokens": 131072
@@ -267,7 +260,8 @@
             "api": "openai-completions",
             "reasoning": true,
             "input": [
-              "text"
+              "text",
+              "image"
             ],
             "contextWindow": 1048576,
             "maxTokens": 128000
@@ -297,14 +291,15 @@
             "maxTokens": 131072
           },
           {
-            "id": "minimax-m2.7",
-            "name": "OCG MiniMax-M2.7",
+            "id": "minimax-m2.5",
+            "name": "OCG minimax-m2.5",
             "api": "openai-completions",
             "reasoning": true,
             "input": [
-              "text"
+              "text",
+              "image"
             ],
-            "contextWindow": 204800,
+            "contextWindow": 200000,
             "maxTokens": 131072
           },
           {
@@ -320,28 +315,40 @@
             "maxTokens": 131072
           },
           {
-            "id": "muse-spark-1.2-contributor",
-            "name": "OCG Muse Spark 1.2 Contributor",
+            "id": "omen-alpha",
+            "name": "OCG omen-alpha",
             "api": "openai-completions",
             "reasoning": true,
             "input": [
               "text",
               "image"
             ],
-            "contextWindow": 1048576,
+            "contextWindow": 262144,
             "maxTokens": 131072
           },
           {
-            "id": "muse-spark-1.3-contributor",
-            "name": "OCG Muse Spark 1.3 Contributor",
+            "id": "qwen3.6-plus",
+            "name": "OCG Qwen3.6 Plus",
             "api": "openai-completions",
             "reasoning": true,
             "input": [
               "text",
               "image"
             ],
-            "contextWindow": 1048576,
-            "maxTokens": 131072
+            "contextWindow": 1000000,
+            "maxTokens": 65536
+          },
+          {
+            "id": "qwen3.7-max",
+            "name": "OCG Qwen3.7 Max",
+            "api": "openai-completions",
+            "reasoning": true,
+            "input": [
+              "text",
+              "image"
+            ],
+            "contextWindow": 1000000,
+            "maxTokens": 65536
           },
           {
             "id": "qwen3.7-plus",
@@ -368,20 +375,8 @@
             "maxTokens": 131072
           },
           {
-            "id": "qwen3.8-max",
-            "name": "OCG Qwen3.8 Max",
-            "api": "openai-completions",
-            "reasoning": true,
-            "input": [
-              "text",
-              "image"
-            ],
-            "contextWindow": 1000000,
-            "maxTokens": 131072
-          },
-          {
-            "id": "space-bunny-free",
-            "name": "OCG Space Bunny Free",
+            "id": "space-bunny",
+            "name": "OCG Space Bunny",
             "api": "openai-completions",
             "reasoning": true,
             "input": [
