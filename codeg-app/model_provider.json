@@ -45,14 +45,14 @@
   },
   {
     "id": 5,
-    "name": "Command Code GOAT (ccg/)",
-    "api_url": "http://127.0.0.1:8898",
+    "name": "Command Code GOAT (ccg/ · GPT-6 Luna default)",
+    "api_url": "http://127.0.0.1:4000",
     "api_key": "local",
     "agent_types_json": "[\"claude_code\"]",
     "created_at": "2026-09-30T01:53:40.891409392+00:00",
-    "updated_at": "2026-09-30T02:21:09.624480532+00:00",
+    "updated_at": "2026-10-08T12:51:25.260417112+00:00",
     "agent_type": "claude_code",
-    "model": "{\"main\":\"ccg/claude-sonnet-5-5\",\"reasoning\":\"ccg/claude-sonnet-5-5\",\"haiku\":\"ccg/claude-sonnet-5-5\",\"sonnet\":\"ccg/claude-sonnet-5-5\",\"opus\":\"ccg/claude-sonnet-5-5\"}"
+    "model": "{\"main\": \"ccg/gpt-6-luna\", \"reasoning\": \"ccg/gpt-6-luna\", \"haiku\": \"ccg/gpt-6-luna\", \"sonnet\": \"ccg/gpt-6-luna\", \"opus\": \"ccg/gpt-6-luna\", \"customOption\": \"ccg/gpt-6-luna\", \"customOptionName\": \"CCG GPT-6 Luna\", \"customOptionDescription\": \"Command Code GOAT \\u00b7 \\u6027\\u4ef7\\u6bd4\\u4f18\\u5148\"}"
   },
   {
     "id": 6,

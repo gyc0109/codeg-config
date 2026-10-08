@@ -484,5 +484,23 @@
     "kind": "regular",
     "alias": null,
     "group_id": null
+  },
+  {
+    "id": 28,
+    "name": "Chat",
+    "path": "/root/.local/share/codeg/chat-sessions/2026-10-08/b161dc624e584a47928ca750aa3be7d9",
+    "git_branch": null,
+    "default_agent_type": null,
+    "last_opened_at": "2026-10-08T07:05:48.215336408+00:00",
+    "created_at": "2026-10-08T07:05:48.215336408+00:00",
+    "updated_at": "2026-10-08T07:05:48.215336408+00:00",
+    "deleted_at": null,
+    "is_open": 1,
+    "sort_order": 26,
+    "color": "inherit",
+    "parent_id": null,
+    "kind": "chat",
+    "alias": null,
+    "group_id": null
   }
 ]
