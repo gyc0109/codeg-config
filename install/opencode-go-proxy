@@ -1,42 +1,54 @@
 #!/usr/bin/env python3
-"""Local shim that makes OpenCode Zen "Go" (https://opencode.ai/zen/go/v1)
-look like a plain OpenAI-compatible endpoint.
+"""codeg 本机路由（:8899）：按模型名前缀分流到不同上游。
 
-The Go gateway rejects requests that lack the `x-opencode-session` header
-("MissingSessionID") and is otherwise a standard OpenAI chat-completions API
-for the models that support `oa-compat`. This proxy:
+  ocg/<id>  ->  https://opencode.ai/zen/go        （OpenCode Go，注入会话头 + key）
+  ds/<id>   ->  https://api.deepseek.com          （DeepSeek 官方，注入 Bearer）
+  <id>      ->  OpenCode Go（无前缀，向后兼容旧行为）
 
-  * listens on 127.0.0.1:8899
-  * rewrites `/v1/...`  ->  `/zen/go/v1/...`
-  * injects `x-opencode-session` (+ client/project) headers
-  * forwards the client's own Authorization header (so the real key can live
-    in the calling agent's config), falling back to $OPENCODE_GO_API_KEY
-  * streams the upstream response back byte-for-byte
+OpenCode Go 会拒绝任何不带 session 头（x-opencode-session / session_id /
+x-session-id）的请求，多数 agent 不会发这个头，所以这里为 ocg 注入。
 
-Run it as a service; nothing else in the system depends on it being public.
+上游响应头原样转发、body 逐块透传，保证 chunked SSE 与普通 JSON 都能被客户端
+正常解析。
+
+DeepSeek 官方 key 读自环境变量 DEEPSEEK_OFFICIAL_API_KEY 或
+/etc/deepseek-official-key。
 """
+import json
 import os
+import re
 import socket
 import ssl
 import sys
 import threading
+import uuid
 
 LISTEN_HOST = os.environ.get("OGP_HOST", "127.0.0.1")
 LISTEN_PORT = int(os.environ.get("OGP_PORT", "8899"))
-TARGET = os.environ.get("OGP_TARGET", "opencode.ai")
-TARGET_PORT = int(os.environ.get("OGP_TARGET_PORT", "443"))
-FALLBACK_KEY = os.environ.get("OPENCODE_GO_API_KEY", "").strip()
+
+OGP_HOST = "opencode.ai"
+OGP_BASE = "/zen/go/v1"
+OGP_KEY = os.environ.get("OPENCODE_GO_API_KEY", "").strip()
+
+DS_HOST = "api.deepseek.com"
+DS_BASE = "/v1"
+DS_KEY = os.environ.get("DEEPSEEK_OFFICIAL_API_KEY", "").strip()
+DS_KEY_FILE = os.environ.get("DEEPSEEK_OFFICIAL_KEY_FILE", "/etc/deepseek-official-key")
+if not DS_KEY and os.path.exists(DS_KEY_FILE):
+    with open(DS_KEY_FILE) as fh:
+        DS_KEY = fh.read().strip()
+
 SESSION = os.environ.get("OGP_SESSION", "ses_codeg_proxy")
 PROJECT = os.environ.get("OGP_PROJECT", "global")
 
 _HOP = {
     b"host",
     b"connection",
-    b"accept-encoding",
     b"content-length",
-    b"x-opencode-session",
-    b"x-opencode-client",
-    b"x-opencode-project",
+    b"authorization",
+    b"x-api-key",
+    b"accept",
+    b"accept-encoding",
 }
 
 
@@ -50,6 +62,45 @@ def _read_headers(sock):
     return data
 
 
+def _read_body(sock, head_rest, content_length):
+    body = head_rest
+    while len(body) < content_length:
+        chunk = sock.recv(65536)
+        if not chunk:
+            break
+        body += chunk
+    return body
+
+
+def _split_model(body):
+    """返回 (prefix, wire_model)；body 不是 JSON 或没有 model 时 prefix 为 None。"""
+    if not body:
+        return None, None
+    try:
+        doc = json.loads(body)
+    except (ValueError, TypeError):
+        return None, None
+    if not isinstance(doc, dict):
+        return None, None
+    model = doc.get("model")
+    if not isinstance(model, str):
+        return None, None
+    if model.startswith("ocg/"):
+        return "ocg", model[4:]
+    if model.startswith("ds/"):
+        return "ds", model[3:]
+    return "ocg", model
+
+
+def _strip_prefix(body, wire):
+    try:
+        doc = json.loads(body)
+        doc["model"] = wire
+        return json.dumps(doc).encode()
+    except (ValueError, TypeError):
+        return body
+
+
 def handle(client):
     upstream = None
     try:
@@ -61,11 +112,10 @@ def handle(client):
         parts = lines[0].split(b" ")
         if len(parts) < 3:
             return
-        method, path, _ver = parts[0].decode(), parts[1].decode(), parts[2].decode()
+        method, path = parts[0].decode(), parts[1].decode()
 
         content_length = 0
         kept = []
-        auth = None
         for line in lines[1:]:
             if b":" not in line:
                 continue
@@ -74,39 +124,41 @@ def handle(client):
             if kl == b"content-length":
                 content_length = int(v.strip())
                 continue
-            if kl == b"authorization":
-                auth = v.strip()
-                continue
             if kl in _HOP:
                 continue
             kept.append((k.strip(), v.strip()))
 
-        body = rest
-        while len(body) < content_length:
-            chunk = client.recv(65536)
-            if not chunk:
-                break
-            body += chunk
+        body = _read_body(client, rest, content_length)
 
-        target_path = "/zen/go/v1" + (path[3:] if path.startswith("/v1") else path)
-        authorization = (("Bearer " + FALLBACK_KEY).encode() if FALLBACK_KEY else b"")
+        prefix, wire = _split_model(body)
+        if prefix == "ds":
+            if not DS_KEY:
+                client.sendall(b"HTTP/1.1 500 Internal Server Error\r\n"
+                               b"Content-Type: application/json\r\nContent-Length: 62\r\n\r\n"
+                               b'{"error":{"type":"proxy_error","message":"DeepSeek key missing"}}')
+                return
+            host, base, key = DS_HOST, DS_BASE, DS_KEY
+            body = _strip_prefix(body, wire)
+        else:
+            host, base, key = OGP_HOST, OGP_BASE, OGP_KEY
+            if wire is not None and wire != "":  # ocg/<id> 也要剥掉前缀
+                body = _strip_prefix(body, wire)
+
+        target_path = base + (path[3:] if path.startswith("/v1") else path)
 
         upstream = ssl.create_default_context().wrap_socket(
-            socket.create_connection((TARGET, TARGET_PORT), timeout=30),
-            server_hostname=TARGET,
-        )
-        req = [f"{method} {target_path} HTTP/1.1".encode(), f"Host: {TARGET}".encode()]
-        if authorization:
-            req.append(b"Authorization: " + authorization)
-        if FALLBACK_KEY:
-            req.append(("x-api-key: " + FALLBACK_KEY).encode())
-        req.append(("x-opencode-session: " + SESSION).encode())
-        req.append(b"x-opencode-client: cli")
-        req.append(("x-opencode-project: " + PROJECT).encode())
-        # 不强制 Accept-Encoding/Connection：让上游按流式 (chunked) 正常返回，
-        # 客户端（Codex/Claude）的 stream:true 才能被逐块转发。之前强制
-        # `Connection: close` + identity 会让部分模型（如 grok）拿不到可用的
-        # 流式分片，导致 Codex 反复 reconnect。
+            socket.create_connection((host, 443), timeout=30), server_hostname=host)
+        # 30s 只用于建连；模型推理经常更久，读写要放宽（否则 read timeout）
+        upstream.settimeout(float(os.environ.get("OGP_IO_TIMEOUT", "900")))
+        req = [f"{method} {target_path} HTTP/1.1".encode(), f"Host: {host}".encode()]
+        if key:
+            req.append(f"Authorization: Bearer {key}".encode())
+        if prefix != "ds":
+            if key:
+                req.append(f"x-api-key: {key}".encode())
+            req.append(f"x-opencode-session: {SESSION}".encode())
+            req.append(b"x-opencode-client: cli")
+            req.append(f"x-opencode-project: {PROJECT}".encode())
         for k, v in kept:
             req.append(k + b": " + v)
         req.append(b"Content-Length: " + str(len(body)).encode())
@@ -114,8 +166,6 @@ def handle(client):
         req.append(b"")
         upstream.sendall(b"\r\n".join(req) + body)
 
-        # 完整转发上游响应头（保持 Transfer-Encoding/Content-Length 不变），
-        # 然后逐块透传 body。这样 chunked 流式与普通响应都能被客户端正确解析。
         head = b""
         while b"\r\n\r\n" not in head:
             chunk = upstream.recv(65536)
@@ -123,26 +173,27 @@ def handle(client):
                 break
             head += chunk
         if head:
-            client.sendall(head)
-            # 逐块透传剩余 body（保留 chunked framing）
+            # 我们处理完就关 socket，不能让客户端以为连接可复用（否则下一次
+            # 复用已关闭的连接会报 Connection error）。所以显式声明 close。
+            rh, _, rbody = head.partition(b"\r\n\r\n")
+            rh = re.sub(rb"\r\nConnection:[^\r\n]*", b"", rh, flags=re.I)
+            rh = re.sub(rb"\r\nKeep-Alive:[^\r\n]*", b"", rh, flags=re.I)
+            client.sendall(rh + b"\r\nConnection: close\r\n\r\n" + rbody)
             while True:
                 chunk = upstream.recv(65536)
                 if not chunk:
                     break
                 client.sendall(chunk)
     except Exception as exc:  # noqa: BLE001 - a proxy must never die on one conn
-        sys.stderr.write(f"opencode-go-proxy: {exc!r}\n")
+        sys.stderr.write(f"codeg-proxy: {exc!r}\n")
         sys.stderr.flush()
     finally:
-        if upstream is not None:
-            try:
-                upstream.close()
-            except OSError:
-                pass
-        try:
-            client.close()
-        except OSError:
-            pass
+        for s in (upstream, client):
+            if s is not None:
+                try:
+                    s.close()
+                except OSError:
+                    pass
 
 
 def main():
@@ -151,8 +202,10 @@ def main():
     srv.bind((LISTEN_HOST, LISTEN_PORT))
     srv.listen(128)
     sys.stderr.write(
-        f"opencode-go-proxy listening on {LISTEN_HOST}:{LISTEN_PORT} -> https://{TARGET}/zen/go/v1\n"
-    )
+        f"codeg-proxy listening on {LISTEN_HOST}:{LISTEN_PORT}\n"
+        f"  ocg/* -> https://{OGP_HOST}{OGP_BASE}\n"
+        f"  ds/*  -> https://{DS_HOST}{DS_BASE or '/v1'}\n"
+        f"  <id>  -> https://{OGP_HOST}{OGP_BASE} (兼容)\n")
     sys.stderr.flush()
     while True:
         conn, _ = srv.accept()

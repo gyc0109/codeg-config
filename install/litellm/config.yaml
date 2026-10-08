@@ -745,6 +745,22 @@ model_list:
     additional_drop_params: *id001
   model_info:
     id: ocg/space-bunny
+- model_name: ds/deepseek-flash
+  litellm_params:
+    model: openai/ds/deepseek-flash
+    api_base: http://127.0.0.1:8899/v1
+    api_key: local
+    additional_drop_params: *id001
+  model_info:
+    id: ds/deepseek-flash
+- model_name: ds/deepseek-v4-pro
+  litellm_params:
+    model: openai/ds/deepseek-v4-pro
+    api_base: http://127.0.0.1:8899/v1
+    api_key: local
+    additional_drop_params: *id001
+  model_info:
+    id: ds/deepseek-v4-pro
 litellm_settings:
   drop_params: true
   request_timeout: 600

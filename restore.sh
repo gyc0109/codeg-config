@@ -16,6 +16,8 @@ step() { printf '\n\033[1m%s\033[0m\n' "$*"; }
 run()  { if (( DRY )); then say "[dry-run] $*"; else "$@"; fi; }
 
 # ---------- 0. 前置检查 ----------
+# 可选：DeepSeek 官方 key（启用 ds/ 路由）
+DEEPSKEYFILE=/etc/deepseek-official-key
 step "0. 前置检查"
 KEYFILE=/etc/opencode-go-proxy.env
 if [[ ! -f "$KEYFILE" ]]; then

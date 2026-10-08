@@ -114,6 +114,36 @@ codeg 前端把 agent 上报的 model configOption 拆成「分组 + 条目」
 另：LiteLLM 配置里 `additional_drop_params` 用了 YAML 锚点 `&id001`。重建 ocg 段时
 **必须先确保锚点还在**（它原本挂在第一条 ocg 条目上，删掉就会 `found undefined alias`）。
 
+
+### 第三个供应商：DeepSeek 官方（`ds/`）
+
+| 前缀 | 上游 | 鉴权 |
+| --- | --- | --- |
+| `ds/` | `https://api.deepseek.com` | `/etc/deepseek-official-key`（600） |
+
+模型：`ds/deepseek-flash`（V4.1-Flash, 1M ctx, 393K out, 支持图片）、
+`ds/deepseek-v4-pro`（1M ctx, 纯文本）。两个 id 与 OpenCode Go 的**重名**，
+所以必须靠前缀区分。
+
+**:8899 已升级为按前缀分流的本机路由**（原来是单纯转发到 OpenCode Go）：
+
+```
+ocg/<id>  ->  https://opencode.ai/zen/go/v1   （注入 x-opencode-session + key）
+ds/<id>   ->  https://api.deepseek.com/v1     （注入 Bearer）
+<id>      ->  https://opencode.ai/zen/go/v1   （无前缀，向后兼容）
+```
+
+LiteLLM（:4000）另加了 `ds/` 两条（转发给 :8899）。
+
+> **代理的两个坑（都会造成间歇性 "Connection error"）**
+>
+> 1. `socket.create_connection(timeout=30)` 的 30s **对后续所有读写都生效**，
+>    而模型推理经常超过 30s → `TimeoutError: read operation timed out`。
+>    建连后必须 `upstream.settimeout(900)`。
+> 2. 响应头原样转发会带上上游的 `Connection: keep-alive`，但代理处理完就关 socket，
+>    客户端复用已关闭的连接就报错。必须在**响应**侧改成 `Connection: close`
+>    （注意不是请求侧——请求侧强制 close 会破坏 grok 之类的流式）。
+
 ### Command Code 模型清单怎么来的（重要）
 
 **不要靠逐个探测猜协议**，`GET /provider/v1/models` 的每个模型都带

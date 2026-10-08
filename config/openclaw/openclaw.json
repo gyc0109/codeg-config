@@ -1078,6 +1078,36 @@
             "maxTokens": 131072
           }
         ]
+      },
+      "ds": {
+        "baseUrl": "http://127.0.0.1:8899/v1",
+        "apiKey": "local",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "deepseek-flash",
+            "name": "DS DeepSeek-V4.1-Flash",
+            "api": "openai-completions",
+            "reasoning": true,
+            "input": [
+              "text",
+              "image"
+            ],
+            "contextWindow": 1048576,
+            "maxTokens": 393216
+          },
+          {
+            "id": "deepseek-v4-pro",
+            "name": "DS DeepSeek-V4-Pro",
+            "api": "openai-completions",
+            "reasoning": true,
+            "input": [
+              "text"
+            ],
+            "contextWindow": 1048576,
+            "maxTokens": 393216
+          }
+        ]
       }
     }
   },

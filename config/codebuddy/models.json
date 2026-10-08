@@ -1,6 +1,26 @@
 {
   "models": [
     {
+      "id": "ds/deepseek-flash",
+      "name": "DS DeepSeek-V4.1-Flash",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 1048576,
+      "maxOutputTokens": 393216,
+      "supportsReasoning": true,
+      "supportsImages": true
+    },
+    {
+      "id": "ds/deepseek-v4-pro",
+      "name": "DS DeepSeek-V4-Pro",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 1048576,
+      "maxOutputTokens": 393216,
+      "supportsReasoning": true,
+      "supportsImages": false
+    },
+    {
       "id": "ocg/deepseek-flash",
       "name": "OCG deepseek-flash",
       "url": "http://127.0.0.1:4000/v1",
@@ -852,6 +872,8 @@
     }
   ],
   "availableModels": [
+    "ds/deepseek-flash",
+    "ds/deepseek-v4-pro",
     "ocg/deepseek-flash",
     "ocg/deepseek-v4-flash",
     "ocg/deepseek-v4-flash-vision-exp",

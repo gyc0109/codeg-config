@@ -269,3 +269,15 @@ llm-pi-ai:
         - id: ccg/zai-org/GLM-5.3
           name: CCG GLM-5.3
           contextWindow: 1000000
+    ds:
+      displayName: DeepSeek Official
+      api: openai-completions
+      baseURL: http://127.0.0.1:4000/v1
+      apiKeyEnv: DEEPSEEK_API_KEY
+      models:
+        - id: ds/deepseek-flash
+          name: DS DeepSeek-V4.1-Flash
+          contextWindow: 1048576
+        - id: ds/deepseek-v4-pro
+          name: DS DeepSeek-V4-Pro
+          contextWindow: 1048576

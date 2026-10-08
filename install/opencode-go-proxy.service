@@ -1,5 +1,5 @@
 [Unit]
-Description=OpenCode Go OpenAI-compatible shim (injects x-opencode-session)
+Description=codeg local model router :8899 (ocg/* -> OpenCode Go, ds/* -> DeepSeek official)
 After=network-online.target
 Wants=network-online.target
 

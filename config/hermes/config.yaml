@@ -341,3 +341,11 @@ custom_providers:
   base_url: http://127.0.0.1:8899/v1
   api_key: local
   model: space-bunny
+- name: DS DeepSeek-V4.1-Flash
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: deepseek-flash
+- name: DS DeepSeek-V4-Pro
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: deepseek-v4-pro

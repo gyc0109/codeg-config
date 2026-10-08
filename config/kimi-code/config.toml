@@ -438,3 +438,18 @@ provider = "opencode-go"
 model = "space-bunny"
 max_context_size = 1048576
 
+[providers.deepseek]
+type = "openai"
+base_url = "http://127.0.0.1:8899/v1"
+api_key = "local"
+default_model = "deepseek-flash"
+
+[models."ds/deepseek-flash"]
+provider = "deepseek"
+model = "deepseek-flash"
+max_context_size = 1048576
+
+[models."ds/deepseek-v4-pro"]
+provider = "deepseek"
+model = "deepseek-v4-pro"
+max_context_size = 1048576
