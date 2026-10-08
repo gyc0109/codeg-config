@@ -1080,7 +1080,7 @@
         ]
       },
       "ds": {
-        "baseUrl": "http://127.0.0.1:8899/v1",
+        "baseUrl": "http://127.0.0.1:8896/v1",
         "apiKey": "local",
         "api": "openai-completions",
         "models": [
@@ -1110,7 +1110,7 @@
         ]
       },
       "ark": {
-        "baseUrl": "http://127.0.0.1:8899/v1",
+        "baseUrl": "http://127.0.0.1:8897/v1",
         "apiKey": "local",
         "api": "openai-completions",
         "models": [
@@ -1120,7 +1120,8 @@
             "api": "openai-completions",
             "reasoning": true,
             "input": [
-              "text"
+              "text",
+              "image"
             ],
             "contextWindow": 262144,
             "maxTokens": 32768
@@ -1131,7 +1132,8 @@
             "api": "openai-completions",
             "reasoning": true,
             "input": [
-              "text"
+              "text",
+              "image"
             ],
             "contextWindow": 262144,
             "maxTokens": 32768
@@ -1142,7 +1144,8 @@
             "api": "openai-completions",
             "reasoning": true,
             "input": [
-              "text"
+              "text",
+              "image"
             ],
             "contextWindow": 262144,
             "maxTokens": 32768
@@ -1153,7 +1156,8 @@
             "api": "openai-completions",
             "reasoning": true,
             "input": [
-              "text"
+              "text",
+              "image"
             ],
             "contextWindow": 262144,
             "maxTokens": 32768
@@ -1164,7 +1168,8 @@
             "api": "openai-completions",
             "reasoning": true,
             "input": [
-              "text"
+              "text",
+              "image"
             ],
             "contextWindow": 262144,
             "maxTokens": 32768
@@ -1175,7 +1180,8 @@
             "api": "openai-completions",
             "reasoning": true,
             "input": [
-              "text"
+              "text",
+              "image"
             ],
             "contextWindow": 262144,
             "maxTokens": 32768
@@ -1186,7 +1192,8 @@
             "api": "openai-completions",
             "reasoning": true,
             "input": [
-              "text"
+              "text",
+              "image"
             ],
             "contextWindow": 262144,
             "maxTokens": 32768
@@ -1197,7 +1204,8 @@
             "api": "openai-completions",
             "reasoning": true,
             "input": [
-              "text"
+              "text",
+              "image"
             ],
             "contextWindow": 262144,
             "maxTokens": 32768
@@ -1208,7 +1216,8 @@
             "api": "openai-completions",
             "reasoning": true,
             "input": [
-              "text"
+              "text",
+              "image"
             ],
             "contextWindow": 262144,
             "maxTokens": 32768
@@ -1219,29 +1228,32 @@
             "api": "openai-completions",
             "reasoning": true,
             "input": [
-              "text"
+              "text",
+              "image"
             ],
             "contextWindow": 262144,
             "maxTokens": 32768
           },
           {
-            "id": "doubao-smart-router-250928",
-            "name": "ARK doubao-smart-router-250928",
+            "id": "doubao-seed-character-251128",
+            "name": "ARK doubao-seed-character-251128",
             "api": "openai-completions",
             "reasoning": true,
             "input": [
-              "text"
+              "text",
+              "image"
             ],
             "contextWindow": 262144,
             "maxTokens": 32768
           },
           {
-            "id": "glm-4-5-air-20250728",
-            "name": "ARK glm-4-5-air-20250728",
+            "id": "doubao-seed-character-260628",
+            "name": "ARK doubao-seed-character-260628",
             "api": "openai-completions",
             "reasoning": true,
             "input": [
-              "text"
+              "text",
+              "image"
             ],
             "contextWindow": 262144,
             "maxTokens": 32768
@@ -1252,7 +1264,8 @@
             "api": "openai-completions",
             "reasoning": true,
             "input": [
-              "text"
+              "text",
+              "image"
             ],
             "contextWindow": 262144,
             "maxTokens": 32768
@@ -1263,62 +1276,8 @@
             "api": "openai-completions",
             "reasoning": true,
             "input": [
-              "text"
-            ],
-            "contextWindow": 262144,
-            "maxTokens": 32768
-          },
-          {
-            "id": "qwen2-5-72b-20240919",
-            "name": "ARK qwen2-5-72b-20240919",
-            "api": "openai-completions",
-            "reasoning": true,
-            "input": [
-              "text"
-            ],
-            "contextWindow": 262144,
-            "maxTokens": 32768
-          },
-          {
-            "id": "qwen3-0-6b-20250429",
-            "name": "ARK qwen3-0-6b-20250429",
-            "api": "openai-completions",
-            "reasoning": true,
-            "input": [
-              "text"
-            ],
-            "contextWindow": 262144,
-            "maxTokens": 32768
-          },
-          {
-            "id": "qwen3-14b-20250429",
-            "name": "ARK qwen3-14b-20250429",
-            "api": "openai-completions",
-            "reasoning": true,
-            "input": [
-              "text"
-            ],
-            "contextWindow": 262144,
-            "maxTokens": 32768
-          },
-          {
-            "id": "qwen3-32b-20250429",
-            "name": "ARK qwen3-32b-20250429",
-            "api": "openai-completions",
-            "reasoning": true,
-            "input": [
-              "text"
-            ],
-            "contextWindow": 262144,
-            "maxTokens": 32768
-          },
-          {
-            "id": "qwen3-8b-20250429",
-            "name": "ARK qwen3-8b-20250429",
-            "api": "openai-completions",
-            "reasoning": true,
-            "input": [
-              "text"
+              "text",
+              "image"
             ],
             "contextWindow": 262144,
             "maxTokens": 32768

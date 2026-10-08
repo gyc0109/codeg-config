@@ -26,6 +26,14 @@ import uuid
 LISTEN_HOST = os.environ.get("OGP_HOST", "127.0.0.1")
 LISTEN_PORT = int(os.environ.get("OGP_PORT", "8899"))
 
+# 每个上游一个端口：裸模型名也能正确路由（前缀路由保留在 8899 上做兼容）
+# 注意：8898 已被 commandcode-proxy 占用，DeepSeek 用 8896
+PORT_UPSTREAM = {
+    8899: "ocg",
+    8896: "ds",
+    8897: "ark",
+}
+
 OGP_HOST = "opencode.ai"
 OGP_BASE = "/zen/go/v1"
 OGP_KEY = os.environ.get("OPENCODE_GO_API_KEY", "").strip()
@@ -99,7 +107,31 @@ def _split_model(body):
         return "ds", model[3:]
     if model.startswith("ark/"):
         return "ark", model[4:]
-    return "ocg", model
+    if model.startswith("ocg/"):
+        return "ocg", model[4:]
+    # 裸模型名：交给调用方按监听端口决定上游，并原样发送（不剥任何东西）
+    return None, model
+
+
+def _normalize_roles(body):
+    """把 messages[].role == "developer" 改成 "system"。
+    OpenAI 兼容网关里 developer 是较新的角色，部分上游（DeepSeek 官方、火山方舟）
+    只认 system/user/assistant/tool，不转换会 422。"""
+    try:
+        doc = json.loads(body)
+    except (ValueError, TypeError):
+        return body
+    if not isinstance(doc, dict):
+        return body
+    msgs = doc.get("messages")
+    if not isinstance(msgs, list):
+        return body
+    changed = False
+    for m in msgs:
+        if isinstance(m, dict) and m.get("role") == "developer":
+            m["role"] = "system"
+            changed = True
+    return json.dumps(doc).encode() if changed else body
 
 
 def _strip_prefix(body, wire):
@@ -111,7 +143,7 @@ def _strip_prefix(body, wire):
         return body
 
 
-def handle(client):
+def handle(client, listen_port=8899):
     upstream = None
     try:
         data = _read_headers(client)
@@ -141,6 +173,18 @@ def handle(client):
         body = _read_body(client, rest, content_length)
 
         prefix, wire = _split_model(body)
+        # 裸模型名（没有前缀）时，用监听端口决定上游
+        if prefix is None:
+            prefix = PORT_UPSTREAM.get(listen_port, "ocg")
+            if body:
+                try:
+                    _d = json.loads(body)
+                    if isinstance(_d, dict) and isinstance(_d.get("model"), str):
+                        wire = _d["model"]
+                except (ValueError, TypeError):
+                    pass
+            if prefix != "ocg":
+                body = _strip_prefix(body, wire)
         if prefix == "ark":
             if not ARK_KEY:
                 client.sendall(b"HTTP/1.1 500 Internal Server Error\r\n"
@@ -150,6 +194,7 @@ def handle(client):
             host, base, key = ARK_HOST, ARK_BASE, ARK_KEY
             if wire is not None:
                 body = _strip_prefix(body, wire)
+            body = _normalize_roles(body)
         elif prefix == "ds":
             if not DS_KEY:
                 client.sendall(b"HTTP/1.1 500 Internal Server Error\r\n"
@@ -158,6 +203,7 @@ def handle(client):
                 return
             host, base, key = DS_HOST, DS_BASE, DS_KEY
             body = _strip_prefix(body, wire)
+            body = _normalize_roles(body)
         else:
             host, base, key = OGP_HOST, OGP_BASE, OGP_KEY
             if wire is not None and wire != "":  # ocg/<id> 也要剥掉前缀
@@ -215,21 +261,40 @@ def handle(client):
                     pass
 
 
-def main():
+UPSTREAM_INFO = {
+    "ocg": lambda: f"https://{OGP_HOST}{OGP_BASE}",
+    "ds": lambda: f"https://{DS_HOST}{DS_BASE or '/v1'}",
+    "ark": lambda: f"https://{ARK_HOST}{ARK_BASE}",
+}
+
+
+def serve(port):
     srv = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     srv.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-    srv.bind((LISTEN_HOST, LISTEN_PORT))
+    try:
+        srv.bind((LISTEN_HOST, port))
+    except OSError as exc:
+        sys.stderr.write(f"codeg-proxy :{port} BIND FAILED: {exc!r}\n")
+        sys.stderr.flush()
+        return
     srv.listen(128)
-    sys.stderr.write(
-        f"codeg-proxy listening on {LISTEN_HOST}:{LISTEN_PORT}\n"
-        f"  ocg/* -> https://{OGP_HOST}{OGP_BASE}\n"
-        f"  ds/*  -> https://{DS_HOST}{DS_BASE or '/v1'}\n"
-        f"  ark/* -> https://{ARK_HOST}{ARK_BASE}\n"
-        f"  <id>  -> https://{OGP_HOST}{OGP_BASE} (兼容)\n")
+    up = PORT_UPSTREAM.get(port, "ocg")
+    extra = " (裸模型名也走这条 + 支持 ocg/ 等前缀)" if up == "ocg" else " (裸模型名走这条)"
+    sys.stderr.write(f"codeg-proxy :{port} -> {UPSTREAM_INFO[up]()}{extra}\n")
     sys.stderr.flush()
     while True:
         conn, _ = srv.accept()
-        threading.Thread(target=handle, args=(conn,), daemon=True).start()
+        threading.Thread(target=handle, args=(conn, port), daemon=True).start()
+
+
+def main():
+    ports = sorted(PORT_UPSTREAM)
+    threads = [threading.Thread(target=serve, args=(p,), daemon=True) for p in ports]
+    for th in threads:
+        th.start()
+    sys.stderr.write(f"codeg-proxy up on {', '.join(str(p) for p in ports)}\n")
+    sys.stderr.flush()
+    threads[0].join()
 
 
 if __name__ == "__main__":

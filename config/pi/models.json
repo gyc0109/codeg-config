@@ -1604,7 +1604,7 @@
     },
     "ds": {
       "name": "DeepSeek Official",
-      "baseUrl": "http://127.0.0.1:8899/v1",
+      "baseUrl": "http://127.0.0.1:8896/v1",
       "apiKey": "local",
       "api": "openai-completions",
       "models": [
@@ -1612,7 +1612,7 @@
           "id": "deepseek-flash",
           "name": "DS DeepSeek-V4.1-Flash",
           "provider": "ds",
-          "baseUrl": "http://127.0.0.1:8899/v1",
+          "baseUrl": "http://127.0.0.1:8896/v1",
           "api": "openai-completions",
           "reasoning": true,
           "input": [
@@ -1632,7 +1632,7 @@
           "id": "deepseek-v4-pro",
           "name": "DS DeepSeek-V4-Pro",
           "provider": "ds",
-          "baseUrl": "http://127.0.0.1:8899/v1",
+          "baseUrl": "http://127.0.0.1:8896/v1",
           "api": "openai-completions",
           "reasoning": true,
           "input": [
@@ -1651,7 +1651,7 @@
     },
     "ark": {
       "name": "Volcengine Ark",
-      "baseUrl": "http://127.0.0.1:8899/v1",
+      "baseUrl": "http://127.0.0.1:8897/v1",
       "apiKey": "local",
       "api": "openai-completions",
       "models": [
@@ -1659,11 +1659,12 @@
           "id": "deepseek-v4-1-flash-260910",
           "name": "ARK deepseek-v4-1-flash-260910",
           "provider": "ark",
-          "baseUrl": "http://127.0.0.1:8899/v1",
+          "baseUrl": "http://127.0.0.1:8897/v1",
           "api": "openai-completions",
           "reasoning": true,
           "input": [
-            "text"
+            "text",
+            "image"
           ],
           "contextWindow": 262144,
           "maxTokens": 32768,
@@ -1678,11 +1679,12 @@
           "id": "deepseek-v4-flash-ga-260731",
           "name": "ARK deepseek-v4-flash-ga-260731",
           "provider": "ark",
-          "baseUrl": "http://127.0.0.1:8899/v1",
+          "baseUrl": "http://127.0.0.1:8897/v1",
           "api": "openai-completions",
           "reasoning": true,
           "input": [
-            "text"
+            "text",
+            "image"
           ],
           "contextWindow": 262144,
           "maxTokens": 32768,
@@ -1697,11 +1699,12 @@
           "id": "deepseek-v4-pro-ga-260813",
           "name": "ARK deepseek-v4-pro-ga-260813",
           "provider": "ark",
-          "baseUrl": "http://127.0.0.1:8899/v1",
+          "baseUrl": "http://127.0.0.1:8897/v1",
           "api": "openai-completions",
           "reasoning": true,
           "input": [
-            "text"
+            "text",
+            "image"
           ],
           "contextWindow": 262144,
           "maxTokens": 32768,
@@ -1716,11 +1719,12 @@
           "id": "doubao-seed-2-0-code-preview-260215",
           "name": "ARK doubao-seed-2-0-code-preview-260215",
           "provider": "ark",
-          "baseUrl": "http://127.0.0.1:8899/v1",
+          "baseUrl": "http://127.0.0.1:8897/v1",
           "api": "openai-completions",
           "reasoning": true,
           "input": [
-            "text"
+            "text",
+            "image"
           ],
           "contextWindow": 262144,
           "maxTokens": 32768,
@@ -1735,11 +1739,12 @@
           "id": "doubao-seed-2-0-lite-260428",
           "name": "ARK doubao-seed-2-0-lite-260428",
           "provider": "ark",
-          "baseUrl": "http://127.0.0.1:8899/v1",
+          "baseUrl": "http://127.0.0.1:8897/v1",
           "api": "openai-completions",
           "reasoning": true,
           "input": [
-            "text"
+            "text",
+            "image"
           ],
           "contextWindow": 262144,
           "maxTokens": 32768,
@@ -1754,11 +1759,12 @@
           "id": "doubao-seed-2-0-mini-260428",
           "name": "ARK doubao-seed-2-0-mini-260428",
           "provider": "ark",
-          "baseUrl": "http://127.0.0.1:8899/v1",
+          "baseUrl": "http://127.0.0.1:8897/v1",
           "api": "openai-completions",
           "reasoning": true,
           "input": [
-            "text"
+            "text",
+            "image"
           ],
           "contextWindow": 262144,
           "maxTokens": 32768,
@@ -1773,11 +1779,12 @@
           "id": "doubao-seed-2-1-lite-260915",
           "name": "ARK doubao-seed-2-1-lite-260915",
           "provider": "ark",
-          "baseUrl": "http://127.0.0.1:8899/v1",
+          "baseUrl": "http://127.0.0.1:8897/v1",
           "api": "openai-completions",
           "reasoning": true,
           "input": [
-            "text"
+            "text",
+            "image"
           ],
           "contextWindow": 262144,
           "maxTokens": 32768,
@@ -1792,11 +1799,12 @@
           "id": "doubao-seed-2-1-pro-260628",
           "name": "ARK doubao-seed-2-1-pro-260628",
           "provider": "ark",
-          "baseUrl": "http://127.0.0.1:8899/v1",
+          "baseUrl": "http://127.0.0.1:8897/v1",
           "api": "openai-completions",
           "reasoning": true,
           "input": [
-            "text"
+            "text",
+            "image"
           ],
           "contextWindow": 262144,
           "maxTokens": 32768,
@@ -1811,11 +1819,12 @@
           "id": "doubao-seed-2-1-pro-260915",
           "name": "ARK doubao-seed-2-1-pro-260915",
           "provider": "ark",
-          "baseUrl": "http://127.0.0.1:8899/v1",
+          "baseUrl": "http://127.0.0.1:8897/v1",
           "api": "openai-completions",
           "reasoning": true,
           "input": [
-            "text"
+            "text",
+            "image"
           ],
           "contextWindow": 262144,
           "maxTokens": 32768,
@@ -1830,11 +1839,12 @@
           "id": "doubao-seed-2-1-turbo-260628",
           "name": "ARK doubao-seed-2-1-turbo-260628",
           "provider": "ark",
-          "baseUrl": "http://127.0.0.1:8899/v1",
+          "baseUrl": "http://127.0.0.1:8897/v1",
           "api": "openai-completions",
           "reasoning": true,
           "input": [
-            "text"
+            "text",
+            "image"
           ],
           "contextWindow": 262144,
           "maxTokens": 32768,
@@ -1846,14 +1856,15 @@
           }
         },
         {
-          "id": "doubao-smart-router-250928",
-          "name": "ARK doubao-smart-router-250928",
+          "id": "doubao-seed-character-251128",
+          "name": "ARK doubao-seed-character-251128",
           "provider": "ark",
-          "baseUrl": "http://127.0.0.1:8899/v1",
+          "baseUrl": "http://127.0.0.1:8897/v1",
           "api": "openai-completions",
           "reasoning": true,
           "input": [
-            "text"
+            "text",
+            "image"
           ],
           "contextWindow": 262144,
           "maxTokens": 32768,
@@ -1865,14 +1876,15 @@
           }
         },
         {
-          "id": "glm-4-5-air-20250728",
-          "name": "ARK glm-4-5-air-20250728",
+          "id": "doubao-seed-character-260628",
+          "name": "ARK doubao-seed-character-260628",
           "provider": "ark",
-          "baseUrl": "http://127.0.0.1:8899/v1",
+          "baseUrl": "http://127.0.0.1:8897/v1",
           "api": "openai-completions",
           "reasoning": true,
           "input": [
-            "text"
+            "text",
+            "image"
           ],
           "contextWindow": 262144,
           "maxTokens": 32768,
@@ -1887,11 +1899,12 @@
           "id": "glm-5-2-260617",
           "name": "ARK glm-5-2-260617",
           "provider": "ark",
-          "baseUrl": "http://127.0.0.1:8899/v1",
+          "baseUrl": "http://127.0.0.1:8897/v1",
           "api": "openai-completions",
           "reasoning": true,
           "input": [
-            "text"
+            "text",
+            "image"
           ],
           "contextWindow": 262144,
           "maxTokens": 32768,
@@ -1906,106 +1919,12 @@
           "id": "glm-5-3-flash-260828",
           "name": "ARK glm-5-3-flash-260828",
           "provider": "ark",
-          "baseUrl": "http://127.0.0.1:8899/v1",
+          "baseUrl": "http://127.0.0.1:8897/v1",
           "api": "openai-completions",
           "reasoning": true,
           "input": [
-            "text"
-          ],
-          "contextWindow": 262144,
-          "maxTokens": 32768,
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          }
-        },
-        {
-          "id": "qwen2-5-72b-20240919",
-          "name": "ARK qwen2-5-72b-20240919",
-          "provider": "ark",
-          "baseUrl": "http://127.0.0.1:8899/v1",
-          "api": "openai-completions",
-          "reasoning": true,
-          "input": [
-            "text"
-          ],
-          "contextWindow": 262144,
-          "maxTokens": 32768,
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          }
-        },
-        {
-          "id": "qwen3-0-6b-20250429",
-          "name": "ARK qwen3-0-6b-20250429",
-          "provider": "ark",
-          "baseUrl": "http://127.0.0.1:8899/v1",
-          "api": "openai-completions",
-          "reasoning": true,
-          "input": [
-            "text"
-          ],
-          "contextWindow": 262144,
-          "maxTokens": 32768,
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          }
-        },
-        {
-          "id": "qwen3-14b-20250429",
-          "name": "ARK qwen3-14b-20250429",
-          "provider": "ark",
-          "baseUrl": "http://127.0.0.1:8899/v1",
-          "api": "openai-completions",
-          "reasoning": true,
-          "input": [
-            "text"
-          ],
-          "contextWindow": 262144,
-          "maxTokens": 32768,
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          }
-        },
-        {
-          "id": "qwen3-32b-20250429",
-          "name": "ARK qwen3-32b-20250429",
-          "provider": "ark",
-          "baseUrl": "http://127.0.0.1:8899/v1",
-          "api": "openai-completions",
-          "reasoning": true,
-          "input": [
-            "text"
-          ],
-          "contextWindow": 262144,
-          "maxTokens": 32768,
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          }
-        },
-        {
-          "id": "qwen3-8b-20250429",
-          "name": "ARK qwen3-8b-20250429",
-          "provider": "ark",
-          "baseUrl": "http://127.0.0.1:8899/v1",
-          "api": "openai-completions",
-          "reasoning": true,
-          "input": [
-            "text"
+            "text",
+            "image"
           ],
           "contextWindow": 262144,
           "maxTokens": 32768,

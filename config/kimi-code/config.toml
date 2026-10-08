@@ -298,10 +298,22 @@ provider = "commandcode"
 model = "zai-org/GLM-5.3"
 max_context_size = 1000000
 
+[providers.deepseek]
+type = "openai"
+base_url = "http://127.0.0.1:8896/v1"
+api_key = "local"
+default_model = "deepseek-flash"
+
+[providers.ark]
+type = "openai"
+base_url = "http://127.0.0.1:8897/v1"
+api_key = "local"
+default_model = "deepseek-v4-1-flash-260910"
+
 [models."ocg/deepseek-flash"]
 provider = "opencode-go"
 model = "deepseek-flash"
-max_context_size = 1000000
+max_context_size = 262144
 
 [models."ocg/deepseek-v4-flash"]
 provider = "opencode-go"
@@ -326,7 +338,7 @@ max_context_size = 1000000
 [models."ocg/glm-5.1"]
 provider = "opencode-go"
 model = "glm-5.1"
-max_context_size = 200000
+max_context_size = 262144
 
 [models."ocg/glm-5.2"]
 provider = "opencode-go"
@@ -401,7 +413,7 @@ max_context_size = 1048576
 [models."ocg/minimax-m2.5"]
 provider = "opencode-go"
 model = "minimax-m2.5"
-max_context_size = 200000
+max_context_size = 262144
 
 [models."ocg/minimax-m3"]
 provider = "opencode-go"
@@ -438,12 +450,6 @@ provider = "opencode-go"
 model = "space-bunny"
 max_context_size = 1048576
 
-[providers.deepseek]
-type = "openai"
-base_url = "http://127.0.0.1:8899/v1"
-api_key = "local"
-default_model = "deepseek-flash"
-
 [models."ds/deepseek-flash"]
 provider = "deepseek"
 model = "deepseek-flash"
@@ -453,12 +459,6 @@ max_context_size = 1048576
 provider = "deepseek"
 model = "deepseek-v4-pro"
 max_context_size = 1048576
-
-[providers.ark]
-type = "openai"
-base_url = "http://127.0.0.1:8899/v1"
-api_key = "local"
-default_model = "deepseek-v4-1-flash-260910"
 
 [models."ark/deepseek-v4-1-flash-260910"]
 provider = "ark"
@@ -510,14 +510,14 @@ provider = "ark"
 model = "doubao-seed-2-1-turbo-260628"
 max_context_size = 262144
 
-[models."ark/doubao-smart-router-250928"]
+[models."ark/doubao-seed-character-251128"]
 provider = "ark"
-model = "doubao-smart-router-250928"
+model = "doubao-seed-character-251128"
 max_context_size = 262144
 
-[models."ark/glm-4-5-air-20250728"]
+[models."ark/doubao-seed-character-260628"]
 provider = "ark"
-model = "glm-4-5-air-20250728"
+model = "doubao-seed-character-260628"
 max_context_size = 262144
 
 [models."ark/glm-5-2-260617"]
@@ -528,29 +528,4 @@ max_context_size = 262144
 [models."ark/glm-5-3-flash-260828"]
 provider = "ark"
 model = "glm-5-3-flash-260828"
-max_context_size = 262144
-
-[models."ark/qwen2-5-72b-20240919"]
-provider = "ark"
-model = "qwen2-5-72b-20240919"
-max_context_size = 262144
-
-[models."ark/qwen3-0-6b-20250429"]
-provider = "ark"
-model = "qwen3-0-6b-20250429"
-max_context_size = 262144
-
-[models."ark/qwen3-14b-20250429"]
-provider = "ark"
-model = "qwen3-14b-20250429"
-max_context_size = 262144
-
-[models."ark/qwen3-32b-20250429"]
-provider = "ark"
-model = "qwen3-32b-20250429"
-max_context_size = 262144
-
-[models."ark/qwen3-8b-20250429"]
-provider = "ark"
-model = "qwen3-8b-20250429"
 max_context_size = 262144

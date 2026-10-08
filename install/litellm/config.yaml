@@ -761,6 +761,7 @@ model_list:
     additional_drop_params: *id001
   model_info:
     id: ds/deepseek-v4-pro
+
 - model_name: ark/deepseek-v4-1-flash-260910
   litellm_params:
     model: openai/ark/deepseek-v4-1-flash-260910
@@ -841,22 +842,22 @@ model_list:
     additional_drop_params: *id001
   model_info:
     id: ark/doubao-seed-2-1-turbo-260628
-- model_name: ark/doubao-smart-router-250928
+- model_name: ark/doubao-seed-character-251128
   litellm_params:
-    model: openai/ark/doubao-smart-router-250928
+    model: openai/ark/doubao-seed-character-251128
     api_base: http://127.0.0.1:8899/v1
     api_key: local
     additional_drop_params: *id001
   model_info:
-    id: ark/doubao-smart-router-250928
-- model_name: ark/glm-4-5-air-20250728
+    id: ark/doubao-seed-character-251128
+- model_name: ark/doubao-seed-character-260628
   litellm_params:
-    model: openai/ark/glm-4-5-air-20250728
+    model: openai/ark/doubao-seed-character-260628
     api_base: http://127.0.0.1:8899/v1
     api_key: local
     additional_drop_params: *id001
   model_info:
-    id: ark/glm-4-5-air-20250728
+    id: ark/doubao-seed-character-260628
 - model_name: ark/glm-5-2-260617
   litellm_params:
     model: openai/ark/glm-5-2-260617
@@ -873,46 +874,6 @@ model_list:
     additional_drop_params: *id001
   model_info:
     id: ark/glm-5-3-flash-260828
-- model_name: ark/qwen2-5-72b-20240919
-  litellm_params:
-    model: openai/ark/qwen2-5-72b-20240919
-    api_base: http://127.0.0.1:8899/v1
-    api_key: local
-    additional_drop_params: *id001
-  model_info:
-    id: ark/qwen2-5-72b-20240919
-- model_name: ark/qwen3-0-6b-20250429
-  litellm_params:
-    model: openai/ark/qwen3-0-6b-20250429
-    api_base: http://127.0.0.1:8899/v1
-    api_key: local
-    additional_drop_params: *id001
-  model_info:
-    id: ark/qwen3-0-6b-20250429
-- model_name: ark/qwen3-14b-20250429
-  litellm_params:
-    model: openai/ark/qwen3-14b-20250429
-    api_base: http://127.0.0.1:8899/v1
-    api_key: local
-    additional_drop_params: *id001
-  model_info:
-    id: ark/qwen3-14b-20250429
-- model_name: ark/qwen3-32b-20250429
-  litellm_params:
-    model: openai/ark/qwen3-32b-20250429
-    api_base: http://127.0.0.1:8899/v1
-    api_key: local
-    additional_drop_params: *id001
-  model_info:
-    id: ark/qwen3-32b-20250429
-- model_name: ark/qwen3-8b-20250429
-  litellm_params:
-    model: openai/ark/qwen3-8b-20250429
-    api_base: http://127.0.0.1:8899/v1
-    api_key: local
-    additional_drop_params: *id001
-  model_info:
-    id: ark/qwen3-8b-20250429
 litellm_settings:
   drop_params: true
   request_timeout: 600
