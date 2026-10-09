@@ -4,12 +4,12 @@
     "ANTHROPIC_AUTH_TOKEN": "local",
     "ANTHROPIC_CUSTOM_MODEL_OPTION": "ccg/gpt-6-luna",
     "CLAUDE_CODE_AUTO_MODE_SERVER": "0",
-    "ANTHROPIC_REASONING_MODEL": "ccg/gpt-6-luna",
-    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "ccg/gpt-6-luna",
-    "ANTHROPIC_DEFAULT_OPUS_MODEL": "ccg/gpt-6-luna",
-    "ANTHROPIC_DEFAULT_SONNET_MODEL": "ccg/gpt-6-luna",
-    "ANTHROPIC_MODEL": "ccg/gpt-6-luna",
-    "ANTHROPIC_CUSTOM_MODEL_OPTION_DESCRIPTION": "Command Code GOAT · 性价比优先",
+    "ANTHROPIC_REASONING_MODEL": "ccg/deepseek/deepseek-v4.1-flash",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "ccg/deepseek/deepseek-v4.1-flash",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "ccg/xiaomi/mimo-v2.6-pro",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "ccg/z-ai/glm-5.3-flash",
+    "ANTHROPIC_MODEL": "ccg/z-ai/glm-5.3-flash",
+    "ANTHROPIC_CUSTOM_MODEL_OPTION_DESCRIPTION": "Command Code GOAT · 备用均衡模型",
     "ANTHROPIC_CUSTOM_MODEL_OPTION_NAME": "CCG GPT-6 Luna"
   }
 }

@@ -45,14 +45,14 @@
   },
   {
     "id": 5,
-    "name": "Command Code GOAT (ccg/ · GPT-6 Luna default)",
+    "name": "Command Code GOAT (ccg/ · 多模型槽位)",
     "api_url": "http://127.0.0.1:4000",
     "api_key": "local",
     "agent_types_json": "[\"claude_code\"]",
     "created_at": "2026-09-30T01:53:40.891409392+00:00",
-    "updated_at": "2026-10-08T12:51:25.260417112+00:00",
+    "updated_at": "2026-10-09T01:42:03.468167482+00:00",
     "agent_type": "claude_code",
-    "model": "{\"main\": \"ccg/gpt-6-luna\", \"reasoning\": \"ccg/gpt-6-luna\", \"haiku\": \"ccg/gpt-6-luna\", \"sonnet\": \"ccg/gpt-6-luna\", \"opus\": \"ccg/gpt-6-luna\", \"customOption\": \"ccg/gpt-6-luna\", \"customOptionName\": \"CCG GPT-6 Luna\", \"customOptionDescription\": \"Command Code GOAT \\u00b7 \\u6027\\u4ef7\\u6bd4\\u4f18\\u5148\"}"
+    "model": "{\"main\": \"ccg/z-ai/glm-5.3-flash\", \"reasoning\": \"ccg/deepseek/deepseek-v4.1-flash\", \"haiku\": \"ccg/deepseek/deepseek-v4.1-flash\", \"sonnet\": \"ccg/z-ai/glm-5.3-flash\", \"opus\": \"ccg/xiaomi/mimo-v2.6-pro\", \"customOption\": \"ccg/gpt-6-luna\", \"customOptionName\": \"CCG GPT-6 Luna\", \"customOptionDescription\": \"Command Code GOAT \\u00b7 \\u5907\\u7528\\u5747\\u8861\\u6a21\\u578b\"}"
   },
   {
     "id": 6,
