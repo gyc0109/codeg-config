@@ -9,7 +9,7 @@
 | hermes | 0.21.6 | npx |  |
 | code_buddy | 2.164.0 | npx | **升级会丢 symlink**，需按 `package.json` 的 bin 重建 |
 | kimi_code | 2.1.1 | npx |  |
-| codex | 2.2.1 | npx | 内含 codex-cli 0.159.3，config.toml 格式兼容 |
+| codex | 2.2.1 | npx | 内含 codex-cli 0.160.1，config.toml 格式兼容 |
 | cline | 3.0.70 | npx |  |
 | open_claw | 2026.9.9 | npx | 升级后 `openclaw gateway restart` |
 | gemini | 0.63.0 | npx | 无 Gemini key，暂不可用 |
