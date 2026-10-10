@@ -166,7 +166,7 @@ step "5c. 还原 DeepSeek Harness 模型路由（~/.dsh/settings.yaml）"
 if [[ -f "$PROJ/config/dsh/settings.yaml" ]]; then
   run mkdir -p /root/.dsh
   run install -m 0600 "$PROJ/config/dsh/settings.yaml" /root/.dsh/settings.yaml
-  say "→ /root/.dsh/settings.yaml（ocg 29 + ccg 57）"
+  say "→ /root/.dsh/settings.yaml（ocg 30 + ccg 54）"
 else
   say "跳过（快照缺失）"
 fi

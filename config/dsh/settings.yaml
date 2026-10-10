@@ -12,86 +12,92 @@ llm-pi-ai:
           name: OCG deepseek-flash
           contextWindow: 1000000
         - id: ocg/deepseek-v4-flash
-          name: OCG DeepSeek V4 Flash
+          name: OCG deepseek-v4-flash
           contextWindow: 1000000
         - id: ocg/deepseek-v4-flash-vision-exp
-          name: OCG DeepSeek V4 Flash Vision Exp
+          name: OCG deepseek-v4-flash-vision-exp
           contextWindow: 1000000
         - id: ocg/deepseek-v4-pro
-          name: OCG DeepSeek V4 Pro (New)
+          name: OCG deepseek-v4-pro
           contextWindow: 1000000
         - id: ocg/deepseek-v4.1-flash
-          name: OCG DeepSeek V4.1 Flash
+          name: OCG deepseek-v4.1-flash
           contextWindow: 1000000
         - id: ocg/glm-5.1
           name: OCG glm-5.1
           contextWindow: 200000
         - id: ocg/glm-5.2
-          name: OCG GLM-5.2
+          name: OCG glm-5.2
           contextWindow: 1000000
         - id: ocg/glm-5.3
-          name: OCG GLM-5.3
+          name: OCG glm-5.3
           contextWindow: 1000000
         - id: ocg/glm-5.3-flash
-          name: OCG GLM-5.3-Flash
+          name: OCG glm-5.3-flash
           contextWindow: 1000000
         - id: ocg/hy3
-          name: OCG Hy3
+          name: OCG hy3
           contextWindow: 256000
         - id: ocg/hy4-preview
-          name: OCG Hy4 preview
+          name: OCG hy4-preview
           contextWindow: 1024000
         - id: ocg/kimi-k2.6
-          name: OCG Kimi K2.6
+          name: OCG kimi-k2.6
           contextWindow: 262144
         - id: ocg/kimi-k2.7-code
-          name: OCG Kimi K2.7 Code
+          name: OCG kimi-k2.7-code
           contextWindow: 262144
         - id: ocg/kimi-k3
-          name: OCG Kimi K3
+          name: OCG kimi-k3
           contextWindow: 1048576
         - id: ocg/longcat-2.0
-          name: OCG LongCat-2.0
+          name: OCG longcat-2.0
           contextWindow: 1000000
         - id: ocg/longcat-2.5-preview-free
-          name: OCG LongCat 2.5 Preview Free
+          name: OCG longcat-2.5-preview-free
           contextWindow: 1000000
         - id: ocg/mimo-v2.5
-          name: OCG MiMo V2.5
+          name: OCG mimo-v2.5
           contextWindow: 1000000
         - id: ocg/mimo-v2.5-pro
-          name: OCG MiMo V2.5 Pro
+          name: OCG mimo-v2.5-pro
           contextWindow: 1048576
         - id: ocg/mimo-v2.6-flash
-          name: OCG MiMo-V2.6-Flash
+          name: OCG mimo-v2.6-flash
           contextWindow: 1048576
         - id: ocg/mimo-v2.6-pro
-          name: OCG MiMo-V2.6-Pro
+          name: OCG mimo-v2.6-pro
           contextWindow: 1048576
         - id: ocg/minimax-m2.5
           name: OCG minimax-m2.5
           contextWindow: 200000
         - id: ocg/minimax-m3
-          name: OCG MiniMax-M3
+          name: OCG minimax-m3
           contextWindow: 1000000
         - id: ocg/omen-alpha
           name: OCG omen-alpha
           contextWindow: 262144
         - id: ocg/qwen3.6-plus
-          name: OCG Qwen3.6 Plus
+          name: OCG qwen3.6-plus
           contextWindow: 1000000
         - id: ocg/qwen3.7-max
-          name: OCG Qwen3.7 Max
+          name: OCG qwen3.7-max
           contextWindow: 1000000
         - id: ocg/qwen3.7-plus
-          name: OCG Qwen3.7 Plus
+          name: OCG qwen3.7-plus
           contextWindow: 1000000
         - id: ocg/qwen3.8-flash
-          name: OCG Qwen3.8 Flash
+          name: OCG qwen3.8-flash
+          contextWindow: 1000000
+        - id: ocg/qwen3.8-max
+          name: OCG qwen3.8-max
           contextWindow: 1000000
         - id: ocg/space-bunny
-          name: OCG Space Bunny
+          name: OCG space-bunny
           contextWindow: 1048576
+        - id: ocg/step-5-preview-free
+          name: OCG step-5-preview-free
+          contextWindow: 1000000
     ccg:
       displayName: Command Code GOAT
       api: openai-completions
@@ -99,175 +105,166 @@ llm-pi-ai:
       apiKeyEnv: DEEPSEEK_API_KEY
       models:
         - id: ccg/MiniMaxAI/MiniMax-M2.5
-          name: CCG MiniMax M2.5
+          name: CCG MiniMaxAI/MiniMax-M2.5
           contextWindow: 200000
         - id: ccg/MiniMaxAI/MiniMax-M3
-          name: CCG MiniMax M3
+          name: CCG MiniMaxAI/MiniMax-M3
           contextWindow: 1000000
         - id: ccg/Qwen/Qwen3.6-Max-Preview
-          name: CCG Qwen 3.6 Max Preview
+          name: CCG Qwen/Qwen3.6-Max-Preview
+          contextWindow: 200000
+        - id: ccg/Qwen/Qwen3.6-Plus
+          name: CCG Qwen/Qwen3.6-Plus
           contextWindow: 200000
         - id: ccg/Qwen/Qwen3.7-Flash
-          name: CCG Qwen 3.7 Flash
+          name: CCG Qwen/Qwen3.7-Flash
           contextWindow: 1000000
         - id: ccg/Qwen/Qwen3.7-Max
-          name: CCG Qwen 3.7 Max
+          name: CCG Qwen/Qwen3.7-Max
           contextWindow: 1000000
         - id: ccg/Qwen/Qwen3.7-Plus
-          name: CCG Qwen 3.7 Plus
+          name: CCG Qwen/Qwen3.7-Plus
           contextWindow: 1000000
         - id: ccg/Qwen/Qwen3.8-27B
-          name: CCG Qwen 3.8 27B
+          name: CCG Qwen/Qwen3.8-27B
           contextWindow: 262144
         - id: ccg/Qwen/Qwen3.8-Flash
-          name: CCG Qwen 3.8 Flash
+          name: CCG Qwen/Qwen3.8-Flash
           contextWindow: 1000000
         - id: ccg/Qwen/Qwen3.8-Max
-          name: CCG Qwen 3.8 Max
+          name: CCG Qwen/Qwen3.8-Max
           contextWindow: 1000000
         - id: ccg/Qwen/Qwen3.8-Max-0902
-          name: CCG Qwen 3.8 Max 0902
+          name: CCG Qwen/Qwen3.8-Max-0902
           contextWindow: 1000000
         - id: ccg/Qwen/Qwen3.8-Omni-Flash
-          name: CCG Qwen 3.8 Omni Flash
+          name: CCG Qwen/Qwen3.8-Omni-Flash
           contextWindow: 1000000
         - id: ccg/deepseek/deepseek-v4-flash
-          name: CCG DeepSeek V4 Flash (latest)
+          name: CCG deepseek/deepseek-v4-flash
           contextWindow: 1000000
         - id: ccg/deepseek/deepseek-v4-flash-fast
-          name: CCG DeepSeek V4 Flash Fast
+          name: CCG deepseek/deepseek-v4-flash-fast
           contextWindow: 1000000
         - id: ccg/deepseek/deepseek-v4-flash-vision-exp
-          name: CCG DeepSeek V4 Flash Vision (exp)
+          name: CCG deepseek/deepseek-v4-flash-vision-exp
           contextWindow: 1000000
         - id: ccg/deepseek/deepseek-v4-pro
-          name: CCG DeepSeek V4 Pro (latest)
+          name: CCG deepseek/deepseek-v4-pro
           contextWindow: 1000000
         - id: ccg/deepseek/deepseek-v4.1-flash
-          name: CCG DeepSeek V4.1 Flash
+          name: CCG deepseek/deepseek-v4.1-flash
           contextWindow: 1000000
         - id: ccg/deepseek/deepseek-v4.1-flash-fast
-          name: CCG DeepSeek V4.1 Flash Fast
+          name: CCG deepseek/deepseek-v4.1-flash-fast
           contextWindow: 1000000
         - id: ccg/google/gemini-3.7-flash
-          name: CCG Gemini 3.7 Flash
+          name: CCG google/gemini-3.7-flash
           contextWindow: 1048576
         - id: ccg/google/gemini-3.8-flash
-          name: CCG Gemini 3.8 Flash
+          name: CCG google/gemini-3.8-flash
           contextWindow: 1000000
         - id: ccg/gpt-5.6-luna
-          name: CCG GPT-5.6 Luna
+          name: CCG gpt-5.6-luna
           contextWindow: 1050000
         - id: ccg/gpt-5.6-sol
-          name: CCG GPT-5.6 Sol
+          name: CCG gpt-5.6-sol
           contextWindow: 1050000
         - id: ccg/gpt-6-luna
-          name: CCG GPT-6 Luna
+          name: CCG gpt-6-luna
           contextWindow: 1050000
-        - id: ccg/inclusionai/ling-3.0-flash-sante:free
-          name: CCG Ling 3.0 Flash Sante
-          contextWindow: 262144
         - id: ccg/inclusionai/ling-3.1-flash:free
-          name: CCG Ling 3.1 Flash
+          name: CCG inclusionai/ling-3.1-flash:free
           contextWindow: 262144
         - id: ccg/meituan/LongCat-2.0
-          name: CCG LongCat 2.0
+          name: CCG meituan/LongCat-2.0
           contextWindow: 1048576
         - id: ccg/meta/muse-spark-1.2
-          name: CCG Muse Spark 1.2
+          name: CCG meta/muse-spark-1.2
           contextWindow: 1048576
         - id: ccg/meta/muse-spark-1.2-contributor
-          name: CCG Muse Spark 1.2 Contributor
+          name: CCG meta/muse-spark-1.2-contributor
           contextWindow: 1048576
         - id: ccg/meta/muse-spark-1.3
-          name: CCG Muse Spark 1.3
+          name: CCG meta/muse-spark-1.3
           contextWindow: 1048576
         - id: ccg/meta/muse-spark-1.3-contributor
-          name: CCG Muse Spark 1.3 Contributor
+          name: CCG meta/muse-spark-1.3-contributor
           contextWindow: 1048576
+        - id: ccg/mistral/mistral-large-4
+          name: CCG mistral/mistral-large-4
+          contextWindow: 524288
         - id: ccg/moonshotai/Kimi-K2.5
-          name: CCG Kimi K2.5
+          name: CCG moonshotai/Kimi-K2.5
           contextWindow: 256000
         - id: ccg/moonshotai/Kimi-K2.6
-          name: CCG Kimi K2.6
+          name: CCG moonshotai/Kimi-K2.6
           contextWindow: 256000
         - id: ccg/moonshotai/Kimi-K2.7-Code
-          name: CCG Kimi K2.7 Code
+          name: CCG moonshotai/Kimi-K2.7-Code
           contextWindow: 256000
         - id: ccg/moonshotai/Kimi-K2.7-Code-Highspeed
-          name: CCG Kimi K2.7 Code HighSpeed
+          name: CCG moonshotai/Kimi-K2.7-Code-Highspeed
           contextWindow: 262000
         - id: ccg/moonshotai/Kimi-K3
-          name: CCG Kimi K3
+          name: CCG moonshotai/Kimi-K3
           contextWindow: 1000000
         - id: ccg/nvidia/nemotron-3-ultra-550b-a55b
-          name: CCG Nemotron 3 Ultra
+          name: CCG nvidia/nemotron-3-ultra-550b-a55b
           contextWindow: 1000000
-        - id: ccg/poolside/laguna-s-2.1-free
-          name: CCG Laguna S 2.1
+        - id: ccg/stealth/glyph-cluster:free
+          name: CCG stealth/glyph-cluster:free
           contextWindow: 256000
-        - id: ccg/stealth/space-bunny-alpha
-          name: CCG Space Bunny Alpha
-          contextWindow: 1000000
-        - id: ccg/stepfun/Step-3.5-Flash
-          name: CCG Step 3.5 Flash
-          contextWindow: 262144
         - id: ccg/stepfun/Step-3.7-Flash
-          name: CCG Step 3.7 Flash
+          name: CCG stepfun/Step-3.7-Flash
           contextWindow: 256000
         - id: ccg/stepfun/Step-5-Preview
-          name: CCG Step 5 Preview
+          name: CCG stepfun/Step-5-Preview
           contextWindow: 1000000
         - id: ccg/tencent/hy3-paid
-          name: CCG Tencent Hy3
+          name: CCG tencent/hy3-paid
           contextWindow: 262144
         - id: ccg/tencent/hy4-preview
-          name: CCG Tencent Hy4 Preview
+          name: CCG tencent/hy4-preview
           contextWindow: 1048576
         - id: ccg/xai/grok-4.5
-          name: CCG Grok 4.5
+          name: CCG xai/grok-4.5
           contextWindow: 500000
         - id: ccg/xai/grok-4.6
-          name: CCG Grok 4.6
+          name: CCG xai/grok-4.6
           contextWindow: 500000
         - id: ccg/xai/grok-4.7
-          name: CCG Grok 4.7
+          name: CCG xai/grok-4.7
           contextWindow: 500000
-        - id: ccg/xiaomi/mimo-v2.5
-          name: CCG MiMo V2.5
-          contextWindow: 1000000
         - id: ccg/xiaomi/mimo-v2.5-pro
-          name: CCG MiMo V2.5 Pro
+          name: CCG xiaomi/mimo-v2.5-pro
           contextWindow: 1000000
         - id: ccg/xiaomi/mimo-v2.6-flash
-          name: CCG MiMo V2.6 Flash
+          name: CCG xiaomi/mimo-v2.6-flash
           contextWindow: 1048576
         - id: ccg/xiaomi/mimo-v2.6-pro
-          name: CCG MiMo V2.6 Pro
+          name: CCG xiaomi/mimo-v2.6-pro
           contextWindow: 1048576
         - id: ccg/xiaomi/mimo-v2.6-pro-ultraspeed
-          name: CCG MiMo V2.6 Pro UltraSpeed
+          name: CCG xiaomi/mimo-v2.6-pro-ultraspeed
           contextWindow: 1048576
         - id: ccg/z-ai/glm-5.3-flash
-          name: CCG GLM-5.3 Flash
+          name: CCG z-ai/glm-5.3-flash
           contextWindow: 1048576
         - id: ccg/z-ai/glm-5.3-flashx
-          name: CCG GLM-5.3 FlashX
+          name: CCG z-ai/glm-5.3-flashx
           contextWindow: 1000000
         - id: ccg/zai-org/GLM-5
-          name: CCG GLM-5
-          contextWindow: 200000
-        - id: ccg/zai-org/GLM-5.1
-          name: CCG GLM-5.1
+          name: CCG zai-org/GLM-5
           contextWindow: 200000
         - id: ccg/zai-org/GLM-5.2
-          name: CCG GLM-5.2
+          name: CCG zai-org/GLM-5.2
           contextWindow: 1000000
         - id: ccg/zai-org/GLM-5.2-Fast
-          name: CCG GLM-5.2 Fast
+          name: CCG zai-org/GLM-5.2-Fast
           contextWindow: 1000000
         - id: ccg/zai-org/GLM-5.3
-          name: CCG GLM-5.3
+          name: CCG zai-org/GLM-5.3
           contextWindow: 1000000
     ds:
       displayName: DeepSeek Official
@@ -276,10 +273,10 @@ llm-pi-ai:
       apiKeyEnv: DEEPSEEK_API_KEY
       models:
         - id: ds/deepseek-flash
-          name: DS DeepSeek-V4.1-Flash
+          name: DS deepseek-flash
           contextWindow: 1048576
         - id: ds/deepseek-v4-pro
-          name: DS DeepSeek-V4-Pro
+          name: DS deepseek-v4-pro
           contextWindow: 1048576
     ark:
       displayName: Volcengine Ark

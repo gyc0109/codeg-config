@@ -1,166 +1,6 @@
 {
   "models": [
     {
-      "id": "ark/deepseek-v4-1-flash-260910",
-      "name": "ARK deepseek-v4-1-flash-260910",
-      "url": "http://127.0.0.1:4000/v1",
-      "apiKey": "local",
-      "maxInputTokens": 262144,
-      "maxOutputTokens": 32768,
-      "supportsReasoning": true,
-      "supportsImages": true
-    },
-    {
-      "id": "ark/deepseek-v4-flash-ga-260731",
-      "name": "ARK deepseek-v4-flash-ga-260731",
-      "url": "http://127.0.0.1:4000/v1",
-      "apiKey": "local",
-      "maxInputTokens": 262144,
-      "maxOutputTokens": 32768,
-      "supportsReasoning": true,
-      "supportsImages": true
-    },
-    {
-      "id": "ark/deepseek-v4-pro-ga-260813",
-      "name": "ARK deepseek-v4-pro-ga-260813",
-      "url": "http://127.0.0.1:4000/v1",
-      "apiKey": "local",
-      "maxInputTokens": 262144,
-      "maxOutputTokens": 32768,
-      "supportsReasoning": true,
-      "supportsImages": true
-    },
-    {
-      "id": "ark/doubao-seed-2-0-code-preview-260215",
-      "name": "ARK doubao-seed-2-0-code-preview-260215",
-      "url": "http://127.0.0.1:4000/v1",
-      "apiKey": "local",
-      "maxInputTokens": 262144,
-      "maxOutputTokens": 32768,
-      "supportsReasoning": true,
-      "supportsImages": true
-    },
-    {
-      "id": "ark/doubao-seed-2-0-lite-260428",
-      "name": "ARK doubao-seed-2-0-lite-260428",
-      "url": "http://127.0.0.1:4000/v1",
-      "apiKey": "local",
-      "maxInputTokens": 262144,
-      "maxOutputTokens": 32768,
-      "supportsReasoning": true,
-      "supportsImages": true
-    },
-    {
-      "id": "ark/doubao-seed-2-0-mini-260428",
-      "name": "ARK doubao-seed-2-0-mini-260428",
-      "url": "http://127.0.0.1:4000/v1",
-      "apiKey": "local",
-      "maxInputTokens": 262144,
-      "maxOutputTokens": 32768,
-      "supportsReasoning": true,
-      "supportsImages": true
-    },
-    {
-      "id": "ark/doubao-seed-2-1-lite-260915",
-      "name": "ARK doubao-seed-2-1-lite-260915",
-      "url": "http://127.0.0.1:4000/v1",
-      "apiKey": "local",
-      "maxInputTokens": 262144,
-      "maxOutputTokens": 32768,
-      "supportsReasoning": true,
-      "supportsImages": true
-    },
-    {
-      "id": "ark/doubao-seed-2-1-pro-260628",
-      "name": "ARK doubao-seed-2-1-pro-260628",
-      "url": "http://127.0.0.1:4000/v1",
-      "apiKey": "local",
-      "maxInputTokens": 262144,
-      "maxOutputTokens": 32768,
-      "supportsReasoning": true,
-      "supportsImages": true
-    },
-    {
-      "id": "ark/doubao-seed-2-1-pro-260915",
-      "name": "ARK doubao-seed-2-1-pro-260915",
-      "url": "http://127.0.0.1:4000/v1",
-      "apiKey": "local",
-      "maxInputTokens": 262144,
-      "maxOutputTokens": 32768,
-      "supportsReasoning": true,
-      "supportsImages": true
-    },
-    {
-      "id": "ark/doubao-seed-2-1-turbo-260628",
-      "name": "ARK doubao-seed-2-1-turbo-260628",
-      "url": "http://127.0.0.1:4000/v1",
-      "apiKey": "local",
-      "maxInputTokens": 262144,
-      "maxOutputTokens": 32768,
-      "supportsReasoning": true,
-      "supportsImages": true
-    },
-    {
-      "id": "ark/doubao-seed-character-251128",
-      "name": "ARK doubao-seed-character-251128",
-      "url": "http://127.0.0.1:4000/v1",
-      "apiKey": "local",
-      "maxInputTokens": 262144,
-      "maxOutputTokens": 32768,
-      "supportsReasoning": true,
-      "supportsImages": true
-    },
-    {
-      "id": "ark/doubao-seed-character-260628",
-      "name": "ARK doubao-seed-character-260628",
-      "url": "http://127.0.0.1:4000/v1",
-      "apiKey": "local",
-      "maxInputTokens": 262144,
-      "maxOutputTokens": 32768,
-      "supportsReasoning": true,
-      "supportsImages": true
-    },
-    {
-      "id": "ark/glm-5-2-260617",
-      "name": "ARK glm-5-2-260617",
-      "url": "http://127.0.0.1:4000/v1",
-      "apiKey": "local",
-      "maxInputTokens": 262144,
-      "maxOutputTokens": 32768,
-      "supportsReasoning": true,
-      "supportsImages": true
-    },
-    {
-      "id": "ark/glm-5-3-flash-260828",
-      "name": "ARK glm-5-3-flash-260828",
-      "url": "http://127.0.0.1:4000/v1",
-      "apiKey": "local",
-      "maxInputTokens": 262144,
-      "maxOutputTokens": 32768,
-      "supportsReasoning": true,
-      "supportsImages": true
-    },
-    {
-      "id": "ds/deepseek-flash",
-      "name": "DS DeepSeek-V4.1-Flash",
-      "url": "http://127.0.0.1:4000/v1",
-      "apiKey": "local",
-      "maxInputTokens": 1048576,
-      "maxOutputTokens": 393216,
-      "supportsReasoning": true,
-      "supportsImages": true
-    },
-    {
-      "id": "ds/deepseek-v4-pro",
-      "name": "DS DeepSeek-V4-Pro",
-      "url": "http://127.0.0.1:4000/v1",
-      "apiKey": "local",
-      "maxInputTokens": 1048576,
-      "maxOutputTokens": 393216,
-      "supportsReasoning": true,
-      "supportsImages": false
-    },
-    {
       "id": "ocg/deepseek-flash",
       "name": "OCG deepseek-flash",
       "url": "http://127.0.0.1:4000/v1",
@@ -431,12 +271,32 @@
       "supportsImages": true
     },
     {
+      "id": "ocg/qwen3.8-max",
+      "name": "OCG Qwen3.8 Max",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 1000000,
+      "maxOutputTokens": 131072,
+      "supportsReasoning": true,
+      "supportsImages": true
+    },
+    {
       "id": "ocg/space-bunny",
       "name": "OCG Space Bunny",
       "url": "http://127.0.0.1:4000/v1",
       "apiKey": "local",
       "maxInputTokens": 1048576,
       "maxOutputTokens": 524288,
+      "supportsReasoning": true,
+      "supportsImages": true
+    },
+    {
+      "id": "ocg/step-5-preview-free",
+      "name": "OCG step-5-preview-free",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 1000000,
+      "maxOutputTokens": 131072,
       "supportsReasoning": true,
       "supportsImages": true
     },
@@ -463,6 +323,16 @@
     {
       "id": "ccg/Qwen/Qwen3.6-Max-Preview",
       "name": "CCG Qwen 3.6 Max Preview",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 200000,
+      "maxOutputTokens": 131072,
+      "supportsReasoning": true,
+      "supportsImages": true
+    },
+    {
+      "id": "ccg/Qwen/Qwen3.6-Plus",
+      "name": "CCG Qwen 3.6 Plus",
       "url": "http://127.0.0.1:4000/v1",
       "apiKey": "local",
       "maxInputTokens": 200000,
@@ -661,16 +531,6 @@
       "supportsImages": true
     },
     {
-      "id": "ccg/inclusionai/ling-3.0-flash-sante:free",
-      "name": "CCG Ling 3.0 Flash Sante",
-      "url": "http://127.0.0.1:4000/v1",
-      "apiKey": "local",
-      "maxInputTokens": 262144,
-      "maxOutputTokens": 131072,
-      "supportsReasoning": true,
-      "supportsImages": true
-    },
-    {
       "id": "ccg/inclusionai/ling-3.1-flash:free",
       "name": "CCG Ling 3.1 Flash",
       "url": "http://127.0.0.1:4000/v1",
@@ -726,6 +586,16 @@
       "url": "http://127.0.0.1:4000/v1",
       "apiKey": "local",
       "maxInputTokens": 1048576,
+      "maxOutputTokens": 131072,
+      "supportsReasoning": true,
+      "supportsImages": true
+    },
+    {
+      "id": "ccg/mistral/mistral-large-4",
+      "name": "CCG Mistral Large 4",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 524288,
       "maxOutputTokens": 131072,
       "supportsReasoning": true,
       "supportsImages": true
@@ -791,31 +661,11 @@
       "supportsImages": true
     },
     {
-      "id": "ccg/poolside/laguna-s-2.1-free",
-      "name": "CCG Laguna S 2.1",
+      "id": "ccg/stealth/glyph-cluster:free",
+      "name": "CCG Glyph Cluster",
       "url": "http://127.0.0.1:4000/v1",
       "apiKey": "local",
       "maxInputTokens": 256000,
-      "maxOutputTokens": 131072,
-      "supportsReasoning": true,
-      "supportsImages": true
-    },
-    {
-      "id": "ccg/stealth/space-bunny-alpha",
-      "name": "CCG Space Bunny Alpha",
-      "url": "http://127.0.0.1:4000/v1",
-      "apiKey": "local",
-      "maxInputTokens": 1000000,
-      "maxOutputTokens": 131072,
-      "supportsReasoning": true,
-      "supportsImages": true
-    },
-    {
-      "id": "ccg/stepfun/Step-3.5-Flash",
-      "name": "CCG Step 3.5 Flash",
-      "url": "http://127.0.0.1:4000/v1",
-      "apiKey": "local",
-      "maxInputTokens": 262144,
       "maxOutputTokens": 131072,
       "supportsReasoning": true,
       "supportsImages": true
@@ -891,16 +741,6 @@
       "supportsImages": true
     },
     {
-      "id": "ccg/xiaomi/mimo-v2.5",
-      "name": "CCG MiMo V2.5",
-      "url": "http://127.0.0.1:4000/v1",
-      "apiKey": "local",
-      "maxInputTokens": 1000000,
-      "maxOutputTokens": 131072,
-      "supportsReasoning": true,
-      "supportsImages": true
-    },
-    {
       "id": "ccg/xiaomi/mimo-v2.5-pro",
       "name": "CCG MiMo V2.5 Pro",
       "url": "http://127.0.0.1:4000/v1",
@@ -971,16 +811,6 @@
       "supportsImages": true
     },
     {
-      "id": "ccg/zai-org/GLM-5.1",
-      "name": "CCG GLM-5.1",
-      "url": "http://127.0.0.1:4000/v1",
-      "apiKey": "local",
-      "maxInputTokens": 200000,
-      "maxOutputTokens": 131072,
-      "supportsReasoning": true,
-      "supportsImages": true
-    },
-    {
       "id": "ccg/zai-org/GLM-5.2",
       "name": "CCG GLM-5.2",
       "url": "http://127.0.0.1:4000/v1",
@@ -1009,25 +839,169 @@
       "maxOutputTokens": 131072,
       "supportsReasoning": true,
       "supportsImages": true
+    },
+    {
+      "id": "ds/deepseek-flash",
+      "name": "DS deepseek-flash",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 1048576,
+      "maxOutputTokens": 393216,
+      "supportsReasoning": true,
+      "supportsImages": true
+    },
+    {
+      "id": "ds/deepseek-v4-pro",
+      "name": "DS deepseek-v4-pro",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 1048576,
+      "maxOutputTokens": 393216,
+      "supportsReasoning": true,
+      "supportsImages": true
+    },
+    {
+      "id": "ark/deepseek-v4-1-flash-260910",
+      "name": "ARK deepseek-v4-1-flash-260910",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 262144,
+      "maxOutputTokens": 32768,
+      "supportsReasoning": true,
+      "supportsImages": true
+    },
+    {
+      "id": "ark/deepseek-v4-flash-ga-260731",
+      "name": "ARK deepseek-v4-flash-ga-260731",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 262144,
+      "maxOutputTokens": 32768,
+      "supportsReasoning": true,
+      "supportsImages": true
+    },
+    {
+      "id": "ark/deepseek-v4-pro-ga-260813",
+      "name": "ARK deepseek-v4-pro-ga-260813",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 262144,
+      "maxOutputTokens": 32768,
+      "supportsReasoning": true,
+      "supportsImages": true
+    },
+    {
+      "id": "ark/doubao-seed-2-0-code-preview-260215",
+      "name": "ARK doubao-seed-2-0-code-preview-260215",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 262144,
+      "maxOutputTokens": 32768,
+      "supportsReasoning": true,
+      "supportsImages": true
+    },
+    {
+      "id": "ark/doubao-seed-2-0-lite-260428",
+      "name": "ARK doubao-seed-2-0-lite-260428",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 262144,
+      "maxOutputTokens": 32768,
+      "supportsReasoning": true,
+      "supportsImages": true
+    },
+    {
+      "id": "ark/doubao-seed-2-0-mini-260428",
+      "name": "ARK doubao-seed-2-0-mini-260428",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 262144,
+      "maxOutputTokens": 32768,
+      "supportsReasoning": true,
+      "supportsImages": true
+    },
+    {
+      "id": "ark/doubao-seed-2-1-lite-260915",
+      "name": "ARK doubao-seed-2-1-lite-260915",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 262144,
+      "maxOutputTokens": 32768,
+      "supportsReasoning": true,
+      "supportsImages": true
+    },
+    {
+      "id": "ark/doubao-seed-2-1-pro-260628",
+      "name": "ARK doubao-seed-2-1-pro-260628",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 262144,
+      "maxOutputTokens": 32768,
+      "supportsReasoning": true,
+      "supportsImages": true
+    },
+    {
+      "id": "ark/doubao-seed-2-1-pro-260915",
+      "name": "ARK doubao-seed-2-1-pro-260915",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 262144,
+      "maxOutputTokens": 32768,
+      "supportsReasoning": true,
+      "supportsImages": true
+    },
+    {
+      "id": "ark/doubao-seed-2-1-turbo-260628",
+      "name": "ARK doubao-seed-2-1-turbo-260628",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 262144,
+      "maxOutputTokens": 32768,
+      "supportsReasoning": true,
+      "supportsImages": true
+    },
+    {
+      "id": "ark/doubao-seed-character-251128",
+      "name": "ARK doubao-seed-character-251128",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 262144,
+      "maxOutputTokens": 32768,
+      "supportsReasoning": true,
+      "supportsImages": true
+    },
+    {
+      "id": "ark/doubao-seed-character-260628",
+      "name": "ARK doubao-seed-character-260628",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 262144,
+      "maxOutputTokens": 32768,
+      "supportsReasoning": true,
+      "supportsImages": true
+    },
+    {
+      "id": "ark/glm-5-2-260617",
+      "name": "ARK glm-5-2-260617",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 262144,
+      "maxOutputTokens": 32768,
+      "supportsReasoning": true,
+      "supportsImages": true
+    },
+    {
+      "id": "ark/glm-5-3-flash-260828",
+      "name": "ARK glm-5-3-flash-260828",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 262144,
+      "maxOutputTokens": 32768,
+      "supportsReasoning": true,
+      "supportsImages": true
     }
   ],
   "availableModels": [
-    "ark/deepseek-v4-1-flash-260910",
-    "ark/deepseek-v4-flash-ga-260731",
-    "ark/deepseek-v4-pro-ga-260813",
-    "ark/doubao-seed-2-0-code-preview-260215",
-    "ark/doubao-seed-2-0-lite-260428",
-    "ark/doubao-seed-2-0-mini-260428",
-    "ark/doubao-seed-2-1-lite-260915",
-    "ark/doubao-seed-2-1-pro-260628",
-    "ark/doubao-seed-2-1-pro-260915",
-    "ark/doubao-seed-2-1-turbo-260628",
-    "ark/doubao-seed-character-251128",
-    "ark/doubao-seed-character-260628",
-    "ark/glm-5-2-260617",
-    "ark/glm-5-3-flash-260828",
-    "ds/deepseek-flash",
-    "ds/deepseek-v4-pro",
     "ocg/deepseek-flash",
     "ocg/deepseek-v4-flash",
     "ocg/deepseek-v4-flash-vision-exp",
@@ -1055,10 +1029,13 @@
     "ocg/qwen3.7-max",
     "ocg/qwen3.7-plus",
     "ocg/qwen3.8-flash",
+    "ocg/qwen3.8-max",
     "ocg/space-bunny",
+    "ocg/step-5-preview-free",
     "ccg/MiniMaxAI/MiniMax-M2.5",
     "ccg/MiniMaxAI/MiniMax-M3",
     "ccg/Qwen/Qwen3.6-Max-Preview",
+    "ccg/Qwen/Qwen3.6-Plus",
     "ccg/Qwen/Qwen3.7-Flash",
     "ccg/Qwen/Qwen3.7-Max",
     "ccg/Qwen/Qwen3.7-Plus",
@@ -1078,22 +1055,20 @@
     "ccg/gpt-5.6-luna",
     "ccg/gpt-5.6-sol",
     "ccg/gpt-6-luna",
-    "ccg/inclusionai/ling-3.0-flash-sante:free",
     "ccg/inclusionai/ling-3.1-flash:free",
     "ccg/meituan/LongCat-2.0",
     "ccg/meta/muse-spark-1.2",
     "ccg/meta/muse-spark-1.2-contributor",
     "ccg/meta/muse-spark-1.3",
     "ccg/meta/muse-spark-1.3-contributor",
+    "ccg/mistral/mistral-large-4",
     "ccg/moonshotai/Kimi-K2.5",
     "ccg/moonshotai/Kimi-K2.6",
     "ccg/moonshotai/Kimi-K2.7-Code",
     "ccg/moonshotai/Kimi-K2.7-Code-Highspeed",
     "ccg/moonshotai/Kimi-K3",
     "ccg/nvidia/nemotron-3-ultra-550b-a55b",
-    "ccg/poolside/laguna-s-2.1-free",
-    "ccg/stealth/space-bunny-alpha",
-    "ccg/stepfun/Step-3.5-Flash",
+    "ccg/stealth/glyph-cluster:free",
     "ccg/stepfun/Step-3.7-Flash",
     "ccg/stepfun/Step-5-Preview",
     "ccg/tencent/hy3-paid",
@@ -1101,7 +1076,6 @@
     "ccg/xai/grok-4.5",
     "ccg/xai/grok-4.6",
     "ccg/xai/grok-4.7",
-    "ccg/xiaomi/mimo-v2.5",
     "ccg/xiaomi/mimo-v2.5-pro",
     "ccg/xiaomi/mimo-v2.6-flash",
     "ccg/xiaomi/mimo-v2.6-pro",
@@ -1109,9 +1083,24 @@
     "ccg/z-ai/glm-5.3-flash",
     "ccg/z-ai/glm-5.3-flashx",
     "ccg/zai-org/GLM-5",
-    "ccg/zai-org/GLM-5.1",
     "ccg/zai-org/GLM-5.2",
     "ccg/zai-org/GLM-5.2-Fast",
-    "ccg/zai-org/GLM-5.3"
+    "ccg/zai-org/GLM-5.3",
+    "ds/deepseek-flash",
+    "ds/deepseek-v4-pro",
+    "ark/deepseek-v4-1-flash-260910",
+    "ark/deepseek-v4-flash-ga-260731",
+    "ark/deepseek-v4-pro-ga-260813",
+    "ark/doubao-seed-2-0-code-preview-260215",
+    "ark/doubao-seed-2-0-lite-260428",
+    "ark/doubao-seed-2-0-mini-260428",
+    "ark/doubao-seed-2-1-lite-260915",
+    "ark/doubao-seed-2-1-pro-260628",
+    "ark/doubao-seed-2-1-pro-260915",
+    "ark/doubao-seed-2-1-turbo-260628",
+    "ark/doubao-seed-character-251128",
+    "ark/doubao-seed-character-260628",
+    "ark/glm-5-2-260617",
+    "ark/glm-5-3-flash-260828"
   ]
 }
