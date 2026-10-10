@@ -295,7 +295,7 @@ if (( ! DRY )); then
   say "端到端自检："
   if curl -sf --max-time 20 http://127.0.0.1:8899/v1/chat/completions \
       -H 'Content-Type: application/json' -H 'Authorization: Bearer local' \
-      -d '{"model":"space-bunny-free","messages":[{"role":"user","content":"hi"}],"max_tokens":16}' >/dev/null 2>&1; then
+      -d '{"model":"longcat-2.5-preview-free","messages":[{"role":"user","content":"hi"}],"max_tokens":16}' >/dev/null 2>&1; then
     say "  ✓ :8899 代理 → opencode-go 正常"
   else
     say "  ✗ :8899 代理异常，检查 systemctl status opencode-go-proxy"

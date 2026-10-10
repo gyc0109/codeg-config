@@ -45,17 +45,19 @@
 ## 双供应商：OpenCode Go + Command Code GOAT
 
 除 OpenCode Go 外，本项目同时接入了第二个供应商 **Command Code GOAT**
-（`https://api.commandcode.ai/provider/v1`，GOAT 套餐 $10/月，~57 个实测可用模型）。
+（`https://api.commandcode.ai/provider/v1`，GOAT 套餐 $10/月，54 个实测 chat 可用模型）。
 
 **命名前缀**（所有 agent 的模型名统一带前缀，一眼区分来源）：
 
 | 前缀 | 供应商 | 含义 |
 | --- | --- | --- |
-| `ocg/` | OpenCode Go | 例：`ocg/space-bunny-free` |
+| `ocg/` | OpenCode Go | 例：`ocg/longcat-2.5-preview-free` |
 | `ccg/` | Command Code GOAT | 例：`ccg/claude-sonnet-5-5` |
+| `ds/` | DeepSeek 官方 | 例：`ds/deepseek-flash` |
+| `ark/` | 火山方舟 / 豆包 | 例：`ark/doubao-seed-2-1-pro-260915` |
 
 **注意前缀是「别名」不是「真实 id」**：每个 agent 都把别名映射回上游真正要的 model id
-（`ocg/space-bunny-free` → 上游 `space-bunny-free`）。各 agent 的实现方式不同：
+（`ocg/longcat-2.5-preview-free` → 上游 `longcat-2.5-preview-free`）。各 agent 的实现方式不同：
 
 ### codeg 的模型分组怎么来的（影响 UI 显示）
 
@@ -93,21 +95,24 @@ codeg 前端把 agent 上报的 model configOption 拆成「分组 + 条目」
 
 ### OpenCode Go 模型变更（2026-10 实测）
 
-**`space-bunny-free` 已下线**（改成付费的 `space-bunny`）。免费档只剩
-**`longcat-2.5-preview-free`**，因此所有默认模型改用它。
+**`space-bunny-free` 已下线**（改成付费的 `space-bunny`）。免费档为
+**`longcat-2.5-preview-free`**，另有新增的 **`step-5-preview-free`**；所有默认模型用前者。
 
-实测 37 个模型（权威来源 `GET /zen/go/v1/models`）：
+实测 38 个模型（权威来源 `GET /zen/go/v1/models`）：
 
 | 分类 | 数量 | 说明 |
 | --- | --- | --- |
-| chat 可用 | **28** | 所有 chat agent |
+| chat 可用 | **30** | 所有 chat agent |
 | responses 可用 | **11** | codex |
-| 两种都不可用 | 3 | `claude-haiku-5-5`（套餐外）、`minimax-m2.7`、`qwen3.8-max`（messages 报 Invalid credential） |
+| 两种都不可用 | 2 | `claude-haiku-5-5`（套餐外）、`minimax-m2.7` |
+
+> 2026-10-10 刷新：新增 `step-5-preview-free`（免费）；`qwen3.8-max` 恢复可用
+> （此前 `/messages` 报 Invalid credential，现已通过）。
 
 > 注意 `GET /zen/go/v1/models` **只返回 id**，不带上下文窗口；上下文要从
 > opencode 的 models.dev 缓存 `~/.cache/opencode/models.json` 取（provider `opencode-go`）。
 
-**LiteLLM 的 ocg/ 必须是 chat ∪ responses 的并集（34 个）**，不能只放 responses 子集——
+**LiteLLM 的 ocg/ 必须是 chat ∪ responses 的并集（36 个）**，不能只放 responses 子集——
 因为 cline / code_buddy / grok / deepseek 走的是 LiteLLM 的 **chat** 端点，
 只放 responses 子集会让它们连默认模型都找不到。
 
@@ -151,36 +156,41 @@ LiteLLM（:4000）另加了 `ds/` 两条（转发给 :8899）。
 
 | `supported_endpoints` | 个数 | 能用于 |
 | --- | --- | --- |
-| `['/chat/completions','/responses']` | 67 | 两类 agent 都行 |
-| `['/chat/completions']` | 9 | 仅 chat agent |
-| `['/messages']` | 10 | 仅 Claude 协议 |
+| `['/chat/completions','/responses']` | 68 | 两类 agent 都行 |
+| `['/chat/completions']` | 8 | 仅 chat agent |
+| `['/messages']` | 11 | 仅 Claude 协议 |
 
 再叠上“套餐是否包含”（探测返回 `MODEL_NOT_IN_PLAN`）和“上游是否可用”
 （`No available providers match`），当前 GOAT 套餐的**实际可用集**：
 
 | 用途 | 数量 | 备注 |
 | --- | --- | --- |
-| chat 可用 | **57** | 所有 chat agent（opencode/kimi/hermes/pi/cline/grok/deepseek） |
-| responses 可用 | **48** | codex（必须是 responses 的子集） |
-| messages 可用 | **1** | 仅 `claude-sonnet-5-5` |
-| 套餐外 | 14 | `gpt-5.5/5.4/6-sol/6-astra`、`gemini-3.5/3.6` 等 |
-| 在套餐但上游不可用 | 5 | `MiniMax-M2.7`、`Qwen3.6-Plus`、`inkling`×2、`pixel-canary` |
+| chat 可用 | **54** | 所有 chat agent（opencode/kimi/hermes/pi/cline/grok/deepseek） |
+| responses 可用 | **47** | codex（必须是 responses 的子集） |
+| messages 可用 | **2** | `claude-sonnet-5-5`、`claude-haiku-5-5` |
+| 套餐外 | 14 | `gpt-5.5/5.4/6-sol/6-astra`、`gemini-3.5/3.6`、`muse-spark-1.1` 等 |
+| 在套餐但上游不可用 | 8 | `MiniMax-M2.7`、`GLM-5.1`、`Step-3.5-Flash`、`inkling`×2、`ling-3.0-flash-sante:free`、`laguna-s-2.1-free`、`mimo-v2.5` |
+
+> 2026-10-10 刷新：新增 `Qwen/Qwen3.6-Plus`、`mistral/mistral-large-4`、
+> `stealth/glyph-cluster:free`（新的免费 stealth 模型）；下线
+> `stealth/space-bunny-alpha`（官方公告 free preview 结束）、`stealth/pixel-canary`（9/30 结束），
+> 另 4 个转为上游不可用。
 
 ### 各 agent 接入情况（全量审计）
 
 | Agent | OCG | CCG | 前缀形式 | 实测 |
 | --- | --- | --- | --- | --- |
-| opencode (`open_code`) | ✅ 29 | ✅ 57 | `ocg/` `ccg/` 别名 | ✅ |
-| kimi (`kimi_code`) | ✅ 29 | ✅ 57 | `ocg/` `ccg/` 别名 | ✅ |
-| hermes | ✅ 29 | ✅ 57 | `OCG`/`CCG` 名 | ✅ |
-| pi | ✅ 29 | ✅ 57 | provider `ocg`/`ccg` | ✅ |
-| claude_code | ✅ 36 | ✅ 1 | `ocg/`(LiteLLM) `ccg/`(:8898) | ✅ |
-| codex | ✅ 10 | ✅ 48 | catalog `OCG`/`CCG` | ✅ |
+| opencode (`open_code`) | ✅ 30 | ✅ 54 | `ocg/` `ccg/` 别名 | ✅ |
+| kimi (`kimi_code`) | ✅ 30 | ✅ 54 | `ocg/` `ccg/` 别名 | ✅ |
+| hermes | ✅ 30 | ✅ 54 | `OCG`/`CCG` 名 | ✅ |
+| pi | ✅ 30 | ✅ 54 | provider `ocg`/`ccg` | ✅ |
+| claude_code | ✅ 36 | ✅ 47 | `ccg/`(LiteLLM :4000) | ✅ |
+| codex | ✅ 11 | ✅ 47 | catalog `OCG`/`CCG` | ✅ |
 | grok | ✅ | ✅ `xai/grok-4.7` | 经 LiteLLM 前缀 | ✅ |
 | deepseek | ✅ | ✅ `deepseek-v4.1-flash` | 经 LiteLLM 前缀 | ✅ |
 | cline | ✅ | ✅ | 单 provider 指向 LiteLLM，改 model 字符串即可 | ✅ |
-| code_buddy | ✅ 29 | ✅ 57 | `~/.codebuddy/models.json` + `CODEBUDDY_BASE_URL` | ✅ |
-| **open_claw** | ✅ 29 | ✅ 57 | `models.providers` 自定义 `ocg`/`ccg` | ✅ |
+| code_buddy | ✅ 30 | ✅ 54 | `~/.codebuddy/models.json` + `CODEBUDDY_BASE_URL` | ✅ |
+| **open_claw** | ✅ 30 | ✅ 54 | `models.providers` 自定义 `ocg`/`ccg` | ✅ |
 | code_buddy | ~~❌~~ ✅ |  |  |  |
 
 > pi 的坑：`models-store.json` 只是**模型缓存**，provider 定义在 **`models.json`**
@@ -193,7 +203,7 @@ LiteLLM（:4000）另加了 `ds/` 两条（转发给 :8899）。
 >
 > codex 的坑：1.13.1 已**删除** `wire_api = "chat"`（只能 `responses`），而 LiteLLM
 > 只做 chat→responses 单向桥接，所以 codex 走 LiteLLM 时只能用 responses 兼容的模型
-> （ocg 10 个 + ccg 48 个）。这跟「直连 :8899」的覆盖面一样，但不用再切 provider。
+> （ocg 11 个 + ccg 47 个）。这跟「直连 :8899」的覆盖面一样，但不用再切 provider。
 > 具体的 codex 模型配置：`model = "ocg/gpt-6-luna"` + `model_provider = "litellm-bridge"`。
 >
 > Claude Code 的坑：它会把 `system` 角色塞进 `messages`（mid-conversation-system
@@ -217,17 +227,17 @@ LiteLLM（:4000）另加了 `ds/` 两条（转发给 :8899）。
 > `Unknown provider 'custom:xxx'`（或退回到 OpenRouter 报 401）：
 >
 > ```bash
-> HERMES_INFERENCE_PROVIDER=custom:ocg-space-bunny-free   # provider 名转 slug（小写、非字母数字转 -）
-> HERMES_INFERENCE_MODEL=space-bunny-free                # 上游真实 model id（不带前缀）
+> HERMES_INFERENCE_PROVIDER=custom:ocg-longcat-2.5-preview-free   # provider 名转 slug（小写、非字母数字转 -）
+> HERMES_INFERENCE_MODEL=longcat-2.5-preview-free                # 上游真实 model id（不带前缀）
 > ```
 >
-> `custom_providers[].name` 决定 slug（`OCG Space Bunny Free` → `ocg-space-bunny-free`），
+> `custom_providers[].name` 决定 slug（`OCG Longcat 2.5 Preview Free` → `ocg-longcat-2.5-preview-free`），
 > 改名字就会让 codeg 里已存的引用失效。`~/.hermes/config.yaml` 里对应
 > `provider:` / `model:` 两个顶层键。
 >
-> LiteLLM 的坑：对**不带 `/`** 的模型名会做后缀匹配。所以 `space-bunny-free` 能
-> “蒙对”到 `ocg/space-bunny-free`，但 `gpt-6-luna` 会歧义命中（ocg 和 ccg 都存在）
-> 从而走错供应商。所有调用方都应写全 `ocg/` / `ccg/` 前缀。
+> LiteLLM 的坑：对**不带 `/`** 的模型名会做后缀匹配。所以 `lion-free` 能
+> “蒙对”到 `ocg/lion-free`，但 `gpt-6-luna` 会歧义命中（ocg 和 ccg 都存在）
+> 从而走错供应商。所有调用方都应写全 `ocg/` / `ccg/` / `ds/` / `ark/` 前缀。
 >
 > CodeBuddy 的坑：它默认走腾讯账号体系（`~/.codebuddy/.credentials.json`），没登录时
 > 报“没有可用的登录凭据”。但它支持自托管端点，不需要登录：
@@ -235,7 +245,7 @@ LiteLLM（:4000）另加了 `ds/` 两条（转发给 :8899）。
 > ```bash
 > CODEBUDDY_BASE_URL=http://127.0.0.1:4000/v1   # 指向本机 LiteLLM
 > CODEBUDDY_API_KEY=local
-> CODEBUDDY_MODEL=ocg/space-bunny-free
+> CODEBUDDY_MODEL=ocg/longcat-2.5-preview-free
 > CODEBUDDY_DISABLE_BUILTIN_MODELS=1           # 隐藏腾讯内置模型
 > ```
 >
