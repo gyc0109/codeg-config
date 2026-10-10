@@ -239,6 +239,15 @@ LiteLLM（:4000）另加了 `ds/` 两条（转发给 :8899）。
 > “蒙对”到 `ocg/lion-free`，但 `gpt-6-luna` 会歧义命中（ocg 和 ccg 都存在）
 > 从而走错供应商。所有调用方都应写全 `ocg/` / `ccg/` / `ds/` / `ark/` 前缀。
 >
+> cline 的坑（两个，都会让 ACP 静默失败）：
+> 1. codeg 给 cline 的环境变量是 **`CLINE_PROVIDER` / `CLINE_BASE_URL` / `CLINE_API_KEY` /
+>    `CLINE_MODEL`**，不是 `OPENAI_*`。用错就退回到官方 Cline 账号，
+>    报 `Unauthorized: ... re-authenticate your Cline account`。
+> 2. cline 的可选模型**不读 providers.json**，而是同目录的 `models.json`
+>    （`{version:1,providers:{<id>:{provider:{name,baseUrl,defaultModelId},models:{},discoveredModelIds:[]}}}`）。
+>    不写它，ACP 的 model configOption 只有 `gpt-4o`，一请求就
+>    `Invalid model name passed in model=gpt-4o`。用 `tools/gen-cline-models.py` 生成。
+>
 > CodeBuddy 的坑：它默认走腾讯账号体系（`~/.codebuddy/.credentials.json`），没登录时
 > 报“没有可用的登录凭据”。但它支持自托管端点，不需要登录：
 >

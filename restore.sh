@@ -157,6 +157,10 @@ restore_agent "$PROJ/config/opencode/opencode.jsonc"     /root/.config/opencode/
 restore_agent "$PROJ/config/pi/settings.json"               /root/.pi/agent/settings.json
 restore_agent "$PROJ/config/pi/models.json"               /root/.pi/agent/models.json
 restore_agent "$PROJ/config/cline-providers.json"        /root/.cline/data/settings/providers.json
+if [[ -f "$PROJ/tools/gen-cline-models.py" ]] && command -v python3 >/dev/null 2>&1; then
+  if (( DRY )); then say "[dry-run] 生成 ~/.cline/data/settings/models.json（100 个可选模型）"
+  else python3 "$PROJ/tools/gen-cline-models.py" && say "→ ~/.cline/data/settings/models.json"; fi
+fi
 restore_agent "$PROJ/config/codebuddy/models.json"        /root/.codebuddy/models.json
 
 # DeepSeek Harness 的模型路由（~/.dsh/settings.yaml）
