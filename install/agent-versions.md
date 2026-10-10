@@ -3,18 +3,18 @@
 | agent | 版本 | 分发 | 备注 |
 | --- | --- | --- | --- |
 | pi | 0.0.34 | npx | 升级会覆盖 `dist/index.js`，需重跑 `pi-acp-provider-label-patch` |
-| claude_code | 0.85.1 | npx |  |
-| open_code | 1.18.34 | binary | 二进制在 `~/.local/share/codeg/acp-binaries/opencode/<ver>/`，升级后需手动同步 `agent_setting` |
+| claude_code | 0.89.0 | npx |  |
+| open_code | 1.18.35 | binary | 二进制在 `~/.local/share/codeg/acp-binaries/opencode/<ver>/`，升级后需手动同步 `agent_setting` |
 | deepseek | 0.9.0 | npx | 已是最新 |
-| hermes | 0.21.5 | npx |  |
-| code_buddy | 2.161.1 | npx | **升级会丢 symlink**，需按 `package.json` 的 bin 重建 |
+| hermes | 0.21.6 | npx |  |
+| code_buddy | 2.164.0 | npx | **升级会丢 symlink**，需按 `package.json` 的 bin 重建 |
 | kimi_code | 2.1.1 | npx |  |
-| codex | 2.1.1 | npx | 内含 codex-cli 0.159.3，config.toml 格式兼容 |
-| cline | 3.0.68 | npx |  |
-| open_claw | 2026.9.8 | npx | 升级后 `openclaw gateway restart` |
-| gemini | 0.62.0 | npx | 无 Gemini key，暂不可用 |
-| grok | 1.0.46 | npx |  |
-| qoder | 1.1.65 | npx | **升级会丢 symlink**，需按 bin 重建 |
+| codex | 2.2.1 | npx | 内含 codex-cli 0.159.3，config.toml 格式兼容 |
+| cline | 3.0.70 | npx |  |
+| open_claw | 2026.9.9 | npx | 升级后 `openclaw gateway restart` |
+| gemini | 0.63.0 | npx | 无 Gemini key，暂不可用 |
+| grok | 1.0.50 | npx |  |
+| qoder | 1.1.67 | npx | **升级会丢 symlink**，需按 bin 重建 |
 | cursor | 2026.10.01-14929f9 | binary | 升级后需手动同步 `agent_setting` |
 | antigravity | 1.3.0 | binary | |
 
@@ -62,3 +62,22 @@ systemctl --user start openclaw-gateway
 ```
 
 注意首次启动要等约 20~30s 才会 listen（要跑 session-sqlite reclamation）。
+
+## open_claw 升级偶发缺模块（2026.9.9）
+
+升级后 gateway 起不来，日志是：
+
+```
+ERROR: ERR_MODULE_NOT_FOUND
+  url: file:///usr/lib/node_modules/openclaw/node_modules/@openclaw/fs-safe/file-lock
+```
+
+修复（与 schema 迁移同一套流程）：
+
+```bash
+systemctl --user stop openclaw-gateway
+openclaw doctor --fix
+systemctl --user start openclaw-gateway
+```
+
+首次 listen 仍需等约 20~30s。
