@@ -64,3 +64,47 @@ launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/app.codeg.opencode-go-pr
 | `mac_fix_claw.py` | 修 open_claw 的默认模型（cherry-* 失效时） |
 | `mac_fix_kimi.py` | 修 kimi 各 provider 段里的 `default_model` |
 | `mac_verify2.sh` | agent 实测 |
+
+## ⚠️ Mac 的 CC 账号和服务器不是同一个
+
+套餐权限不同，**不能沿用服务器探测的模型清单**。2026-10-11 实测对比：
+
+| | 服务器 CC 账号 | Mac CC 账号 |
+| --- | --- | --- |
+| chat 可用 | 54 | **50** |
+| responses 可用 | 47 | **44** |
+
+Mac 账号**没有**（服务器有）：
+`Qwen/Qwen3.6-Max-Preview`（404 model not exist）、
+`google/gemini-3.7-flash`、`meta/muse-spark-1.2`、`1.2-contributor`、`1.3`、`1.3-contributor`（均 403 auth failed）
+
+Mac 账号**独有**（服务器无）：
+`poolside/laguna-s-2.1-free`、`xiaomi/mimo-v2.5`
+
+所以每次刷新必须在本机跑 `mac_cc_reprobe.sh`，用它的输出重建
+`~/.codeg-models/cc_final_new.json`，**不要**直接复制服务器的。
+
+另外 **OCG 的 key 也是两个不同的账号**（服务器 `oc_sk_3bc7...` / Mac `oc_sk_75d5...`），
+模型列表目前一致（都 38 个），但也不能假定永远一样。
+
+### 已知不稳的模型
+
+`ccg/inclusionai/ling-3.1-flash:free` —— 免费的，上游经常 `rate_limit_error`。
+服务器和 Mac 用各自的 key 都是同样结果，属于上游限流，不是配置问题。
+
+## open_claw 的两个坑
+
+1. `agents.entries` 必须非空（`{"main": {}}`），否则网关起不来、报
+   `agents.entries must contain at least one configured agent`。用 `openclaw doctor --fix` 修。
+2. doctor 会把 `agents.defaults.models` 迁移成 `agents.defaults.modelPolicy.allow`，
+   **之后改 allowlist 要改 `modelPolicy.allow`**，改 `models` 不生效。
+   用 `mac_fix_policy.py` 同步。
+
+## pi 的额外依赖
+
+`pi-acp` 只是 ACP 适配器，**还需要主程序 `pi`**，否则 session/new 报
+`Could not start pi: executable not found (command: pi)`：
+
+```bash
+npm install -g @earendil-works/pi-coding-agent
+```
