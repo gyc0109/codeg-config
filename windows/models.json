@@ -1,0 +1,632 @@
+{
+  "_说明": "本机实测的可用模型清单。每台机器的账号权限可能不同，建议按 PROMPT 里的流程在本机复测。",
+  "_生成自": "codeg-config / 服务器实测",
+  "providers": {
+    "ocg": {
+      "name": "OpenCode Go",
+      "upstream": "https://opencode.ai/zen/go/v1",
+      "needs_session_header": true,
+      "note": "上游要求 x-opencode-session 头，代理必须注入",
+      "chat": [
+        {
+          "id": "deepseek-flash",
+          "contextWindow": 1000000,
+          "maxTokens": 384000
+        },
+        {
+          "id": "deepseek-v4-flash",
+          "contextWindow": 1000000,
+          "maxTokens": 384000
+        },
+        {
+          "id": "deepseek-v4-flash-vision-exp",
+          "contextWindow": 1000000,
+          "maxTokens": 384000
+        },
+        {
+          "id": "deepseek-v4-pro",
+          "contextWindow": 1000000,
+          "maxTokens": 384000
+        },
+        {
+          "id": "deepseek-v4.1-flash",
+          "contextWindow": 1000000,
+          "maxTokens": 384000
+        },
+        {
+          "id": "glm-5.1",
+          "contextWindow": 262144,
+          "maxTokens": 131072
+        },
+        {
+          "id": "glm-5.2",
+          "contextWindow": 1000000,
+          "maxTokens": 131072
+        },
+        {
+          "id": "glm-5.3",
+          "contextWindow": 1000000,
+          "maxTokens": 131072
+        },
+        {
+          "id": "glm-5.3-flash",
+          "contextWindow": 1000000,
+          "maxTokens": 131072
+        },
+        {
+          "id": "hy3",
+          "contextWindow": 256000,
+          "maxTokens": 128000
+        },
+        {
+          "id": "hy4-preview",
+          "contextWindow": 1024000,
+          "maxTokens": 64000
+        },
+        {
+          "id": "kimi-k2.6",
+          "contextWindow": 262144,
+          "maxTokens": 65536
+        },
+        {
+          "id": "kimi-k2.7-code",
+          "contextWindow": 262144,
+          "maxTokens": 262144
+        },
+        {
+          "id": "kimi-k3",
+          "contextWindow": 1048576,
+          "maxTokens": 131072
+        },
+        {
+          "id": "longcat-2.0",
+          "contextWindow": 1000000,
+          "maxTokens": 131072
+        },
+        {
+          "id": "longcat-2.5-preview-free",
+          "contextWindow": 1000000,
+          "maxTokens": 131072
+        },
+        {
+          "id": "mimo-v2.5",
+          "contextWindow": 1000000,
+          "maxTokens": 128000
+        },
+        {
+          "id": "mimo-v2.5-pro",
+          "contextWindow": 1048576,
+          "maxTokens": 128000
+        },
+        {
+          "id": "mimo-v2.6-flash",
+          "contextWindow": 1048576,
+          "maxTokens": 131072
+        },
+        {
+          "id": "mimo-v2.6-pro",
+          "contextWindow": 1048576,
+          "maxTokens": 131072
+        },
+        {
+          "id": "minimax-m2.5",
+          "contextWindow": 262144,
+          "maxTokens": 131072
+        },
+        {
+          "id": "minimax-m3",
+          "contextWindow": 1000000,
+          "maxTokens": 131072
+        },
+        {
+          "id": "omen-alpha",
+          "contextWindow": 262144,
+          "maxTokens": 131072
+        },
+        {
+          "id": "qwen3.6-plus",
+          "contextWindow": 1000000,
+          "maxTokens": 65536
+        },
+        {
+          "id": "qwen3.7-max",
+          "contextWindow": 1000000,
+          "maxTokens": 65536
+        },
+        {
+          "id": "qwen3.7-plus",
+          "contextWindow": 1000000,
+          "maxTokens": 65536
+        },
+        {
+          "id": "qwen3.8-flash",
+          "contextWindow": 1000000,
+          "maxTokens": 131072
+        },
+        {
+          "id": "qwen3.8-max",
+          "contextWindow": 1000000,
+          "maxTokens": 131072
+        },
+        {
+          "id": "space-bunny",
+          "contextWindow": 1048576,
+          "maxTokens": 524288
+        },
+        {
+          "id": "step-5-preview-free",
+          "contextWindow": 1000000,
+          "maxTokens": 131072
+        }
+      ],
+      "responses": [
+        "deepseek-flash",
+        "deepseek-v4-flash",
+        "deepseek-v4-flash-vision-exp",
+        "deepseek-v4-pro",
+        "deepseek-v4.1-flash",
+        "gpt-5.6-luna",
+        "gpt-6-luna",
+        "grok-4.6",
+        "grok-4.7",
+        "muse-spark-1.2-contributor",
+        "muse-spark-1.3-contributor"
+      ],
+      "responses_only": [
+        "gpt-5.6-luna",
+        "gpt-6-luna",
+        "grok-4.6",
+        "grok-4.7",
+        "muse-spark-1.2-contributor",
+        "muse-spark-1.3-contributor"
+      ],
+      "default": "longcat-2.5-preview-free"
+    },
+    "ccg": {
+      "name": "Command Code GOAT",
+      "upstream": "https://api.commandcode.ai/provider/v1",
+      "note": "/messages 不接受 messages 数组里的 role:system，需提到顶层 system",
+      "chat": [
+        {
+          "id": "MiniMaxAI/MiniMax-M2.5",
+          "contextWindow": 200000,
+          "maxTokens": 131072
+        },
+        {
+          "id": "MiniMaxAI/MiniMax-M3",
+          "contextWindow": 1000000,
+          "maxTokens": 131072
+        },
+        {
+          "id": "Qwen/Qwen3.6-Max-Preview",
+          "contextWindow": 200000,
+          "maxTokens": 131072
+        },
+        {
+          "id": "Qwen/Qwen3.6-Plus",
+          "contextWindow": 200000,
+          "maxTokens": 131072
+        },
+        {
+          "id": "Qwen/Qwen3.7-Flash",
+          "contextWindow": 1000000,
+          "maxTokens": 131072
+        },
+        {
+          "id": "Qwen/Qwen3.7-Max",
+          "contextWindow": 1000000,
+          "maxTokens": 131072
+        },
+        {
+          "id": "Qwen/Qwen3.7-Plus",
+          "contextWindow": 1000000,
+          "maxTokens": 131072
+        },
+        {
+          "id": "Qwen/Qwen3.8-27B",
+          "contextWindow": 262144,
+          "maxTokens": 131072
+        },
+        {
+          "id": "Qwen/Qwen3.8-Flash",
+          "contextWindow": 1000000,
+          "maxTokens": 131072
+        },
+        {
+          "id": "Qwen/Qwen3.8-Max",
+          "contextWindow": 1000000,
+          "maxTokens": 131072
+        },
+        {
+          "id": "Qwen/Qwen3.8-Max-0902",
+          "contextWindow": 1000000,
+          "maxTokens": 131072
+        },
+        {
+          "id": "Qwen/Qwen3.8-Omni-Flash",
+          "contextWindow": 1000000,
+          "maxTokens": 131072
+        },
+        {
+          "id": "deepseek/deepseek-v4-flash",
+          "contextWindow": 1000000,
+          "maxTokens": 131072
+        },
+        {
+          "id": "deepseek/deepseek-v4-flash-fast",
+          "contextWindow": 1000000,
+          "maxTokens": 131072
+        },
+        {
+          "id": "deepseek/deepseek-v4-flash-vision-exp",
+          "contextWindow": 1000000,
+          "maxTokens": 131072
+        },
+        {
+          "id": "deepseek/deepseek-v4-pro",
+          "contextWindow": 1000000,
+          "maxTokens": 131072
+        },
+        {
+          "id": "deepseek/deepseek-v4.1-flash",
+          "contextWindow": 1000000,
+          "maxTokens": 131072
+        },
+        {
+          "id": "deepseek/deepseek-v4.1-flash-fast",
+          "contextWindow": 1000000,
+          "maxTokens": 131072
+        },
+        {
+          "id": "google/gemini-3.7-flash",
+          "contextWindow": 1048576,
+          "maxTokens": 131072
+        },
+        {
+          "id": "google/gemini-3.8-flash",
+          "contextWindow": 1000000,
+          "maxTokens": 131072
+        },
+        {
+          "id": "gpt-5.6-luna",
+          "contextWindow": 1050000,
+          "maxTokens": 131072
+        },
+        {
+          "id": "gpt-5.6-sol",
+          "contextWindow": 1050000,
+          "maxTokens": 131072
+        },
+        {
+          "id": "gpt-6-luna",
+          "contextWindow": 1050000,
+          "maxTokens": 131072
+        },
+        {
+          "id": "inclusionai/ling-3.1-flash:free",
+          "contextWindow": 262144,
+          "maxTokens": 131072
+        },
+        {
+          "id": "meituan/LongCat-2.0",
+          "contextWindow": 1048576,
+          "maxTokens": 131072
+        },
+        {
+          "id": "meta/muse-spark-1.2",
+          "contextWindow": 1048576,
+          "maxTokens": 131072
+        },
+        {
+          "id": "meta/muse-spark-1.2-contributor",
+          "contextWindow": 1048576,
+          "maxTokens": 131072
+        },
+        {
+          "id": "meta/muse-spark-1.3",
+          "contextWindow": 1048576,
+          "maxTokens": 131072
+        },
+        {
+          "id": "meta/muse-spark-1.3-contributor",
+          "contextWindow": 1048576,
+          "maxTokens": 131072
+        },
+        {
+          "id": "mistral/mistral-large-4",
+          "contextWindow": 524288,
+          "maxTokens": 131072
+        },
+        {
+          "id": "moonshotai/Kimi-K2.5",
+          "contextWindow": 256000,
+          "maxTokens": 131072
+        },
+        {
+          "id": "moonshotai/Kimi-K2.6",
+          "contextWindow": 256000,
+          "maxTokens": 131072
+        },
+        {
+          "id": "moonshotai/Kimi-K2.7-Code",
+          "contextWindow": 256000,
+          "maxTokens": 131072
+        },
+        {
+          "id": "moonshotai/Kimi-K2.7-Code-Highspeed",
+          "contextWindow": 262000,
+          "maxTokens": 131072
+        },
+        {
+          "id": "moonshotai/Kimi-K3",
+          "contextWindow": 1000000,
+          "maxTokens": 131072
+        },
+        {
+          "id": "nvidia/nemotron-3-ultra-550b-a55b",
+          "contextWindow": 1000000,
+          "maxTokens": 131072
+        },
+        {
+          "id": "stealth/glyph-cluster:free",
+          "contextWindow": 256000,
+          "maxTokens": 131072
+        },
+        {
+          "id": "stepfun/Step-3.7-Flash",
+          "contextWindow": 256000,
+          "maxTokens": 131072
+        },
+        {
+          "id": "stepfun/Step-5-Preview",
+          "contextWindow": 1000000,
+          "maxTokens": 131072
+        },
+        {
+          "id": "tencent/hy3-paid",
+          "contextWindow": 262144,
+          "maxTokens": 131072
+        },
+        {
+          "id": "tencent/hy4-preview",
+          "contextWindow": 1048576,
+          "maxTokens": 131072
+        },
+        {
+          "id": "xai/grok-4.5",
+          "contextWindow": 500000,
+          "maxTokens": 131072
+        },
+        {
+          "id": "xai/grok-4.6",
+          "contextWindow": 500000,
+          "maxTokens": 131072
+        },
+        {
+          "id": "xai/grok-4.7",
+          "contextWindow": 500000,
+          "maxTokens": 131072
+        },
+        {
+          "id": "xiaomi/mimo-v2.5-pro",
+          "contextWindow": 1000000,
+          "maxTokens": 131072
+        },
+        {
+          "id": "xiaomi/mimo-v2.6-flash",
+          "contextWindow": 1048576,
+          "maxTokens": 131072
+        },
+        {
+          "id": "xiaomi/mimo-v2.6-pro",
+          "contextWindow": 1048576,
+          "maxTokens": 131072
+        },
+        {
+          "id": "xiaomi/mimo-v2.6-pro-ultraspeed",
+          "contextWindow": 1048576,
+          "maxTokens": 131072
+        },
+        {
+          "id": "z-ai/glm-5.3-flash",
+          "contextWindow": 1048576,
+          "maxTokens": 131072
+        },
+        {
+          "id": "z-ai/glm-5.3-flashx",
+          "contextWindow": 1000000,
+          "maxTokens": 131072
+        },
+        {
+          "id": "zai-org/GLM-5",
+          "contextWindow": 200000,
+          "maxTokens": 131072
+        },
+        {
+          "id": "zai-org/GLM-5.2",
+          "contextWindow": 1000000,
+          "maxTokens": 131072
+        },
+        {
+          "id": "zai-org/GLM-5.2-Fast",
+          "contextWindow": 1000000,
+          "maxTokens": 131072
+        },
+        {
+          "id": "zai-org/GLM-5.3",
+          "contextWindow": 1000000,
+          "maxTokens": 131072
+        }
+      ],
+      "responses": [
+        "MiniMaxAI/MiniMax-M2.5",
+        "MiniMaxAI/MiniMax-M3",
+        "Qwen/Qwen3.6-Max-Preview",
+        "Qwen/Qwen3.6-Plus",
+        "Qwen/Qwen3.7-Flash",
+        "Qwen/Qwen3.7-Max",
+        "Qwen/Qwen3.7-Plus",
+        "Qwen/Qwen3.8-27B",
+        "Qwen/Qwen3.8-Max",
+        "Qwen/Qwen3.8-Omni-Flash",
+        "deepseek/deepseek-v4-flash",
+        "deepseek/deepseek-v4-flash-vision-exp",
+        "deepseek/deepseek-v4-pro",
+        "deepseek/deepseek-v4.1-flash",
+        "deepseek/deepseek-v4.1-flash-fast",
+        "google/gemini-3.8-flash",
+        "gpt-5.6-luna",
+        "gpt-5.6-sol",
+        "gpt-6-luna",
+        "meta/muse-spark-1.2",
+        "meta/muse-spark-1.2-contributor",
+        "meta/muse-spark-1.3",
+        "meta/muse-spark-1.3-contributor",
+        "mistral/mistral-large-4",
+        "moonshotai/Kimi-K2.5",
+        "moonshotai/Kimi-K2.6",
+        "moonshotai/Kimi-K2.7-Code",
+        "moonshotai/Kimi-K2.7-Code-Highspeed",
+        "moonshotai/Kimi-K3",
+        "nvidia/nemotron-3-ultra-550b-a55b",
+        "stealth/glyph-cluster:free",
+        "stepfun/Step-3.7-Flash",
+        "stepfun/Step-5-Preview",
+        "tencent/hy3-paid",
+        "xai/grok-4.5",
+        "xai/grok-4.6",
+        "xai/grok-4.7",
+        "xiaomi/mimo-v2.5-pro",
+        "xiaomi/mimo-v2.6-flash",
+        "xiaomi/mimo-v2.6-pro",
+        "xiaomi/mimo-v2.6-pro-ultraspeed",
+        "z-ai/glm-5.3-flash",
+        "z-ai/glm-5.3-flashx",
+        "zai-org/GLM-5",
+        "zai-org/GLM-5.2",
+        "zai-org/GLM-5.2-Fast",
+        "zai-org/GLM-5.3"
+      ],
+      "messages": [
+        "claude-sonnet-5-5"
+      ],
+      "default": "stealth/glyph-cluster:free"
+    },
+    "ds": {
+      "name": "DeepSeek Official",
+      "upstream": "https://api.deepseek.com/v1",
+      "note": "拒绝 role:developer，需改写成 system",
+      "chat": [
+        {
+          "id": "deepseek-flash",
+          "contextWindow": 1048576,
+          "maxTokens": 393216
+        },
+        {
+          "id": "deepseek-v4-pro",
+          "contextWindow": 1048576,
+          "maxTokens": 131072
+        }
+      ],
+      "responses": [
+        "deepseek-flash",
+        "deepseek-v4-pro"
+      ],
+      "default": "deepseek-flash"
+    },
+    "ark": {
+      "name": "Volcengine Ark",
+      "upstream": "https://ark.cn-beijing.volces.com/api/v3",
+      "note": "模型名必须带日期后缀；拒绝 role:developer",
+      "chat": [
+        {
+          "id": "deepseek-v4-1-flash-260910",
+          "contextWindow": 262144,
+          "maxTokens": 32768
+        },
+        {
+          "id": "deepseek-v4-flash-ga-260731",
+          "contextWindow": 262144,
+          "maxTokens": 32768
+        },
+        {
+          "id": "deepseek-v4-pro-ga-260813",
+          "contextWindow": 262144,
+          "maxTokens": 32768
+        },
+        {
+          "id": "doubao-seed-2-0-code-preview-260215",
+          "contextWindow": 262144,
+          "maxTokens": 32768
+        },
+        {
+          "id": "doubao-seed-2-0-lite-260428",
+          "contextWindow": 262144,
+          "maxTokens": 32768
+        },
+        {
+          "id": "doubao-seed-2-0-mini-260428",
+          "contextWindow": 262144,
+          "maxTokens": 32768
+        },
+        {
+          "id": "doubao-seed-2-1-lite-260915",
+          "contextWindow": 262144,
+          "maxTokens": 32768
+        },
+        {
+          "id": "doubao-seed-2-1-pro-260628",
+          "contextWindow": 262144,
+          "maxTokens": 32768
+        },
+        {
+          "id": "doubao-seed-2-1-pro-260915",
+          "contextWindow": 262144,
+          "maxTokens": 32768
+        },
+        {
+          "id": "doubao-seed-2-1-turbo-260628",
+          "contextWindow": 262144,
+          "maxTokens": 32768
+        },
+        {
+          "id": "doubao-seed-character-251128",
+          "contextWindow": 262144,
+          "maxTokens": 32768
+        },
+        {
+          "id": "doubao-seed-character-260628",
+          "contextWindow": 262144,
+          "maxTokens": 32768
+        },
+        {
+          "id": "glm-5-2-260617",
+          "contextWindow": 262144,
+          "maxTokens": 32768
+        },
+        {
+          "id": "glm-5-3-flash-260828",
+          "contextWindow": 262144,
+          "maxTokens": 32768
+        }
+      ],
+      "responses": [
+        "deepseek-v4-1-flash-260910",
+        "deepseek-v4-flash-ga-260731",
+        "deepseek-v4-pro-ga-260813",
+        "doubao-seed-2-0-code-preview-260215",
+        "doubao-seed-2-0-lite-260428",
+        "doubao-seed-2-0-mini-260428",
+        "doubao-seed-2-1-lite-260915",
+        "doubao-seed-2-1-pro-260628",
+        "doubao-seed-2-1-pro-260915",
+        "doubao-seed-2-1-turbo-260628",
+        "doubao-seed-character-251128",
+        "doubao-seed-character-260628",
+        "glm-5-2-260617",
+        "glm-5-3-flash-260828"
+      ],
+      "default": "doubao-seed-2-1-pro-260915"
+    }
+  }
+}

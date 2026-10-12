@@ -1,0 +1,70 @@
+{
+  "_说明": "codeg 的 model_provider 定义。apiUrl 指向本机代理；claude_code/codex 走 cc-switch 的话这两项不要建。",
+  "_apiUrl占位": "http://127.0.0.1:<你的代理端口>/v1",
+  "claude_code": {
+    "OpenCode Go (ocg/)": {
+      "main": "longcat-2.5-preview-free",
+      "reasoning": "longcat-2.5-preview-free",
+      "haiku": "longcat-2.5-preview-free",
+      "sonnet": "longcat-2.5-preview-free",
+      "opus": "longcat-2.5-preview-free",
+      "customOption": "longcat-2.5-preview-free",
+      "customOptionName": "OCG Longcat 2.5 Preview Free",
+      "customOptionDescription": "OpenCode Go 免费档"
+    },
+    "Command Code GOAT (ccg/)": {
+      "main": "ccg/z-ai/glm-5.3-flash",
+      "reasoning": "ccg/deepseek/deepseek-v4.1-flash",
+      "haiku": "ccg/deepseek/deepseek-v4.1-flash",
+      "sonnet": "ccg/z-ai/glm-5.3-flash",
+      "opus": "ccg/xiaomi/mimo-v2.6-pro",
+      "customOption": "ccg/gpt-6-luna",
+      "customOptionName": "CCG GPT-6 Luna",
+      "customOptionDescription": "Command Code GOAT · 备用均衡模型"
+    },
+    "DeepSeek Official (ds/)": {
+      "main": "ds/deepseek-flash",
+      "reasoning": "ds/deepseek-v4-pro",
+      "haiku": "ds/deepseek-flash",
+      "sonnet": "ds/deepseek-v4-pro",
+      "opus": "ds/deepseek-v4-pro",
+      "customOption": "ds/deepseek-v4-pro",
+      "customOptionName": "DS DeepSeek V4 Pro",
+      "customOptionDescription": "DeepSeek 官方"
+    },
+    "Volcengine Ark (ark/)": {
+      "main": "ark/doubao-seed-2-1-pro-260915",
+      "reasoning": "ark/glm-5-3-flash-260828",
+      "haiku": "ark/doubao-seed-2-1-lite-260915",
+      "sonnet": "ark/doubao-seed-2-1-pro-260628",
+      "opus": "ark/deepseek-v4-pro-ga-260813",
+      "customOption": "ark/glm-5-3-flash-260828",
+      "customOptionName": "ARK GLM 5.3 Flash",
+      "customOptionDescription": "火山方舟"
+    }
+  },
+  "kimi_code": {
+    "OpenCode Go (ocg/)": "ocg/longcat-2.5-preview-free",
+    "Command Code GOAT (ccg/)": "ccg/moonshotai/Kimi-K3",
+    "DeepSeek Official (ds/)": "ds/deepseek-flash",
+    "Volcengine Ark (ark/)": "ark/deepseek-v4-1-flash-260910"
+  },
+  "grok": {
+    "OpenCode Go (ocg/)": "ocg/longcat-2.5-preview-free",
+    "Command Code GOAT (ccg/)": "ccg/xai/grok-4.7",
+    "DeepSeek Official (ds/)": "ds/deepseek-flash",
+    "Volcengine Ark (ark/)": "ark/doubao-seed-2-1-pro-260915"
+  },
+  "deepseek": {
+    "OpenCode Go (ocg/)": "ocg/longcat-2.5-preview-free",
+    "Command Code GOAT (ccg/)": "ccg/deepseek/deepseek-v4.1-flash",
+    "DeepSeek Official (ds/)": "ds/deepseek-flash",
+    "Volcengine Ark (ark/)": "ark/deepseek-v4-pro-ga-260813"
+  },
+  "codex": {
+    "OpenCode Go (ocg/)": "ocg/gpt-6-luna",
+    "Command Code GOAT (ccg/)": "ccg/gpt-6-luna",
+    "DeepSeek Official (ds/)": "ds/deepseek-v4-pro",
+    "Volcengine Ark (ark/)": "ark/deepseek-v4-pro-ga-260813"
+  }
+}
