@@ -3,7 +3,7 @@
   "providers": {
     "openai-compatible": {
       "provider": {
-        "name": "codeg 代理",
+        "name": "LiteLLM (OpenAI Compatible)",
         "baseUrl": "http://127.0.0.1:4000/v1",
         "defaultModelId": "ocg/longcat-2.5-preview-free",
         "capabilities": [
@@ -714,9 +714,35 @@
             "streaming"
           ]
         },
+        "ccg/meituan/LongCat-2.0": {
+          "id": "ccg/meituan/LongCat-2.0",
+          "name": "CCG LongCat 2.0",
+          "contextWindow": 1048576,
+          "maxTokens": 131072,
+          "supportsReasoning": true,
+          "supportsVision": true,
+          "supportsAttachments": true,
+          "capabilities": [
+            "tools",
+            "streaming"
+          ]
+        },
         "ccg/meta/muse-spark-1.2": {
           "id": "ccg/meta/muse-spark-1.2",
           "name": "CCG Muse Spark 1.2",
+          "contextWindow": 1048576,
+          "maxTokens": 131072,
+          "supportsReasoning": true,
+          "supportsVision": true,
+          "supportsAttachments": true,
+          "capabilities": [
+            "tools",
+            "streaming"
+          ]
+        },
+        "ccg/meta/muse-spark-1.2-contributor": {
+          "id": "ccg/meta/muse-spark-1.2-contributor",
+          "name": "CCG Muse Spark 1.2 Contributor",
           "contextWindow": 1048576,
           "maxTokens": 131072,
           "supportsReasoning": true,
@@ -964,19 +990,6 @@
         "ccg/xiaomi/mimo-v2.5": {
           "id": "ccg/xiaomi/mimo-v2.5",
           "name": "CCG MiMo V2.5",
-          "contextWindow": 1000000,
-          "maxTokens": 131072,
-          "supportsReasoning": true,
-          "supportsVision": true,
-          "supportsAttachments": true,
-          "capabilities": [
-            "tools",
-            "streaming"
-          ]
-        },
-        "ccg/xiaomi/mimo-v2.5-pro": {
-          "id": "ccg/xiaomi/mimo-v2.5-pro",
-          "name": "CCG MiMo V2.5 Pro",
           "contextWindow": 1000000,
           "maxTokens": 131072,
           "supportsReasoning": true,
@@ -1368,7 +1381,9 @@
         "ccg/gpt-5.6-sol",
         "ccg/gpt-6-luna",
         "ccg/inclusionai/ling-3.1-flash:free",
+        "ccg/meituan/LongCat-2.0",
         "ccg/meta/muse-spark-1.2",
+        "ccg/meta/muse-spark-1.2-contributor",
         "ccg/meta/muse-spark-1.3",
         "ccg/meta/muse-spark-1.3-contributor",
         "ccg/mistral/mistral-large-4",
@@ -1388,7 +1403,6 @@
         "ccg/xai/grok-4.6",
         "ccg/xai/grok-4.7",
         "ccg/xiaomi/mimo-v2.5",
-        "ccg/xiaomi/mimo-v2.5-pro",
         "ccg/xiaomi/mimo-v2.6-flash",
         "ccg/xiaomi/mimo-v2.6-pro",
         "ccg/xiaomi/mimo-v2.6-pro-ultraspeed",

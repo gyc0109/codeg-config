@@ -92,7 +92,13 @@ for i, m in enumerate(sorted(set(CHAT) | set(RESP))):
     {anchor}  model_info:
     id: ocg/{m}
 """)
-for m in CCRESP:
+# ⚠️ LiteLLM 是所有 agent 的**唯一网关**（claude 走 /v1/messages、
+# code_buddy/cline/kimi/dsh 走 :4000/v1、codex 走 /v1/responses），
+# 所以 ccg/ 必须像 ocg/ 一样是 chat ∪ responses 的并集。
+# 以前这里只加 CCRESP，导致「从 both 变成 chat-only」的模型（如
+# 2026-10-15 的 z-ai/glm-5.3-flash 丢掉 /responses）被移出 LiteLLM，
+# claude_code 的默认模型直接 Invalid model name。
+for m in sorted(set(CCHAT) | set(CCRESP)):
     blk.append(f"""- model_name: ccg/{m}
   litellm_params:
     model: openai/{m}
@@ -136,7 +142,7 @@ except Exception as _e:
 CCKEY = re.search(r'COMMANDCODE_API_KEY=(\S+)', open('/etc/commandcode-proxy.env').read()).group(1)
 s = s.replace('__CCKEY__', CCKEY)
 open(p, 'w').write(s)
-print(f"  ✓ LiteLLM: ocg {len(set(CHAT) | set(RESP))} + ccg {len(CCRESP)} + ds {len(DS)} + ark {len(ARK)}")
+print(f"  ✓ LiteLLM: ocg {len(set(CHAT) | set(RESP))} + ccg {len(set(CCHAT) | set(CCRESP))} + ds {len(DS)} + ark {len(ARK)}")
 
 # ── 2) pi ──
 p = '/root/.pi/agent/models.json'

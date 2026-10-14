@@ -343,9 +343,21 @@
           "contextWindow": 262144,
           "maxTokens": 131072
         },
+        "meituan/LongCat-2.0": {
+          "name": "CCG LongCat 2.0",
+          "id": "meituan/LongCat-2.0",
+          "contextWindow": 1048576,
+          "maxTokens": 131072
+        },
         "meta/muse-spark-1.2": {
           "name": "CCG Muse Spark 1.2",
           "id": "meta/muse-spark-1.2",
+          "contextWindow": 1048576,
+          "maxTokens": 131072
+        },
+        "meta/muse-spark-1.2-contributor": {
+          "name": "CCG Muse Spark 1.2 Contributor",
+          "id": "meta/muse-spark-1.2-contributor",
           "contextWindow": 1048576,
           "maxTokens": 131072
         },
@@ -460,12 +472,6 @@
         "xiaomi/mimo-v2.5": {
           "name": "CCG MiMo V2.5",
           "id": "xiaomi/mimo-v2.5",
-          "contextWindow": 1000000,
-          "maxTokens": 131072
-        },
-        "xiaomi/mimo-v2.5-pro": {
-          "name": "CCG MiMo V2.5 Pro",
-          "id": "xiaomi/mimo-v2.5-pro",
           "contextWindow": 1000000,
           "maxTokens": 131072
         },

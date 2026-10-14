@@ -1095,8 +1095,48 @@
           }
         },
         {
+          "id": "meituan/LongCat-2.0",
+          "name": "CCG LongCat 2.0",
+          "provider": "ccg",
+          "baseUrl": "https://api.commandcode.ai/provider/v1",
+          "api": "openai-completions",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 1048576,
+          "maxTokens": 131072,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        },
+        {
           "id": "meta/muse-spark-1.2",
           "name": "CCG Muse Spark 1.2",
+          "provider": "ccg",
+          "baseUrl": "https://api.commandcode.ai/provider/v1",
+          "api": "openai-completions",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 1048576,
+          "maxTokens": 131072,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        },
+        {
+          "id": "meta/muse-spark-1.2-contributor",
+          "name": "CCG Muse Spark 1.2 Contributor",
           "provider": "ccg",
           "baseUrl": "https://api.commandcode.ai/provider/v1",
           "api": "openai-completions",
@@ -1477,26 +1517,6 @@
         {
           "id": "xiaomi/mimo-v2.5",
           "name": "CCG MiMo V2.5",
-          "provider": "ccg",
-          "baseUrl": "https://api.commandcode.ai/provider/v1",
-          "api": "openai-completions",
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "contextWindow": 1000000,
-          "maxTokens": 131072,
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          }
-        },
-        {
-          "id": "xiaomi/mimo-v2.5-pro",
-          "name": "CCG MiMo V2.5 Pro",
           "provider": "ccg",
           "baseUrl": "https://api.commandcode.ai/provider/v1",
           "api": "openai-completions",
