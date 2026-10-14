@@ -69,32 +69,27 @@ bk(p)
 s = open(p).read()
 s = re.sub(r'- model_name: (ocg|ds|ark)/.*?(?=- model_name:|\nlitellm_settings:)', '', s, flags=re.S)
 s = re.sub(r'- model_name: ccg/.*?(?=- model_name:|\nlitellm_settings:)', '', s, flags=re.S)
+# ⚠️ YAML 锚点 &id001 只能在**第一条**定义，其余用 *id001 引用。
+# 之前这里把锚点写进了循环体，导致每个 ocg 模型都定义一次 ->
+# `found duplicate anchor 'id001'`，LiteLLM 直接起不来。
+DROP_PARAMS = [
+    'reasoning_effort', 'reasoning', 'thinking', 'web_search_options', 'web_search',
+    'search_options', 'extra_body', 'service_tier', 'store', 'modalities', 'audio',
+    'prediction', 'parallel_tool_calls', 'stream_options', 'include', 'truncation',
+    'max_tool_calls',
+]
 blk = []
-for m in sorted(set(CHAT) | set(RESP)):
+for i, m in enumerate(sorted(set(CHAT) | set(RESP))):
+    if i == 0:
+        anchor = 'additional_drop_params: &id001\n' + ''.join(f'        - {d}\n' for d in DROP_PARAMS)
+    else:
+        anchor = 'additional_drop_params: *id001\n'
     blk.append(f"""- model_name: ocg/{m}
   litellm_params:
     model: openai/{m}
     api_base: http://127.0.0.1:8899/v1
     api_key: local
-    additional_drop_params: &id001
-        - reasoning_effort
-        - reasoning
-        - thinking
-        - web_search_options
-        - web_search
-        - search_options
-        - extra_body
-        - service_tier
-        - store
-        - modalities
-        - audio
-        - prediction
-        - parallel_tool_calls
-        - stream_options
-        - include
-        - truncation
-        - max_tool_calls
-  model_info:
+    {anchor}  model_info:
     id: ocg/{m}
 """)
 for m in CCRESP:
@@ -128,6 +123,16 @@ for m in ARK:
     id: ark/{m}
 """)
 s = s.replace('litellm_settings:', ''.join(blk) + 'litellm_settings:', 1)
+
+# 写完立刻校验，别让坏 YAML 落到 LiteLLM
+import yaml as _yaml
+try:
+    _d = _yaml.safe_load(s)
+    _n = len(_d['model_list'])
+    print(f"  ✓ LiteLLM YAML 校验通过（{_n} 条）")
+except Exception as _e:
+    open(p + '.broken', 'w').write(s)
+    raise SystemExit(f"✗ LiteLLM YAML 非法，已存 {p}.broken: {_e}")
 CCKEY = re.search(r'COMMANDCODE_API_KEY=(\S+)', open('/etc/commandcode-proxy.env').read()).group(1)
 s = s.replace('__CCKEY__', CCKEY)
 open(p, 'w').write(s)
@@ -246,10 +251,22 @@ for m in DS:
     allow[f'ds/{m}'] = {}
 for m in ARK:
     allow[f'ark/{m}'] = {}
-d['agents']['defaults']['models'] = allow
+# ⚠️ open_claw 有两个字段，别只改一个：
+#   agents.defaults.models        —— 模型目录（UI 里显示的清单）
+#   agents.defaults.modelPolicy.allow —— **doctor 迁移后真正生效的 allowlist**；
+#                                        只改 models 不生效
+#   agents.defaults.model.primary —— 默认模型；**不显式设置会被清成 null**，
+#                                    然后 open_claw 退而取 allowlist 第一个
+#                                    （字母序，可能是个不合适的模型）
+# 之前这里只设了 models，所以每次刷新后默认模型都丢。
+defaults = d['agents'].setdefault('defaults', {})
+defaults['models'] = allow
+defaults['modelPolicy'] = {'allow': list(allow)}
+defaults['model'] = {'primary': f'ocg/{OCG_FREE}'}
 json.dump(d, open(p, 'w'), indent=2, ensure_ascii=False)
 os.chmod(p, 0o600)
-print(f"  ✓ openclaw: 目录 ocg {len(CHAT)} ccg {len(CCHAT)}，allowlist {len(allow)}")
+print(f"  ✓ openclaw: 目录 ocg {len(CHAT)} ccg {len(CCHAT)}，"
+      f"allowlist {len(allow)}，默认 {OCG_FREE}")
 
 # ── 8) dsh ──
 p = '/root/.dsh/settings.yaml'

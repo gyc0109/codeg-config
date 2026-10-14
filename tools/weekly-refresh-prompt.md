@@ -14,14 +14,16 @@ python3 refresh_models.py
 - 重建 LiteLLM (/opt/litellm/config.yaml) 与各 agent 的模型配置
 - 覆盖 pi / kimi / hermes / opencode / code_buddy / open_claw / dsh / codex / cline
 
-**注意：脚本已知有两个坑，每次跑完请检查并手动修：**
-1. **LiteLLM 的 YAML 锚点**：`&id001` 只能在第一条定义，脚本有时会写成每条都定义，
-   导致 `found duplicate anchor`。跑完必须验证：
-   `python3 -c "import yaml;yaml.safe_load(open('/opt/litellm/config.yaml'))"`
-   如果报错，参考 /root/Labs/codeg-config/tools/refresh-models.py 里的干净重建逻辑修。
-2. **open_claw 的默认模型**：脚本会把 `agents.defaults.model` 清成 null。
-   跑完检查 `/root/.openclaw/openclaw.json` 的 `agents.defaults.model.primary`，
-   应该是 `ocg/longcat-2.5-preview-free`，是 null 就改回来。
+脚本会自己校验 LiteLLM 的 YAML（锚点 `&id001` 只定义一次，其余用 `*id001`），
+非法就报错退出并留下 `.broken` 文件。open_claw 的 `model` / `modelPolicy.allow` /
+`models` 三个字段也会一起设好。
+
+跑完仍**顺手确认三件事**（防御性检查，历史上这三个都出过问题）：
+1. `python3 -c "import yaml;d=yaml.safe_load(open('/opt/litellm/config.yaml'));print(len(d['model_list']))"`
+   —— 能打印条数就说明 YAML 合法
+2. `/root/.openclaw/openclaw.json` 的 `agents.defaults.model.primary`
+   应该是 `ocg/longcat-2.5-preview-free`，不能是 null
+3. `systemctl is-active litellm` 应该是 `active`
 
 ### 2. 重新探测模型可用性（本机 key，不能照抄别处）
 
