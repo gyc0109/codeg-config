@@ -1,6 +1,10 @@
 provider: custom:ocg-longcat-2.5-preview-free
 model: longcat-2.5-preview-free
 custom_providers:
+- name: OCG cat-jam-free
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: cat-jam-free
 - name: OCG deepseek-flash
   base_url: http://127.0.0.1:8899/v1
   api_key: local
@@ -129,10 +133,6 @@ custom_providers:
   base_url: https://api.commandcode.ai/provider/v1
   api_key: ${COMMANDCODE_API_KEY}
   model: MiniMaxAI/MiniMax-M3
-- name: CCG Qwen 3.6 Max Preview
-  base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${COMMANDCODE_API_KEY}
-  model: Qwen/Qwen3.6-Max-Preview
 - name: CCG Qwen 3.6 Plus
   base_url: https://api.commandcode.ai/provider/v1
   api_key: ${COMMANDCODE_API_KEY}
@@ -217,18 +217,10 @@ custom_providers:
   base_url: https://api.commandcode.ai/provider/v1
   api_key: ${COMMANDCODE_API_KEY}
   model: inclusionai/ling-3.1-flash:free
-- name: CCG LongCat 2.0
-  base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${COMMANDCODE_API_KEY}
-  model: meituan/LongCat-2.0
 - name: CCG Muse Spark 1.2
   base_url: https://api.commandcode.ai/provider/v1
   api_key: ${COMMANDCODE_API_KEY}
   model: meta/muse-spark-1.2
-- name: CCG Muse Spark 1.2 Contributor
-  base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${COMMANDCODE_API_KEY}
-  model: meta/muse-spark-1.2-contributor
 - name: CCG Muse Spark 1.3
   base_url: https://api.commandcode.ai/provider/v1
   api_key: ${COMMANDCODE_API_KEY}
@@ -265,6 +257,10 @@ custom_providers:
   base_url: https://api.commandcode.ai/provider/v1
   api_key: ${COMMANDCODE_API_KEY}
   model: nvidia/nemotron-3-ultra-550b-a55b
+- name: CCG Laguna S 2.1
+  base_url: https://api.commandcode.ai/provider/v1
+  api_key: ${COMMANDCODE_API_KEY}
+  model: poolside/laguna-s-2.1-free
 - name: CCG Glyph Cluster
   base_url: https://api.commandcode.ai/provider/v1
   api_key: ${COMMANDCODE_API_KEY}
@@ -297,6 +293,10 @@ custom_providers:
   base_url: https://api.commandcode.ai/provider/v1
   api_key: ${COMMANDCODE_API_KEY}
   model: xai/grok-4.7
+- name: CCG MiMo V2.5
+  base_url: https://api.commandcode.ai/provider/v1
+  api_key: ${COMMANDCODE_API_KEY}
+  model: xiaomi/mimo-v2.5
 - name: CCG MiMo V2.5 Pro
   base_url: https://api.commandcode.ai/provider/v1
   api_key: ${COMMANDCODE_API_KEY}

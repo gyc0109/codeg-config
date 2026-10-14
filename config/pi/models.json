@@ -7,6 +7,26 @@
       "api": "openai-completions",
       "models": [
         {
+          "id": "cat-jam-free",
+          "name": "OCG cat-jam-free",
+          "provider": "ocg",
+          "baseUrl": "http://127.0.0.1:8899/v1",
+          "api": "openai-completions",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 262144,
+          "maxTokens": 131072,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        },
+        {
           "id": "deepseek-flash",
           "name": "OCG deepseek-flash",
           "provider": "ocg",
@@ -655,26 +675,6 @@
           }
         },
         {
-          "id": "Qwen/Qwen3.6-Max-Preview",
-          "name": "CCG Qwen 3.6 Max Preview",
-          "provider": "ccg",
-          "baseUrl": "https://api.commandcode.ai/provider/v1",
-          "api": "openai-completions",
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "contextWindow": 200000,
-          "maxTokens": 131072,
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          }
-        },
-        {
           "id": "Qwen/Qwen3.6-Plus",
           "name": "CCG Qwen 3.6 Plus",
           "provider": "ccg",
@@ -1095,48 +1095,8 @@
           }
         },
         {
-          "id": "meituan/LongCat-2.0",
-          "name": "CCG LongCat 2.0",
-          "provider": "ccg",
-          "baseUrl": "https://api.commandcode.ai/provider/v1",
-          "api": "openai-completions",
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "contextWindow": 1048576,
-          "maxTokens": 131072,
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          }
-        },
-        {
           "id": "meta/muse-spark-1.2",
           "name": "CCG Muse Spark 1.2",
-          "provider": "ccg",
-          "baseUrl": "https://api.commandcode.ai/provider/v1",
-          "api": "openai-completions",
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "contextWindow": 1048576,
-          "maxTokens": 131072,
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          }
-        },
-        {
-          "id": "meta/muse-spark-1.2-contributor",
-          "name": "CCG Muse Spark 1.2 Contributor",
           "provider": "ccg",
           "baseUrl": "https://api.commandcode.ai/provider/v1",
           "api": "openai-completions",
@@ -1335,6 +1295,26 @@
           }
         },
         {
+          "id": "poolside/laguna-s-2.1-free",
+          "name": "CCG Laguna S 2.1",
+          "provider": "ccg",
+          "baseUrl": "https://api.commandcode.ai/provider/v1",
+          "api": "openai-completions",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 256000,
+          "maxTokens": 131072,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        },
+        {
           "id": "stealth/glyph-cluster:free",
           "name": "CCG Glyph Cluster",
           "provider": "ccg",
@@ -1486,6 +1466,26 @@
             "image"
           ],
           "contextWindow": 500000,
+          "maxTokens": 131072,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        },
+        {
+          "id": "xiaomi/mimo-v2.5",
+          "name": "CCG MiMo V2.5",
+          "provider": "ccg",
+          "baseUrl": "https://api.commandcode.ai/provider/v1",
+          "api": "openai-completions",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 1000000,
           "maxTokens": 131072,
           "cost": {
             "input": 0,

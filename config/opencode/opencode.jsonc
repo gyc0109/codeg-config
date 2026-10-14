@@ -9,6 +9,12 @@
         "apiKey": "local"
       },
       "models": {
+        "cat-jam-free": {
+          "name": "OCG cat-jam-free",
+          "id": "cat-jam-free",
+          "contextWindow": 262144,
+          "maxTokens": 131072
+        },
         "deepseek-flash": {
           "name": "OCG deepseek-flash",
           "id": "deepseek-flash",
@@ -211,12 +217,6 @@
           "contextWindow": 1000000,
           "maxTokens": 131072
         },
-        "Qwen/Qwen3.6-Max-Preview": {
-          "name": "CCG Qwen 3.6 Max Preview",
-          "id": "Qwen/Qwen3.6-Max-Preview",
-          "contextWindow": 200000,
-          "maxTokens": 131072
-        },
         "Qwen/Qwen3.6-Plus": {
           "name": "CCG Qwen 3.6 Plus",
           "id": "Qwen/Qwen3.6-Plus",
@@ -343,21 +343,9 @@
           "contextWindow": 262144,
           "maxTokens": 131072
         },
-        "meituan/LongCat-2.0": {
-          "name": "CCG LongCat 2.0",
-          "id": "meituan/LongCat-2.0",
-          "contextWindow": 1048576,
-          "maxTokens": 131072
-        },
         "meta/muse-spark-1.2": {
           "name": "CCG Muse Spark 1.2",
           "id": "meta/muse-spark-1.2",
-          "contextWindow": 1048576,
-          "maxTokens": 131072
-        },
-        "meta/muse-spark-1.2-contributor": {
-          "name": "CCG Muse Spark 1.2 Contributor",
-          "id": "meta/muse-spark-1.2-contributor",
           "contextWindow": 1048576,
           "maxTokens": 131072
         },
@@ -415,6 +403,12 @@
           "contextWindow": 1000000,
           "maxTokens": 131072
         },
+        "poolside/laguna-s-2.1-free": {
+          "name": "CCG Laguna S 2.1",
+          "id": "poolside/laguna-s-2.1-free",
+          "contextWindow": 256000,
+          "maxTokens": 131072
+        },
         "stealth/glyph-cluster:free": {
           "name": "CCG Glyph Cluster",
           "id": "stealth/glyph-cluster:free",
@@ -461,6 +455,12 @@
           "name": "CCG Grok 4.7",
           "id": "xai/grok-4.7",
           "contextWindow": 500000,
+          "maxTokens": 131072
+        },
+        "xiaomi/mimo-v2.5": {
+          "name": "CCG MiMo V2.5",
+          "id": "xiaomi/mimo-v2.5",
+          "contextWindow": 1000000,
           "maxTokens": 131072
         },
         "xiaomi/mimo-v2.5-pro": {
