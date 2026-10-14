@@ -8,7 +8,7 @@ codeg 自带 automation 系统（不是系统 cron），任务和它的执行记
 | 项目 | 值 |
 | --- | --- |
 | 名称 | 每周模型与 agent 版本巡检 |
-| 调度 | `0 4 * * 1,3,5,6` （**周一 + 周三 + 周五 + 周六 04:00**） |
+| 调度 | `0 4 * * 2,4,6` （**周二 + 周四 + 周六 04:00**） |
 | 时区 | Asia/Shanghai |
 | Agent | `pi` |
 | 工作目录 | codeg folder #22 = `/root/Labs/codeg-config` |
@@ -27,7 +27,7 @@ codeg 自带 automation 系统（不是系统 cron），任务和它的执行记
 ## 重建任务
 
 ```bash
-tools/create-weekly-automation.py --cron "0 4 * * 1,3,5,6" --folder-id 22
+tools/create-weekly-automation.py --cron "0 4 * * 2,4,6" --folder-id 22
 ```
 
 ## API 速查（摸索出来的）
@@ -48,7 +48,7 @@ tools/create-weekly-automation.py --cron "0 4 * * 1,3,5,6" --folder-id 22
   "name": "...",
   "enabled": true,
   "trigger_kind": "schedule",
-  "cron": "0 4 * * 1,3,5,6",
+  "cron": "0 4 * * 2,4,6",
   "timezone": "Asia/Shanghai",
   "agent_type": "pi",
   "isolation": "shared_in_root",
