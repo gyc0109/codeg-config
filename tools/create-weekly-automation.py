@@ -4,7 +4,7 @@
 用 codeg 原生的 automation API（不是系统 cron），这样任务会出现在 codeg UI 的
 自动化面板里，执行记录、失败计数都由 codeg 管。
 
-用法: python3 create-weekly-automation.py [--cron "0 4 * * 1,4"] [--folder-id 22] [--agent pi]
+用法: python3 create-weekly-automation.py [--cron "0 4 * * 1,3,5"] [--folder-id 22] [--agent pi]
 """
 import argparse
 import json
@@ -23,7 +23,7 @@ def token():
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument('--cron', default='0 4 * * 1,4', help='默认周一+周四 04:00')
+    ap.add_argument('--cron', default='0 4 * * 1,3,5', help='默认周一+周三+周五 04:00')
     ap.add_argument('--timezone', default='Asia/Shanghai')
     ap.add_argument('--agent', default='pi')
     ap.add_argument('--folder-id', type=int, default=22, help='codeg 里的 folder id')
