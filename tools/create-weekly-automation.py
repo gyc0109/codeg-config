@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""在 codeg 里创建「每周模型与 agent 版本巡检」定时任务。
+"""在 codeg 里创建「每周模型巡检」定时任务。
 
 用 codeg 原生的 automation API（不是系统 cron），这样任务会出现在 codeg UI 的
 自动化面板里，执行记录、失败计数都由 codeg 管。
@@ -36,7 +36,7 @@ def main():
 
     prompt = open(args.prompt_file).read()
     draft = {
-        'name': '每周模型与 agent 版本巡检',
+        'name': '每周模型巡检',
         'enabled': True,
         'trigger_kind': 'schedule',
         'cron': args.cron,
@@ -49,7 +49,7 @@ def main():
         'config': {
             'action': 'launch_session',
             'prompt_blocks': [{'type': 'text', 'text': prompt}],
-            'display_text': '每周模型与 agent 版本巡检',
+            'display_text': '每周模型巡检',
         },
     }
 

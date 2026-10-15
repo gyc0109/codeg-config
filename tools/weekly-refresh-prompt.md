@@ -1,4 +1,4 @@
-# 每周模型与 agent 版本巡检（提示词）
+## 每周模型巡检（提示词）
 
 你是这台服务器上的运维 agent。请执行「每周模型与 agent 版本巡检」，给出简报。
 
@@ -57,28 +57,7 @@ curl -sS --max-time 60 https://api.commandcode.ai/provider/v1/models \
 - `~/.openclaw/openclaw.json` 的 `agents.defaults.modelPolicy.allow`
 - `~/.cline/data/settings/models.json`
 
-## 3. 检查 agent 版本（必须做，只报告）
-
-```bash
-TOKEN=$(grep '^CODEG_TOKEN=' /etc/codeg.env | cut -d= -f2)
-sqlite3 -separator '|' /root/.local/share/codeg/codeg.db \
-  "SELECT agent_type,COALESCE(installed_version,'-'),registry_id FROM agent_setting ORDER BY sort_order;" \
-| while IFS='|' read -r at ver rid; do
-    at=$(echo "$at" | tr -d '"')
-    latest=$(curl -sS --max-time 30 -X POST http://127.0.0.1:3080/api/acp_fetch_agent_latest_release \
-      -H "Content-Type: application/json" -H "Authorization: Bearer $TOKEN" \
-      -d "{\"registryId\":\"$rid\",\"agentType\":\"$at\"}" 2>/dev/null \
-      | python3 -c "import sys,json
-try: print(json.load(sys.stdin).get('version') or '-')
-except: print('-')")
-    [ "$latest" != "-" ] && [ "$latest" != "$ver" ] && echo "可升级: $at $ver -> $latest"
-  done
-```
-
-**只报告，不要自动升级**（npm 升级会丢 symlink、二进制升级不同步 DB 版本、
-pi 升级会覆盖补丁）。列出来让我决定。
-
-## 4. 验证（轻量，别超时）
+## 3. 验证（轻量，别超时）
 
 **只做这两项，总共不超过 3 分钟：**
 
@@ -109,7 +88,7 @@ timeout 120 python3 verify/acp_test.py open_code \
 
 想更全面就先看 load，< 3 才跑，且用 `timeout 90`。
 
-## 5. 同步仓库
+## 4. 同步仓库
 
 配置有变就更新 https://github.com/gyc0109/codeg-config（**先脱敏 key，用 `${...}` 占位符**）。
 推送前检查有没有把真实 key 提交上去。
@@ -124,9 +103,6 @@ ds/ark: 不变 / ...
 
 ## 修掉的失效引用
 <文件 -> 从什么改成什么；没有就说"无">
-
-## agent 版本
-<可升级的列出来；全最新就说"全部最新">
 
 ## 验证
 代理链路: 4/4
