@@ -18,7 +18,7 @@
 | cursor | 2026.10.14-0f9edde | binary | 升级后需手动同步 `agent_setting` |
 | antigravity | 1.4.0 | binary | |
 | kiro | 2.31.1 | system | 官方安装脚本装到 `~/.local/bin`，需软链到 `/usr/local/bin`，见下 |
-| zcode | 0.72.0 | npx | npm 包名 `zcode-acp-server`，命令 `zcode-acp` |
+| zcode | 0.72.0 | npx | **只是桥，缺后端**：npm 包 `zcode-acp-server`，命令 `zcode-acp`，见下 |
 
 ## 升级踩的坑
 
@@ -65,7 +65,37 @@ curl -fsSL https://cli.kiro.dev/install | bash   # 装到 ~/.local/bin
    ```
 
    链上之后 `acp_list_agents` 立刻报 `installed_version: 2.31.1`、
-   `available: true`。kiro 的 `supports_self_update: true`，可以自己升。
+   `available: true`。kiro 的 `supports_self_update: true`，可以自己升，
+   但**要登录才能用**（`kiro-cli login`，交互式）。
+
+## zcode 只有桥，没有后端
+
+codeg 的注册表条目写的是「Official ZCode runtime via the community ACP bridge」，
+但 `acp_prepare_npx_agent` 实际只跑 `npm i -g zcode-acp-server`——**装的是桥，不是运行时**。
+
+这个 `zcode-acp-server` 是第三方项目（[william0wang/zcode-acp](https://github.com/william0wang/zcode-acp)），
+它自己 README 的 Requirements 写得很清楚，缺三样：
+
+1. **官方 ZCode CLI**——由 ZCode 桌面版带出来，或放 PATH，或用 `ZCODE_BIN` 指。
+   它是 `zcode app-server --stdio` 这个 headless app-server。npm 上**没有**这个包
+   （`npm view zcode` 是 0.0.1 的无关包）。
+2. **`~/.zcode/v2/config.json` 凭据**——由 ZCode app 生成。
+3. Node ≥ 22（本机 v24.21.0，满足）。
+
+症状（装完桥但没后端）：
+
+```
+[zcode-acp] provider-registry: sync threw (ENOENT: ... open '/root/.zcode/v2/config.json')
+[zcode-acp] backend: reader exited (spawn failed: zcode not found — install the zcode CLI, put it on PATH, or set ZCODE_BIN)
+```
+
+**注意别被误导**：`node_modules` 里那个 `zcode-acp-martty-linux-x64/bin/martty`
+（`martty 0.3.1-zcode.1`）**不是后端**，它是个 TUI 客户端（`--agent` 默认 `dsh-acp`）。
+把它设成 `ZCODE_BIN` 只会让报错从「zcode not found」变成「backend: reader exited
+(stdout closed)」，仍然跑不通。
+
+所以在装上官方 ZCode CLI + 登录之前，**zcode 在 codeg 里是握手正常、一发 prompt 就报
+`zcode create failed: ... (backend dead)`**。这条别指望靠 `acp_prepare_npx_agent` 解决。
 
 ## opencode 的 provider 命名空间
 
