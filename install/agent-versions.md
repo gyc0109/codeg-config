@@ -79,7 +79,17 @@ codeg 的注册表条目写的是「Official ZCode runtime via the community ACP
 1. **官方 ZCode CLI**——由 ZCode 桌面版带出来，或放 PATH，或用 `ZCODE_BIN` 指。
    它是 `zcode app-server --stdio` 这个 headless app-server。npm 上**没有**这个包
    （`npm view zcode` 是 0.0.1 的无关包）。
-2. **`~/.zcode/v2/config.json` 凭据**——由 ZCode app 生成。
+   实际出处：官方站 <https://zcode.z.ai> 的 **Electron 桌面版**（Linux 有 Beta
+   deb / rpm / AppImage），CLI 打包在 app 里：
+   - macOS `ZCode.app/Contents/Resources/glm/zcode.cjs`
+   - Windows `%LOCALAPPDATA%\Programs\ZCode\resources\glm\zcode.cjs`
+   - Linux `<解包目录>/opt/ZCode/resources/glm/zcode.cjs`
+
+   解包验过：3.15.3 的 `zcode.cjs` 是 15MB、`zcode 0.16.9`，带 `app-server`
+   与 `login [zai|bigmodel]` 子命令；同目录还有 16 个插件。整个 app 610M，
+   只要 CLI + 插件那部分的话是 81M。
+2. **`~/.zcode/v2/config.json` 凭据**——由 ZCode app 生成，`zcode login` 走
+   **浏览器授权**，headless 服务器上没法自动完成。
 3. Node ≥ 22（本机 v24.21.0，满足）。
 
 症状（装完桥但没后端）：
@@ -96,6 +106,10 @@ codeg 的注册表条目写的是「Official ZCode runtime via the community ACP
 
 所以在装上官方 ZCode CLI + 登录之前，**zcode 在 codeg 里是握手正常、一发 prompt 就报
 `zcode create failed: ... (backend dead)`**。这条别指望靠 `acp_prepare_npx_agent` 解决。
+
+另外 zcode 是 **GLM 专属 harness**，吃的是 GLM Coding Plan 的包月额度。若本来就没有
+该订阅，装了也没有额外收益——`ocg/glm-5.3`、`ccg/z-ai/glm-5.3-flash` 这些已经通了。
+2026-10-17 的决定是**不折腾**：桥留着，不去解桌面版、不配凭据。
 
 ## opencode 的 provider 命名空间
 
