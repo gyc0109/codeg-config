@@ -8,18 +8,9 @@ llm-pi-ai:
       baseURL: http://127.0.0.1:4000/v1
       apiKeyEnv: DEEPSEEK_API_KEY
       models:
-        - id: ocg/cat-jam-free
-          name: OCG cat-jam-free
+        - id: ocg/beam-free
+          name: OCG beam-free
           contextWindow: 262144
-        - id: ocg/deepseek-flash
-          name: OCG deepseek-flash
-          contextWindow: 1000000
-        - id: ocg/deepseek-v4-flash
-          name: OCG deepseek-v4-flash
-          contextWindow: 1000000
-        - id: ocg/deepseek-v4-flash-vision-exp
-          name: OCG deepseek-v4-flash-vision-exp
-          contextWindow: 1000000
         - id: ocg/deepseek-v4-pro
           name: OCG deepseek-v4-pro
           contextWindow: 1000000
@@ -98,9 +89,9 @@ llm-pi-ai:
         - id: ocg/space-bunny
           name: OCG space-bunny
           contextWindow: 1048576
-        - id: ocg/step-5-preview-free
-          name: OCG step-5-preview-free
-          contextWindow: 1000000
+        - id: ocg/step-5-preview
+          name: OCG step-5-preview
+          contextWindow: 262144
     ccg:
       displayName: Command Code GOAT
       api: openai-completions
@@ -136,6 +127,9 @@ llm-pi-ai:
           contextWindow: 1000000
         - id: ccg/Qwen/Qwen3.8-Max-0902
           name: CCG Qwen/Qwen3.8-Max-0902
+          contextWindow: 1000000
+        - id: ccg/Qwen/Qwen3.8-Max-Prime
+          name: CCG Qwen/Qwen3.8-Max-Prime
           contextWindow: 1000000
         - id: ccg/Qwen/Qwen3.8-Omni-Flash
           name: CCG Qwen/Qwen3.8-Omni-Flash
@@ -173,8 +167,8 @@ llm-pi-ai:
         - id: ccg/gpt-6-luna
           name: CCG gpt-6-luna
           contextWindow: 1050000
-        - id: ccg/inclusionai/ling-3.1-flash:free
-          name: CCG inclusionai/ling-3.1-flash:free
+        - id: ccg/inclusionai/ling-3.1-flash
+          name: CCG inclusionai/ling-3.1-flash
           contextWindow: 262144
         - id: ccg/meituan/LongCat-2.0
           name: CCG meituan/LongCat-2.0
@@ -190,6 +184,9 @@ llm-pi-ai:
           contextWindow: 1048576
         - id: ccg/meta/muse-spark-1.3-contributor
           name: CCG meta/muse-spark-1.3-contributor
+          contextWindow: 1048576
+        - id: ccg/meta/muse-spark-open
+          name: CCG meta/muse-spark-open
           contextWindow: 1048576
         - id: ccg/mistral/mistral-large-4
           name: CCG mistral/mistral-large-4
@@ -212,9 +209,15 @@ llm-pi-ai:
         - id: ccg/nvidia/nemotron-3-ultra-550b-a55b
           name: CCG nvidia/nemotron-3-ultra-550b-a55b
           contextWindow: 1000000
+        - id: ccg/nvidia/nemotron-3.5-super-vl
+          name: CCG nvidia/nemotron-3.5-super-vl
+          contextWindow: 262144
         - id: ccg/poolside/laguna-s-2.1-free
           name: CCG poolside/laguna-s-2.1-free
           contextWindow: 256000
+        - id: ccg/stealth/cat-jam:free
+          name: CCG stealth/cat-jam:free
+          contextWindow: 1048576
         - id: ccg/stealth/glyph-cluster:free
           name: CCG stealth/glyph-cluster:free
           contextWindow: 256000

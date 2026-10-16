@@ -4,9 +4,11 @@ model_list:
 
 
 
-- model_name: ocg/cat-jam-free
+
+
+- model_name: ocg/beam-free
   litellm_params:
-    model: openai/cat-jam-free
+    model: openai/beam-free
     api_base: http://127.0.0.1:8899/v1
     api_key: local
     additional_drop_params: &id001
@@ -28,31 +30,7 @@ model_list:
         - truncation
         - max_tool_calls
   model_info:
-    id: ocg/cat-jam-free
-- model_name: ocg/deepseek-flash
-  litellm_params:
-    model: openai/deepseek-flash
-    api_base: http://127.0.0.1:8899/v1
-    api_key: local
-    additional_drop_params: *id001
-  model_info:
-    id: ocg/deepseek-flash
-- model_name: ocg/deepseek-v4-flash
-  litellm_params:
-    model: openai/deepseek-v4-flash
-    api_base: http://127.0.0.1:8899/v1
-    api_key: local
-    additional_drop_params: *id001
-  model_info:
-    id: ocg/deepseek-v4-flash
-- model_name: ocg/deepseek-v4-flash-vision-exp
-  litellm_params:
-    model: openai/deepseek-v4-flash-vision-exp
-    api_base: http://127.0.0.1:8899/v1
-    api_key: local
-    additional_drop_params: *id001
-  model_info:
-    id: ocg/deepseek-v4-flash-vision-exp
+    id: ocg/beam-free
 - model_name: ocg/deepseek-v4-pro
   litellm_params:
     model: openai/deepseek-v4-pro
@@ -309,14 +287,14 @@ model_list:
     additional_drop_params: *id001
   model_info:
     id: ocg/space-bunny
-- model_name: ocg/step-5-preview-free
+- model_name: ocg/step-5-preview
   litellm_params:
-    model: openai/step-5-preview-free
+    model: openai/step-5-preview
     api_base: http://127.0.0.1:8899/v1
     api_key: local
     additional_drop_params: *id001
   model_info:
-    id: ocg/step-5-preview-free
+    id: ocg/step-5-preview
 - model_name: ccg/MiniMaxAI/MiniMax-M2.5
   litellm_params:
     model: openai/MiniMaxAI/MiniMax-M2.5
@@ -397,6 +375,14 @@ model_list:
     additional_drop_params: *id001
   model_info:
     id: ccg/Qwen/Qwen3.8-Max-0902
+- model_name: ccg/Qwen/Qwen3.8-Max-Prime
+  litellm_params:
+    model: openai/Qwen/Qwen3.8-Max-Prime
+    api_base: https://api.commandcode.ai/provider/v1
+    api_key: ${COMMANDCODE_API_KEY}
+    additional_drop_params: *id001
+  model_info:
+    id: ccg/Qwen/Qwen3.8-Max-Prime
 - model_name: ccg/Qwen/Qwen3.8-Omni-Flash
   litellm_params:
     model: openai/Qwen/Qwen3.8-Omni-Flash
@@ -493,14 +479,14 @@ model_list:
     additional_drop_params: *id001
   model_info:
     id: ccg/gpt-6-luna
-- model_name: ccg/inclusionai/ling-3.1-flash:free
+- model_name: ccg/inclusionai/ling-3.1-flash
   litellm_params:
-    model: openai/inclusionai/ling-3.1-flash:free
+    model: openai/inclusionai/ling-3.1-flash
     api_base: https://api.commandcode.ai/provider/v1
     api_key: ${COMMANDCODE_API_KEY}
     additional_drop_params: *id001
   model_info:
-    id: ccg/inclusionai/ling-3.1-flash:free
+    id: ccg/inclusionai/ling-3.1-flash
 - model_name: ccg/meituan/LongCat-2.0
   litellm_params:
     model: openai/meituan/LongCat-2.0
@@ -541,6 +527,14 @@ model_list:
     additional_drop_params: *id001
   model_info:
     id: ccg/meta/muse-spark-1.3-contributor
+- model_name: ccg/meta/muse-spark-open
+  litellm_params:
+    model: openai/meta/muse-spark-open
+    api_base: https://api.commandcode.ai/provider/v1
+    api_key: ${COMMANDCODE_API_KEY}
+    additional_drop_params: *id001
+  model_info:
+    id: ccg/meta/muse-spark-open
 - model_name: ccg/mistral/mistral-large-4
   litellm_params:
     model: openai/mistral/mistral-large-4
@@ -597,6 +591,14 @@ model_list:
     additional_drop_params: *id001
   model_info:
     id: ccg/nvidia/nemotron-3-ultra-550b-a55b
+- model_name: ccg/nvidia/nemotron-3.5-super-vl
+  litellm_params:
+    model: openai/nvidia/nemotron-3.5-super-vl
+    api_base: https://api.commandcode.ai/provider/v1
+    api_key: ${COMMANDCODE_API_KEY}
+    additional_drop_params: *id001
+  model_info:
+    id: ccg/nvidia/nemotron-3.5-super-vl
 - model_name: ccg/poolside/laguna-s-2.1-free
   litellm_params:
     model: openai/poolside/laguna-s-2.1-free
@@ -605,6 +607,14 @@ model_list:
     additional_drop_params: *id001
   model_info:
     id: ccg/poolside/laguna-s-2.1-free
+- model_name: ccg/stealth/cat-jam:free
+  litellm_params:
+    model: openai/stealth/cat-jam:free
+    api_base: https://api.commandcode.ai/provider/v1
+    api_key: ${COMMANDCODE_API_KEY}
+    additional_drop_params: *id001
+  model_info:
+    id: ccg/stealth/cat-jam:free
 - model_name: ccg/stealth/glyph-cluster:free
   litellm_params:
     model: openai/stealth/glyph-cluster:free

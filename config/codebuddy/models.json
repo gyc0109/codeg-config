@@ -1,42 +1,12 @@
 {
   "models": [
     {
-      "id": "ocg/cat-jam-free",
-      "name": "OCG cat-jam-free",
+      "id": "ocg/beam-free",
+      "name": "OCG beam-free",
       "url": "http://127.0.0.1:4000/v1",
       "apiKey": "local",
       "maxInputTokens": 262144,
       "maxOutputTokens": 131072,
-      "supportsReasoning": true,
-      "supportsImages": true
-    },
-    {
-      "id": "ocg/deepseek-flash",
-      "name": "OCG deepseek-flash",
-      "url": "http://127.0.0.1:4000/v1",
-      "apiKey": "local",
-      "maxInputTokens": 1000000,
-      "maxOutputTokens": 384000,
-      "supportsReasoning": true,
-      "supportsImages": true
-    },
-    {
-      "id": "ocg/deepseek-v4-flash",
-      "name": "OCG DeepSeek V4 Flash",
-      "url": "http://127.0.0.1:4000/v1",
-      "apiKey": "local",
-      "maxInputTokens": 1000000,
-      "maxOutputTokens": 384000,
-      "supportsReasoning": true,
-      "supportsImages": true
-    },
-    {
-      "id": "ocg/deepseek-v4-flash-vision-exp",
-      "name": "OCG DeepSeek V4 Flash Vision Exp",
-      "url": "http://127.0.0.1:4000/v1",
-      "apiKey": "local",
-      "maxInputTokens": 1000000,
-      "maxOutputTokens": 384000,
       "supportsReasoning": true,
       "supportsImages": true
     },
@@ -301,11 +271,11 @@
       "supportsImages": true
     },
     {
-      "id": "ocg/step-5-preview-free",
-      "name": "OCG step-5-preview-free",
+      "id": "ocg/step-5-preview",
+      "name": "OCG step-5-preview",
       "url": "http://127.0.0.1:4000/v1",
       "apiKey": "local",
-      "maxInputTokens": 1000000,
+      "maxInputTokens": 262144,
       "maxOutputTokens": 131072,
       "supportsReasoning": true,
       "supportsImages": true
@@ -403,6 +373,16 @@
     {
       "id": "ccg/Qwen/Qwen3.8-Max-0902",
       "name": "CCG Qwen 3.8 Max 0902",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 1000000,
+      "maxOutputTokens": 131072,
+      "supportsReasoning": true,
+      "supportsImages": true
+    },
+    {
+      "id": "ccg/Qwen/Qwen3.8-Max-Prime",
+      "name": "CCG Qwen 3.8 Max Prime",
       "url": "http://127.0.0.1:4000/v1",
       "apiKey": "local",
       "maxInputTokens": 1000000,
@@ -531,7 +511,7 @@
       "supportsImages": true
     },
     {
-      "id": "ccg/inclusionai/ling-3.1-flash:free",
+      "id": "ccg/inclusionai/ling-3.1-flash",
       "name": "CCG Ling 3.1 Flash",
       "url": "http://127.0.0.1:4000/v1",
       "apiKey": "local",
@@ -583,6 +563,16 @@
     {
       "id": "ccg/meta/muse-spark-1.3-contributor",
       "name": "CCG Muse Spark 1.3 Contributor",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 1048576,
+      "maxOutputTokens": 131072,
+      "supportsReasoning": true,
+      "supportsImages": true
+    },
+    {
+      "id": "ccg/meta/muse-spark-open",
+      "name": "CCG Muse Spark Open",
       "url": "http://127.0.0.1:4000/v1",
       "apiKey": "local",
       "maxInputTokens": 1048576,
@@ -661,11 +651,31 @@
       "supportsImages": true
     },
     {
+      "id": "ccg/nvidia/nemotron-3.5-super-vl",
+      "name": "CCG Nemotron 3.5 Super VL",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 262144,
+      "maxOutputTokens": 131072,
+      "supportsReasoning": true,
+      "supportsImages": true
+    },
+    {
       "id": "ccg/poolside/laguna-s-2.1-free",
       "name": "CCG Laguna S 2.1",
       "url": "http://127.0.0.1:4000/v1",
       "apiKey": "local",
       "maxInputTokens": 256000,
+      "maxOutputTokens": 131072,
+      "supportsReasoning": true,
+      "supportsImages": true
+    },
+    {
+      "id": "ccg/stealth/cat-jam:free",
+      "name": "CCG Cat Jam",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 1048576,
       "maxOutputTokens": 131072,
       "supportsReasoning": true,
       "supportsImages": true
@@ -1012,10 +1022,7 @@
     }
   ],
   "availableModels": [
-    "ocg/cat-jam-free",
-    "ocg/deepseek-flash",
-    "ocg/deepseek-v4-flash",
-    "ocg/deepseek-v4-flash-vision-exp",
+    "ocg/beam-free",
     "ocg/deepseek-v4-pro",
     "ocg/deepseek-v4.1-flash",
     "ocg/glm-5.1",
@@ -1042,7 +1049,7 @@
     "ocg/qwen3.8-flash",
     "ocg/qwen3.8-max",
     "ocg/space-bunny",
-    "ocg/step-5-preview-free",
+    "ocg/step-5-preview",
     "ccg/MiniMaxAI/MiniMax-M2.5",
     "ccg/MiniMaxAI/MiniMax-M3",
     "ccg/Qwen/Qwen3.6-Plus",
@@ -1053,6 +1060,7 @@
     "ccg/Qwen/Qwen3.8-Flash",
     "ccg/Qwen/Qwen3.8-Max",
     "ccg/Qwen/Qwen3.8-Max-0902",
+    "ccg/Qwen/Qwen3.8-Max-Prime",
     "ccg/Qwen/Qwen3.8-Omni-Flash",
     "ccg/deepseek/deepseek-v4-flash",
     "ccg/deepseek/deepseek-v4-flash-fast",
@@ -1065,12 +1073,13 @@
     "ccg/gpt-5.6-luna",
     "ccg/gpt-5.6-sol",
     "ccg/gpt-6-luna",
-    "ccg/inclusionai/ling-3.1-flash:free",
+    "ccg/inclusionai/ling-3.1-flash",
     "ccg/meituan/LongCat-2.0",
     "ccg/meta/muse-spark-1.2",
     "ccg/meta/muse-spark-1.2-contributor",
     "ccg/meta/muse-spark-1.3",
     "ccg/meta/muse-spark-1.3-contributor",
+    "ccg/meta/muse-spark-open",
     "ccg/mistral/mistral-large-4",
     "ccg/moonshotai/Kimi-K2.5",
     "ccg/moonshotai/Kimi-K2.6",
@@ -1078,7 +1087,9 @@
     "ccg/moonshotai/Kimi-K2.7-Code-Highspeed",
     "ccg/moonshotai/Kimi-K3",
     "ccg/nvidia/nemotron-3-ultra-550b-a55b",
+    "ccg/nvidia/nemotron-3.5-super-vl",
     "ccg/poolside/laguna-s-2.1-free",
+    "ccg/stealth/cat-jam:free",
     "ccg/stealth/glyph-cluster:free",
     "ccg/stepfun/Step-3.7-Flash",
     "ccg/stepfun/Step-5-Preview",

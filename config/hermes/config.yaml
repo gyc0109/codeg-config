@@ -1,22 +1,10 @@
 provider: custom:ocg-longcat-2.5-preview-free
 model: longcat-2.5-preview-free
 custom_providers:
-- name: OCG cat-jam-free
+- name: OCG beam-free
   base_url: http://127.0.0.1:8899/v1
   api_key: local
-  model: cat-jam-free
-- name: OCG deepseek-flash
-  base_url: http://127.0.0.1:8899/v1
-  api_key: local
-  model: deepseek-flash
-- name: OCG DeepSeek V4 Flash
-  base_url: http://127.0.0.1:8899/v1
-  api_key: local
-  model: deepseek-v4-flash
-- name: OCG DeepSeek V4 Flash Vision Exp
-  base_url: http://127.0.0.1:8899/v1
-  api_key: local
-  model: deepseek-v4-flash-vision-exp
+  model: beam-free
 - name: OCG DeepSeek V4 Pro (New)
   base_url: http://127.0.0.1:8899/v1
   api_key: local
@@ -121,10 +109,10 @@ custom_providers:
   base_url: http://127.0.0.1:8899/v1
   api_key: local
   model: space-bunny
-- name: OCG step-5-preview-free
+- name: OCG step-5-preview
   base_url: http://127.0.0.1:8899/v1
   api_key: local
-  model: step-5-preview-free
+  model: step-5-preview
 - name: CCG MiniMax M2.5
   base_url: https://api.commandcode.ai/provider/v1
   api_key: ${COMMANDCODE_API_KEY}
@@ -165,6 +153,10 @@ custom_providers:
   base_url: https://api.commandcode.ai/provider/v1
   api_key: ${COMMANDCODE_API_KEY}
   model: Qwen/Qwen3.8-Max-0902
+- name: CCG Qwen 3.8 Max Prime
+  base_url: https://api.commandcode.ai/provider/v1
+  api_key: ${COMMANDCODE_API_KEY}
+  model: Qwen/Qwen3.8-Max-Prime
 - name: CCG Qwen 3.8 Omni Flash
   base_url: https://api.commandcode.ai/provider/v1
   api_key: ${COMMANDCODE_API_KEY}
@@ -216,7 +208,7 @@ custom_providers:
 - name: CCG Ling 3.1 Flash
   base_url: https://api.commandcode.ai/provider/v1
   api_key: ${COMMANDCODE_API_KEY}
-  model: inclusionai/ling-3.1-flash:free
+  model: inclusionai/ling-3.1-flash
 - name: CCG LongCat 2.0
   base_url: https://api.commandcode.ai/provider/v1
   api_key: ${COMMANDCODE_API_KEY}
@@ -237,6 +229,10 @@ custom_providers:
   base_url: https://api.commandcode.ai/provider/v1
   api_key: ${COMMANDCODE_API_KEY}
   model: meta/muse-spark-1.3-contributor
+- name: CCG Muse Spark Open
+  base_url: https://api.commandcode.ai/provider/v1
+  api_key: ${COMMANDCODE_API_KEY}
+  model: meta/muse-spark-open
 - name: CCG Mistral Large 4
   base_url: https://api.commandcode.ai/provider/v1
   api_key: ${COMMANDCODE_API_KEY}
@@ -265,10 +261,18 @@ custom_providers:
   base_url: https://api.commandcode.ai/provider/v1
   api_key: ${COMMANDCODE_API_KEY}
   model: nvidia/nemotron-3-ultra-550b-a55b
+- name: CCG Nemotron 3.5 Super VL
+  base_url: https://api.commandcode.ai/provider/v1
+  api_key: ${COMMANDCODE_API_KEY}
+  model: nvidia/nemotron-3.5-super-vl
 - name: CCG Laguna S 2.1
   base_url: https://api.commandcode.ai/provider/v1
   api_key: ${COMMANDCODE_API_KEY}
   model: poolside/laguna-s-2.1-free
+- name: CCG Cat Jam
+  base_url: https://api.commandcode.ai/provider/v1
+  api_key: ${COMMANDCODE_API_KEY}
+  model: stealth/cat-jam:free
 - name: CCG Glyph Cluster
   base_url: https://api.commandcode.ai/provider/v1
   api_key: ${COMMANDCODE_API_KEY}
