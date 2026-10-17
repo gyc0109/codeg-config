@@ -20,6 +20,62 @@
 | kiro | 2.31.1 | system | 官方安装脚本装到 `~/.local/bin`，需软链到 `/usr/local/bin`，见下 |
 | zcode | 0.72.0 | npx | **只是桥，缺后端**：npm 包 `zcode-acp-server`，命令 `zcode-acp`，见下 |
 
+## antigravity 必须带 `--uid=` 启动
+
+`agy_acp_server.par` 是 Google 的 init 库（`init_google.cc`）构建的，**以 root 运行时会自动
+切到 `nobody` 用户/组**，而 Debian 只有 `nogroup`，于是直接崩：
+
+```
+F1017 ... init_google.cc:394] Check failed: LookupGIDByGroupName(groupname, &new_gid)  Group nobody not found
+```
+
+**codeg 自己会传参数，不用管**。它的注册表里 antigravity 的启动命令是
+`agy_acp_server --uid=`（二进制里 `agy_acp_server` / `--uid=` / `Google Antigravity`
+是连着存的）。`--uid` 的语义见 `--helpfull`：
+
+```
+--uid: [C++] If root, switch to this user id (or empty-string not to switch)
+  (default: 'nobody')
+```
+
+空串 = 不提权，所以 `--uid=` 正好绕开。
+
+**踩坑提醒**：手工用 ACP 复现 antigravity 时**必须自己带上 `--uid=`**，否则会看到
+「Group nobody not found」而误判成「环境缺 nobody 组」。2026-10-17 我就这么误判过一次，
+还建了个 `nobody` 组——后来发现是测试命令漏参数，组已删回。**别去 `groupadd nobody`**。
+
+（`--uid=0 --gid=0` 不行，它按**组名**查，会报 `Group 0 not found`。）
+
+启动后 initialize 能正常返回能力集与 4 种认证方式：
+
+| methodId | 说明 | 能否 headless |
+| --- | --- | --- |
+| `gemini-api-key` | 要 `GEMINI_API_KEY` 环境变量 | ✅ 最省事 |
+| `oauth-personal` | Google 账号登录 | ⚠️ 会起本地服务 `127.0.0.1:59529` 等浏览器回调，需 SSH 端口转发 |
+| `oauth-business` | Gemini Enterprise | 要 GCP project/location |
+| `agent-platform` | Gemini Enterprise Agent Platform | 同上 |
+
+认证方式也可写进 `/root/.gemini/antigravity-acp/settings.json` 的 `auth.type`。
+该文件默认不存在（本机为空目录），所以 `session/new` 会报
+`Authentication required ... no auth method was selected`。
+
+## kiro / qoder 的登录都能 headless 走
+
+两个都不需要图形界面，只是需要你点一下浏览器：
+
+```bash
+# kiro：官方就为 headless 准备了 device flow
+kiro-cli login --license free --use-device-flow
+#   --license free = Builder ID / Google / GitHub 登录
+#   --license pro  = Identity Center（要 --identity-provider 与 --region）
+
+# qoder：直接打印链接然后等你在浏览器授权
+qoder login
+```
+
+`qoder login` 会输出一个 `https://qoder.com/device/selectAccounts?...` 的 URL 并挂起等待，
+所以要在能保持会话的终端里跑（tmux / screen），别用一次性 exec。
+
 ## 升级踩的坑
 
 1. **npm 升级会丢全局 symlink**：包还在，但 `/usr/bin/<cmd>` 消失，
