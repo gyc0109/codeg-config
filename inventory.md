@@ -59,6 +59,29 @@ done
 rm -rf /root/.local/share/codeg/acp-binaries/<agent>/<旧版本目录>
 ```
 
+### ⚠️ 别只盯 `acp-binaries`：agent 自己家里也藏旧二进制
+
+`acp-binaries` 只是 **binary 分发**那三个的缓存。**npx 分发的 agent 会往自己的
+`~/.<agent>/bin/` 里塞带版本号的二进制，升级时**不删旧的**。2026-10-18 就漏了一个：
+
+```
+/root/.grok/bin/grok-1.0.60   183M   ← 升级到 1.0.62 后仍然躺着
+/root/.grok/bin/grok-1.0.62   183M
+/root/.grok/bin/grok         -> grok-1.0.62
+```
+
+按 `acp-binaries` 那套清完以为干净了，实际还有 183M。**清理时所有带版本号的 agent
+二进制都要扫一遍**，判断依据是符号链接指向 + 有没有进程/配置引用：
+
+```bash
+# 全盘找 ≥20M 的 agent 二进制，看有没有同名多版本
+for d in /root/.local/bin /root/.grok /root/.qoder /root/.kimi-code /root/.codex \
+         /root/.openclaw /root/.pi /root/.hermes /root/.codebuddy /root/.cline; do
+  [ -d "$d" ] && find "$d" -maxdepth 2 -type f -size +20M
+done
+# 删前两条都过一遍：readlink -f 确认链接指向别处、ps/grep 确认无引用
+```
+
 ### 日志：本机 `logrotate` 根本没装
 
 `/etc/logrotate.d/nginx` 是有的，但 **`logrotate` 二进制不存在**（`command not found`），
