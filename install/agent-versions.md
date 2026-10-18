@@ -1,24 +1,27 @@
-# agent 版本基线（2026-10-17 升级后）
+# agent 版本基线（2026-10-18 升级后）
 
 | agent | 版本 | 分发 | 备注 |
 | --- | --- | --- | --- |
 | pi | 0.0.34 | npx | 升级会覆盖 `dist/index.js`，需重跑 `pi-acp-provider-label-patch` |
-| claude_code | 0.92.0 | npx |  |
-| open_code | 1.19.1 | binary | 二进制在 `~/.local/share/codeg/acp-binaries/opencode/<ver>/`，升级后需手动同步 `agent_setting` |
+| claude_code | 0.93.0 | npx |  |
+| open_code | 1.19.3 | binary | 二进制在 `~/.local/share/codeg/acp-binaries/opencode/<ver>/`，见下「升级踩的坑」第 2 条 |
 | deepseek | 0.9.0 | npx | 已是最新 |
 | hermes | 0.22.2 | npx |  |
 | code_buddy | 2.168.2 | npx | 升级**偶发**丢 symlink，需按 `package.json` 的 bin 重建 |
 | kimi_code | 2.2.0 | npx |  |
 | codex | 2.2.2 | npx | 内含 codex-cli 0.160.1，config.toml 格式兼容 |
-| cline | 3.0.72 | npx |  |
-| open_claw | 2026.10.4 | npx | 升级后 `openclaw gateway restart` |
-| gemini | 0.64.0 | npx | 无 Gemini key，暂不可用 |
-| grok | 1.0.60 | npx |  |
+| cline | 3.0.73 | npx |  |
+| open_claw | 2026.10.4 | npx | **本地超前** registry(2026.9.8)，勿降级；升级后 `openclaw gateway restart` |
+| gemini | 0.64.0 | npx | **本地超前** registry(0.60.0)，勿降级；无 Gemini key，暂不可用 |
+| grok | 1.0.62 | npx |  |
 | qoder | 1.1.73 | npx | 升级**偶发**丢 symlink，需按 bin 重建 |
-| cursor | 2026.10.14-0f9edde | binary | 升级后需手动同步 `agent_setting` |
-| antigravity | 1.4.0 | binary | |
+| cursor | 2026.10.16-e3cb207 | binary | 升级后核实 `agent_setting` |
+| antigravity | 1.4.1 | binary | 见下「antigravity 必须带 `--uid=` 启动」 |
 | kiro | 2.31.1 | system | 官方安装脚本装到 `~/.local/bin`，需软链到 `/usr/local/bin`，见下 |
 | zcode | 0.72.0 | npx | **只是桥，缺后端**：npm 包 `zcode-acp-server`，命令 `zcode-acp`，见下 |
+
+registry 里另有 `command_code`（npx，1.84.0）和 `trae`（system）两个条目，本机**未安装**。
+两者的 `available` 都报 `true`（codeg 只按 registry 判断），实际没用起来。
 
 ## antigravity 必须带 `--uid=` 启动
 
@@ -59,6 +62,24 @@ F1017 ... init_google.cc:394] Check failed: LookupGIDByGroupName(groupname, &new
 该文件默认不存在（本机为空目录），所以 `session/new` 会报
 `Authentication required ... no auth method was selected`。
 
+**2026-10-18 复测：卡点已经后移了一格。** 带上 `--uid=` 之后 `initialize` 能正常过，
+失败点移到 `session/new` 的凭据缺失：
+
+```
+session/new: {'code': -32000, 'message': 'Authentication required',
+  'data': {'message': "No authentication method selected. Either call the
+  `authenticate` method (supports oauth-personal, gemini-api-key,
+  agent-platform), or set `auth.type` in settings.json ..."}}
+```
+
+而 2026-10-17 那轮是 `initialize: no response`。**这是两个不同的故障，别混为一谈**：
+`--uid=` 解决的是「根本起不来」，剩下这个「缺凭据」得配 `auth.type` 或
+`GEMINI_API_KEY` 才能通。
+
+三个 binary agent 里，`open_code` 已实测握手跑通（PONG）；`cursor` 和 `antigravity`
+都卡在各自的凭据上，**跟版本升级无关**，是登录状态问题：`cursor` 要
+`agent login`，`antigravity` 要配 `auth.type`。
+
 ## kiro / qoder 的登录都能 headless 走
 
 两个都不需要图形界面，只是需要你点一下浏览器：
@@ -81,14 +102,21 @@ qoder login
 1. **npm 升级会丢全局 symlink**：包还在，但 `/usr/bin/<cmd>` 消失，
    codeg 会判定「agent 未安装」。code_buddy、claude-agent-acp 都出现过。
    修复：按 `package.json` 的 `bin` 重建 symlink。
-2. **opencode 的 binary 升级不会自动同步 codeg 的 `installed_version`**，
-   需要手动 `UPDATE agent_setting`。
+2. **binary 升级的 `agent_setting.installed_version` 同步情况不稳定**：
+   最早遇到过 opencode 不自动同步、要手动 `UPDATE agent_setting`；
+   但 2026-10-18 那轮（open_code / cursor / antigravity 三个 binary）**全部自动同步**了。
+   升级后一律核实一遍，别假定是哪种行为。
 3. **pi 升级会冲掉补丁**：`pi-acp-provider-label-patch` 已挂到 codeg 的
    systemd drop-in，重启 codeg 会自动重打；也可手动执行。
 
 > symlink 丢失（第 1 条）是**偶发**不是必现：2026-10-16 那轮丢了，2026-10-17 那轮
-> （claude_code / code_buddy / qoder / cline 四个 npm 升级）13 个 symlink 一个没丢。
+> （claude_code / code_buddy / qoder / cline 四个 npm 升级）13 个 symlink 一个没丢；
+> 2026-10-18 那轮（claude_code / cline / grok 三个 npm 升级）也没丢。
 > 所以升级后**必须逐个 verify**，不能假定会丢、也不能假定不会丢。
+
+> **升级前备份**：`sqlite3 codeg.db ".backup '<bk>/codeg.db'"`（别直接 `cp` 带 `-wal`
+> 的库），外加一份 `acp_list_agents` 快照。2026-10-18 那轮存在
+> `/root/codeg-work/pre-upg7-20261018-163322/`，升级脚本沿用 `upgrade*.sh` 的编号习惯。
 
 ## kiro 安装要点
 

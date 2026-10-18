@@ -58,3 +58,35 @@ done
 # 删除非当前版本（务必先确认 codeg 里显示的 installed_version）
 rm -rf /root/.local/share/codeg/acp-binaries/<agent>/<旧版本目录>
 ```
+
+### 日志：本机 `logrotate` 根本没装
+
+`/etc/logrotate.d/nginx` 是有的，但 **`logrotate` 二进制不存在**（`command not found`），
+所以 nginx 日志从装上起就没轮转过 —— 2026-10-18 发现 `access.log` 已经涨到 67M，
+目录里连一个 `.1` / `.gz` 都没有。litellm 同理，压根没有轮转配置。
+
+手工归档 + 截断（nginx 和 litellm 都持有 fd，**截断是安全的，不用重启**）：
+
+```bash
+ARC=/root/codeg-work/log-archive-$(date +%Y%m%d); mkdir -p "$ARC"
+gzip -c /var/log/nginx/access.log > "$ARC/nginx-access.log.gz"; : > /var/log/nginx/access.log
+gzip -c /var/log/litellm.log     > "$ARC/litellm.log.gz";     : > /var/log/litellm.log
+```
+
+要根治就 `apt install logrotate`（配置已经现成，装上即生效）。
+
+### 2026-10-18 实测各轮体积
+
+| 项目 | 清理前 | 释放 |
+| --- | --- | --- |
+| 旧 binary（antigravity 1.4.0 / cursor 2026.10.14 / opencode 1.19.1） | 3.5G | **1.75G** |
+| journal | 134M | 125M |
+| nginx + litellm 日志 | 79M | 72M（归档 3.3M 留档） |
+| apt / npm 缓存、/tmp | — | 约 150M |
+| codeg-work 历次备份 | 19M | 19M |
+
+合计约 **2.1G**。
+
+**刻意留着没删**：`/usr/local/bin/codeg-server.bak`(83M)、
+`/usr/local/share/codeg/web.bak`(117M) —— 这俩是 codeg 核心组件唯一的回滚点，
+不是缓存，磁盘不紧张时不该动。
