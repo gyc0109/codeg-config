@@ -350,19 +350,6 @@
             "streaming"
           ]
         },
-        "ocg/space-bunny": {
-          "id": "ocg/space-bunny",
-          "name": "OCG Space Bunny",
-          "contextWindow": 1048576,
-          "maxTokens": 524288,
-          "supportsReasoning": true,
-          "supportsVision": true,
-          "supportsAttachments": true,
-          "capabilities": [
-            "tools",
-            "streaming"
-          ]
-        },
         "ocg/step-5-preview": {
           "id": "ocg/step-5-preview",
           "name": "OCG step-5-preview",
@@ -883,19 +870,6 @@
             "streaming"
           ]
         },
-        "ccg/stealth/cat-jam:free": {
-          "id": "ccg/stealth/cat-jam:free",
-          "name": "CCG Cat Jam",
-          "contextWindow": 1048576,
-          "maxTokens": 131072,
-          "supportsReasoning": true,
-          "supportsVision": true,
-          "supportsAttachments": true,
-          "capabilities": [
-            "tools",
-            "streaming"
-          ]
-        },
         "ccg/stealth/glyph-cluster:free": {
           "id": "ccg/stealth/glyph-cluster:free",
           "name": "CCG Glyph Cluster",
@@ -1337,6 +1311,58 @@
             "tools",
             "streaming"
           ]
+        },
+        "ocg/minimax-m3.1-flash-free": {
+          "id": "ocg/minimax-m3.1-flash-free",
+          "name": "OCG MiniMax M3.1 Flash Free",
+          "contextWindow": 1048576,
+          "maxTokens": 131072,
+          "supportsReasoning": true,
+          "supportsVision": true,
+          "supportsAttachments": true,
+          "capabilities": [
+            "tools",
+            "streaming"
+          ]
+        },
+        "ccg/minimax/minimax-m3.1-flash": {
+          "id": "ccg/minimax/minimax-m3.1-flash",
+          "name": "CCG MiniMax M3.1 Flash",
+          "contextWindow": 1048576,
+          "maxTokens": 131072,
+          "supportsReasoning": true,
+          "supportsVision": true,
+          "supportsAttachments": true,
+          "capabilities": [
+            "tools",
+            "streaming"
+          ]
+        },
+        "ccg/minimax/minimax-m3.1-flash:free": {
+          "id": "ccg/minimax/minimax-m3.1-flash:free",
+          "name": "CCG MiniMax M3.1 Flash Free",
+          "contextWindow": 1048576,
+          "maxTokens": 131072,
+          "supportsReasoning": true,
+          "supportsVision": true,
+          "supportsAttachments": true,
+          "capabilities": [
+            "tools",
+            "streaming"
+          ]
+        },
+        "ccg/reflection/beam:free": {
+          "id": "ccg/reflection/beam:free",
+          "name": "CCG Reflection Beam Free",
+          "contextWindow": 262144,
+          "maxTokens": 131072,
+          "supportsReasoning": true,
+          "supportsVision": true,
+          "supportsAttachments": true,
+          "capabilities": [
+            "tools",
+            "streaming"
+          ]
         }
       },
       "discoveredModelIds": [
@@ -1366,7 +1392,6 @@
         "ocg/qwen3.7-plus",
         "ocg/qwen3.8-flash",
         "ocg/qwen3.8-max",
-        "ocg/space-bunny",
         "ocg/step-5-preview",
         "ccg/MiniMaxAI/MiniMax-M2.5",
         "ccg/MiniMaxAI/MiniMax-M3",
@@ -1407,7 +1432,6 @@
         "ccg/nvidia/nemotron-3-ultra-550b-a55b",
         "ccg/nvidia/nemotron-3.5-super-vl",
         "ccg/poolside/laguna-s-2.1-free",
-        "ccg/stealth/cat-jam:free",
         "ccg/stealth/glyph-cluster:free",
         "ccg/stepfun/Step-3.7-Flash",
         "ccg/stepfun/Step-5-Preview",
@@ -1441,7 +1465,11 @@
         "ark/doubao-seed-character-251128",
         "ark/doubao-seed-character-260628",
         "ark/glm-5-2-260617",
-        "ark/glm-5-3-flash-260828"
+        "ark/glm-5-3-flash-260828",
+        "ocg/minimax-m3.1-flash-free",
+        "ccg/minimax/minimax-m3.1-flash",
+        "ccg/minimax/minimax-m3.1-flash:free",
+        "ccg/reflection/beam:free"
       ]
     }
   }

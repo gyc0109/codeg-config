@@ -86,11 +86,11 @@ llm-pi-ai:
         - id: ocg/qwen3.8-max
           name: OCG qwen3.8-max
           contextWindow: 1000000
-        - id: ocg/space-bunny
-          name: OCG space-bunny
-          contextWindow: 1048576
         - id: ocg/step-5-preview
           name: OCG step-5-preview
+          contextWindow: 262144
+        - id: ocg/minimax-m3.1-flash-free
+          name: OCG minimax-m3.1-flash-free
           contextWindow: 262144
     ccg:
       displayName: Command Code GOAT
@@ -215,9 +215,6 @@ llm-pi-ai:
         - id: ccg/poolside/laguna-s-2.1-free
           name: CCG poolside/laguna-s-2.1-free
           contextWindow: 256000
-        - id: ccg/stealth/cat-jam:free
-          name: CCG stealth/cat-jam:free
-          contextWindow: 1048576
         - id: ccg/stealth/glyph-cluster:free
           name: CCG stealth/glyph-cluster:free
           contextWindow: 256000
@@ -272,6 +269,15 @@ llm-pi-ai:
         - id: ccg/zai-org/GLM-5.3
           name: CCG zai-org/GLM-5.3
           contextWindow: 1000000
+        - id: ccg/minimax/minimax-m3.1-flash
+          name: CCG minimax/minimax-m3.1-flash
+          contextWindow: 1000000
+        - id: ccg/minimax/minimax-m3.1-flash:free
+          name: CCG minimax/minimax-m3.1-flash:free
+          contextWindow: 1000000
+        - id: ccg/reflection/beam:free
+          name: CCG reflection/beam:free
+          contextWindow: 1048576
     ds:
       displayName: DeepSeek Official
       api: openai-completions

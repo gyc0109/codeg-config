@@ -105,14 +105,14 @@ custom_providers:
   base_url: http://127.0.0.1:8899/v1
   api_key: local
   model: qwen3.8-max
-- name: OCG Space Bunny
-  base_url: http://127.0.0.1:8899/v1
-  api_key: local
-  model: space-bunny
 - name: OCG step-5-preview
   base_url: http://127.0.0.1:8899/v1
   api_key: local
   model: step-5-preview
+- name: OCG minimax-m3.1-flash-free
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: minimax-m3.1-flash-free
 - name: CCG MiniMax M2.5
   base_url: https://api.commandcode.ai/provider/v1
   api_key: ${COMMANDCODE_API_KEY}
@@ -177,11 +177,11 @@ custom_providers:
   base_url: https://api.commandcode.ai/provider/v1
   api_key: ${COMMANDCODE_API_KEY}
   model: deepseek/deepseek-v4-pro
-- name: CCG DeepSeek V4.1 Flash
+- name: CCG DeepSeek V4.1 Flash (latest)
   base_url: https://api.commandcode.ai/provider/v1
   api_key: ${COMMANDCODE_API_KEY}
   model: deepseek/deepseek-v4.1-flash
-- name: CCG DeepSeek V4.1 Flash Fast
+- name: CCG DeepSeek V4.1 Flash Fast (latest)
   base_url: https://api.commandcode.ai/provider/v1
   api_key: ${COMMANDCODE_API_KEY}
   model: deepseek/deepseek-v4.1-flash-fast
@@ -269,10 +269,6 @@ custom_providers:
   base_url: https://api.commandcode.ai/provider/v1
   api_key: ${COMMANDCODE_API_KEY}
   model: poolside/laguna-s-2.1-free
-- name: CCG Cat Jam
-  base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${COMMANDCODE_API_KEY}
-  model: stealth/cat-jam:free
 - name: CCG Glyph Cluster
   base_url: https://api.commandcode.ai/provider/v1
   api_key: ${COMMANDCODE_API_KEY}
@@ -345,6 +341,18 @@ custom_providers:
   base_url: https://api.commandcode.ai/provider/v1
   api_key: ${COMMANDCODE_API_KEY}
   model: zai-org/GLM-5.3
+- name: CCG MiniMax M3.1 Flash
+  base_url: https://api.commandcode.ai/provider/v1
+  api_key: ${COMMANDCODE_API_KEY}
+  model: minimax/minimax-m3.1-flash
+- name: CCG MiniMax M3.1 Flash
+  base_url: https://api.commandcode.ai/provider/v1
+  api_key: ${COMMANDCODE_API_KEY}
+  model: minimax/minimax-m3.1-flash:free
+- name: CCG Beam 1.0
+  base_url: https://api.commandcode.ai/provider/v1
+  api_key: ${COMMANDCODE_API_KEY}
+  model: reflection/beam:free
 - name: DS deepseek-flash
   base_url: http://127.0.0.1:8896/v1
   api_key: local

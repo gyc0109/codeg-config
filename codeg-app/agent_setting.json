@@ -5,10 +5,10 @@
     "registry_id": "claude-acp",
     "enabled": 1,
     "sort_order": 1,
-    "installed_version": "0.85.1",
+    "installed_version": "0.93.0",
     "env_json": "{\"ANTHROPIC_AUTH_TOKEN\":\"local\",\"ANTHROPIC_BASE_URL\":\"http://127.0.0.1:4000\",\"ANTHROPIC_CUSTOM_MODEL_OPTION\":\"ccg/gpt-6-luna\",\"ANTHROPIC_CUSTOM_MODEL_OPTION_DESCRIPTION\":\"Command Code GOAT · 备用均衡模型\",\"ANTHROPIC_CUSTOM_MODEL_OPTION_NAME\":\"CCG GPT-6 Luna\",\"ANTHROPIC_DEFAULT_HAIKU_MODEL\":\"ccg/deepseek/deepseek-v4.1-flash\",\"ANTHROPIC_DEFAULT_OPUS_MODEL\":\"ccg/xiaomi/mimo-v2.6-pro\",\"ANTHROPIC_DEFAULT_SONNET_MODEL\":\"ccg/z-ai/glm-5.3-flash\",\"ANTHROPIC_MODEL\":\"ccg/z-ai/glm-5.3-flash\",\"ANTHROPIC_REASONING_MODEL\":\"ccg/deepseek/deepseek-v4.1-flash\"}",
     "created_at": "2026-09-11T17:31:02.600197409+00:00",
-    "updated_at": "2026-10-09T01:42:03.559001969+00:00",
+    "updated_at": "2026-10-18T16:08:32.580376985+00:00",
     "model_provider_id": 5
   },
   {
@@ -17,10 +17,10 @@
     "registry_id": "codex-acp",
     "enabled": 1,
     "sort_order": 7,
-    "installed_version": "2.1.1",
+    "installed_version": "2.2.2",
     "env_json": "{\"OPENAI_BASE_URL\":\"http://127.0.0.1:4000/v1\",\"OPENAI_MODEL\":\"ocg/gpt-6-luna\",\"OPENCODE_GO_KEY\":\"local\"}",
     "created_at": "2026-09-11T17:31:02.602867301+00:00",
-    "updated_at": "2026-10-03T05:41:22.852463163+00:00",
+    "updated_at": "2026-10-18T16:08:32.779546893+00:00",
     "model_provider_id": null
   },
   {
@@ -29,10 +29,10 @@
     "registry_id": "gemini",
     "enabled": 1,
     "sort_order": 10,
-    "installed_version": "0.62.0",
+    "installed_version": "0.64.0",
     "env_json": null,
     "created_at": "2026-09-11T17:31:02.603695284+00:00",
-    "updated_at": "2026-10-03T05:36:51.971071760+00:00",
+    "updated_at": "2026-10-18T16:08:32.580457996+00:00",
     "model_provider_id": null
   },
   {
@@ -41,10 +41,10 @@
     "registry_id": "openclaw-acp",
     "enabled": 1,
     "sort_order": 9,
-    "installed_version": "2026.9.8",
+    "installed_version": "2026.10.4",
     "env_json": null,
     "created_at": "2026-09-11T17:31:02.605418334+00:00",
-    "updated_at": "2026-10-03T05:43:51.241808014+00:00",
+    "updated_at": "2026-10-18T16:08:33.250697710+00:00",
     "model_provider_id": null
   },
   {
@@ -53,10 +53,10 @@
     "registry_id": "opencode",
     "enabled": 1,
     "sort_order": 2,
-    "installed_version": "1.18.34",
+    "installed_version": "1.19.3",
     "env_json": null,
     "created_at": "2026-09-11T17:31:02.605936350+00:00",
-    "updated_at": "2026-10-09T01:44:21.462155398+00:00",
+    "updated_at": "2026-10-19T12:35:01.829251791+00:00",
     "model_provider_id": null
   },
   {
@@ -65,10 +65,10 @@
     "registry_id": "cline",
     "enabled": 1,
     "sort_order": 8,
-    "installed_version": "3.0.68",
-    "env_json": "{\"OPENAI_API_KEY\":\"local\",\"OPENAI_BASE_URL\":\"http://127.0.0.1:4000/v1\",\"OPENAI_MODEL\":\"ocg/longcat-2.5-preview-free\"}",
+    "installed_version": "3.0.73",
+    "env_json": "{\"CLINE_API_KEY\":\"local\",\"CLINE_BASE_URL\":\"http://127.0.0.1:4000/v1\",\"CLINE_MODEL\":\"ocg/longcat-2.5-preview-free\",\"CLINE_PROVIDER\":\"openai-compatible\"}",
     "created_at": "2026-09-11T17:31:02.608362155+00:00",
-    "updated_at": "2026-10-08T02:59:40.762938477+00:00",
+    "updated_at": "2026-10-18T16:08:32.643332647+00:00",
     "model_provider_id": null
   },
   {
@@ -77,10 +77,10 @@
     "registry_id": "hermes",
     "enabled": 1,
     "sort_order": 4,
-    "installed_version": "0.21.5",
+    "installed_version": "0.22.2",
     "env_json": "{\"HERMES_INFERENCE_MODEL\":\"longcat-2.5-preview-free\",\"HERMES_INFERENCE_PROVIDER\":\"custom:ocg-longcat-2.5-preview-free\"}",
     "created_at": "2026-09-11T17:31:02.609713809+00:00",
-    "updated_at": "2026-10-08T03:05:04.464046962+00:00",
+    "updated_at": "2026-10-18T16:08:33.286731475+00:00",
     "model_provider_id": null
   },
   {
@@ -89,10 +89,10 @@
     "registry_id": "codebuddy-code",
     "enabled": 1,
     "sort_order": 5,
-    "installed_version": "2.161.1",
+    "installed_version": "2.168.2",
     "env_json": "{\"CODEBUDDY_API_KEY\":\"local\",\"CODEBUDDY_BASE_URL\":\"http://127.0.0.1:4000/v1\",\"CODEBUDDY_DISABLE_BUILTIN_MODELS\":\"1\",\"CODEBUDDY_MODEL\":\"ocg/longcat-2.5-preview-free\"}",
     "created_at": "2026-09-11T17:31:02.611143292+00:00",
-    "updated_at": "2026-10-08T02:59:40.811131328+00:00",
+    "updated_at": "2026-10-18T16:08:32.975595450+00:00",
     "model_provider_id": null
   },
   {
@@ -101,10 +101,10 @@
     "registry_id": "kimi-code",
     "enabled": 1,
     "sort_order": 6,
-    "installed_version": "2.1.1",
+    "installed_version": "2.2.0",
     "env_json": "{\"KIMI_MODEL_API_KEY\":\"local\",\"KIMI_MODEL_BASE_URL\":\"http://127.0.0.1:4000/v1\",\"KIMI_MODEL_NAME\":\"ocg/longcat-2.5-preview-free\"}",
     "created_at": "2026-09-11T17:31:02.611707097+00:00",
-    "updated_at": "2026-10-08T06:21:02.063804409+00:00",
+    "updated_at": "2026-10-18T16:08:32.643252205+00:00",
     "model_provider_id": 1
   },
   {
@@ -116,7 +116,7 @@
     "installed_version": "0.0.34",
     "env_json": null,
     "created_at": "2026-09-11T17:31:02.613622583+00:00",
-    "updated_at": "2026-10-03T05:36:52.129615601+00:00",
+    "updated_at": "2026-10-18T16:08:33.425379529+00:00",
     "model_provider_id": null
   },
   {
@@ -125,10 +125,10 @@
     "registry_id": "grok-build",
     "enabled": 1,
     "sort_order": 11,
-    "installed_version": "1.0.46",
+    "installed_version": "1.0.62",
     "env_json": "{\"GROK_DEFAULT_MODEL\":\"ocg/longcat-2.5-preview-free\",\"GROK_XAI_API_BASE_URL\":\"http://127.0.0.1:4000/v1\",\"OPENAI_MODEL\":\"ocg/longcat-2.5-preview-free\",\"XAI_API_KEY\":\"local\"}",
     "created_at": "2026-09-11T17:31:02.615047110+00:00",
-    "updated_at": "2026-10-08T06:21:02.077401688+00:00",
+    "updated_at": "2026-10-18T16:08:33.320798198+00:00",
     "model_provider_id": 2
   },
   {
@@ -137,10 +137,10 @@
     "registry_id": "cursor",
     "enabled": 1,
     "sort_order": 12,
-    "installed_version": "2026.10.01-14929f9",
+    "installed_version": "2026.10.16-e3cb207",
     "env_json": null,
     "created_at": "2026-09-11T17:31:02.616319730+00:00",
-    "updated_at": "2026-10-09T01:44:21.465748320+00:00",
+    "updated_at": "2026-10-19T12:35:01.835103576+00:00",
     "model_provider_id": null
   },
   {
@@ -152,7 +152,7 @@
     "installed_version": "0.9.0",
     "env_json": "{\"DEEPSEEK_ACP_MODEL\":\"ocg/longcat-2.5-preview-free\",\"DEEPSEEK_ACP_PROVIDER\":\"ocg\",\"DEEPSEEK_API_KEY\":\"local\",\"DEEPSEEK_BASE_URL\":\"http://127.0.0.1:4000/v1\"}",
     "created_at": "2026-09-11T17:31:02.616862301+00:00",
-    "updated_at": "2026-10-08T06:21:02.087627872+00:00",
+    "updated_at": "2026-10-18T16:08:33.237875570+00:00",
     "model_provider_id": 3
   },
   {
@@ -161,10 +161,10 @@
     "registry_id": "qoder-cli",
     "enabled": 1,
     "sort_order": 13,
-    "installed_version": "1.1.65",
+    "installed_version": "1.1.73",
     "env_json": null,
     "created_at": "2026-09-11T17:31:02.618996327+00:00",
-    "updated_at": "2026-10-03T05:36:52.404851127+00:00",
+    "updated_at": "2026-10-18T16:08:33.428996176+00:00",
     "model_provider_id": null
   },
   {
@@ -173,10 +173,58 @@
     "registry_id": "antigravity-acp",
     "enabled": 1,
     "sort_order": 14,
-    "installed_version": "1.3.0",
+    "installed_version": "1.4.1",
     "env_json": null,
     "created_at": "2026-09-11T17:31:02.620404896+00:00",
-    "updated_at": "2026-10-09T01:44:21.467119653+00:00",
+    "updated_at": "2026-10-19T12:35:01.839111490+00:00",
+    "model_provider_id": null
+  },
+  {
+    "id": 16,
+    "agent_type": "\"kiro\"",
+    "registry_id": "kiro-cli",
+    "enabled": 1,
+    "sort_order": 15,
+    "installed_version": "2.31.1",
+    "env_json": null,
+    "created_at": "2026-10-16T16:17:18.608129223+00:00",
+    "updated_at": "2026-10-19T12:35:01.843455318+00:00",
+    "model_provider_id": null
+  },
+  {
+    "id": 17,
+    "agent_type": "\"zcode\"",
+    "registry_id": "codeg-zcode-acp",
+    "enabled": 1,
+    "sort_order": 16,
+    "installed_version": "0.72.0",
+    "env_json": null,
+    "created_at": "2026-10-16T16:17:18.609963094+00:00",
+    "updated_at": "2026-10-18T16:08:33.238025731+00:00",
+    "model_provider_id": null
+  },
+  {
+    "id": 18,
+    "agent_type": "\"trae\"",
+    "registry_id": "codeg-trae-cli",
+    "enabled": 1,
+    "sort_order": 17,
+    "installed_version": null,
+    "env_json": null,
+    "created_at": "2026-10-18T07:29:10.302467201+00:00",
+    "updated_at": "2026-10-19T12:35:01.846742555+00:00",
+    "model_provider_id": null
+  },
+  {
+    "id": 19,
+    "agent_type": "\"command_code\"",
+    "registry_id": "codeg-command-code",
+    "enabled": 1,
+    "sort_order": 18,
+    "installed_version": null,
+    "env_json": null,
+    "created_at": "2026-10-18T07:29:10.305362016+00:00",
+    "updated_at": "2026-10-18T07:29:10.305362016+00:00",
     "model_provider_id": null
   }
 ]

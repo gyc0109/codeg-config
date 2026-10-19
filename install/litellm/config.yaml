@@ -6,6 +6,8 @@ model_list:
 
 
 
+
+
 - model_name: ocg/beam-free
   litellm_params:
     model: openai/beam-free
@@ -215,6 +217,14 @@ model_list:
     additional_drop_params: *id001
   model_info:
     id: ocg/minimax-m3
+- model_name: ocg/minimax-m3.1-flash-free
+  litellm_params:
+    model: openai/minimax-m3.1-flash-free
+    api_base: http://127.0.0.1:8899/v1
+    api_key: local
+    additional_drop_params: *id001
+  model_info:
+    id: ocg/minimax-m3.1-flash-free
 - model_name: ocg/muse-spark-1.2-contributor
   litellm_params:
     model: openai/muse-spark-1.2-contributor
@@ -279,14 +289,6 @@ model_list:
     additional_drop_params: *id001
   model_info:
     id: ocg/qwen3.8-max
-- model_name: ocg/space-bunny
-  litellm_params:
-    model: openai/space-bunny
-    api_base: http://127.0.0.1:8899/v1
-    api_key: local
-    additional_drop_params: *id001
-  model_info:
-    id: ocg/space-bunny
 - model_name: ocg/step-5-preview
   litellm_params:
     model: openai/step-5-preview
@@ -535,6 +537,22 @@ model_list:
     additional_drop_params: *id001
   model_info:
     id: ccg/meta/muse-spark-open
+- model_name: ccg/minimax/minimax-m3.1-flash
+  litellm_params:
+    model: openai/minimax/minimax-m3.1-flash
+    api_base: https://api.commandcode.ai/provider/v1
+    api_key: ${COMMANDCODE_API_KEY}
+    additional_drop_params: *id001
+  model_info:
+    id: ccg/minimax/minimax-m3.1-flash
+- model_name: ccg/minimax/minimax-m3.1-flash:free
+  litellm_params:
+    model: openai/minimax/minimax-m3.1-flash:free
+    api_base: https://api.commandcode.ai/provider/v1
+    api_key: ${COMMANDCODE_API_KEY}
+    additional_drop_params: *id001
+  model_info:
+    id: ccg/minimax/minimax-m3.1-flash:free
 - model_name: ccg/mistral/mistral-large-4
   litellm_params:
     model: openai/mistral/mistral-large-4
@@ -607,14 +625,14 @@ model_list:
     additional_drop_params: *id001
   model_info:
     id: ccg/poolside/laguna-s-2.1-free
-- model_name: ccg/stealth/cat-jam:free
+- model_name: ccg/reflection/beam:free
   litellm_params:
-    model: openai/stealth/cat-jam:free
+    model: openai/reflection/beam:free
     api_base: https://api.commandcode.ai/provider/v1
     api_key: ${COMMANDCODE_API_KEY}
     additional_drop_params: *id001
   model_info:
-    id: ccg/stealth/cat-jam:free
+    id: ccg/reflection/beam:free
 - model_name: ccg/stealth/glyph-cluster:free
   litellm_params:
     model: openai/stealth/glyph-cluster:free

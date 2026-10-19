@@ -155,14 +155,14 @@ provider = "opencode-go"
 model = "qwen3.8-max"
 max_context_size = 1000000
 
-[models."ocg/space-bunny"]
-provider = "opencode-go"
-model = "space-bunny"
-max_context_size = 1048576
-
 [models."ocg/step-5-preview"]
 provider = "opencode-go"
 model = "step-5-preview"
+max_context_size = 262144
+
+[models."ocg/minimax-m3.1-flash-free"]
+provider = "opencode-go"
+model = "minimax-m3.1-flash-free"
 max_context_size = 262144
 
 [models."ccg/MiniMaxAI/MiniMax-M2.5"]
@@ -360,11 +360,6 @@ provider = "commandcode"
 model = "poolside/laguna-s-2.1-free"
 max_context_size = 256000
 
-[models."ccg/stealth/cat-jam:free"]
-provider = "commandcode"
-model = "stealth/cat-jam:free"
-max_context_size = 1048576
-
 [models."ccg/stealth/glyph-cluster:free"]
 provider = "commandcode"
 model = "stealth/glyph-cluster:free"
@@ -454,6 +449,21 @@ max_context_size = 1000000
 provider = "commandcode"
 model = "zai-org/GLM-5.3"
 max_context_size = 1000000
+
+[models."ccg/minimax/minimax-m3.1-flash"]
+provider = "commandcode"
+model = "minimax/minimax-m3.1-flash"
+max_context_size = 1000000
+
+[models."ccg/minimax/minimax-m3.1-flash:free"]
+provider = "commandcode"
+model = "minimax/minimax-m3.1-flash:free"
+max_context_size = 1000000
+
+[models."ccg/reflection/beam:free"]
+provider = "commandcode"
+model = "reflection/beam:free"
+max_context_size = 1048576
 
 [models."ds/deepseek-flash"]
 provider = "deepseek"

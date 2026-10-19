@@ -527,8 +527,8 @@
           }
         },
         {
-          "id": "space-bunny",
-          "name": "OCG Space Bunny",
+          "id": "step-5-preview",
+          "name": "OCG step-5-preview",
           "provider": "ocg",
           "baseUrl": "http://127.0.0.1:8899/v1",
           "api": "openai-completions",
@@ -537,8 +537,8 @@
             "text",
             "image"
           ],
-          "contextWindow": 1048576,
-          "maxTokens": 524288,
+          "contextWindow": 262144,
+          "maxTokens": 131072,
           "cost": {
             "input": 0,
             "output": 0,
@@ -547,8 +547,8 @@
           }
         },
         {
-          "id": "step-5-preview",
-          "name": "OCG step-5-preview",
+          "id": "minimax-m3.1-flash-free",
+          "name": "OCG minimax-m3.1-flash-free",
           "provider": "ocg",
           "baseUrl": "http://127.0.0.1:8899/v1",
           "api": "openai-completions",
@@ -896,7 +896,7 @@
         },
         {
           "id": "deepseek/deepseek-v4.1-flash",
-          "name": "CCG DeepSeek V4.1 Flash",
+          "name": "CCG DeepSeek V4.1 Flash (latest)",
           "provider": "ccg",
           "baseUrl": "https://api.commandcode.ai/provider/v1",
           "api": "openai-completions",
@@ -916,7 +916,7 @@
         },
         {
           "id": "deepseek/deepseek-v4.1-flash-fast",
-          "name": "CCG DeepSeek V4.1 Flash Fast",
+          "name": "CCG DeepSeek V4.1 Flash Fast (latest)",
           "provider": "ccg",
           "baseUrl": "https://api.commandcode.ai/provider/v1",
           "api": "openai-completions",
@@ -1355,26 +1355,6 @@
           }
         },
         {
-          "id": "stealth/cat-jam:free",
-          "name": "CCG Cat Jam",
-          "provider": "ccg",
-          "baseUrl": "https://api.commandcode.ai/provider/v1",
-          "api": "openai-completions",
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "contextWindow": 1048576,
-          "maxTokens": 131072,
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          }
-        },
-        {
           "id": "stealth/glyph-cluster:free",
           "name": "CCG Glyph Cluster",
           "provider": "ccg",
@@ -1726,6 +1706,66 @@
             "image"
           ],
           "contextWindow": 1000000,
+          "maxTokens": 131072,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        },
+        {
+          "id": "minimax/minimax-m3.1-flash",
+          "name": "CCG MiniMax M3.1 Flash",
+          "provider": "ccg",
+          "baseUrl": "https://api.commandcode.ai/provider/v1",
+          "api": "openai-completions",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 1000000,
+          "maxTokens": 131072,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        },
+        {
+          "id": "minimax/minimax-m3.1-flash:free",
+          "name": "CCG MiniMax M3.1 Flash",
+          "provider": "ccg",
+          "baseUrl": "https://api.commandcode.ai/provider/v1",
+          "api": "openai-completions",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 1000000,
+          "maxTokens": 131072,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        },
+        {
+          "id": "reflection/beam:free",
+          "name": "CCG Beam 1.0",
+          "provider": "ccg",
+          "baseUrl": "https://api.commandcode.ai/provider/v1",
+          "api": "openai-completions",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 1048576,
           "maxTokens": 131072,
           "cost": {
             "input": 0,

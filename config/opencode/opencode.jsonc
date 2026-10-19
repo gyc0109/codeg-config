@@ -165,15 +165,15 @@
           "contextWindow": 1000000,
           "maxTokens": 131072
         },
-        "space-bunny": {
-          "name": "OCG Space Bunny",
-          "id": "space-bunny",
-          "contextWindow": 1048576,
-          "maxTokens": 524288
-        },
         "step-5-preview": {
           "name": "OCG step-5-preview",
           "id": "step-5-preview",
+          "contextWindow": 262144,
+          "maxTokens": 131072
+        },
+        "minimax-m3.1-flash-free": {
+          "name": "OCG minimax-m3.1-flash-free",
+          "id": "minimax-m3.1-flash-free",
           "contextWindow": 262144,
           "maxTokens": 131072
         }
@@ -284,13 +284,13 @@
           "maxTokens": 131072
         },
         "deepseek/deepseek-v4.1-flash": {
-          "name": "CCG DeepSeek V4.1 Flash",
+          "name": "CCG DeepSeek V4.1 Flash (latest)",
           "id": "deepseek/deepseek-v4.1-flash",
           "contextWindow": 1000000,
           "maxTokens": 131072
         },
         "deepseek/deepseek-v4.1-flash-fast": {
-          "name": "CCG DeepSeek V4.1 Flash Fast",
+          "name": "CCG DeepSeek V4.1 Flash Fast (latest)",
           "id": "deepseek/deepseek-v4.1-flash-fast",
           "contextWindow": 1000000,
           "maxTokens": 131072
@@ -421,12 +421,6 @@
           "contextWindow": 256000,
           "maxTokens": 131072
         },
-        "stealth/cat-jam:free": {
-          "name": "CCG Cat Jam",
-          "id": "stealth/cat-jam:free",
-          "contextWindow": 1048576,
-          "maxTokens": 131072
-        },
         "stealth/glyph-cluster:free": {
           "name": "CCG Glyph Cluster",
           "id": "stealth/glyph-cluster:free",
@@ -533,6 +527,24 @@
           "name": "CCG GLM-5.3",
           "id": "zai-org/GLM-5.3",
           "contextWindow": 1000000,
+          "maxTokens": 131072
+        },
+        "minimax/minimax-m3.1-flash": {
+          "name": "CCG MiniMax M3.1 Flash",
+          "id": "minimax/minimax-m3.1-flash",
+          "contextWindow": 1000000,
+          "maxTokens": 131072
+        },
+        "minimax/minimax-m3.1-flash:free": {
+          "name": "CCG MiniMax M3.1 Flash",
+          "id": "minimax/minimax-m3.1-flash:free",
+          "contextWindow": 1000000,
+          "maxTokens": 131072
+        },
+        "reflection/beam:free": {
+          "name": "CCG Beam 1.0",
+          "id": "reflection/beam:free",
+          "contextWindow": 1048576,
           "maxTokens": 131072
         }
       }

@@ -98,13 +98,16 @@ codeg 前端把 agent 上报的 model configOption 拆成「分组 + 条目」
 **`space-bunny-free` 已下线**（改成付费的 `space-bunny`）。免费档为
 **`longcat-2.5-preview-free`**，另有新增的 **`step-5-preview-free`**；所有默认模型用前者。
 
-实测 38 个模型（权威来源 `GET /zen/go/v1/models`）：
+实测 37 个模型（权威来源 `GET /zen/go/v1/models`）：
 
 | 分类 | 数量 | 说明 |
 | --- | --- | --- |
-| chat 可用 | **30** | 所有 chat agent |
-| responses 可用 | **11** | codex |
+| chat 可用 | **28** | 所有 chat agent |
+| responses 可用 | **8** | codex |
 | 两种都不可用 | 2 | `claude-haiku-5-5`（套餐外）、`minimax-m2.7` |
+
+> 2026-10-20 刷新：新增 `minimax-m3.1-flash-free`（仅 chat，`/responses` 报
+> `ModelProtocolUnsupported`）；**下线 `space-bunny`**（付费档也撤了）。
 
 > 2026-10-10 刷新：新增 `step-5-preview-free`（免费）；`qwen3.8-max` 恢复可用
 > （此前 `/messages` 报 Invalid credential，现已通过）。
@@ -112,7 +115,7 @@ codeg 前端把 agent 上报的 model configOption 拆成「分组 + 条目」
 > 注意 `GET /zen/go/v1/models` **只返回 id**，不带上下文窗口；上下文要从
 > opencode 的 models.dev 缓存 `~/.cache/opencode/models.json` 取（provider `opencode-go`）。
 
-**LiteLLM 的 ocg/ 必须是 chat ∪ responses 的并集（36 个）**，不能只放 responses 子集——
+**LiteLLM 的 ocg/ 必须是 chat ∪ responses 的并集（34 个）**，不能只放 responses 子集——
 因为 cline / code_buddy / grok / deepseek 走的是 LiteLLM 的 **chat** 端点，
 只放 responses 子集会让它们连默认模型都找不到。
 
@@ -156,8 +159,8 @@ LiteLLM（:4000）另加了 `ds/` 两条（转发给 :8899）。
 
 | `supported_endpoints` | 个数 | 能用于 |
 | --- | --- | --- |
-| `['/chat/completions','/responses']` | 68 | 两类 agent 都行 |
-| `['/chat/completions']` | 8 | 仅 chat agent |
+| `['/chat/completions','/responses']` | 73 | 两类 agent 都行 |
+| `['/chat/completions']` | 10 | 仅 chat agent |
 | `['/messages']` | 11 | 仅 Claude 协议 |
 
 再叠上“套餐是否包含”（探测返回 `MODEL_NOT_IN_PLAN`）和“上游是否可用”
@@ -165,11 +168,16 @@ LiteLLM（:4000）另加了 `ds/` 两条（转发给 :8899）。
 
 | 用途 | 数量 | 备注 |
 | --- | --- | --- |
-| chat 可用 | **54** | 所有 chat agent（opencode/kimi/hermes/pi/cline/grok/deepseek） |
-| responses 可用 | **47** | codex（必须是 responses 的子集） |
+| chat 可用 | **60** | 所有 chat agent（opencode/kimi/hermes/pi/cline/grok/deepseek） |
+| responses 可用 | **50** | codex（必须是 responses 的子集） |
 | messages 可用 | **2** | `claude-sonnet-5-5`、`claude-haiku-5-5` |
 | 套餐外 | 14 | `gpt-5.5/5.4/6-sol/6-astra`、`gemini-3.5/3.6`、`muse-spark-1.1` 等 |
 | 在套餐但上游不可用 | 8 | `MiniMax-M2.7`、`GLM-5.1`、`Step-3.5-Flash`、`inkling`×2、`ling-3.0-flash-sante:free`、`laguna-s-2.1-free`、`mimo-v2.5` |
+
+> 2026-10-20 刷新：新增 `minimax/minimax-m3.1-flash`、`minimax/minimax-m3.1-flash:free`
+> （仅 chat）、`reflection/beam:free`（chat + responses，已替代 codex catalog 里的
+> `stealth/cat-jam:free` 槽位）；**下线 `stealth/cat-jam:free`**。套餐外/上游不可用两行
+> 仍为 2026-10-10 全量探测结果，本周只复测了差集。
 
 > 2026-10-10 刷新：新增 `Qwen/Qwen3.6-Plus`、`mistral/mistral-large-4`、
 > `stealth/glyph-cluster:free`（新的免费 stealth 模型）；下线

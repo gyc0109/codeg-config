@@ -261,18 +261,18 @@
       "supportsImages": true
     },
     {
-      "id": "ocg/space-bunny",
-      "name": "OCG Space Bunny",
+      "id": "ocg/step-5-preview",
+      "name": "OCG step-5-preview",
       "url": "http://127.0.0.1:4000/v1",
       "apiKey": "local",
-      "maxInputTokens": 1048576,
-      "maxOutputTokens": 524288,
+      "maxInputTokens": 262144,
+      "maxOutputTokens": 131072,
       "supportsReasoning": true,
       "supportsImages": true
     },
     {
-      "id": "ocg/step-5-preview",
-      "name": "OCG step-5-preview",
+      "id": "ocg/minimax-m3.1-flash-free",
+      "name": "OCG minimax-m3.1-flash-free",
       "url": "http://127.0.0.1:4000/v1",
       "apiKey": "local",
       "maxInputTokens": 262144,
@@ -442,7 +442,7 @@
     },
     {
       "id": "ccg/deepseek/deepseek-v4.1-flash",
-      "name": "CCG DeepSeek V4.1 Flash",
+      "name": "CCG DeepSeek V4.1 Flash (latest)",
       "url": "http://127.0.0.1:4000/v1",
       "apiKey": "local",
       "maxInputTokens": 1000000,
@@ -452,7 +452,7 @@
     },
     {
       "id": "ccg/deepseek/deepseek-v4.1-flash-fast",
-      "name": "CCG DeepSeek V4.1 Flash Fast",
+      "name": "CCG DeepSeek V4.1 Flash Fast (latest)",
       "url": "http://127.0.0.1:4000/v1",
       "apiKey": "local",
       "maxInputTokens": 1000000,
@@ -671,16 +671,6 @@
       "supportsImages": true
     },
     {
-      "id": "ccg/stealth/cat-jam:free",
-      "name": "CCG Cat Jam",
-      "url": "http://127.0.0.1:4000/v1",
-      "apiKey": "local",
-      "maxInputTokens": 1048576,
-      "maxOutputTokens": 131072,
-      "supportsReasoning": true,
-      "supportsImages": true
-    },
-    {
       "id": "ccg/stealth/glyph-cluster:free",
       "name": "CCG Glyph Cluster",
       "url": "http://127.0.0.1:4000/v1",
@@ -856,6 +846,36 @@
       "url": "http://127.0.0.1:4000/v1",
       "apiKey": "local",
       "maxInputTokens": 1000000,
+      "maxOutputTokens": 131072,
+      "supportsReasoning": true,
+      "supportsImages": true
+    },
+    {
+      "id": "ccg/minimax/minimax-m3.1-flash",
+      "name": "CCG MiniMax M3.1 Flash",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 1000000,
+      "maxOutputTokens": 131072,
+      "supportsReasoning": true,
+      "supportsImages": true
+    },
+    {
+      "id": "ccg/minimax/minimax-m3.1-flash:free",
+      "name": "CCG MiniMax M3.1 Flash",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 1000000,
+      "maxOutputTokens": 131072,
+      "supportsReasoning": true,
+      "supportsImages": true
+    },
+    {
+      "id": "ccg/reflection/beam:free",
+      "name": "CCG Beam 1.0",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 1048576,
       "maxOutputTokens": 131072,
       "supportsReasoning": true,
       "supportsImages": true
@@ -1048,8 +1068,8 @@
     "ocg/qwen3.7-plus",
     "ocg/qwen3.8-flash",
     "ocg/qwen3.8-max",
-    "ocg/space-bunny",
     "ocg/step-5-preview",
+    "ocg/minimax-m3.1-flash-free",
     "ccg/MiniMaxAI/MiniMax-M2.5",
     "ccg/MiniMaxAI/MiniMax-M3",
     "ccg/Qwen/Qwen3.6-Plus",
@@ -1089,7 +1109,6 @@
     "ccg/nvidia/nemotron-3-ultra-550b-a55b",
     "ccg/nvidia/nemotron-3.5-super-vl",
     "ccg/poolside/laguna-s-2.1-free",
-    "ccg/stealth/cat-jam:free",
     "ccg/stealth/glyph-cluster:free",
     "ccg/stepfun/Step-3.7-Flash",
     "ccg/stepfun/Step-5-Preview",
@@ -1108,6 +1127,9 @@
     "ccg/zai-org/GLM-5.2",
     "ccg/zai-org/GLM-5.2-Fast",
     "ccg/zai-org/GLM-5.3",
+    "ccg/minimax/minimax-m3.1-flash",
+    "ccg/minimax/minimax-m3.1-flash:free",
+    "ccg/reflection/beam:free",
     "ds/deepseek-flash",
     "ds/deepseek-v4-pro",
     "ark/deepseek-v4-1-flash-260910",

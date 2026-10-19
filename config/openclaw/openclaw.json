@@ -28,8 +28,8 @@
         "ocg/qwen3.7-plus": {},
         "ocg/qwen3.8-flash": {},
         "ocg/qwen3.8-max": {},
-        "ocg/space-bunny": {},
         "ocg/step-5-preview": {},
+        "ocg/minimax-m3.1-flash-free": {},
         "ccg/MiniMaxAI/MiniMax-M2.5": {},
         "ccg/MiniMaxAI/MiniMax-M3": {},
         "ccg/Qwen/Qwen3.6-Plus": {},
@@ -69,7 +69,6 @@
         "ccg/nvidia/nemotron-3-ultra-550b-a55b": {},
         "ccg/nvidia/nemotron-3.5-super-vl": {},
         "ccg/poolside/laguna-s-2.1-free": {},
-        "ccg/stealth/cat-jam:free": {},
         "ccg/stealth/glyph-cluster:free": {},
         "ccg/stepfun/Step-3.7-Flash": {},
         "ccg/stepfun/Step-5-Preview": {},
@@ -88,6 +87,9 @@
         "ccg/zai-org/GLM-5.2": {},
         "ccg/zai-org/GLM-5.2-Fast": {},
         "ccg/zai-org/GLM-5.3": {},
+        "ccg/minimax/minimax-m3.1-flash": {},
+        "ccg/minimax/minimax-m3.1-flash:free": {},
+        "ccg/reflection/beam:free": {},
         "ds/deepseek-flash": {},
         "ds/deepseek-v4-pro": {},
         "ark/deepseek-v4-1-flash-260910": {},
@@ -133,8 +135,8 @@
           "ocg/qwen3.7-plus",
           "ocg/qwen3.8-flash",
           "ocg/qwen3.8-max",
-          "ocg/space-bunny",
           "ocg/step-5-preview",
+          "ocg/minimax-m3.1-flash-free",
           "ccg/MiniMaxAI/MiniMax-M2.5",
           "ccg/MiniMaxAI/MiniMax-M3",
           "ccg/Qwen/Qwen3.6-Plus",
@@ -174,7 +176,6 @@
           "ccg/nvidia/nemotron-3-ultra-550b-a55b",
           "ccg/nvidia/nemotron-3.5-super-vl",
           "ccg/poolside/laguna-s-2.1-free",
-          "ccg/stealth/cat-jam:free",
           "ccg/stealth/glyph-cluster:free",
           "ccg/stepfun/Step-3.7-Flash",
           "ccg/stepfun/Step-5-Preview",
@@ -193,6 +194,9 @@
           "ccg/zai-org/GLM-5.2",
           "ccg/zai-org/GLM-5.2-Fast",
           "ccg/zai-org/GLM-5.3",
+          "ccg/minimax/minimax-m3.1-flash",
+          "ccg/minimax/minimax-m3.1-flash:free",
+          "ccg/reflection/beam:free",
           "ds/deepseek-flash",
           "ds/deepseek-v4-pro",
           "ark/deepseek-v4-1-flash-260910",
@@ -571,20 +575,20 @@
             "maxTokens": 131072
           },
           {
-            "id": "space-bunny",
-            "name": "OCG Space Bunny",
+            "id": "step-5-preview",
+            "name": "OCG step-5-preview",
             "api": "openai-completions",
             "reasoning": true,
             "input": [
               "text",
               "image"
             ],
-            "contextWindow": 1048576,
-            "maxTokens": 524288
+            "contextWindow": 262144,
+            "maxTokens": 131072
           },
           {
-            "id": "step-5-preview",
-            "name": "OCG step-5-preview",
+            "id": "minimax-m3.1-flash-free",
+            "name": "OCG minimax-m3.1-flash-free",
             "api": "openai-completions",
             "reasoning": true,
             "input": [
@@ -795,7 +799,7 @@
           },
           {
             "id": "deepseek/deepseek-v4.1-flash",
-            "name": "CCG DeepSeek V4.1 Flash",
+            "name": "CCG DeepSeek V4.1 Flash (latest)",
             "api": "openai-completions",
             "reasoning": true,
             "input": [
@@ -807,7 +811,7 @@
           },
           {
             "id": "deepseek/deepseek-v4.1-flash-fast",
-            "name": "CCG DeepSeek V4.1 Flash Fast",
+            "name": "CCG DeepSeek V4.1 Flash Fast (latest)",
             "api": "openai-completions",
             "reasoning": true,
             "input": [
@@ -1070,18 +1074,6 @@
             "maxTokens": 131072
           },
           {
-            "id": "stealth/cat-jam:free",
-            "name": "CCG Cat Jam",
-            "api": "openai-completions",
-            "reasoning": true,
-            "input": [
-              "text",
-              "image"
-            ],
-            "contextWindow": 1048576,
-            "maxTokens": 131072
-          },
-          {
             "id": "stealth/glyph-cluster:free",
             "name": "CCG Glyph Cluster",
             "api": "openai-completions",
@@ -1295,6 +1287,42 @@
               "image"
             ],
             "contextWindow": 1000000,
+            "maxTokens": 131072
+          },
+          {
+            "id": "minimax/minimax-m3.1-flash",
+            "name": "CCG MiniMax M3.1 Flash",
+            "api": "openai-completions",
+            "reasoning": true,
+            "input": [
+              "text",
+              "image"
+            ],
+            "contextWindow": 1000000,
+            "maxTokens": 131072
+          },
+          {
+            "id": "minimax/minimax-m3.1-flash:free",
+            "name": "CCG MiniMax M3.1 Flash",
+            "api": "openai-completions",
+            "reasoning": true,
+            "input": [
+              "text",
+              "image"
+            ],
+            "contextWindow": 1000000,
+            "maxTokens": 131072
+          },
+          {
+            "id": "reflection/beam:free",
+            "name": "CCG Beam 1.0",
+            "api": "openai-completions",
+            "reasoning": true,
+            "input": [
+              "text",
+              "image"
+            ],
+            "contextWindow": 1048576,
             "maxTokens": 131072
           }
         ]
