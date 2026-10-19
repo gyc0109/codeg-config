@@ -363,6 +363,19 @@
             "streaming"
           ]
         },
+        "ocg/minimax-m3.1-flash-free": {
+          "id": "ocg/minimax-m3.1-flash-free",
+          "name": "OCG minimax-m3.1-flash-free",
+          "contextWindow": 262144,
+          "maxTokens": 131072,
+          "supportsReasoning": true,
+          "supportsVision": true,
+          "supportsAttachments": true,
+          "capabilities": [
+            "tools",
+            "streaming"
+          ]
+        },
         "ccg/MiniMaxAI/MiniMax-M2.5": {
           "id": "ccg/MiniMaxAI/MiniMax-M2.5",
           "name": "CCG MiniMax M2.5",
@@ -573,7 +586,7 @@
         },
         "ccg/deepseek/deepseek-v4.1-flash": {
           "id": "ccg/deepseek/deepseek-v4.1-flash",
-          "name": "CCG DeepSeek V4.1 Flash",
+          "name": "CCG DeepSeek V4.1 Flash (latest)",
           "contextWindow": 1000000,
           "maxTokens": 131072,
           "supportsReasoning": true,
@@ -586,7 +599,7 @@
         },
         "ccg/deepseek/deepseek-v4.1-flash-fast": {
           "id": "ccg/deepseek/deepseek-v4.1-flash-fast",
-          "name": "CCG DeepSeek V4.1 Flash Fast",
+          "name": "CCG DeepSeek V4.1 Flash Fast (latest)",
           "contextWindow": 1000000,
           "maxTokens": 131072,
           "supportsReasoning": true,
@@ -1104,6 +1117,45 @@
             "streaming"
           ]
         },
+        "ccg/minimax/minimax-m3.1-flash": {
+          "id": "ccg/minimax/minimax-m3.1-flash",
+          "name": "CCG MiniMax M3.1 Flash",
+          "contextWindow": 1000000,
+          "maxTokens": 131072,
+          "supportsReasoning": true,
+          "supportsVision": true,
+          "supportsAttachments": true,
+          "capabilities": [
+            "tools",
+            "streaming"
+          ]
+        },
+        "ccg/minimax/minimax-m3.1-flash:free": {
+          "id": "ccg/minimax/minimax-m3.1-flash:free",
+          "name": "CCG MiniMax M3.1 Flash",
+          "contextWindow": 1000000,
+          "maxTokens": 131072,
+          "supportsReasoning": true,
+          "supportsVision": true,
+          "supportsAttachments": true,
+          "capabilities": [
+            "tools",
+            "streaming"
+          ]
+        },
+        "ccg/reflection/beam:free": {
+          "id": "ccg/reflection/beam:free",
+          "name": "CCG Beam 1.0",
+          "contextWindow": 1048576,
+          "maxTokens": 131072,
+          "supportsReasoning": true,
+          "supportsVision": true,
+          "supportsAttachments": true,
+          "capabilities": [
+            "tools",
+            "streaming"
+          ]
+        },
         "ds/deepseek-flash": {
           "id": "ds/deepseek-flash",
           "name": "DS deepseek-flash",
@@ -1311,58 +1363,6 @@
             "tools",
             "streaming"
           ]
-        },
-        "ocg/minimax-m3.1-flash-free": {
-          "id": "ocg/minimax-m3.1-flash-free",
-          "name": "OCG MiniMax M3.1 Flash Free",
-          "contextWindow": 1048576,
-          "maxTokens": 131072,
-          "supportsReasoning": true,
-          "supportsVision": true,
-          "supportsAttachments": true,
-          "capabilities": [
-            "tools",
-            "streaming"
-          ]
-        },
-        "ccg/minimax/minimax-m3.1-flash": {
-          "id": "ccg/minimax/minimax-m3.1-flash",
-          "name": "CCG MiniMax M3.1 Flash",
-          "contextWindow": 1048576,
-          "maxTokens": 131072,
-          "supportsReasoning": true,
-          "supportsVision": true,
-          "supportsAttachments": true,
-          "capabilities": [
-            "tools",
-            "streaming"
-          ]
-        },
-        "ccg/minimax/minimax-m3.1-flash:free": {
-          "id": "ccg/minimax/minimax-m3.1-flash:free",
-          "name": "CCG MiniMax M3.1 Flash Free",
-          "contextWindow": 1048576,
-          "maxTokens": 131072,
-          "supportsReasoning": true,
-          "supportsVision": true,
-          "supportsAttachments": true,
-          "capabilities": [
-            "tools",
-            "streaming"
-          ]
-        },
-        "ccg/reflection/beam:free": {
-          "id": "ccg/reflection/beam:free",
-          "name": "CCG Reflection Beam Free",
-          "contextWindow": 262144,
-          "maxTokens": 131072,
-          "supportsReasoning": true,
-          "supportsVision": true,
-          "supportsAttachments": true,
-          "capabilities": [
-            "tools",
-            "streaming"
-          ]
         }
       },
       "discoveredModelIds": [
@@ -1393,6 +1393,7 @@
         "ocg/qwen3.8-flash",
         "ocg/qwen3.8-max",
         "ocg/step-5-preview",
+        "ocg/minimax-m3.1-flash-free",
         "ccg/MiniMaxAI/MiniMax-M2.5",
         "ccg/MiniMaxAI/MiniMax-M3",
         "ccg/Qwen/Qwen3.6-Plus",
@@ -1450,6 +1451,9 @@
         "ccg/zai-org/GLM-5.2",
         "ccg/zai-org/GLM-5.2-Fast",
         "ccg/zai-org/GLM-5.3",
+        "ccg/minimax/minimax-m3.1-flash",
+        "ccg/minimax/minimax-m3.1-flash:free",
+        "ccg/reflection/beam:free",
         "ds/deepseek-flash",
         "ds/deepseek-v4-pro",
         "ark/deepseek-v4-1-flash-260910",
@@ -1465,11 +1469,7 @@
         "ark/doubao-seed-character-251128",
         "ark/doubao-seed-character-260628",
         "ark/glm-5-2-260617",
-        "ark/glm-5-3-flash-260828",
-        "ocg/minimax-m3.1-flash-free",
-        "ccg/minimax/minimax-m3.1-flash",
-        "ccg/minimax/minimax-m3.1-flash:free",
-        "ccg/reflection/beam:free"
+        "ark/glm-5-3-flash-260828"
       ]
     }
   }
