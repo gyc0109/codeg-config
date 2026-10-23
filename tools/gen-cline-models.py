@@ -48,10 +48,17 @@ for e in entries:
 if not models:
     sys.exit(f'✗ {SRC} 里没有带 ocg/ccg/ds/ark 前缀的模型')
 
+# 默认模型：优先 env，其次 OCG 免费档，再次第一个可用模型
+DEFAULT_MODEL = os.environ.get('CLINE_DEFAULT_MODEL', 'ocg/beam-free')
+if DEFAULT_MODEL not in models:
+    print(f'⚠ {DEFAULT_MODEL} 不在清单里，回退到 {next(iter(models))}')
+    DEFAULT_MODEL = next(iter(models))
+
 doc = {'version': 1, 'providers': {'openai-compatible': {
     'provider': {'name': 'LiteLLM (OpenAI Compatible)',
                  'baseUrl': 'http://127.0.0.1:4000/v1',
-                 'defaultModelId': 'ocg/longcat-2.5-preview-free',
+                 # 默认模型必须真实存在：2026-10-24 longcat-2.5-preview-free 下线 -> beam-free
+                 'defaultModelId': DEFAULT_MODEL,
                  'capabilities': ['tools', 'streaming']},
     'models': models,
     'discoveredModelIds': list(models)}}}

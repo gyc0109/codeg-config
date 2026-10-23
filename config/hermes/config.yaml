@@ -1,5 +1,5 @@
-provider: custom:ocg-longcat-2.5-preview-free
-model: longcat-2.5-preview-free
+provider: custom:ocg-beam-free
+model: beam-free
 custom_providers:
 - name: OCG beam-free
   base_url: http://127.0.0.1:8899/v1
@@ -49,14 +49,14 @@ custom_providers:
   base_url: http://127.0.0.1:8899/v1
   api_key: local
   model: kimi-k3
+- name: OCG kimi-k3.1-pro
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: kimi-k3.1-pro
 - name: OCG LongCat-2.0
   base_url: http://127.0.0.1:8899/v1
   api_key: local
   model: longcat-2.0
-- name: OCG LongCat 2.5 Preview Free
-  base_url: http://127.0.0.1:8899/v1
-  api_key: local
-  model: longcat-2.5-preview-free
 - name: OCG MiMo V2.5
   base_url: http://127.0.0.1:8899/v1
   api_key: local
@@ -81,6 +81,10 @@ custom_providers:
   base_url: http://127.0.0.1:8899/v1
   api_key: local
   model: minimax-m3
+- name: OCG minimax-m3.1-flash
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: minimax-m3.1-flash
 - name: OCG omen-alpha
   base_url: http://127.0.0.1:8899/v1
   api_key: local
@@ -109,10 +113,6 @@ custom_providers:
   base_url: http://127.0.0.1:8899/v1
   api_key: local
   model: step-5-preview
-- name: OCG minimax-m3.1-flash-free
-  base_url: http://127.0.0.1:8899/v1
-  api_key: local
-  model: minimax-m3.1-flash-free
 - name: CCG MiniMax M2.5
   base_url: https://api.commandcode.ai/provider/v1
   api_key: ${COMMANDCODE_API_KEY}
@@ -233,6 +233,10 @@ custom_providers:
   base_url: https://api.commandcode.ai/provider/v1
   api_key: ${COMMANDCODE_API_KEY}
   model: meta/muse-spark-open
+- name: CCG MiniMax M3.1 Flash
+  base_url: https://api.commandcode.ai/provider/v1
+  api_key: ${COMMANDCODE_API_KEY}
+  model: minimax/minimax-m3.1-flash
 - name: CCG Mistral Large 4
   base_url: https://api.commandcode.ai/provider/v1
   api_key: ${COMMANDCODE_API_KEY}
@@ -257,6 +261,10 @@ custom_providers:
   base_url: https://api.commandcode.ai/provider/v1
   api_key: ${COMMANDCODE_API_KEY}
   model: moonshotai/Kimi-K3
+- name: CCG Kimi K3.1 Pro
+  base_url: https://api.commandcode.ai/provider/v1
+  api_key: ${COMMANDCODE_API_KEY}
+  model: moonshotai/Kimi-K3.1-Pro
 - name: CCG Nemotron 3 Ultra
   base_url: https://api.commandcode.ai/provider/v1
   api_key: ${COMMANDCODE_API_KEY}
@@ -269,6 +277,10 @@ custom_providers:
   base_url: https://api.commandcode.ai/provider/v1
   api_key: ${COMMANDCODE_API_KEY}
   model: poolside/laguna-s-2.1-free
+- name: CCG Beam 1.0
+  base_url: https://api.commandcode.ai/provider/v1
+  api_key: ${COMMANDCODE_API_KEY}
+  model: reflection/beam:free
 - name: CCG Glyph Cluster
   base_url: https://api.commandcode.ai/provider/v1
   api_key: ${COMMANDCODE_API_KEY}
@@ -301,10 +313,6 @@ custom_providers:
   base_url: https://api.commandcode.ai/provider/v1
   api_key: ${COMMANDCODE_API_KEY}
   model: xai/grok-4.7
-- name: CCG MiMo V2.5
-  base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${COMMANDCODE_API_KEY}
-  model: xiaomi/mimo-v2.5
 - name: CCG MiMo V2.6 Flash
   base_url: https://api.commandcode.ai/provider/v1
   api_key: ${COMMANDCODE_API_KEY}
@@ -341,18 +349,6 @@ custom_providers:
   base_url: https://api.commandcode.ai/provider/v1
   api_key: ${COMMANDCODE_API_KEY}
   model: zai-org/GLM-5.3
-- name: CCG MiniMax M3.1 Flash
-  base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${COMMANDCODE_API_KEY}
-  model: minimax/minimax-m3.1-flash
-- name: CCG MiniMax M3.1 Flash
-  base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${COMMANDCODE_API_KEY}
-  model: minimax/minimax-m3.1-flash:free
-- name: CCG Beam 1.0
-  base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${COMMANDCODE_API_KEY}
-  model: reflection/beam:free
 - name: DS deepseek-flash
   base_url: http://127.0.0.1:8896/v1
   api_key: local

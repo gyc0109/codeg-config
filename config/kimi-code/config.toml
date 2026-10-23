@@ -1,11 +1,11 @@
-default_model = "ocg/longcat-2.5-preview-free"
+default_model = "ocg/beam-free"
 default_provider = "opencode-go"
 
 [providers.opencode-go]
 type = "openai"
 base_url = "http://127.0.0.1:8899/v1"
 api_key = "local"
-default_model = "longcat-2.5-preview-free"
+default_model = "beam-free"
 
 [providers.commandcode]
 type = "openai"
@@ -85,14 +85,14 @@ provider = "opencode-go"
 model = "kimi-k3"
 max_context_size = 1048576
 
+[models."ocg/kimi-k3.1-pro"]
+provider = "opencode-go"
+model = "kimi-k3.1-pro"
+max_context_size = 262144
+
 [models."ocg/longcat-2.0"]
 provider = "opencode-go"
 model = "longcat-2.0"
-max_context_size = 1000000
-
-[models."ocg/longcat-2.5-preview-free"]
-provider = "opencode-go"
-model = "longcat-2.5-preview-free"
 max_context_size = 1000000
 
 [models."ocg/mimo-v2.5"]
@@ -124,6 +124,11 @@ max_context_size = 200000
 provider = "opencode-go"
 model = "minimax-m3"
 max_context_size = 1000000
+
+[models."ocg/minimax-m3.1-flash"]
+provider = "opencode-go"
+model = "minimax-m3.1-flash"
+max_context_size = 262144
 
 [models."ocg/omen-alpha"]
 provider = "opencode-go"
@@ -158,11 +163,6 @@ max_context_size = 1000000
 [models."ocg/step-5-preview"]
 provider = "opencode-go"
 model = "step-5-preview"
-max_context_size = 262144
-
-[models."ocg/minimax-m3.1-flash-free"]
-provider = "opencode-go"
-model = "minimax-m3.1-flash-free"
 max_context_size = 262144
 
 [models."ccg/MiniMaxAI/MiniMax-M2.5"]
@@ -315,6 +315,11 @@ provider = "commandcode"
 model = "meta/muse-spark-open"
 max_context_size = 1048576
 
+[models."ccg/minimax/minimax-m3.1-flash"]
+provider = "commandcode"
+model = "minimax/minimax-m3.1-flash"
+max_context_size = 1000000
+
 [models."ccg/mistral/mistral-large-4"]
 provider = "commandcode"
 model = "mistral/mistral-large-4"
@@ -345,6 +350,11 @@ provider = "commandcode"
 model = "moonshotai/Kimi-K3"
 max_context_size = 1000000
 
+[models."ccg/moonshotai/Kimi-K3.1-Pro"]
+provider = "commandcode"
+model = "moonshotai/Kimi-K3.1-Pro"
+max_context_size = 1048576
+
 [models."ccg/nvidia/nemotron-3-ultra-550b-a55b"]
 provider = "commandcode"
 model = "nvidia/nemotron-3-ultra-550b-a55b"
@@ -359,6 +369,11 @@ max_context_size = 262144
 provider = "commandcode"
 model = "poolside/laguna-s-2.1-free"
 max_context_size = 256000
+
+[models."ccg/reflection/beam:free"]
+provider = "commandcode"
+model = "reflection/beam:free"
+max_context_size = 1048576
 
 [models."ccg/stealth/glyph-cluster:free"]
 provider = "commandcode"
@@ -399,11 +414,6 @@ max_context_size = 500000
 provider = "commandcode"
 model = "xai/grok-4.7"
 max_context_size = 500000
-
-[models."ccg/xiaomi/mimo-v2.5"]
-provider = "commandcode"
-model = "xiaomi/mimo-v2.5"
-max_context_size = 1000000
 
 [models."ccg/xiaomi/mimo-v2.6-flash"]
 provider = "commandcode"
@@ -449,21 +459,6 @@ max_context_size = 1000000
 provider = "commandcode"
 model = "zai-org/GLM-5.3"
 max_context_size = 1000000
-
-[models."ccg/minimax/minimax-m3.1-flash"]
-provider = "commandcode"
-model = "minimax/minimax-m3.1-flash"
-max_context_size = 1000000
-
-[models."ccg/minimax/minimax-m3.1-flash:free"]
-provider = "commandcode"
-model = "minimax/minimax-m3.1-flash:free"
-max_context_size = 1000000
-
-[models."ccg/reflection/beam:free"]
-provider = "commandcode"
-model = "reflection/beam:free"
-max_context_size = 1048576
 
 [models."ds/deepseek-flash"]
 provider = "deepseek"

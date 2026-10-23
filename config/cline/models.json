@@ -5,7 +5,7 @@
       "provider": {
         "name": "LiteLLM (OpenAI Compatible)",
         "baseUrl": "http://127.0.0.1:4000/v1",
-        "defaultModelId": "ocg/longcat-2.5-preview-free",
+        "defaultModelId": "ocg/beam-free",
         "capabilities": [
           "tools",
           "streaming"
@@ -168,10 +168,10 @@
             "streaming"
           ]
         },
-        "ocg/longcat-2.0": {
-          "id": "ocg/longcat-2.0",
-          "name": "OCG LongCat-2.0",
-          "contextWindow": 1000000,
+        "ocg/kimi-k3.1-pro": {
+          "id": "ocg/kimi-k3.1-pro",
+          "name": "OCG kimi-k3.1-pro",
+          "contextWindow": 262144,
           "maxTokens": 131072,
           "supportsReasoning": true,
           "supportsVision": true,
@@ -181,9 +181,9 @@
             "streaming"
           ]
         },
-        "ocg/longcat-2.5-preview-free": {
-          "id": "ocg/longcat-2.5-preview-free",
-          "name": "OCG LongCat 2.5 Preview Free",
+        "ocg/longcat-2.0": {
+          "id": "ocg/longcat-2.0",
+          "name": "OCG LongCat-2.0",
           "contextWindow": 1000000,
           "maxTokens": 131072,
           "supportsReasoning": true,
@@ -263,6 +263,19 @@
           "id": "ocg/minimax-m3",
           "name": "OCG MiniMax-M3",
           "contextWindow": 1000000,
+          "maxTokens": 131072,
+          "supportsReasoning": true,
+          "supportsVision": true,
+          "supportsAttachments": true,
+          "capabilities": [
+            "tools",
+            "streaming"
+          ]
+        },
+        "ocg/minimax-m3.1-flash": {
+          "id": "ocg/minimax-m3.1-flash",
+          "name": "OCG minimax-m3.1-flash",
+          "contextWindow": 262144,
           "maxTokens": 131072,
           "supportsReasoning": true,
           "supportsVision": true,
@@ -353,19 +366,6 @@
         "ocg/step-5-preview": {
           "id": "ocg/step-5-preview",
           "name": "OCG step-5-preview",
-          "contextWindow": 262144,
-          "maxTokens": 131072,
-          "supportsReasoning": true,
-          "supportsVision": true,
-          "supportsAttachments": true,
-          "capabilities": [
-            "tools",
-            "streaming"
-          ]
-        },
-        "ocg/minimax-m3.1-flash-free": {
-          "id": "ocg/minimax-m3.1-flash-free",
-          "name": "OCG minimax-m3.1-flash-free",
           "contextWindow": 262144,
           "maxTokens": 131072,
           "supportsReasoning": true,
@@ -766,6 +766,19 @@
             "streaming"
           ]
         },
+        "ccg/minimax/minimax-m3.1-flash": {
+          "id": "ccg/minimax/minimax-m3.1-flash",
+          "name": "CCG MiniMax M3.1 Flash",
+          "contextWindow": 1000000,
+          "maxTokens": 131072,
+          "supportsReasoning": true,
+          "supportsVision": true,
+          "supportsAttachments": true,
+          "capabilities": [
+            "tools",
+            "streaming"
+          ]
+        },
         "ccg/mistral/mistral-large-4": {
           "id": "ccg/mistral/mistral-large-4",
           "name": "CCG Mistral Large 4",
@@ -844,6 +857,19 @@
             "streaming"
           ]
         },
+        "ccg/moonshotai/Kimi-K3.1-Pro": {
+          "id": "ccg/moonshotai/Kimi-K3.1-Pro",
+          "name": "CCG Kimi K3.1 Pro",
+          "contextWindow": 1048576,
+          "maxTokens": 131072,
+          "supportsReasoning": true,
+          "supportsVision": true,
+          "supportsAttachments": true,
+          "capabilities": [
+            "tools",
+            "streaming"
+          ]
+        },
         "ccg/nvidia/nemotron-3-ultra-550b-a55b": {
           "id": "ccg/nvidia/nemotron-3-ultra-550b-a55b",
           "name": "CCG Nemotron 3 Ultra",
@@ -874,6 +900,19 @@
           "id": "ccg/poolside/laguna-s-2.1-free",
           "name": "CCG Laguna S 2.1",
           "contextWindow": 256000,
+          "maxTokens": 131072,
+          "supportsReasoning": true,
+          "supportsVision": true,
+          "supportsAttachments": true,
+          "capabilities": [
+            "tools",
+            "streaming"
+          ]
+        },
+        "ccg/reflection/beam:free": {
+          "id": "ccg/reflection/beam:free",
+          "name": "CCG Beam 1.0",
+          "contextWindow": 1048576,
           "maxTokens": 131072,
           "supportsReasoning": true,
           "supportsVision": true,
@@ -978,19 +1017,6 @@
           "id": "ccg/xai/grok-4.7",
           "name": "CCG Grok 4.7",
           "contextWindow": 500000,
-          "maxTokens": 131072,
-          "supportsReasoning": true,
-          "supportsVision": true,
-          "supportsAttachments": true,
-          "capabilities": [
-            "tools",
-            "streaming"
-          ]
-        },
-        "ccg/xiaomi/mimo-v2.5": {
-          "id": "ccg/xiaomi/mimo-v2.5",
-          "name": "CCG MiMo V2.5",
-          "contextWindow": 1000000,
           "maxTokens": 131072,
           "supportsReasoning": true,
           "supportsVision": true,
@@ -1108,45 +1134,6 @@
           "id": "ccg/zai-org/GLM-5.3",
           "name": "CCG GLM-5.3",
           "contextWindow": 1000000,
-          "maxTokens": 131072,
-          "supportsReasoning": true,
-          "supportsVision": true,
-          "supportsAttachments": true,
-          "capabilities": [
-            "tools",
-            "streaming"
-          ]
-        },
-        "ccg/minimax/minimax-m3.1-flash": {
-          "id": "ccg/minimax/minimax-m3.1-flash",
-          "name": "CCG MiniMax M3.1 Flash",
-          "contextWindow": 1000000,
-          "maxTokens": 131072,
-          "supportsReasoning": true,
-          "supportsVision": true,
-          "supportsAttachments": true,
-          "capabilities": [
-            "tools",
-            "streaming"
-          ]
-        },
-        "ccg/minimax/minimax-m3.1-flash:free": {
-          "id": "ccg/minimax/minimax-m3.1-flash:free",
-          "name": "CCG MiniMax M3.1 Flash",
-          "contextWindow": 1000000,
-          "maxTokens": 131072,
-          "supportsReasoning": true,
-          "supportsVision": true,
-          "supportsAttachments": true,
-          "capabilities": [
-            "tools",
-            "streaming"
-          ]
-        },
-        "ccg/reflection/beam:free": {
-          "id": "ccg/reflection/beam:free",
-          "name": "CCG Beam 1.0",
-          "contextWindow": 1048576,
           "maxTokens": 131072,
           "supportsReasoning": true,
           "supportsVision": true,
@@ -1378,14 +1365,15 @@
         "ocg/kimi-k2.6",
         "ocg/kimi-k2.7-code",
         "ocg/kimi-k3",
+        "ocg/kimi-k3.1-pro",
         "ocg/longcat-2.0",
-        "ocg/longcat-2.5-preview-free",
         "ocg/mimo-v2.5",
         "ocg/mimo-v2.5-pro",
         "ocg/mimo-v2.6-flash",
         "ocg/mimo-v2.6-pro",
         "ocg/minimax-m2.5",
         "ocg/minimax-m3",
+        "ocg/minimax-m3.1-flash",
         "ocg/omen-alpha",
         "ocg/qwen3.6-plus",
         "ocg/qwen3.7-max",
@@ -1393,7 +1381,6 @@
         "ocg/qwen3.8-flash",
         "ocg/qwen3.8-max",
         "ocg/step-5-preview",
-        "ocg/minimax-m3.1-flash-free",
         "ccg/MiniMaxAI/MiniMax-M2.5",
         "ccg/MiniMaxAI/MiniMax-M3",
         "ccg/Qwen/Qwen3.6-Plus",
@@ -1424,15 +1411,18 @@
         "ccg/meta/muse-spark-1.3",
         "ccg/meta/muse-spark-1.3-contributor",
         "ccg/meta/muse-spark-open",
+        "ccg/minimax/minimax-m3.1-flash",
         "ccg/mistral/mistral-large-4",
         "ccg/moonshotai/Kimi-K2.5",
         "ccg/moonshotai/Kimi-K2.6",
         "ccg/moonshotai/Kimi-K2.7-Code",
         "ccg/moonshotai/Kimi-K2.7-Code-Highspeed",
         "ccg/moonshotai/Kimi-K3",
+        "ccg/moonshotai/Kimi-K3.1-Pro",
         "ccg/nvidia/nemotron-3-ultra-550b-a55b",
         "ccg/nvidia/nemotron-3.5-super-vl",
         "ccg/poolside/laguna-s-2.1-free",
+        "ccg/reflection/beam:free",
         "ccg/stealth/glyph-cluster:free",
         "ccg/stepfun/Step-3.7-Flash",
         "ccg/stepfun/Step-5-Preview",
@@ -1441,7 +1431,6 @@
         "ccg/xai/grok-4.5",
         "ccg/xai/grok-4.6",
         "ccg/xai/grok-4.7",
-        "ccg/xiaomi/mimo-v2.5",
         "ccg/xiaomi/mimo-v2.6-flash",
         "ccg/xiaomi/mimo-v2.6-pro",
         "ccg/xiaomi/mimo-v2.6-pro-ultraspeed",
@@ -1451,9 +1440,6 @@
         "ccg/zai-org/GLM-5.2",
         "ccg/zai-org/GLM-5.2-Fast",
         "ccg/zai-org/GLM-5.3",
-        "ccg/minimax/minimax-m3.1-flash",
-        "ccg/minimax/minimax-m3.1-flash:free",
-        "ccg/reflection/beam:free",
         "ds/deepseek-flash",
         "ds/deepseek-v4-pro",
         "ark/deepseek-v4-1-flash-260910",

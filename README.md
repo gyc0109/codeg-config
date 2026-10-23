@@ -51,13 +51,13 @@
 
 | 前缀 | 供应商 | 含义 |
 | --- | --- | --- |
-| `ocg/` | OpenCode Go | 例：`ocg/longcat-2.5-preview-free` |
+| `ocg/` | OpenCode Go | 例：`ocg/beam-free` |
 | `ccg/` | Command Code GOAT | 例：`ccg/claude-sonnet-5-5` |
 | `ds/` | DeepSeek 官方 | 例：`ds/deepseek-flash` |
 | `ark/` | 火山方舟 / 豆包 | 例：`ark/doubao-seed-2-1-pro-260915` |
 
 **注意前缀是「别名」不是「真实 id」**：每个 agent 都把别名映射回上游真正要的 model id
-（`ocg/longcat-2.5-preview-free` → 上游 `longcat-2.5-preview-free`）。各 agent 的实现方式不同：
+（`ocg/beam-free` → 上游 `beam-free`）。各 agent 的实现方式不同：
 
 ### codeg 的模型分组怎么来的（影响 UI 显示）
 
@@ -95,8 +95,9 @@ codeg 前端把 agent 上报的 model configOption 拆成「分组 + 条目」
 
 ### OpenCode Go 模型变更（2026-10 实测）
 
-**`space-bunny-free` 已下线**（改成付费的 `space-bunny`）。免费档为
-**`longcat-2.5-preview-free`**，另有新增的 **`step-5-preview-free`**；所有默认模型用前者。
+2026-10-24 起免费档只剩 **`beam-free`**（Reflection Beam）；
+`longcat-2.5-preview-free` / `minimax-m3.1-flash-free` / `step-5-preview-free` 已全部下线
+（`space-bunny-free` 更早已改成付费的 `space-bunny`）。所有默认模型改用 `beam-free`。
 
 实测 37 个模型（权威来源 `GET /zen/go/v1/models`）：
 
@@ -188,17 +189,17 @@ LiteLLM（:4000）另加了 `ds/` 两条（转发给 :8899）。
 
 | Agent | OCG | CCG | 前缀形式 | 实测 |
 | --- | --- | --- | --- | --- |
-| opencode (`open_code`) | ✅ 30 | ✅ 54 | `ocg/` `ccg/` 别名 | ✅ |
-| kimi (`kimi_code`) | ✅ 30 | ✅ 54 | `ocg/` `ccg/` 别名 | ✅ |
-| hermes | ✅ 30 | ✅ 54 | `OCG`/`CCG` 名 | ✅ |
-| pi | ✅ 30 | ✅ 54 | provider `ocg`/`ccg` | ✅ |
+| opencode (`open_code`) | ✅ 28 | ✅ 59 | `ocg/` `ccg/` 别名 | ✅ |
+| kimi (`kimi_code`) | ✅ 28 | ✅ 59 | `ocg/` `ccg/` 别名 | ✅ |
+| hermes | ✅ 28 | ✅ 59 | `OCG`/`CCG` 名 | ✅ |
+| pi | ✅ 28 | ✅ 59 | provider `ocg`/`ccg` | ✅ |
 | claude_code | ✅ 36 | ✅ 47 | `ccg/`(LiteLLM :4000) | ✅ |
-| codex | ✅ 11 | ✅ 47 | catalog `OCG`/`CCG` | ✅ |
+| codex | ✅ 11 | ✅ 50 | catalog `OCG`/`CCG` | ✅ |
 | grok | ✅ | ✅ `xai/grok-4.7` | 经 LiteLLM 前缀 | ✅ |
 | deepseek | ✅ | ✅ `deepseek-v4.1-flash` | 经 LiteLLM 前缀 | ✅ |
 | cline | ✅ | ✅ | 单 provider 指向 LiteLLM，改 model 字符串即可 | ✅ |
-| code_buddy | ✅ 30 | ✅ 54 | `~/.codebuddy/models.json` + `CODEBUDDY_BASE_URL` | ✅ |
-| **open_claw** | ✅ 30 | ✅ 54 | `models.providers` 自定义 `ocg`/`ccg` | ✅ |
+| code_buddy | ✅ 28 | ✅ 59 | `~/.codebuddy/models.json` + `CODEBUDDY_BASE_URL` | ✅ |
+| **open_claw** | ✅ 28 | ✅ 59 | `models.providers` 自定义 `ocg`/`ccg` | ✅ |
 | code_buddy | ~~❌~~ ✅ |  |  |  |
 
 > pi 的坑：`models-store.json` 只是**模型缓存**，provider 定义在 **`models.json`**
@@ -235,11 +236,11 @@ LiteLLM（:4000）另加了 `ds/` 两条（转发给 :8899）。
 > `Unknown provider 'custom:xxx'`（或退回到 OpenRouter 报 401）：
 >
 > ```bash
-> HERMES_INFERENCE_PROVIDER=custom:ocg-longcat-2.5-preview-free   # provider 名转 slug（小写、非字母数字转 -）
-> HERMES_INFERENCE_MODEL=longcat-2.5-preview-free                # 上游真实 model id（不带前缀）
+> HERMES_INFERENCE_PROVIDER=custom:ocg-beam-free   # provider 名转 slug（小写、非字母数字转 -）
+> HERMES_INFERENCE_MODEL=beam-free                # 上游真实 model id（不带前缀）
 > ```
 >
-> `custom_providers[].name` 决定 slug（`OCG Longcat 2.5 Preview Free` → `ocg-longcat-2.5-preview-free`），
+> `custom_providers[].name` 决定 slug（`OCG Beam Free` → `ocg-beam-free`），
 > 改名字就会让 codeg 里已存的引用失效。`~/.hermes/config.yaml` 里对应
 > `provider:` / `model:` 两个顶层键。
 >
@@ -262,7 +263,7 @@ LiteLLM（:4000）另加了 `ds/` 两条（转发给 :8899）。
 > ```bash
 > CODEBUDDY_BASE_URL=http://127.0.0.1:4000/v1   # 指向本机 LiteLLM
 > CODEBUDDY_API_KEY=local
-> CODEBUDDY_MODEL=ocg/longcat-2.5-preview-free
+> CODEBUDDY_MODEL=ocg/beam-free
 > CODEBUDDY_DISABLE_BUILTIN_MODELS=1           # 隐藏腾讯内置模型
 > ```
 >

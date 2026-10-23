@@ -247,8 +247,8 @@
           }
         },
         {
-          "id": "longcat-2.0",
-          "name": "OCG LongCat-2.0",
+          "id": "kimi-k3.1-pro",
+          "name": "OCG kimi-k3.1-pro",
           "provider": "ocg",
           "baseUrl": "http://127.0.0.1:8899/v1",
           "api": "openai-completions",
@@ -257,7 +257,7 @@
             "text",
             "image"
           ],
-          "contextWindow": 1000000,
+          "contextWindow": 262144,
           "maxTokens": 131072,
           "cost": {
             "input": 0,
@@ -267,8 +267,8 @@
           }
         },
         {
-          "id": "longcat-2.5-preview-free",
-          "name": "OCG LongCat 2.5 Preview Free",
+          "id": "longcat-2.0",
+          "name": "OCG LongCat-2.0",
           "provider": "ocg",
           "baseUrl": "http://127.0.0.1:8899/v1",
           "api": "openai-completions",
@@ -407,6 +407,26 @@
           }
         },
         {
+          "id": "minimax-m3.1-flash",
+          "name": "OCG minimax-m3.1-flash",
+          "provider": "ocg",
+          "baseUrl": "http://127.0.0.1:8899/v1",
+          "api": "openai-completions",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 262144,
+          "maxTokens": 131072,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        },
+        {
           "id": "omen-alpha",
           "name": "OCG omen-alpha",
           "provider": "ocg",
@@ -529,26 +549,6 @@
         {
           "id": "step-5-preview",
           "name": "OCG step-5-preview",
-          "provider": "ocg",
-          "baseUrl": "http://127.0.0.1:8899/v1",
-          "api": "openai-completions",
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "contextWindow": 262144,
-          "maxTokens": 131072,
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          }
-        },
-        {
-          "id": "minimax-m3.1-flash-free",
-          "name": "OCG minimax-m3.1-flash-free",
           "provider": "ocg",
           "baseUrl": "http://127.0.0.1:8899/v1",
           "api": "openai-completions",
@@ -1175,6 +1175,26 @@
           }
         },
         {
+          "id": "minimax/minimax-m3.1-flash",
+          "name": "CCG MiniMax M3.1 Flash",
+          "provider": "ccg",
+          "baseUrl": "https://api.commandcode.ai/provider/v1",
+          "api": "openai-completions",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 1000000,
+          "maxTokens": 131072,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        },
+        {
           "id": "mistral/mistral-large-4",
           "name": "CCG Mistral Large 4",
           "provider": "ccg",
@@ -1295,6 +1315,26 @@
           }
         },
         {
+          "id": "moonshotai/Kimi-K3.1-Pro",
+          "name": "CCG Kimi K3.1 Pro",
+          "provider": "ccg",
+          "baseUrl": "https://api.commandcode.ai/provider/v1",
+          "api": "openai-completions",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 1048576,
+          "maxTokens": 131072,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        },
+        {
           "id": "nvidia/nemotron-3-ultra-550b-a55b",
           "name": "CCG Nemotron 3 Ultra",
           "provider": "ccg",
@@ -1346,6 +1386,26 @@
             "image"
           ],
           "contextWindow": 256000,
+          "maxTokens": 131072,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        },
+        {
+          "id": "reflection/beam:free",
+          "name": "CCG Beam 1.0",
+          "provider": "ccg",
+          "baseUrl": "https://api.commandcode.ai/provider/v1",
+          "api": "openai-completions",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 1048576,
           "maxTokens": 131072,
           "cost": {
             "input": 0,
@@ -1506,26 +1566,6 @@
             "image"
           ],
           "contextWindow": 500000,
-          "maxTokens": 131072,
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          }
-        },
-        {
-          "id": "xiaomi/mimo-v2.5",
-          "name": "CCG MiMo V2.5",
-          "provider": "ccg",
-          "baseUrl": "https://api.commandcode.ai/provider/v1",
-          "api": "openai-completions",
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "contextWindow": 1000000,
           "maxTokens": 131072,
           "cost": {
             "input": 0,
@@ -1706,66 +1746,6 @@
             "image"
           ],
           "contextWindow": 1000000,
-          "maxTokens": 131072,
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          }
-        },
-        {
-          "id": "minimax/minimax-m3.1-flash",
-          "name": "CCG MiniMax M3.1 Flash",
-          "provider": "ccg",
-          "baseUrl": "https://api.commandcode.ai/provider/v1",
-          "api": "openai-completions",
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "contextWindow": 1000000,
-          "maxTokens": 131072,
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          }
-        },
-        {
-          "id": "minimax/minimax-m3.1-flash:free",
-          "name": "CCG MiniMax M3.1 Flash",
-          "provider": "ccg",
-          "baseUrl": "https://api.commandcode.ai/provider/v1",
-          "api": "openai-completions",
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "contextWindow": 1000000,
-          "maxTokens": 131072,
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          }
-        },
-        {
-          "id": "reflection/beam:free",
-          "name": "CCG Beam 1.0",
-          "provider": "ccg",
-          "baseUrl": "https://api.commandcode.ai/provider/v1",
-          "api": "openai-completions",
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "contextWindow": 1048576,
           "maxTokens": 131072,
           "cost": {
             "input": 0,

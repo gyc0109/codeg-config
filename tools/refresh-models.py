@@ -14,7 +14,7 @@ ARK = json.load(open('/root/codeg-work/ark_ok.json'))
 CHAT, RESP = OG['chat'], OG['resp']
 CCHAT, CCRESP = CC['chat_ok'], CC['resp_ok']
 DS = ['deepseek-flash', 'deepseek-v4-pro']
-OCG_FREE = 'longcat-2.5-preview-free'
+OCG_FREE = 'beam-free'                      # longcat-2.5-preview-free 2026-10-24 下线（429 Endpoint unavailable）
 CC_FREE = 'stealth/glyph-cluster:free'      # 新的免费 stealth 模型（space-bunny-alpha 已下线）
 
 META = json.load(open('/root/codeg-work/ocg_meta.json'))
@@ -160,7 +160,13 @@ d['providers']['ccg']['models'] = [
      "cost": {"input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0}} for m in CCHAT]
 json.dump(d, open(p, 'w'), indent=2)
 os.chmod(p, 0o600)
-print(f"  ✓ pi: ocg {len(CHAT)} + ccg {len(CCHAT)}")
+# settings.json 的 defaultModel 是**没有前缀**的纯 id，模型下线后没人改就会 404
+sp = '/root/.pi/agent/settings.json'
+bk(sp)
+sd = json.load(open(sp))
+sd['defaultModel'] = OCG_FREE
+json.dump(sd, open(sp, 'w'), indent=2)
+print(f"  ✓ pi: ocg {len(CHAT)} + ccg {len(CCHAT)}，默认 {OCG_FREE}")
 
 # ── 3) kimi（顺带修掉已下线的默认 ccg 模型）──
 p = '/root/.kimi-code/config.toml'
@@ -179,6 +185,8 @@ t = ''.join(keep)
 t = re.sub(r'^default_model = .*$', f'default_model = "ocg/{OCG_FREE}"', t, count=1, flags=re.M)
 t = re.sub(r'(default_model = )"ccg/stealth/space-bunny-alpha"', rf'\g<1>"ccg/{CC_FREE}"', t)
 t = re.sub(r'(\[providers\.commandcode\][^\[]*?default_model = )"[^"]*"', rf'\g<1>"{CC_FREE}"', t)
+# 每个 [providers.*] 段各有 default_model：opencode-go 段也必须跟着换（历史踩过）
+t = re.sub(r'(\[providers\.opencode-go\][^\[]*?default_model = )"[^"]*"', rf'\g<1>"{OCG_FREE}"', t)
 sec = ''.join(f'\n[models."ocg/{m}"]\nprovider = "opencode-go"\nmodel = "{m}"\nmax_context_size = {ocx(m)}\n' for m in CHAT)
 sec += ''.join(f'\n[models."ccg/{m}"]\nprovider = "commandcode"\nmodel = "{m}"\nmax_context_size = {ccx(m)}\n' for m in CCHAT)
 sec += ''.join(f'\n[models."ds/{m}"]\nprovider = "deepseek"\nmodel = "{m}"\nmax_context_size = 1048576\n' for m in DS)

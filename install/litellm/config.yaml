@@ -8,6 +8,10 @@ model_list:
 
 
 
+
+
+
+
 - model_name: ocg/beam-free
   litellm_params:
     model: openai/beam-free
@@ -153,6 +157,14 @@ model_list:
     additional_drop_params: *id001
   model_info:
     id: ocg/kimi-k3
+- model_name: ocg/kimi-k3.1-pro
+  litellm_params:
+    model: openai/kimi-k3.1-pro
+    api_base: http://127.0.0.1:8899/v1
+    api_key: local
+    additional_drop_params: *id001
+  model_info:
+    id: ocg/kimi-k3.1-pro
 - model_name: ocg/longcat-2.0
   litellm_params:
     model: openai/longcat-2.0
@@ -161,14 +173,6 @@ model_list:
     additional_drop_params: *id001
   model_info:
     id: ocg/longcat-2.0
-- model_name: ocg/longcat-2.5-preview-free
-  litellm_params:
-    model: openai/longcat-2.5-preview-free
-    api_base: http://127.0.0.1:8899/v1
-    api_key: local
-    additional_drop_params: *id001
-  model_info:
-    id: ocg/longcat-2.5-preview-free
 - model_name: ocg/mimo-v2.5
   litellm_params:
     model: openai/mimo-v2.5
@@ -217,14 +221,14 @@ model_list:
     additional_drop_params: *id001
   model_info:
     id: ocg/minimax-m3
-- model_name: ocg/minimax-m3.1-flash-free
+- model_name: ocg/minimax-m3.1-flash
   litellm_params:
-    model: openai/minimax-m3.1-flash-free
+    model: openai/minimax-m3.1-flash
     api_base: http://127.0.0.1:8899/v1
     api_key: local
     additional_drop_params: *id001
   model_info:
-    id: ocg/minimax-m3.1-flash-free
+    id: ocg/minimax-m3.1-flash
 - model_name: ocg/muse-spark-1.2-contributor
   litellm_params:
     model: openai/muse-spark-1.2-contributor
@@ -545,14 +549,6 @@ model_list:
     additional_drop_params: *id001
   model_info:
     id: ccg/minimax/minimax-m3.1-flash
-- model_name: ccg/minimax/minimax-m3.1-flash:free
-  litellm_params:
-    model: openai/minimax/minimax-m3.1-flash:free
-    api_base: https://api.commandcode.ai/provider/v1
-    api_key: ${COMMANDCODE_API_KEY}
-    additional_drop_params: *id001
-  model_info:
-    id: ccg/minimax/minimax-m3.1-flash:free
 - model_name: ccg/mistral/mistral-large-4
   litellm_params:
     model: openai/mistral/mistral-large-4
@@ -601,6 +597,14 @@ model_list:
     additional_drop_params: *id001
   model_info:
     id: ccg/moonshotai/Kimi-K3
+- model_name: ccg/moonshotai/Kimi-K3.1-Pro
+  litellm_params:
+    model: openai/moonshotai/Kimi-K3.1-Pro
+    api_base: https://api.commandcode.ai/provider/v1
+    api_key: ${COMMANDCODE_API_KEY}
+    additional_drop_params: *id001
+  model_info:
+    id: ccg/moonshotai/Kimi-K3.1-Pro
 - model_name: ccg/nvidia/nemotron-3-ultra-550b-a55b
   litellm_params:
     model: openai/nvidia/nemotron-3-ultra-550b-a55b
@@ -697,14 +701,6 @@ model_list:
     additional_drop_params: *id001
   model_info:
     id: ccg/xai/grok-4.7
-- model_name: ccg/xiaomi/mimo-v2.5
-  litellm_params:
-    model: openai/xiaomi/mimo-v2.5
-    api_base: https://api.commandcode.ai/provider/v1
-    api_key: ${COMMANDCODE_API_KEY}
-    additional_drop_params: *id001
-  model_info:
-    id: ccg/xiaomi/mimo-v2.5
 - model_name: ccg/xiaomi/mimo-v2.6-flash
   litellm_params:
     model: openai/xiaomi/mimo-v2.6-flash

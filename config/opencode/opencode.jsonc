@@ -81,15 +81,15 @@
           "contextWindow": 1048576,
           "maxTokens": 131072
         },
+        "kimi-k3.1-pro": {
+          "name": "OCG kimi-k3.1-pro",
+          "id": "kimi-k3.1-pro",
+          "contextWindow": 262144,
+          "maxTokens": 131072
+        },
         "longcat-2.0": {
           "name": "OCG LongCat-2.0",
           "id": "longcat-2.0",
-          "contextWindow": 1000000,
-          "maxTokens": 131072
-        },
-        "longcat-2.5-preview-free": {
-          "name": "OCG LongCat 2.5 Preview Free",
-          "id": "longcat-2.5-preview-free",
           "contextWindow": 1000000,
           "maxTokens": 131072
         },
@@ -127,6 +127,12 @@
           "name": "OCG MiniMax-M3",
           "id": "minimax-m3",
           "contextWindow": 1000000,
+          "maxTokens": 131072
+        },
+        "minimax-m3.1-flash": {
+          "name": "OCG minimax-m3.1-flash",
+          "id": "minimax-m3.1-flash",
+          "contextWindow": 262144,
           "maxTokens": 131072
         },
         "omen-alpha": {
@@ -168,12 +174,6 @@
         "step-5-preview": {
           "name": "OCG step-5-preview",
           "id": "step-5-preview",
-          "contextWindow": 262144,
-          "maxTokens": 131072
-        },
-        "minimax-m3.1-flash-free": {
-          "name": "OCG minimax-m3.1-flash-free",
-          "id": "minimax-m3.1-flash-free",
           "contextWindow": 262144,
           "maxTokens": 131072
         }
@@ -367,6 +367,12 @@
           "contextWindow": 1048576,
           "maxTokens": 131072
         },
+        "minimax/minimax-m3.1-flash": {
+          "name": "CCG MiniMax M3.1 Flash",
+          "id": "minimax/minimax-m3.1-flash",
+          "contextWindow": 1000000,
+          "maxTokens": 131072
+        },
         "mistral/mistral-large-4": {
           "name": "CCG Mistral Large 4",
           "id": "mistral/mistral-large-4",
@@ -403,6 +409,12 @@
           "contextWindow": 1000000,
           "maxTokens": 131072
         },
+        "moonshotai/Kimi-K3.1-Pro": {
+          "name": "CCG Kimi K3.1 Pro",
+          "id": "moonshotai/Kimi-K3.1-Pro",
+          "contextWindow": 1048576,
+          "maxTokens": 131072
+        },
         "nvidia/nemotron-3-ultra-550b-a55b": {
           "name": "CCG Nemotron 3 Ultra",
           "id": "nvidia/nemotron-3-ultra-550b-a55b",
@@ -419,6 +431,12 @@
           "name": "CCG Laguna S 2.1",
           "id": "poolside/laguna-s-2.1-free",
           "contextWindow": 256000,
+          "maxTokens": 131072
+        },
+        "reflection/beam:free": {
+          "name": "CCG Beam 1.0",
+          "id": "reflection/beam:free",
+          "contextWindow": 1048576,
           "maxTokens": 131072
         },
         "stealth/glyph-cluster:free": {
@@ -467,12 +485,6 @@
           "name": "CCG Grok 4.7",
           "id": "xai/grok-4.7",
           "contextWindow": 500000,
-          "maxTokens": 131072
-        },
-        "xiaomi/mimo-v2.5": {
-          "name": "CCG MiMo V2.5",
-          "id": "xiaomi/mimo-v2.5",
-          "contextWindow": 1000000,
           "maxTokens": 131072
         },
         "xiaomi/mimo-v2.6-flash": {
@@ -527,24 +539,6 @@
           "name": "CCG GLM-5.3",
           "id": "zai-org/GLM-5.3",
           "contextWindow": 1000000,
-          "maxTokens": 131072
-        },
-        "minimax/minimax-m3.1-flash": {
-          "name": "CCG MiniMax M3.1 Flash",
-          "id": "minimax/minimax-m3.1-flash",
-          "contextWindow": 1000000,
-          "maxTokens": 131072
-        },
-        "minimax/minimax-m3.1-flash:free": {
-          "name": "CCG MiniMax M3.1 Flash",
-          "id": "minimax/minimax-m3.1-flash:free",
-          "contextWindow": 1000000,
-          "maxTokens": 131072
-        },
-        "reflection/beam:free": {
-          "name": "CCG Beam 1.0",
-          "id": "reflection/beam:free",
-          "contextWindow": 1048576,
           "maxTokens": 131072
         }
       }
@@ -666,7 +660,7 @@
       }
     }
   },
-  "model": "ocg/longcat-2.5-preview-free",
+  "model": "ocg/beam-free",
   "disabled_providers": [
     "opencode-go"
   ]

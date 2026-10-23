@@ -44,11 +44,11 @@ llm-pi-ai:
         - id: ocg/kimi-k3
           name: OCG kimi-k3
           contextWindow: 1048576
+        - id: ocg/kimi-k3.1-pro
+          name: OCG kimi-k3.1-pro
+          contextWindow: 262144
         - id: ocg/longcat-2.0
           name: OCG longcat-2.0
-          contextWindow: 1000000
-        - id: ocg/longcat-2.5-preview-free
-          name: OCG longcat-2.5-preview-free
           contextWindow: 1000000
         - id: ocg/mimo-v2.5
           name: OCG mimo-v2.5
@@ -68,6 +68,9 @@ llm-pi-ai:
         - id: ocg/minimax-m3
           name: OCG minimax-m3
           contextWindow: 1000000
+        - id: ocg/minimax-m3.1-flash
+          name: OCG minimax-m3.1-flash
+          contextWindow: 262144
         - id: ocg/omen-alpha
           name: OCG omen-alpha
           contextWindow: 262144
@@ -88,9 +91,6 @@ llm-pi-ai:
           contextWindow: 1000000
         - id: ocg/step-5-preview
           name: OCG step-5-preview
-          contextWindow: 262144
-        - id: ocg/minimax-m3.1-flash-free
-          name: OCG minimax-m3.1-flash-free
           contextWindow: 262144
     ccg:
       displayName: Command Code GOAT
@@ -188,6 +188,9 @@ llm-pi-ai:
         - id: ccg/meta/muse-spark-open
           name: CCG meta/muse-spark-open
           contextWindow: 1048576
+        - id: ccg/minimax/minimax-m3.1-flash
+          name: CCG minimax/minimax-m3.1-flash
+          contextWindow: 1000000
         - id: ccg/mistral/mistral-large-4
           name: CCG mistral/mistral-large-4
           contextWindow: 524288
@@ -206,6 +209,9 @@ llm-pi-ai:
         - id: ccg/moonshotai/Kimi-K3
           name: CCG moonshotai/Kimi-K3
           contextWindow: 1000000
+        - id: ccg/moonshotai/Kimi-K3.1-Pro
+          name: CCG moonshotai/Kimi-K3.1-Pro
+          contextWindow: 1048576
         - id: ccg/nvidia/nemotron-3-ultra-550b-a55b
           name: CCG nvidia/nemotron-3-ultra-550b-a55b
           contextWindow: 1000000
@@ -215,6 +221,9 @@ llm-pi-ai:
         - id: ccg/poolside/laguna-s-2.1-free
           name: CCG poolside/laguna-s-2.1-free
           contextWindow: 256000
+        - id: ccg/reflection/beam:free
+          name: CCG reflection/beam:free
+          contextWindow: 1048576
         - id: ccg/stealth/glyph-cluster:free
           name: CCG stealth/glyph-cluster:free
           contextWindow: 256000
@@ -239,9 +248,6 @@ llm-pi-ai:
         - id: ccg/xai/grok-4.7
           name: CCG xai/grok-4.7
           contextWindow: 500000
-        - id: ccg/xiaomi/mimo-v2.5
-          name: CCG xiaomi/mimo-v2.5
-          contextWindow: 1000000
         - id: ccg/xiaomi/mimo-v2.6-flash
           name: CCG xiaomi/mimo-v2.6-flash
           contextWindow: 1048576
@@ -269,15 +275,6 @@ llm-pi-ai:
         - id: ccg/zai-org/GLM-5.3
           name: CCG zai-org/GLM-5.3
           contextWindow: 1000000
-        - id: ccg/minimax/minimax-m3.1-flash
-          name: CCG minimax/minimax-m3.1-flash
-          contextWindow: 1000000
-        - id: ccg/minimax/minimax-m3.1-flash:free
-          name: CCG minimax/minimax-m3.1-flash:free
-          contextWindow: 1000000
-        - id: ccg/reflection/beam:free
-          name: CCG reflection/beam:free
-          contextWindow: 1048576
     ds:
       displayName: DeepSeek Official
       api: openai-completions

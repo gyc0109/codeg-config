@@ -27,7 +27,7 @@ python3 -c "import yaml;print(len(yaml.safe_load(open('/opt/litellm/config.yaml'
 python3 -c "import json;print(json.load(open('/root/.openclaw/openclaw.json'))['agents']['defaults']['model'])"
 systemctl is-active litellm
 ```
-预期：打印条数 / 打印 `{'primary': 'ocg/longcat-2.5-preview-free'}` / `active`。
+预期：打印条数 / 打印 `{'primary': 'ocg/beam-free'}` / `active`。
 
 ## 2. 探测模型可用性（必须做）
 
@@ -63,7 +63,7 @@ curl -sS --max-time 60 https://api.commandcode.ai/provider/v1/models \
 
 ```bash
 # (a) 四条代理链路
-for m in ocg/longcat-2.5-preview-free ccg/stealth/glyph-cluster:free ds/deepseek-flash ark/doubao-seed-2-1-pro-260915; do
+for m in ocg/beam-free ccg/stealth/glyph-cluster:free ds/deepseek-flash ark/doubao-seed-2-1-pro-260915; do
   printf '%-42s ' "$m"
   curl -sS --max-time 60 http://127.0.0.1:4000/v1/chat/completions \
     -H 'Content-Type: application/json' \
