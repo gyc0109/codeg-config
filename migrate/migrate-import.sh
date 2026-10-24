@@ -106,6 +106,20 @@ fi
 # ---------------------------------------------------------------- 6. 服务
 if [ "$SKIP_SVC" = 0 ]; then
   log "重载 systemd"
+  # venv 绑死源机的 /usr/bin/python3.13。目标机 python 版本不同就重建
+  # （requirements 清单在 bundle 里由 export 一并收走）
+  REQ="$ROOTFS/root/migrate-requirements-litellm.txt"
+  if ! /opt/litellm-venv/bin/python -V >/dev/null 2>&1; then
+    if [ -f "$REQ" ]; then
+      log "  venv 不可用，用 $REQ 重建"
+      rm -rf /opt/litellm-venv
+      /usr/bin/python3 -m venv /opt/litellm-venv
+      /opt/litellm-venv/bin/pip install -q --upgrade pip
+      /opt/litellm-venv/bin/pip install -q -r "$REQ" && log "  venv 重建完成" || log "  ⚠ venv 重建失败"
+    else
+      log "  ⚠ venv 不可用且 bundle 里没有 requirements 清单"
+    fi
+  fi
   systemctl daemon-reload
 
   # 顺序有依赖：litellm Requires opencode-go-proxy

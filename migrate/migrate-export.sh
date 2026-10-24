@@ -152,6 +152,11 @@ if [ -d /root/.config/systemd/user ]; then
   cp -a /root/.config/systemd/user/. "$META/systemd/user/" 2>/dev/null || true
 fi
 
+# venv 的 python 版本清单：目标机 python 版本不同时用它重建 /opt/litellm-venv
+mkdir -p "$ROOTFS/root"
+cp "$(dirname "$0")/requirements-litellm.txt" "$ROOTFS/root/migrate-requirements-litellm.txt" 2>/dev/null \
+  || log "⚠ 缺少 requirements-litellm.txt，目标机 python 版本不同时 venv 无法重建"
+
 # ---------------------------------------------------------------- 清单
 log "生成 MANIFEST"
 {

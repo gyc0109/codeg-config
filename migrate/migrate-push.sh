@@ -44,7 +44,7 @@ $SSH 'command -v rsync >/dev/null' || {
 if [ "$SKIP_PKGS" = 0 ]; then
   log "目标机装基础包"
   if [ "$DRY" = 0 ]; then
-    $SSH 'export DEBIAN_FRONTEND=noninteractive; apt-get update -qq; apt-get install -y -qq --no-install-recommends curl ca-certificates rsync sqlite3 nginx python3 python3-venv xz-utils procps >/dev/null' || echo "  ⚠ 基础包部分失败，继续"
+    $SSH 'export DEBIAN_FRONTEND=noninteractive; apt-get update -qq; apt-get install -y -qq --no-install-recommends curl ca-certificates rsync sqlite3 nginx python3 python3-venv xz-utils procps certbot python3-certbot-nginx >/dev/null' || echo "  ⚠ 基础包部分失败，继续"
   else
     echo "  [dry] 装 curl rsync sqlite3 nginx python3 ..."
   fi
@@ -92,6 +92,9 @@ push /etc/systemd/system/litellm.service
 push /etc/systemd/system/commandcode-proxy.service
 push /opt/litellm
 push /opt/litellm-venv
+# venv 与系统 python 版本绑定，目标机装不上的话用它重建
+run rsync -aHAX --numeric-ids -e ssh "$(dirname "$0")/requirements-litellm.txt" \
+  "$TARGET:/root/migrate-requirements-litellm.txt"
 
 # codeg 数据（活库已单独推过）
 DATA_EXCL=(--exclude='codeg.db' --exclude='codeg.db-wal' --exclude='codeg.db-shm' --exclude='*.lock')
@@ -147,6 +150,30 @@ SL
 [ -f /etc/nginx/sites-available/codeg ] && ln -sfn /etc/nginx/sites-available/codeg /etc/nginx/sites-enabled/codeg
 
 chmod 600 /etc/codeg.env /etc/opencode-go-proxy.env /etc/commandcode-proxy.env 2>/dev/null || true
+
+# 源机 4G 内存没有 swap，dmesg 里有 OOM 记录。目标机 4G 的话补 2G swap。
+if ! swapon --show | grep -q .; then
+  MEM=$(awk '/MemTotal/{print int(\$2/1024)}' /proc/meminfo)
+  if [ "\$MEM" -lt 6144 ]; then
+    fallocate -l 2G /swapfile 2>/dev/null || dd if=/dev/zero of=/swapfile bs=1M count=2048 status=none
+    chmod 600 /swapfile && mkswap /swapfile >/dev/null && swapon /swapfile
+    grep -q '^/swapfile' /etc/fstab || echo '/swapfile none swap sw 0 0' >> /etc/fstab
+    echo 'vm.swappiness=20' >> /etc/sysctl.conf
+    sysctl -qw vm.swappiness=20
+    echo "  已建 2G swap（内存 \${MEM}M）"
+  fi
+fi
+
+# venv 绑死 /usr/bin/python3.13，目标机 python 版本不同则重建
+if ! /opt/litellm-venv/bin/python -V >/dev/null 2>&1; then
+  echo "  venv 不可用（目标机 python $(/usr/bin/python3 -V 2>&1 | awk '{print \$2}')），重建中"
+  rm -rf /opt/litellm-venv
+  /usr/bin/python3 -m venv /opt/litellm-venv
+  /opt/litellm-venv/bin/pip install -q --upgrade pip
+  /opt/litellm-venv/bin/pip install -q -r /root/migrate-requirements-litellm.txt \\
+    && echo "  venv 重建完成（$(/opt/litellm-venv/bin/python -V)）" || echo "  ⚠ venv 重建失败"
+fi
+
 systemctl daemon-reload
 $([ "$SKIP_PKGS" = 1 ] && echo "true" || echo "apt-get install -y -qq nginx >/dev/null 2>&1 || true")
 for u in opencode-go-proxy litellm commandcode-proxy codeg codeg-port-lockdown; do
