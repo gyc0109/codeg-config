@@ -29,6 +29,9 @@ cd /root/Labs/codeg-config/migrate
 
 - 目标机是**全新** Debian 13 x86_64，能 root SSH 登录（建议先 `ssh-copy-id` 配好免密，
   脚本用了 `BatchMode=yes`）
+  - **为什么必须 13**：`/opt/litellm-venv` 是指向 `/usr/bin/python3.13` 的 venv，
+    换到 Debian 12（python3.11）venv 直接不可用，得重建
+  - 磁盘建议 ≥40G：迁完约 12G（系统 3G + 配置 8.6G），留出增长空间
 - 目标机有 `rsync`（没有脚本会自动装）
 
 脚本做的事：预检架构 → 装基础包 → 停目标机 codeg → 推 codeg.db 一致快照 →
