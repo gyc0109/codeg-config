@@ -1,24 +1,24 @@
-# agent 版本基线（2026-10-18 升级后）
+# agent 版本基线（2026-10-25 升级后）
 
 | agent | 版本 | 分发 | 备注 |
 | --- | --- | --- | --- |
 | pi | 0.0.34 | npx | 升级会覆盖 `dist/index.js`，需重跑 `pi-acp-provider-label-patch` |
-| claude_code | 0.93.0 | npx |  |
+| claude_code | 0.94.0 | npx |  |
 | open_code | 1.19.3 | binary | 二进制在 `~/.local/share/codeg/acp-binaries/opencode/<ver>/`，见下「升级踩的坑」第 2 条 |
 | deepseek | 0.9.0 | npx | 已是最新 |
 | hermes | 0.22.2 | npx |  |
-| code_buddy | 2.168.2 | npx | 升级**偶发**丢 symlink，需按 `package.json` 的 bin 重建 |
-| kimi_code | 2.2.0 | npx |  |
+| code_buddy | 2.171.0 | npx | 升级**偶发**丢 symlink，需按 `package.json` 的 bin 重建 |
+| kimi_code | 2.3.0 | npx |  |
 | codex | 2.2.2 | npx | 内含 codex-cli 0.160.1，config.toml 格式兼容 |
 | cline | 3.0.73 | npx |  |
 | open_claw | 2026.10.4 | npx | **本地超前** registry(2026.9.8)，勿降级；升级后 `openclaw gateway restart` |
 | gemini | 0.64.0 | npx | **本地超前** registry(0.60.0)，勿降级；无 Gemini key，暂不可用 |
 | grok | 1.0.62 | npx |  |
-| qoder | 1.1.73 | npx | 升级**偶发**丢 symlink，需按 bin 重建 |
-| cursor | 2026.10.16-e3cb207 | binary | 升级后核实 `agent_setting` |
+| qoder | 1.1.75 | npx | 升级**偶发**丢 symlink，需按 bin 重建 |
+| cursor | 2026.10.19-6bbf2c4 | binary | 升级后核实 `agent_setting` |
 | antigravity | 1.4.1 | binary | 见下「antigravity 必须带 `--uid=` 启动」 |
-| kiro | 2.31.1 | system | 官方安装脚本装到 `~/.local/bin`，需软链到 `/usr/local/bin`，见下 |
-| zcode | 0.72.0 | npx | **只是桥，缺后端**：npm 包 `zcode-acp-server`，命令 `zcode-acp`，见下 |
+| kiro | 2.34.0 | system | 官方安装脚本装到 `~/.local/bin`，需软链到 `/usr/local/bin`，见下 |
+| zcode | 0.76.2 | npx | **只是桥，缺后端**：npm 包 `zcode-acp-server`，命令 `zcode-acp`，见下 |
 
 registry 里另有 `command_code`（npx，1.84.0）和 `trae`（system）两个条目，本机**未安装**。
 两者的 `available` 都报 `true`（codeg 只按 registry 判断），实际没用起来。
@@ -49,11 +49,12 @@ F1017 ... init_google.cc:394] Check failed: LookupGIDByGroupName(groupname, &new
 
 （`--uid=0 --gid=0` 不行，它按**组名**查，会报 `Group 0 not found`。）
 
-启动后 initialize 能正常返回能力集与 4 种认证方式：
+启动后 initialize 能正常返回能力集与 5 种认证方式：
 
 | methodId | 说明 | 能否 headless |
 | --- | --- | --- |
-| `gemini-api-key` | 要 `GEMINI_API_KEY` 环境变量 | ✅ 最省事 |
+| `gateway` | 自定义 AI API Gateway，要 `AGY_LLM_GATEWAY_URL` | ✅ **本机就是靠它通的，见下** |
+| `gemini-api-key` | 要 `GEMINI_API_KEY` 环境变量 | ✅ 有 key 的话最省事 |
 | `oauth-personal` | Google 账号登录 | ⚠️ 会起本地服务 `127.0.0.1:59529` 等浏览器回调，需 SSH 端口转发 |
 | `oauth-business` | Gemini Enterprise | 要 GCP project/location |
 | `agent-platform` | Gemini Enterprise Agent Platform | 同上 |
@@ -61,6 +62,27 @@ F1017 ... init_google.cc:394] Check failed: LookupGIDByGroupName(groupname, &new
 认证方式也可写进 `/root/.gemini/antigravity-acp/settings.json` 的 `auth.type`。
 该文件默认不存在（本机为空目录），所以 `session/new` 会报
 `Authentication required ... no auth method was selected`。
+
+**2026-10-25：用 `gateway` 走本地 litellm，已实测跑通（PONG）**，不需要任何 Google 账号：
+
+```json
+// /root/.gemini/antigravity-acp/settings.json
+{ "auth": { "type": "gateway" } }
+```
+
+```bash
+# 写进 codeg 的 agent_setting.env_json（和 claude_code/codex 用同一个机制）
+# 注意：不带 /v1！
+AGY_LLM_GATEWAY_URL=http://127.0.0.1:4000
+```
+
+**`/v1` 是这条路上唯一的坑**：它自己会拼 `/v1/chat/completions`，写成
+`http://127.0.0.1:4000/v1` 会 404（`{"detail":"Not Found"}`）。之前用
+`http://127.0.0.1:4000/v1` 试过一次，误以为是「网关不支持」而放弃。
+
+模型 id 要用**裸 id**（`ocg/glm-5.3-flash`），不要 codebuddy 那种
+`custom-local:` 前缀，否则报
+`Model 'custom-local:ocg/beam-free' is not available for the current authentication method`。
 
 **2026-10-18 复测：卡点已经后移了一格。** 带上 `--uid=` 之后 `initialize` 能正常过，
 失败点移到 `session/new` 的凭据缺失：
@@ -76,9 +98,8 @@ session/new: {'code': -32000, 'message': 'Authentication required',
 `--uid=` 解决的是「根本起不来」，剩下这个「缺凭据」得配 `auth.type` 或
 `GEMINI_API_KEY` 才能通。
 
-三个 binary agent 里，`open_code` 已实测握手跑通（PONG）；`cursor` 和 `antigravity`
-都卡在各自的凭据上，**跟版本升级无关**，是登录状态问题：`cursor` 要
-`agent login`，`antigravity` 要配 `auth.type`。
+三个 binary agent 里，`open_code` 已实测握手跑通（PONG）；`antigravity` 2026-10-25
+用 `gateway` 通了；`cursor` 仍卡在 `agent login`（从没登录过，不是升级弄坏的）。
 
 ## kiro / qoder 的登录都能 headless 走
 
@@ -97,6 +118,44 @@ qoder login
 `qoder login` 会输出一个 `https://qoder.com/device/selectAccounts?...` 的 URL 并挂起等待，
 所以要在能保持会话的终端里跑（tmux / screen），别用一次性 exec。
 
+## 新会话会继承上一次的模型（模型下线后会炸）
+
+ACP 的 `session/new` 不带模型时，agent 会沿用**上一次用过的模型**。2026-10-24 下线
+`longcat-2.5-preview-free` 之后，code_buddy 的新会话还拿着它，报：
+
+```
+invalid_request_error: /chat/completions: Invalid model name passed in
+model=ocg/longcat-2.5-preview-free. Call /v1/models to view available models for your key.
+```
+
+**这不是升级搞坏的**，是模型下线的余波，表现为两种情况：
+
+- codeg UI 里选了模型 → 走 `session/set_model`，没事
+- 裸跑 ACP（不选模型）→ 继承旧值 → 报错
+
+排查入口：`~/.codebuddy/logs/<日期>/*.log` 里
+`getModelsInfo: sessionId=..., currentModelId=...` 就是它实际在用的模型。
+
+另外注意各 agent 的 model id 格式**不统一**：
+`code_buddy` 要 `custom-local:ocg/xxx`，`kimi_code` 要裸的 `ocg/xxx`，
+`antigravity` 也要裸 id。写测试脚本时按各自的 `configOptions` 取值，别写死。
+
+### code_buddy 对 `ocg/beam-free` 不兼容
+
+`agent_setting` 里 code_buddy 配的是 `CODEBUDDY_MODEL=ocg/beam-free`，实测这条组合被上游拒：
+
+```
+[unsupported_parameter] Unrecognized request argument supplied: messages[1].agent
+```
+
+code_buddy 会在每条 message 里带一个非标准的 `agent` 字段，`ocg/beam-free` 的免费档网关
+校验严，直接拒。**同一个二进制换 `ccg/reflection/beam:free` 或 `ocg/glm-5.3-flash` 就正常回话**
+（实测 PONG），所以不是装坏了。
+
+2026-10-25 已把 `agent_setting` 里的
+`CODEBUDDY_MODEL` 从 `ocg/beam-free` 改成 `ccg/reflection/beam:free`
+（仍是免费档），改完实测 PONG。**别再改回 `ocg/beam-free`**。
+
 ## 升级踩的坑
 
 1. **npm 升级会丢全局 symlink**：包还在，但 `/usr/bin/<cmd>` 消失，
@@ -111,7 +170,8 @@ qoder login
 
 > symlink 丢失（第 1 条）是**偶发**不是必现：2026-10-16 那轮丢了，2026-10-17 那轮
 > （claude_code / code_buddy / qoder / cline 四个 npm 升级）13 个 symlink 一个没丢；
-> 2026-10-18 那轮（claude_code / cline / grok 三个 npm 升级）也没丢。
+> 2026-10-18 那轮（claude_code / cline / grok 三个 npm 升级）也没丢；
+> 2026-10-25 那轮（code_buddy / qoder / kimi_code / zcode / claude_code 五个）同样没丢。
 > 所以升级后**必须逐个 verify**，不能假定会丢、也不能假定不会丢。
 
 > **升级前备份**：`sqlite3 codeg.db ".backup '<bk>/codeg.db'"`（别直接 `cp` 带 `-wal`
@@ -151,6 +211,11 @@ curl -fsSL https://cli.kiro.dev/install | bash   # 装到 ~/.local/bin
    链上之后 `acp_list_agents` 立刻报 `installed_version: 2.31.1`、
    `available: true`。kiro 的 `supports_self_update: true`，可以自己升，
    但**要登录才能用**（`kiro-cli login`，交互式）。
+
+3. **自升级用 `kiro-cli update -y`**（2026-10-25 实测 2.31.1 → 2.34.0）。
+   它只替换 `~/.local/bin/kiro-cli`，`/usr/local/bin` 那两条软链不受影响，
+   升完 `acp_detect_agent_local_version` 直接报新版本。
+   仍建议给 `TMPDIR` 指个有盘的目录，理由同上。
 
 ## zcode 只有桥，没有后端
 
