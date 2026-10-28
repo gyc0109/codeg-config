@@ -1,26 +1,27 @@
-# agent 版本基线（2026-10-25 升级后）
+# agent 版本基线（2026-10-29 升级后）
 
 | agent | 版本 | 分发 | 备注 |
 | --- | --- | --- | --- |
 | pi | 0.0.34 | npx | 升级会覆盖 `dist/index.js`，需重跑 `pi-acp-provider-label-patch` |
-| claude_code | 0.94.0 | npx |  |
-| open_code | 1.19.3 | binary | 二进制在 `~/.local/share/codeg/acp-binaries/opencode/<ver>/`，见下「升级踩的坑」第 2 条 |
+| claude_code | 0.98.0 | npx |  |
+| open_code | 2.2.0 | binary | 二进制在 `~/.local/share/codeg/acp-binaries/opencode/<ver>/`，见下「升级踩的坑」第 2 条 |
 | deepseek | 0.9.0 | npx | 已是最新 |
 | hermes | 0.22.2 | npx |  |
-| code_buddy | 2.171.0 | npx | 升级**偶发**丢 symlink，需按 `package.json` 的 bin 重建 |
-| kimi_code | 2.3.0 | npx |  |
-| codex | 2.2.2 | npx | 内含 codex-cli 0.160.1，config.toml 格式兼容 |
-| cline | 3.0.73 | npx |  |
+| code_buddy | 2.177.0 | npx | 升级**偶发**丢 symlink，需按 `package.json` 的 bin 重建 |
+| kimi_code | 2.3.3 | npx |  |
+| codex | 2.3.0 | npx | 内含 codex-cli 0.164.0；**config.toml 的 model 必须带 provider 前缀**，见下 |
+| cline | 3.0.74 | npx |  |
 | open_claw | 2026.10.4 | npx | **本地超前** registry(2026.9.8)，勿降级；升级后 `openclaw gateway restart` |
 | gemini | 0.64.0 | npx | **本地超前** registry(0.60.0)，勿降级；无 Gemini key，暂不可用 |
-| grok | 1.0.62 | npx |  |
+| grok | 1.0.70 | npx |  |
 | qoder | 1.1.75 | npx | 升级**偶发**丢 symlink，需按 bin 重建 |
-| cursor | 2026.10.19-6bbf2c4 | binary | 升级后核实 `agent_setting` |
-| antigravity | 1.4.1 | binary | 见下「antigravity 必须带 `--uid=` 启动」 |
-| kiro | 2.34.0 | system | 官方安装脚本装到 `~/.local/bin`，需软链到 `/usr/local/bin`，见下 |
-| zcode | 0.76.2 | npx | **只是桥，缺后端**：npm 包 `zcode-acp-server`，命令 `zcode-acp`，见下 |
+| cursor | 2026.10.22-27dcf5f | binary | 升级后核实 `agent_setting` |
+| antigravity | 1.4.3 | binary | 见下「antigravity 必须带 `--uid=` 启动」 |
+| kiro | 2.35.1 | system | 官方安装脚本装到 `~/.local/bin`，需软链到 `/usr/local/bin`，见下 |
+| zcode | 0.76.3 | npx | **只是桥，缺后端**：npm 包 `zcode-acp-server`，命令 `zcode-acp`，见下 |
 
-registry 里另有 `command_code`（npx，1.84.0）和 `trae`（system）两个条目，本机**未安装**。
+registry 里另有 `command_code`（npx，1.88.0）、`trae`（system）和 2026-10-29 新冒出来的
+`minimax_code`（system）三个条目，本机**未安装**。
 两者的 `available` 都报 `true`（codeg 只按 registry 判断），实际没用起来。
 
 ## antigravity 必须带 `--uid=` 启动
@@ -100,6 +101,40 @@ session/new: {'code': -32000, 'message': 'Authentication required',
 
 三个 binary agent 里，`open_code` 已实测握手跑通（PONG）；`antigravity` 2026-10-25
 用 `gateway` 通了；`cursor` 仍卡在 `agent login`（从没登录过，不是升级弄坏的）。
+
+## codex 的 `model` 必须带 provider 前缀（2026-10-29 发现）
+
+`~/.codex/config.toml` 里 codeg 会写成：
+
+```toml
+model = "gpt-6-luna"          # 裸名
+model_provider = "litellm-bridge"
+```
+
+codex 会**原样**把 `model` 发给 `/v1/responses`，而 litellm 只认带前缀的模型名，
+于是每次请求都返回：
+
+```
+/responses: Invalid model name passed in model=gpt-6-luna.
+Call `/v1/models` to view available models for your key.
+```
+
+注意 ACP 层面 **不会报错**，`session/prompt` 正常 `end_turn`，错误只是作为一条
+`agent_message_chunk` 文本吐出来——所以只看「有没有回复」会误判成成功。
+
+修法是把 `model` 换成带前缀的 id（`ocg/gpt-6-luna` 或 `ccg/gpt-6-luna`），实测 PONG：
+
+```toml
+model = "ocg/gpt-6-luna"
+```
+
+- codeg 里 codex 的模型目录（`~/.codex/codeg-model-catalog.json`）用的是**裸 slug**
+  （`gpt-6-luna`、`deepseek-flash`…共 14 个），`meta.json` 的 `defaultModel` 也是裸名，
+  所以 codeg 写出来的 `model` 天生就是错的。
+- 直接改 `config.toml` 在 `acp_list_agents` / `acp_detect_agent_local_version` 之后**不会被覆写**；
+  但在 codeg 界面里改 codex 的模型设置会重新生成，需要再改一次。
+- 同一个裸 slug 在 litellm 里往往同时有 `ocg/` 和 `ccg/` 两个同名模型，**挑哪个要按上游**，
+  不能盲目批量加别名。
 
 ## kiro / qoder 的登录都能 headless 走
 
