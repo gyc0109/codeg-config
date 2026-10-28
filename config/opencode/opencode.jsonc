@@ -27,12 +27,6 @@
           "contextWindow": 1000000,
           "maxTokens": 384000
         },
-        "glm-5.1": {
-          "name": "OCG glm-5.1",
-          "id": "glm-5.1",
-          "contextWindow": 200000,
-          "maxTokens": 131072
-        },
         "glm-5.2": {
           "name": "OCG GLM-5.2",
           "id": "glm-5.2",
@@ -62,12 +56,6 @@
           "id": "hy4-preview",
           "contextWindow": 1024000,
           "maxTokens": 64000
-        },
-        "kimi-k2.6": {
-          "name": "OCG Kimi K2.6",
-          "id": "kimi-k2.6",
-          "contextWindow": 262144,
-          "maxTokens": 65536
         },
         "kimi-k2.7-code": {
           "name": "OCG Kimi K2.7 Code",
@@ -117,12 +105,6 @@
           "contextWindow": 1048576,
           "maxTokens": 131072
         },
-        "minimax-m2.5": {
-          "name": "OCG minimax-m2.5",
-          "id": "minimax-m2.5",
-          "contextWindow": 200000,
-          "maxTokens": 131072
-        },
         "minimax-m3": {
           "name": "OCG MiniMax-M3",
           "id": "minimax-m3",
@@ -134,24 +116,6 @@
           "id": "minimax-m3.1-flash",
           "contextWindow": 262144,
           "maxTokens": 131072
-        },
-        "omen-alpha": {
-          "name": "OCG omen-alpha",
-          "id": "omen-alpha",
-          "contextWindow": 262144,
-          "maxTokens": 131072
-        },
-        "qwen3.6-plus": {
-          "name": "OCG Qwen3.6 Plus",
-          "id": "qwen3.6-plus",
-          "contextWindow": 1000000,
-          "maxTokens": 65536
-        },
-        "qwen3.7-max": {
-          "name": "OCG Qwen3.7 Max",
-          "id": "qwen3.7-max",
-          "contextWindow": 1000000,
-          "maxTokens": 65536
         },
         "qwen3.7-plus": {
           "name": "OCG Qwen3.7 Plus",

@@ -40,11 +40,6 @@ provider = "opencode-go"
 model = "deepseek-v4.1-flash"
 max_context_size = 1000000
 
-[models."ocg/glm-5.1"]
-provider = "opencode-go"
-model = "glm-5.1"
-max_context_size = 200000
-
 [models."ocg/glm-5.2"]
 provider = "opencode-go"
 model = "glm-5.2"
@@ -69,11 +64,6 @@ max_context_size = 256000
 provider = "opencode-go"
 model = "hy4-preview"
 max_context_size = 1024000
-
-[models."ocg/kimi-k2.6"]
-provider = "opencode-go"
-model = "kimi-k2.6"
-max_context_size = 262144
 
 [models."ocg/kimi-k2.7-code"]
 provider = "opencode-go"
@@ -115,11 +105,6 @@ provider = "opencode-go"
 model = "mimo-v2.6-pro"
 max_context_size = 1048576
 
-[models."ocg/minimax-m2.5"]
-provider = "opencode-go"
-model = "minimax-m2.5"
-max_context_size = 200000
-
 [models."ocg/minimax-m3"]
 provider = "opencode-go"
 model = "minimax-m3"
@@ -129,21 +114,6 @@ max_context_size = 1000000
 provider = "opencode-go"
 model = "minimax-m3.1-flash"
 max_context_size = 262144
-
-[models."ocg/omen-alpha"]
-provider = "opencode-go"
-model = "omen-alpha"
-max_context_size = 262144
-
-[models."ocg/qwen3.6-plus"]
-provider = "opencode-go"
-model = "qwen3.6-plus"
-max_context_size = 1000000
-
-[models."ocg/qwen3.7-max"]
-provider = "opencode-go"
-model = "qwen3.7-max"
-max_context_size = 1000000
 
 [models."ocg/qwen3.7-plus"]
 provider = "opencode-go"

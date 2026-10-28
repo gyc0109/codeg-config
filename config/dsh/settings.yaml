@@ -17,9 +17,6 @@ llm-pi-ai:
         - id: ocg/deepseek-v4.1-flash
           name: OCG deepseek-v4.1-flash
           contextWindow: 1000000
-        - id: ocg/glm-5.1
-          name: OCG glm-5.1
-          contextWindow: 200000
         - id: ocg/glm-5.2
           name: OCG glm-5.2
           contextWindow: 1000000
@@ -35,9 +32,6 @@ llm-pi-ai:
         - id: ocg/hy4-preview
           name: OCG hy4-preview
           contextWindow: 1024000
-        - id: ocg/kimi-k2.6
-          name: OCG kimi-k2.6
-          contextWindow: 262144
         - id: ocg/kimi-k2.7-code
           name: OCG kimi-k2.7-code
           contextWindow: 262144
@@ -62,24 +56,12 @@ llm-pi-ai:
         - id: ocg/mimo-v2.6-pro
           name: OCG mimo-v2.6-pro
           contextWindow: 1048576
-        - id: ocg/minimax-m2.5
-          name: OCG minimax-m2.5
-          contextWindow: 200000
         - id: ocg/minimax-m3
           name: OCG minimax-m3
           contextWindow: 1000000
         - id: ocg/minimax-m3.1-flash
           name: OCG minimax-m3.1-flash
           contextWindow: 262144
-        - id: ocg/omen-alpha
-          name: OCG omen-alpha
-          contextWindow: 262144
-        - id: ocg/qwen3.6-plus
-          name: OCG qwen3.6-plus
-          contextWindow: 1000000
-        - id: ocg/qwen3.7-max
-          name: OCG qwen3.7-max
-          contextWindow: 1000000
         - id: ocg/qwen3.7-plus
           name: OCG qwen3.7-plus
           contextWindow: 1000000

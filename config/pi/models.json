@@ -67,26 +67,6 @@
           }
         },
         {
-          "id": "glm-5.1",
-          "name": "OCG glm-5.1",
-          "provider": "ocg",
-          "baseUrl": "http://127.0.0.1:8899/v1",
-          "api": "openai-completions",
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "contextWindow": 200000,
-          "maxTokens": 131072,
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          }
-        },
-        {
           "id": "glm-5.2",
           "name": "OCG GLM-5.2",
           "provider": "ocg",
@@ -179,26 +159,6 @@
           ],
           "contextWindow": 1024000,
           "maxTokens": 64000,
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          }
-        },
-        {
-          "id": "kimi-k2.6",
-          "name": "OCG Kimi K2.6",
-          "provider": "ocg",
-          "baseUrl": "http://127.0.0.1:8899/v1",
-          "api": "openai-completions",
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "contextWindow": 262144,
-          "maxTokens": 65536,
           "cost": {
             "input": 0,
             "output": 0,
@@ -367,26 +327,6 @@
           }
         },
         {
-          "id": "minimax-m2.5",
-          "name": "OCG minimax-m2.5",
-          "provider": "ocg",
-          "baseUrl": "http://127.0.0.1:8899/v1",
-          "api": "openai-completions",
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "contextWindow": 200000,
-          "maxTokens": 131072,
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          }
-        },
-        {
           "id": "minimax-m3",
           "name": "OCG MiniMax-M3",
           "provider": "ocg",
@@ -419,66 +359,6 @@
           ],
           "contextWindow": 262144,
           "maxTokens": 131072,
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          }
-        },
-        {
-          "id": "omen-alpha",
-          "name": "OCG omen-alpha",
-          "provider": "ocg",
-          "baseUrl": "http://127.0.0.1:8899/v1",
-          "api": "openai-completions",
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "contextWindow": 262144,
-          "maxTokens": 131072,
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          }
-        },
-        {
-          "id": "qwen3.6-plus",
-          "name": "OCG Qwen3.6 Plus",
-          "provider": "ocg",
-          "baseUrl": "http://127.0.0.1:8899/v1",
-          "api": "openai-completions",
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "contextWindow": 1000000,
-          "maxTokens": 65536,
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          }
-        },
-        {
-          "id": "qwen3.7-max",
-          "name": "OCG Qwen3.7 Max",
-          "provider": "ocg",
-          "baseUrl": "http://127.0.0.1:8899/v1",
-          "api": "openai-completions",
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "contextWindow": 1000000,
-          "maxTokens": 65536,
           "cost": {
             "input": 0,
             "output": 0,
