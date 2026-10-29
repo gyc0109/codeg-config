@@ -16,6 +16,12 @@ read https://raw.githubusercontent.com/gyc0109/codeg-config/main/PROMPT-FIX-CC-K
 新的 Command Code key：<粘贴新 key，或用占位符 <NEW_KEY> 让我稍后填>
 
 不要照抄文档里的路径，先自己探明这台机器的拓扑再动手。
+
+必须做到第 6 步，不许跳过：这台机器的**每周模型巡检**（codeg 自动化 / cron / launchd 都算）
+要一并处理 —— 找到它、确认提示词里没硬编码 key、把 refresh-models.py 的**部署副本**
+同步到最新版、实际跑一次并确认打印 key 自检通过、给出下次运行时间。
+只修当下配置、不管巡检的，算没修完。
+
 改完给我实测结果（哪几个模型、哪个端点、HTTP 码），别只改配置。
 ```
 
