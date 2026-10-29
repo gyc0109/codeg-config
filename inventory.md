@@ -8,7 +8,7 @@
 | Agent | 分发 | 已安装 | registry | 链路 | 默认模型 |
 | --- | --- | --- | --- | --- | --- |
 | `antigravity` | binary | 1.2.1 / 1.2.1 | — | - |
-| `claude_code` | npx | 0.81.1 / 0.81.1 | LiteLLM :4000 → :8899 | `deepseek-v4.1-flash` |
+| `claude_code` | npx | 0.81.1 / 0.81.1 | LiteLLM :4000 → :8899 | `ocg/glm-5.3-flash` |
 | `cline` | npx | **3.0.65** / 3.0.64 | :8899 | - |
 | `code_buddy` | npx | 2.157.0 / 2.157.0 | — | - |
 | `codex` | npx | 1.13.1 / 1.13.1 | LiteLLM :4000 → :8899 | - |
@@ -27,17 +27,53 @@
 
 Claude Code 只认 Anthropic 协议，经 LiteLLM 转换后可用全部 chat 模型。槽位对应关系：
 
-| 槽位 | 环境变量 | 模型 | 成本 |
-| --- | --- | --- | --- |
-| 主模型 | `ANTHROPIC_MODEL` | `deepseek-v4.1-flash` | $0.15/$0.6 |
-| 推理(thinking) | `ANTHROPIC_REASONING_MODEL` | `space-bunny-free` | 免费 |
-| Haiku | `ANTHROPIC_DEFAULT_HAIKU_MODEL` | `glm-5.3-flash` | $0.15/$0.5 |
-| Sonnet | `ANTHROPIC_DEFAULT_SONNET_MODEL` | `mimo-v2.6-flash` | $0.14/$0.28 |
-| Opus | `ANTHROPIC_DEFAULT_OPUS_MODEL` | `qwen3.8-max` | $2/$6 |
-| 自定义项 | `ANTHROPIC_CUSTOM_MODEL_OPTION` | `space-bunny-free` | 免费 |
+| 槽位 | 环境变量 | 模型 |
+| --- | --- | --- |
+| 主模型 | `ANTHROPIC_MODEL` | `ocg/glm-5.3-flash` |
+| Haiku | `ANTHROPIC_DEFAULT_HAIKU_MODEL` | `ocg/deepseek-v4.1-flash` |
+| Sonnet | `ANTHROPIC_DEFAULT_SONNET_MODEL` | `ocg/glm-5.3-flash` |
+| Opus | `ANTHROPIC_DEFAULT_OPUS_MODEL` | `ocg/qwen3.8-max` |
+| 自定义项 | `ANTHROPIC_CUSTOM_MODEL_OPTION` | `ocg/gpt-6-luna` |
 
 > `CLAUDE_CODE_AUTO_MODE_SERVER=0` 用于关掉 Claude Code 的服务端正路提示（网关做了协议转换，
 > 不满足其透传要求）。不影响功能，仅影响分类器请求是否计费。
+
+> **`ANTHROPIC_REASONING_MODEL` 是不存在的变量**（2026-10-29 用 `strings` 扫过 Claude Code
+> 0.98.0 的全部 `ANTHROPIC_*` 确认，只有 `ANTHROPIC_MODEL` / `DEFAULT_{HAIKU,SONNET,OPUS,FABLE}_MODEL`
+> / `SMALL_FAST_MODEL` / `CUSTOM_MODEL_OPTION*`）。以前配的「推理槽」一直在空转，已删除。
+
+> 2026-10-29 起四个槽位全部走 `ocg/`（原因见下）。想用 Command Code 侧的原生
+> `claude-sonnet-5-5` 等模型时，把槽位换成 `ccg/claude-sonnet-5-5` 即可（该模型只有 `/messages`
+> 端点，必须经 LiteLLM / commandcode-proxy，不能走 :8899 chat）。
+
+### ⚠️ `ccg/` 全灭的排查套路（2026-10-29 实战）
+
+现象：codeg 里 Claude Code 每轮都 `session/prompt rejected (Authentication required)`，
+LiteLLM 返回 `401 authentication_error`。
+
+根因：Command Code 的 key 失效，**与模型名、协议转换无关**。关键坑是
+`GET https://api.commandcode.ai/provider/v1/models` **免鉴权也返回 200**，所以“能拉到模型清单”
+是假信号；真正的鉴权点在 `POST /chat/completions`：
+
+```bash
+# 一条命令定性：key 有效 = 200，失效 = 401 Invalid 'Authorization' header or token
+curl -s -o /dev/null -w '%{http_code}\n' https://api.commandcode.ai/provider/v1/chat/completions \
+  -H "Authorization: Bearer $COMMANDCODE_API_KEY" -H 'content-type: application/json' \
+  -d '{"model":"z-ai/glm-5.3-flash","max_tokens":8,"messages":[{"role":"user","content":"hi"}]}'
+```
+
+换 key 时要同步的全部落点（同一个 key 在 6 处硬编码，漏一处就是半死状态）：
+
+| 文件 | 处数 |
+| --- | --- |
+| `/etc/commandcode-proxy.env` | 1（**权威源**，:8898 与 refresh-models.py 都读它） |
+| `/opt/litellm/config.yaml` | 59（每个 `ccg/*` 一条） |
+| `/root/.hermes/config.yaml` | 59（custom_providers 每个 CCG 条目） |
+| `/root/.config/opencode/opencode.jsonc` | 1（ccg provider） |
+| `/root/.openclaw/openclaw.json` | 1（ccg provider，另有 `.last-good` 副本） |
+| `/root/.kimi-code/config.toml`、`/root/.pi/agent/{auth,models}.json` | 各 1 |
+
+换完 `systemctl restart commandcode-proxy litellm`，再按上面的 curl 复验。
 
 ## 无法接入 opencode-go 的 agent
 
