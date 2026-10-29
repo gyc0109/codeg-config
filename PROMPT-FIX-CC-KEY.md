@@ -197,3 +197,50 @@ done
 
 **别把真 key 写进任何会提交进 git 的文件或聊天回复的主体里**，仓库一律用
 `${COMMANDCODE_API_KEY}` 占位符。
+
+## 第 6 步：每周模型巡检（这类机器基本都有，不处理的话修复只活到下周）
+
+先把「本机到底有没有巡检、它跑的是谁」查清楚：
+
+```bash
+# a) codeg 自动化（气泡：prompt 存在 sqlite 里）
+python3 - <<'PY'
+import json, os, sqlite3
+p = os.path.expanduser('~/.local/share/codeg/codeg.db')
+if os.path.exists(p):
+    c = sqlite3.connect(p)
+    for aid, name, en, cron, cfg in c.execute(
+            'select id,name,enabled,cron,config from automation'):
+        if not en: continue
+        txt = ''.join(b.get('text', '') for b in json.loads(cfg or '{}').get('prompt_blocks', []))
+        hit = ('COMMANDCODE' in txt) or ('refresh_models' in txt) or ('模型巡检' in txt)
+        print(f'#{aid} {name} cron={cron} 相关={hit} 硬编码key={bool(__import__("re").search(r"user_\\w{30,}", txt))}')
+PY
+
+# b) 系统级调度
+crontab -l 2>/dev/null | grep -Ei 'model|refresh|codeg'
+ls /etc/cron.d/ 2>/dev/null
+systemctl list-timers --all 2>/dev/null | grep -Ei 'model|refresh|codeg'
+launchctl list 2>/dev/null | grep -i codeg        # macOS
+grep -l . ~/Library/LaunchAgents/*codeg* 2>/dev/null
+```
+
+要做的两件事：
+
+1. **巡检提示词里如果硬编码了 key**（上面 `硬编码key=True`）→ 改成从权威 key 文件读：
+   `CCKEY=$(grep -oP 'COMMANDCODE_API_KEY=\K\S+' <权威key文件>)`。像服务器那样已经是 grep 读的，就不用动。
+2. **巡检跑的是部署副本，不是仓库副本**（服务器是 `/root/codeg-work/refresh_models.py`，
+   Mac 通常在 `~/.codeg/` 下）。把 `tools/refresh-models.py` 最新版同步过去，因为它末尾第 10 步会
+   顺手对齐 codex 的 `experimental_bearer_token`、openclaw 的 `authProfiles.store`，并做 key 自检。
+   不同步 = 下周换 key 时同样的坑再踩一遍。
+
+验证（load 低时跑，会重拉上游清单）：
+
+```bash
+python3 <部署副本路径>
+# 期望末尾出现：✓ Command Code key 自检：N 个活配置全部为当前 key
+```
+
+补充：如果巡检是用 `pi` 起的会话，pi 自己的 `~/.pi/agent/models.json` / `auth.json` 里也有 ccg key，
+属于第 2 步②的产物，不要漏。最后确认下一次运行时间（`automation.next_run_at` 或
+`systemctl list-timers`），确保它会在你修好之后真的跑一次。
