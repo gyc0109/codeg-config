@@ -7,8 +7,8 @@
 | open_code | 2.2.0 | binary | 二进制在 `~/.local/share/codeg/acp-binaries/opencode/<ver>/`，见下「升级踩的坑」第 2 条 |
 | deepseek | 0.9.0 | npx | 已是最新 |
 | hermes | 0.22.2 | npx |  |
-| code_buddy | 2.177.0 | npx | 升级**偶发**丢 symlink，需按 `package.json` 的 bin 重建 |
-| kimi_code | 2.3.3 | npx |  |
+| code_buddy | 2.177.1 | npx | 升级**偶发**丢 symlink，需按 `package.json` 的 bin 重建 |
+| kimi_code | 2.4.0 | npx |  |
 | codex | 2.3.0 | npx | 内含 codex-cli 0.164.0；**config.toml 的 model 必须带 provider 前缀**，见下 |
 | cline | 3.0.74 | npx |  |
 | open_claw | 2026.10.4 | npx | **本地超前** registry(2026.9.8)，勿降级；升级后 `openclaw gateway restart` |
@@ -18,7 +18,7 @@
 | cursor | 2026.10.22-27dcf5f | binary | 升级后核实 `agent_setting` |
 | antigravity | 1.4.3 | binary | 见下「antigravity 必须带 `--uid=` 启动」 |
 | kiro | 2.35.1 | system | 官方安装脚本装到 `~/.local/bin`，需软链到 `/usr/local/bin`，见下 |
-| zcode | 0.76.3 | npx | **只是桥，缺后端**：npm 包 `zcode-acp-server`，命令 `zcode-acp`，见下 |
+| zcode | 0.78.0 | npx | **只是桥，缺后端**：npm 包 `zcode-acp-server`，命令 `zcode-acp`，见下 |
 
 registry 里另有 `command_code`（npx，1.88.0）、`trae`（system）和 2026-10-29 新冒出来的
 `minimax_code`（system）三个条目，本机**未安装**。
