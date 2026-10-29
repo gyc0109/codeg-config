@@ -38,3 +38,35 @@
   且 `content` 为空——探测时给足 2000。
 - 别把备份都命名成 `config.yaml`（litellm 和 hermes 同名会互相覆盖）。
 - `ocg/`、`ds/`、`ark/` 的真实 model id 会撞名，前缀不可省。
+
+## 部署（这步最容易漏）
+
+**每周巡检跑的不是这个仓库里的文件，是 `/root/codeg-work/refresh_models.py`。**
+改完 `tools/refresh-models.py` 必须同步过去，否则下周巡检用的还是旧逻辑：
+
+```bash
+cp tools/refresh-models.py /root/codeg-work/refresh_models.py
+python3 -m py_compile /root/codeg-work/refresh_models.py
+```
+
+第 10 步（2026-10-29 新增）专门堵「换 key 换一半」：对齐 codex 的
+`experimental_bearer_token`、openclaw state sqlite 里的 `authProfiles.store`，
+再扫 9 个活配置报出任何非当前 `user_` 令牌。它会打印 `✓ Command Code key 自检`，
+巡检简报里带上这行。
+
+### Command Code key 换新后的完整顺序
+
+```bash
+# 1. 改权威源
+sed -i 's|^COMMANDCODE_API_KEY=.*|COMMANDCODE_API_KEY=<新key>|' /etc/commandcode-proxy.env
+# 2. 单点验通（能拉到 /models 不算数，那个端点免鉴权）
+curl -s -o /dev/null -w '%{http_code}\n' https://api.commandcode.ai/provider/v1/chat/completions \
+  -H "Authorization: Bearer <新key>" -H 'content-type: application/json' \
+  -d '{"model":"z-ai/glm-5.3-flash","max_tokens":8,"messages":[{"role":"user","content":"hi"}]}'
+# 3. 让 refresh_models.py 把产物对齐（会重拉上游清单，最好在 load 低时跑）
+cd /root/codeg-work && python3 refresh_models.py
+# 4. 生成物同步：WINDOWS-CODEG-KIT-with-keys.md / WINDOWS-KIT-COMPACT.md /
+#    mac-out/* / /var/www/dl/<hash>.md
+# 5. 重启并复验
+systemctl restart commandcode-proxy litellm
+```

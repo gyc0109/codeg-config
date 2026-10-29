@@ -317,4 +317,67 @@ old['models'] = items
 json.dump(old, open(p, 'w'), ensure_ascii=False, indent=2)
 print(f"  ✓ codex catalog: {len(items)}（ocg {len(RESP)} ccg {len(CCRESP)} ds {len(DS)} ark {len(ARK)}）")
 
+# ── 10) Command Code key 落点对齐 + 陈旧 key 自检 ──
+# 2026-10-29 事故：CC 侧 key 换掉后只改了「生成器覆盖得到的」文件，结果
+#   /root/.codex/config.toml 的 experimental_bearer_token（脚本不生成）
+#   /root/.openclaw/state/openclaw.sqlite 的 authProfiles.store（脚本不生成）
+# 还留着旧 key，两边看起来正常、实际全 401。这里把这些手改落点也一起对齐，
+# 最后扫一遍活配置里有没有**不是当前 key** 的 user_ 令牌，有就报错。
+import sqlite3 as _sqlite3
+
+# 10a) codex：experimental_bearer_token
+p = '/root/.codex/config.toml'
+if os.path.exists(p):
+    bk(p)
+    t = open(p).read()
+    t2, _n = re.subn(r'(experimental_bearer_token\s*=\s*")[^"]+(")',
+                     lambda m: m.group(1) + CCKEY + m.group(2), t)
+    if _n:
+        open(p, 'w').write(t2)
+    print(f"  ✓ codex config.toml: bearer_token 对齐 {_n} 处")
+
+# 10b) openclaw：authProfiles.store（state sqlite，凭据真正生效的地方）
+p = '/root/.openclaw/state/openclaw.sqlite'
+if os.path.exists(p):
+    try:
+        _c = _sqlite3.connect(p)
+        _row = _c.execute("select value_json from config_machine_state "
+                          "where state_key='authProfiles.store'").fetchone()
+        if _row:
+            _d = json.loads(_row[0])
+            _hit = 0
+            for _nm, _prof in _d.get('profiles', {}).items():
+                if _nm.startswith('ccg') and _prof.get('key') != CCKEY:
+                    _prof['key'] = CCKEY
+                    _hit += 1
+            if _hit:
+                _c.execute("update config_machine_state set value_json=? "
+                           "where state_key='authProfiles.store'",
+                           (json.dumps(_d, ensure_ascii=False),))
+                _c.commit()
+            print(f"  ✓ openclaw authProfiles: ccg 凭据对齐 {_hit} 处")
+        _c.close()
+    except Exception as _e:
+        print(f"  ⚠ openclaw authProfiles 未能对齐（{_e}），人工确认")
+
+# 10c) 自检：活配置里残留的「非当前」user_ 令牌
+LIVE = ['/etc/commandcode-proxy.env', '/opt/litellm/config.yaml',
+        '/root/.hermes/config.yaml', '/root/.config/opencode/opencode.jsonc',
+        '/root/.openclaw/openclaw.json', '/root/.kimi-code/config.toml',
+        '/root/.codex/config.toml', '/root/.pi/agent/auth.json',
+        '/root/.pi/agent/models.json']
+stale = []
+for _f in LIVE:
+    if not os.path.exists(_f):
+        continue
+    for _tok in set(re.findall(r'user_[A-Za-z0-9]{40,}', open(_f, errors='replace').read())):
+        if _tok != CCKEY:
+            stale.append(f"{_f} ({_tok[:12]}…)")
+if stale:
+    print("  ✗ 残留陈旧 Command Code key：")
+    for _s in stale:
+        print(f"      {_s}")
+else:
+    print(f"  ✓ Command Code key 自检：{len(LIVE)} 个活配置全部为当前 key")
+
 print("\n完成。")

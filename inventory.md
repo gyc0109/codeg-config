@@ -62,16 +62,29 @@ curl -s -o /dev/null -w '%{http_code}\n' https://api.commandcode.ai/provider/v1/
   -d '{"model":"z-ai/glm-5.3-flash","max_tokens":8,"messages":[{"role":"user","content":"hi"}]}'
 ```
 
-换 key 时要同步的全部落点（同一个 key 在 6 处硬编码，漏一处就是半死状态）：
+换 key 时要同步的全部落点（同一个 key 散在 8 处，没有单一开关，漏一处就是「半死」：
+一部分 agent 好了、一部分静默 401）：
 
-| 文件 | 处数 |
-| --- | --- |
-| `/etc/commandcode-proxy.env` | 1（**权威源**，:8898 与 refresh-models.py 都读它） |
-| `/opt/litellm/config.yaml` | 59（每个 `ccg/*` 一条） |
-| `/root/.hermes/config.yaml` | 59（custom_providers 每个 CCG 条目） |
-| `/root/.config/opencode/opencode.jsonc` | 1（ccg provider） |
-| `/root/.openclaw/openclaw.json` | 1（ccg provider，另有 `.last-good` 副本） |
-| `/root/.kimi-code/config.toml`、`/root/.pi/agent/{auth,models}.json` | 各 1 |
+| 文件 | 处数 | 谁写的 |
+| --- | --- | --- |
+| `/etc/commandcode-proxy.env` | 1（**权威源**） | 手改；:8898 与 refresh-models.py 都读它 |
+| `/opt/litellm/config.yaml` | 59（每个 `ccg/*` 一条） | refresh-models.py 生成 |
+| `/root/.hermes/config.yaml` | 59（每个 CCG custom_provider） | refresh-models.py 生成 |
+| `/root/.config/opencode/opencode.jsonc` | 1 | refresh-models.py 生成 |
+| `/root/.openclaw/openclaw.json` | 1（另有 `.last-good` 副本） | refresh-models.py 生成 |
+| `/root/.codex/config.toml` | 1（`experimental_bearer_token`） | **手改**，脚本不管 |
+| `/root/.openclaw/state/openclaw.sqlite` | 1（`config_machine_state.authProfiles.store` 的 `ccg:default`） | **手改**，openclaw 真实凭据在这 |
+| `/root/.kimi-code/config.toml`、`/root/.pi/agent/{auth,models}.json` | 各 1 | 生成 |
+
+另有**生成物**会带真 key，换 key 后要重新生成或同步：
+`/root/codeg-work/WINDOWS-CODEG-KIT-with-keys.md`、`WINDOWS-KIT-COMPACT.md`、
+`/root/codeg-work/mac-out/*`、以及 nginx 公开目录里的 `/var/www/dl/<hash>.md`
+（最后这个等于把一个有效 key 放在公网可下载的路径上，换 key 时勿忘记）。
+
+自 2026-10-29 起 `refresh-models.py` 末尾加了第 10 步：自动对齐 codex 的
+`experimental_bearer_token` 与 openclaw 的 `authProfiles.store`，并扫一遍 9 个活配置、
+报出任何「不是当前 key」的 `user_` 令牌。但 **`/etc/commandcode-proxy.env` 本身
+还是要手改**（它是源头，不是产物）。
 
 换完 `systemctl restart commandcode-proxy litellm`，再按上面的 curl 复验。
 
