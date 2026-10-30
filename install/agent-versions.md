@@ -1,24 +1,24 @@
-# agent 版本基线（2026-10-29 升级后）
+# agent 版本基线（2026-10-30 升级后）
 
 | agent | 版本 | 分发 | 备注 |
 | --- | --- | --- | --- |
 | pi | 0.0.34 | npx | 升级会覆盖 `dist/index.js`，需重跑 `pi-acp-provider-label-patch` |
-| claude_code | 0.98.0 | npx |  |
+| claude_code | 0.99.1 | npx |  |
 | open_code | 2.2.0 | binary | 二进制在 `~/.local/share/codeg/acp-binaries/opencode/<ver>/`，见下「升级踩的坑」第 2 条 |
 | deepseek | 0.9.0 | npx | 已是最新 |
 | hermes | 0.22.2 | npx |  |
 | code_buddy | 2.177.1 | npx | 升级**偶发**丢 symlink，需按 `package.json` 的 bin 重建 |
 | kimi_code | 2.4.0 | npx |  |
-| codex | 2.3.0 | npx | 内含 codex-cli 0.164.0；**config.toml 的 model 必须带 provider 前缀**，见下 |
+| codex | 2.5.0 | npx | 内含 codex-cli 0.164.0；**config.toml 的 model 必须带 provider 前缀**，见下 |
 | cline | 3.0.74 | npx |  |
 | open_claw | 2026.10.4 | npx | **本地超前** registry(2026.9.8)，勿降级；升级后 `openclaw gateway restart` |
 | gemini | 0.64.0 | npx | **本地超前** registry(0.60.0)，勿降级；无 Gemini key，暂不可用 |
 | grok | 1.0.70 | npx |  |
-| qoder | 1.1.75 | npx | 升级**偶发**丢 symlink，需按 bin 重建 |
+| qoder | 1.1.81 | npx | 升级**偶发**丢 symlink，需按 bin 重建 |
 | cursor | 2026.10.22-27dcf5f | binary | 升级后核实 `agent_setting` |
-| antigravity | 1.4.3 | binary | 见下「antigravity 必须带 `--uid=` 启动」 |
-| kiro | 2.35.1 | system | 官方安装脚本装到 `~/.local/bin`，需软链到 `/usr/local/bin`，见下 |
-| zcode | 0.78.0 | npx | **只是桥，缺后端**：npm 包 `zcode-acp-server`，命令 `zcode-acp`，见下 |
+| antigravity | 1.4.4 | binary | 见下「antigravity 必须带 `--uid=` 启动」 |
+| kiro | 2.36.0 | system | 官方安装脚本装到 `~/.local/bin`，需软链到 `/usr/local/bin`，见下 |
+| zcode | 0.79.1 | npx | **只是桥，缺后端**：npm 包 `zcode-acp-server`，命令 `zcode-acp`，见下 |
 
 registry 里另有 `command_code`（npx，1.88.0）、`trae`（system）和 2026-10-29 新冒出来的
 `minimax_code`（system）三个条目，本机**未安装**。
@@ -132,7 +132,8 @@ model = "ocg/gpt-6-luna"
   （`gpt-6-luna`、`deepseek-flash`…共 14 个），`meta.json` 的 `defaultModel` 也是裸名，
   所以 codeg 写出来的 `model` 天生就是错的。
 - 直接改 `config.toml` 在 `acp_list_agents` / `acp_detect_agent_local_version` 之后**不会被覆写**；
-  但在 codeg 界面里改 codex 的模型设置会重新生成，需要再改一次。
+  但**升级 codex 本身会重新生成 `config.toml`**（2026-10-30 从 2.3.0 升到 2.5.0 时又变回裸名），
+  在 codeg 界面里改 codex 的模型设置同理。**每次升级 codex 之后都要重新改一遍**。
 - 同一个裸 slug 在 litellm 里往往同时有 `ocg/` 和 `ccg/` 两个同名模型，**挑哪个要按上游**，
   不能盲目批量加别名。
 
