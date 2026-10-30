@@ -14,8 +14,6 @@
         "ocg/kimi-k3": {},
         "ocg/kimi-k3.1-pro": {},
         "ocg/longcat-2.0": {},
-        "ocg/mimo-v2.5": {},
-        "ocg/mimo-v2.5-pro": {},
         "ocg/mimo-v2.6-flash": {},
         "ocg/mimo-v2.6-pro": {},
         "ocg/minimax-m3": {},
@@ -114,8 +112,6 @@
           "ocg/kimi-k3",
           "ocg/kimi-k3.1-pro",
           "ocg/longcat-2.0",
-          "ocg/mimo-v2.5",
-          "ocg/mimo-v2.5-pro",
           "ocg/mimo-v2.6-flash",
           "ocg/mimo-v2.6-pro",
           "ocg/minimax-m3",
@@ -391,30 +387,6 @@
             ],
             "contextWindow": 1000000,
             "maxTokens": 131072
-          },
-          {
-            "id": "mimo-v2.5",
-            "name": "OCG MiMo V2.5",
-            "api": "openai-completions",
-            "reasoning": true,
-            "input": [
-              "text",
-              "image"
-            ],
-            "contextWindow": 1000000,
-            "maxTokens": 128000
-          },
-          {
-            "id": "mimo-v2.5-pro",
-            "name": "OCG MiMo V2.5 Pro",
-            "api": "openai-completions",
-            "reasoning": true,
-            "input": [
-              "text",
-              "image"
-            ],
-            "contextWindow": 1048576,
-            "maxTokens": 128000
           },
           {
             "id": "mimo-v2.6-flash",

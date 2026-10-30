@@ -49,14 +49,6 @@ custom_providers:
   base_url: http://127.0.0.1:8899/v1
   api_key: local
   model: longcat-2.0
-- name: OCG MiMo V2.5
-  base_url: http://127.0.0.1:8899/v1
-  api_key: local
-  model: mimo-v2.5
-- name: OCG MiMo V2.5 Pro
-  base_url: http://127.0.0.1:8899/v1
-  api_key: local
-  model: mimo-v2.5-pro
 - name: OCG MiMo-V2.6-Flash
   base_url: http://127.0.0.1:8899/v1
   api_key: local

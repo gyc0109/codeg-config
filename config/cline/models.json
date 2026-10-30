@@ -168,32 +168,6 @@
             "streaming"
           ]
         },
-        "ocg/mimo-v2.5": {
-          "id": "ocg/mimo-v2.5",
-          "name": "OCG MiMo V2.5",
-          "contextWindow": 1000000,
-          "maxTokens": 128000,
-          "supportsReasoning": true,
-          "supportsVision": true,
-          "supportsAttachments": true,
-          "capabilities": [
-            "tools",
-            "streaming"
-          ]
-        },
-        "ocg/mimo-v2.5-pro": {
-          "id": "ocg/mimo-v2.5-pro",
-          "name": "OCG MiMo V2.5 Pro",
-          "contextWindow": 1048576,
-          "maxTokens": 128000,
-          "supportsReasoning": true,
-          "supportsVision": true,
-          "supportsAttachments": true,
-          "capabilities": [
-            "tools",
-            "streaming"
-          ]
-        },
         "ocg/mimo-v2.6-flash": {
           "id": "ocg/mimo-v2.6-flash",
           "name": "OCG MiMo-V2.6-Flash",
@@ -1287,8 +1261,6 @@
         "ocg/kimi-k3",
         "ocg/kimi-k3.1-pro",
         "ocg/longcat-2.0",
-        "ocg/mimo-v2.5",
-        "ocg/mimo-v2.5-pro",
         "ocg/mimo-v2.6-flash",
         "ocg/mimo-v2.6-pro",
         "ocg/minimax-m3",

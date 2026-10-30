@@ -121,26 +121,6 @@
       "supportsImages": true
     },
     {
-      "id": "ocg/mimo-v2.5",
-      "name": "OCG MiMo V2.5",
-      "url": "http://127.0.0.1:4000/v1",
-      "apiKey": "local",
-      "maxInputTokens": 1000000,
-      "maxOutputTokens": 128000,
-      "supportsReasoning": true,
-      "supportsImages": true
-    },
-    {
-      "id": "ocg/mimo-v2.5-pro",
-      "name": "OCG MiMo V2.5 Pro",
-      "url": "http://127.0.0.1:4000/v1",
-      "apiKey": "local",
-      "maxInputTokens": 1048576,
-      "maxOutputTokens": 128000,
-      "supportsReasoning": true,
-      "supportsImages": true
-    },
-    {
       "id": "ocg/mimo-v2.6-flash",
       "name": "OCG MiMo-V2.6-Flash",
       "url": "http://127.0.0.1:4000/v1",
@@ -984,8 +964,6 @@
     "ocg/kimi-k3",
     "ocg/kimi-k3.1-pro",
     "ocg/longcat-2.0",
-    "ocg/mimo-v2.5",
-    "ocg/mimo-v2.5-pro",
     "ocg/mimo-v2.6-flash",
     "ocg/mimo-v2.6-pro",
     "ocg/minimax-m3",
