@@ -67,6 +67,26 @@
           }
         },
         {
+          "id": "gemini-4-argon",
+          "name": "OCG gemini-4-argon",
+          "provider": "ocg",
+          "baseUrl": "http://127.0.0.1:8899/v1",
+          "api": "openai-completions",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 262144,
+          "maxTokens": 131072,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        },
+        {
           "id": "glm-5.2",
           "name": "OCG GLM-5.2",
           "provider": "ocg",
@@ -159,6 +179,26 @@
           ],
           "contextWindow": 1024000,
           "maxTokens": 64000,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        },
+        {
+          "id": "iceman-contributor-free",
+          "name": "OCG iceman-contributor-free",
+          "provider": "ocg",
+          "baseUrl": "http://127.0.0.1:8899/v1",
+          "api": "openai-completions",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 262144,
+          "maxTokens": 131072,
           "cost": {
             "input": 0,
             "output": 0,
@@ -895,6 +935,26 @@
           }
         },
         {
+          "id": "inclusionai/ling-3.1-flash-1019",
+          "name": "CCG Ling 3.1 Flash 1019",
+          "provider": "ccg",
+          "baseUrl": "https://api.commandcode.ai/provider/v1",
+          "api": "openai-completions",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 1000000,
+          "maxTokens": 131072,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        },
+        {
           "id": "meituan/LongCat-2.0",
           "name": "CCG LongCat 2.0",
           "provider": "ccg",
@@ -1215,6 +1275,26 @@
           }
         },
         {
+          "id": "ornith/ornith-1.5-122b",
+          "name": "CCG Ornith 1.5 122B",
+          "provider": "ccg",
+          "baseUrl": "https://api.commandcode.ai/provider/v1",
+          "api": "openai-completions",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 262144,
+          "maxTokens": 131072,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        },
+        {
           "id": "poolside/laguna-s-2.1-free",
           "name": "CCG Laguna S 2.1",
           "provider": "ccg",
@@ -1237,6 +1317,26 @@
         {
           "id": "reflection/beam:free",
           "name": "CCG Beam 1.0",
+          "provider": "ccg",
+          "baseUrl": "https://api.commandcode.ai/provider/v1",
+          "api": "openai-completions",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 1048576,
+          "maxTokens": 131072,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        },
+        {
+          "id": "stealth/crouton-alpha",
+          "name": "CCG Crouton Alpha",
           "provider": "ccg",
           "baseUrl": "https://api.commandcode.ai/provider/v1",
           "api": "openai-completions",

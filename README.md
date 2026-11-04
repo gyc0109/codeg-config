@@ -99,13 +99,18 @@ codeg 前端把 agent 上报的 model configOption 拆成「分组 + 条目」
 `longcat-2.5-preview-free` / `minimax-m3.1-flash-free` / `step-5-preview-free` 已全部下线
 （`space-bunny-free` 更早已改成付费的 `space-bunny`）。所有默认模型改用 `beam-free`。
 
-实测 37 个模型（权威来源 `GET /zen/go/v1/models`）：
+实测 28 个模型（权威来源 `GET /zen/go/v1/models`）：
 
 | 分类 | 数量 | 说明 |
 | --- | --- | --- |
-| chat 可用 | **28** | 所有 chat agent |
-| responses 可用 | **8** | codex |
-| 两种都不可用 | 2 | `claude-haiku-5-5`（套餐外）、`minimax-m2.7` |
+| chat 可用 | **22** | 所有 chat agent |
+| responses 可用 | **12** | codex |
+| 两者并集 | **27** | LiteLLM 的 `ocg/` 必须按并集生成 |
+| 两种都不可用 | 1 | `claude-haiku-5-5`（套餐外） |
+
+> 2026-11-05 刷新：清单**无增减**（28 个，与上周一致），但 `gemini-4-argon`、
+> `iceman-contributor-free`（免费档，均为 chat + responses 全通）此前从未被纳入配置，
+> 本次补上 → chat 20→22、responses 10→12；`mimo-v2.5`/`mimo-v2.5-pro` 已从清单消失。
 
 > 2026-10-20 刷新：新增 `minimax-m3.1-flash-free`（仅 chat，`/responses` 报
 > `ModelProtocolUnsupported`）；**下线 `space-bunny`**（付费档也撤了）。
@@ -116,7 +121,7 @@ codeg 前端把 agent 上报的 model configOption 拆成「分组 + 条目」
 > 注意 `GET /zen/go/v1/models` **只返回 id**，不带上下文窗口；上下文要从
 > opencode 的 models.dev 缓存 `~/.cache/opencode/models.json` 取（provider `opencode-go`）。
 
-**LiteLLM 的 ocg/ 必须是 chat ∪ responses 的并集（34 个）**，不能只放 responses 子集——
+**LiteLLM 的 ocg/ 必须是 chat ∪ responses 的并集（27 个）**，不能只放 responses 子集——
 因为 cline / code_buddy / grok / deepseek 走的是 LiteLLM 的 **chat** 端点，
 只放 responses 子集会让它们连默认模型都找不到。
 
@@ -169,11 +174,15 @@ LiteLLM（:4000）另加了 `ds/` 两条（转发给 :8899）。
 
 | 用途 | 数量 | 备注 |
 | --- | --- | --- |
-| chat 可用 | **60** | 所有 chat agent（opencode/kimi/hermes/pi/cline/grok/deepseek） |
+| chat 可用 | **62** | 所有 chat agent（opencode/kimi/hermes/pi/cline/grok/deepseek） |
 | responses 可用 | **50** | codex（必须是 responses 的子集） |
 | messages 可用 | **2** | `claude-sonnet-5-5`、`claude-haiku-5-5` |
-| 套餐外 | 14 | `gpt-5.5/5.4/6-sol/6-astra`、`gemini-3.5/3.6`、`muse-spark-1.1` 等 |
+| 套餐外 | 17 | `gpt-5.5/5.4/6-sol/6-astra`、`gpt-6.1-terra`、`gemini-3.5/3.6`、`muse-spark-1.1` 等 |
 | 在套餐但上游不可用 | 8 | `MiniMax-M2.7`、`GLM-5.1`、`Step-3.5-Flash`、`inkling`×2、`ling-3.0-flash-sante:free`、`laguna-s-2.1-free`、`mimo-v2.5` |
+
+> 2026-11-05 刷新：清单 94→96，新增 `stealth/crouton-alpha`、`inclusionai/ling-3.1-flash-1019`
+> （均仅 chat，实测通过）；顺手补上此前从未分类的 `ornith/ornith-1.5-122b`（仅 chat，可用）
+> 和 `gpt-6.1-terra`（`MODEL_NOT_IN_PLAN`）；`xiaomi/mimo-v2.5-pro` 已从清单消失。
 
 > 2026-10-20 刷新：新增 `minimax/minimax-m3.1-flash`、`minimax/minimax-m3.1-flash:free`
 > （仅 chat）、`reflection/beam:free`（chat + responses，已替代 codex catalog 里的

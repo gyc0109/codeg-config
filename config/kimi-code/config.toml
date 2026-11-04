@@ -40,6 +40,11 @@ provider = "opencode-go"
 model = "deepseek-v4.1-flash"
 max_context_size = 1000000
 
+[models."ocg/gemini-4-argon"]
+provider = "opencode-go"
+model = "gemini-4-argon"
+max_context_size = 262144
+
 [models."ocg/glm-5.2"]
 provider = "opencode-go"
 model = "glm-5.2"
@@ -64,6 +69,11 @@ max_context_size = 256000
 provider = "opencode-go"
 model = "hy4-preview"
 max_context_size = 1024000
+
+[models."ocg/iceman-contributor-free"]
+provider = "opencode-go"
+model = "iceman-contributor-free"
+max_context_size = 262144
 
 [models."ocg/kimi-k2.7-code"]
 provider = "opencode-go"
@@ -245,6 +255,11 @@ provider = "commandcode"
 model = "inclusionai/ling-3.1-flash"
 max_context_size = 262144
 
+[models."ccg/inclusionai/ling-3.1-flash-1019"]
+provider = "commandcode"
+model = "inclusionai/ling-3.1-flash-1019"
+max_context_size = 1000000
+
 [models."ccg/meituan/LongCat-2.0"]
 provider = "commandcode"
 model = "meituan/LongCat-2.0"
@@ -325,6 +340,11 @@ provider = "commandcode"
 model = "nvidia/nemotron-3.5-super-vl"
 max_context_size = 262144
 
+[models."ccg/ornith/ornith-1.5-122b"]
+provider = "commandcode"
+model = "ornith/ornith-1.5-122b"
+max_context_size = 262144
+
 [models."ccg/poolside/laguna-s-2.1-free"]
 provider = "commandcode"
 model = "poolside/laguna-s-2.1-free"
@@ -333,6 +353,11 @@ max_context_size = 256000
 [models."ccg/reflection/beam:free"]
 provider = "commandcode"
 model = "reflection/beam:free"
+max_context_size = 1048576
+
+[models."ccg/stealth/crouton-alpha"]
+provider = "commandcode"
+model = "stealth/crouton-alpha"
 max_context_size = 1048576
 
 [models."ccg/stealth/glyph-cluster:free"]

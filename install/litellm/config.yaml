@@ -2,6 +2,22 @@ model_list:
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 - model_name: ocg/beam-free
   litellm_params:
     model: openai/beam-free
@@ -43,6 +59,14 @@ model_list:
     additional_drop_params: *id001
   model_info:
     id: ocg/deepseek-v4.1-flash
+- model_name: ocg/gemini-4-argon
+  litellm_params:
+    model: openai/gemini-4-argon
+    api_base: http://127.0.0.1:8899/v1
+    api_key: local
+    additional_drop_params: *id001
+  model_info:
+    id: ocg/gemini-4-argon
 - model_name: ocg/glm-5.2
   litellm_params:
     model: openai/glm-5.2
@@ -107,6 +131,14 @@ model_list:
     additional_drop_params: *id001
   model_info:
     id: ocg/hy4-preview
+- model_name: ocg/iceman-contributor-free
+  litellm_params:
+    model: openai/iceman-contributor-free
+    api_base: http://127.0.0.1:8899/v1
+    api_key: local
+    additional_drop_params: *id001
+  model_info:
+    id: ocg/iceman-contributor-free
 - model_name: ocg/kimi-k2.7-code
   litellm_params:
     model: openai/kimi-k2.7-code
@@ -411,6 +443,14 @@ model_list:
     additional_drop_params: *id001
   model_info:
     id: ccg/inclusionai/ling-3.1-flash
+- model_name: ccg/inclusionai/ling-3.1-flash-1019
+  litellm_params:
+    model: openai/inclusionai/ling-3.1-flash-1019
+    api_base: https://api.commandcode.ai/provider/v1
+    api_key: ${COMMANDCODE_API_KEY}
+    additional_drop_params: *id001
+  model_info:
+    id: ccg/inclusionai/ling-3.1-flash-1019
 - model_name: ccg/meituan/LongCat-2.0
   litellm_params:
     model: openai/meituan/LongCat-2.0
@@ -539,6 +579,14 @@ model_list:
     additional_drop_params: *id001
   model_info:
     id: ccg/nvidia/nemotron-3.5-super-vl
+- model_name: ccg/ornith/ornith-1.5-122b
+  litellm_params:
+    model: openai/ornith/ornith-1.5-122b
+    api_base: https://api.commandcode.ai/provider/v1
+    api_key: ${COMMANDCODE_API_KEY}
+    additional_drop_params: *id001
+  model_info:
+    id: ccg/ornith/ornith-1.5-122b
 - model_name: ccg/poolside/laguna-s-2.1-free
   litellm_params:
     model: openai/poolside/laguna-s-2.1-free
@@ -555,6 +603,14 @@ model_list:
     additional_drop_params: *id001
   model_info:
     id: ccg/reflection/beam:free
+- model_name: ccg/stealth/crouton-alpha
+  litellm_params:
+    model: openai/stealth/crouton-alpha
+    api_base: https://api.commandcode.ai/provider/v1
+    api_key: ${COMMANDCODE_API_KEY}
+    additional_drop_params: *id001
+  model_info:
+    id: ccg/stealth/crouton-alpha
 - model_name: ccg/stealth/glyph-cluster:free
   litellm_params:
     model: openai/stealth/glyph-cluster:free

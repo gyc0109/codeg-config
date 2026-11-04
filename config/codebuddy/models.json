@@ -31,6 +31,16 @@
       "supportsImages": true
     },
     {
+      "id": "ocg/gemini-4-argon",
+      "name": "OCG gemini-4-argon",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 262144,
+      "maxOutputTokens": 131072,
+      "supportsReasoning": true,
+      "supportsImages": true
+    },
+    {
       "id": "ocg/glm-5.2",
       "name": "OCG GLM-5.2",
       "url": "http://127.0.0.1:4000/v1",
@@ -77,6 +87,16 @@
       "apiKey": "local",
       "maxInputTokens": 1024000,
       "maxOutputTokens": 64000,
+      "supportsReasoning": true,
+      "supportsImages": true
+    },
+    {
+      "id": "ocg/iceman-contributor-free",
+      "name": "OCG iceman-contributor-free",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 262144,
+      "maxOutputTokens": 131072,
       "supportsReasoning": true,
       "supportsImages": true
     },
@@ -441,6 +461,16 @@
       "supportsImages": true
     },
     {
+      "id": "ccg/inclusionai/ling-3.1-flash-1019",
+      "name": "CCG Ling 3.1 Flash 1019",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 1000000,
+      "maxOutputTokens": 131072,
+      "supportsReasoning": true,
+      "supportsImages": true
+    },
+    {
       "id": "ccg/meituan/LongCat-2.0",
       "name": "CCG LongCat 2.0",
       "url": "http://127.0.0.1:4000/v1",
@@ -601,6 +631,16 @@
       "supportsImages": true
     },
     {
+      "id": "ccg/ornith/ornith-1.5-122b",
+      "name": "CCG Ornith 1.5 122B",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 262144,
+      "maxOutputTokens": 131072,
+      "supportsReasoning": true,
+      "supportsImages": true
+    },
+    {
       "id": "ccg/poolside/laguna-s-2.1-free",
       "name": "CCG Laguna S 2.1",
       "url": "http://127.0.0.1:4000/v1",
@@ -613,6 +653,16 @@
     {
       "id": "ccg/reflection/beam:free",
       "name": "CCG Beam 1.0",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 1048576,
+      "maxOutputTokens": 131072,
+      "supportsReasoning": true,
+      "supportsImages": true
+    },
+    {
+      "id": "ccg/stealth/crouton-alpha",
+      "name": "CCG Crouton Alpha",
       "url": "http://127.0.0.1:4000/v1",
       "apiKey": "local",
       "maxInputTokens": 1048576,
@@ -955,11 +1005,13 @@
     "ocg/beam-free",
     "ocg/deepseek-v4-pro",
     "ocg/deepseek-v4.1-flash",
+    "ocg/gemini-4-argon",
     "ocg/glm-5.2",
     "ocg/glm-5.3",
     "ocg/glm-5.3-flash",
     "ocg/hy3",
     "ocg/hy4-preview",
+    "ocg/iceman-contributor-free",
     "ocg/kimi-k2.7-code",
     "ocg/kimi-k3",
     "ocg/kimi-k3.1-pro",
@@ -996,6 +1048,7 @@
     "ccg/gpt-5.6-sol",
     "ccg/gpt-6-luna",
     "ccg/inclusionai/ling-3.1-flash",
+    "ccg/inclusionai/ling-3.1-flash-1019",
     "ccg/meituan/LongCat-2.0",
     "ccg/meta/muse-spark-1.2",
     "ccg/meta/muse-spark-1.2-contributor",
@@ -1012,8 +1065,10 @@
     "ccg/moonshotai/Kimi-K3.1-Pro",
     "ccg/nvidia/nemotron-3-ultra-550b-a55b",
     "ccg/nvidia/nemotron-3.5-super-vl",
+    "ccg/ornith/ornith-1.5-122b",
     "ccg/poolside/laguna-s-2.1-free",
     "ccg/reflection/beam:free",
+    "ccg/stealth/crouton-alpha",
     "ccg/stealth/glyph-cluster:free",
     "ccg/stepfun/Step-3.7-Flash",
     "ccg/stepfun/Step-5-Preview",

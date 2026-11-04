@@ -5,11 +5,13 @@
         "ocg/beam-free": {},
         "ocg/deepseek-v4-pro": {},
         "ocg/deepseek-v4.1-flash": {},
+        "ocg/gemini-4-argon": {},
         "ocg/glm-5.2": {},
         "ocg/glm-5.3": {},
         "ocg/glm-5.3-flash": {},
         "ocg/hy3": {},
         "ocg/hy4-preview": {},
+        "ocg/iceman-contributor-free": {},
         "ocg/kimi-k2.7-code": {},
         "ocg/kimi-k3": {},
         "ocg/kimi-k3.1-pro": {},
@@ -46,6 +48,7 @@
         "ccg/gpt-5.6-sol": {},
         "ccg/gpt-6-luna": {},
         "ccg/inclusionai/ling-3.1-flash": {},
+        "ccg/inclusionai/ling-3.1-flash-1019": {},
         "ccg/meituan/LongCat-2.0": {},
         "ccg/meta/muse-spark-1.2": {},
         "ccg/meta/muse-spark-1.2-contributor": {},
@@ -62,8 +65,10 @@
         "ccg/moonshotai/Kimi-K3.1-Pro": {},
         "ccg/nvidia/nemotron-3-ultra-550b-a55b": {},
         "ccg/nvidia/nemotron-3.5-super-vl": {},
+        "ccg/ornith/ornith-1.5-122b": {},
         "ccg/poolside/laguna-s-2.1-free": {},
         "ccg/reflection/beam:free": {},
+        "ccg/stealth/crouton-alpha": {},
         "ccg/stealth/glyph-cluster:free": {},
         "ccg/stepfun/Step-3.7-Flash": {},
         "ccg/stepfun/Step-5-Preview": {},
@@ -103,11 +108,13 @@
           "ocg/beam-free",
           "ocg/deepseek-v4-pro",
           "ocg/deepseek-v4.1-flash",
+          "ocg/gemini-4-argon",
           "ocg/glm-5.2",
           "ocg/glm-5.3",
           "ocg/glm-5.3-flash",
           "ocg/hy3",
           "ocg/hy4-preview",
+          "ocg/iceman-contributor-free",
           "ocg/kimi-k2.7-code",
           "ocg/kimi-k3",
           "ocg/kimi-k3.1-pro",
@@ -144,6 +151,7 @@
           "ccg/gpt-5.6-sol",
           "ccg/gpt-6-luna",
           "ccg/inclusionai/ling-3.1-flash",
+          "ccg/inclusionai/ling-3.1-flash-1019",
           "ccg/meituan/LongCat-2.0",
           "ccg/meta/muse-spark-1.2",
           "ccg/meta/muse-spark-1.2-contributor",
@@ -160,8 +168,10 @@
           "ccg/moonshotai/Kimi-K3.1-Pro",
           "ccg/nvidia/nemotron-3-ultra-550b-a55b",
           "ccg/nvidia/nemotron-3.5-super-vl",
+          "ccg/ornith/ornith-1.5-122b",
           "ccg/poolside/laguna-s-2.1-free",
           "ccg/reflection/beam:free",
+          "ccg/stealth/crouton-alpha",
           "ccg/stealth/glyph-cluster:free",
           "ccg/stepfun/Step-3.7-Flash",
           "ccg/stepfun/Step-5-Preview",
@@ -281,6 +291,18 @@
             "maxTokens": 384000
           },
           {
+            "id": "gemini-4-argon",
+            "name": "OCG gemini-4-argon",
+            "api": "openai-completions",
+            "reasoning": true,
+            "input": [
+              "text",
+              "image"
+            ],
+            "contextWindow": 262144,
+            "maxTokens": 131072
+          },
+          {
             "id": "glm-5.2",
             "name": "OCG GLM-5.2",
             "api": "openai-completions",
@@ -339,6 +361,18 @@
             ],
             "contextWindow": 1024000,
             "maxTokens": 64000
+          },
+          {
+            "id": "iceman-contributor-free",
+            "name": "OCG iceman-contributor-free",
+            "api": "openai-completions",
+            "reasoning": true,
+            "input": [
+              "text",
+              "image"
+            ],
+            "contextWindow": 262144,
+            "maxTokens": 131072
           },
           {
             "id": "kimi-k2.7-code",
@@ -780,6 +814,18 @@
             "maxTokens": 131072
           },
           {
+            "id": "inclusionai/ling-3.1-flash-1019",
+            "name": "CCG Ling 3.1 Flash 1019",
+            "api": "openai-completions",
+            "reasoning": true,
+            "input": [
+              "text",
+              "image"
+            ],
+            "contextWindow": 1000000,
+            "maxTokens": 131072
+          },
+          {
             "id": "meituan/LongCat-2.0",
             "name": "CCG LongCat 2.0",
             "api": "openai-completions",
@@ -972,6 +1018,18 @@
             "maxTokens": 131072
           },
           {
+            "id": "ornith/ornith-1.5-122b",
+            "name": "CCG Ornith 1.5 122B",
+            "api": "openai-completions",
+            "reasoning": true,
+            "input": [
+              "text",
+              "image"
+            ],
+            "contextWindow": 262144,
+            "maxTokens": 131072
+          },
+          {
             "id": "poolside/laguna-s-2.1-free",
             "name": "CCG Laguna S 2.1",
             "api": "openai-completions",
@@ -986,6 +1044,18 @@
           {
             "id": "reflection/beam:free",
             "name": "CCG Beam 1.0",
+            "api": "openai-completions",
+            "reasoning": true,
+            "input": [
+              "text",
+              "image"
+            ],
+            "contextWindow": 1048576,
+            "maxTokens": 131072
+          },
+          {
+            "id": "stealth/crouton-alpha",
+            "name": "CCG Crouton Alpha",
             "api": "openai-completions",
             "reasoning": true,
             "input": [

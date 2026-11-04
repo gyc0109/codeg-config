@@ -17,6 +17,9 @@ llm-pi-ai:
         - id: ocg/deepseek-v4.1-flash
           name: OCG deepseek-v4.1-flash
           contextWindow: 1000000
+        - id: ocg/gemini-4-argon
+          name: OCG gemini-4-argon
+          contextWindow: 262144
         - id: ocg/glm-5.2
           name: OCG glm-5.2
           contextWindow: 1000000
@@ -32,6 +35,9 @@ llm-pi-ai:
         - id: ocg/hy4-preview
           name: OCG hy4-preview
           contextWindow: 1024000
+        - id: ocg/iceman-contributor-free
+          name: OCG iceman-contributor-free
+          contextWindow: 262144
         - id: ocg/kimi-k2.7-code
           name: OCG kimi-k2.7-code
           contextWindow: 262144
@@ -146,6 +152,9 @@ llm-pi-ai:
         - id: ccg/inclusionai/ling-3.1-flash
           name: CCG inclusionai/ling-3.1-flash
           contextWindow: 262144
+        - id: ccg/inclusionai/ling-3.1-flash-1019
+          name: CCG inclusionai/ling-3.1-flash-1019
+          contextWindow: 1000000
         - id: ccg/meituan/LongCat-2.0
           name: CCG meituan/LongCat-2.0
           contextWindow: 1048576
@@ -194,11 +203,17 @@ llm-pi-ai:
         - id: ccg/nvidia/nemotron-3.5-super-vl
           name: CCG nvidia/nemotron-3.5-super-vl
           contextWindow: 262144
+        - id: ccg/ornith/ornith-1.5-122b
+          name: CCG ornith/ornith-1.5-122b
+          contextWindow: 262144
         - id: ccg/poolside/laguna-s-2.1-free
           name: CCG poolside/laguna-s-2.1-free
           contextWindow: 256000
         - id: ccg/reflection/beam:free
           name: CCG reflection/beam:free
+          contextWindow: 1048576
+        - id: ccg/stealth/crouton-alpha
+          name: CCG stealth/crouton-alpha
           contextWindow: 1048576
         - id: ccg/stealth/glyph-cluster:free
           name: CCG stealth/glyph-cluster:free
