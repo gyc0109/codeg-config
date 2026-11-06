@@ -99,14 +99,19 @@ codeg 前端把 agent 上报的 model configOption 拆成「分组 + 条目」
 `longcat-2.5-preview-free` / `minimax-m3.1-flash-free` / `step-5-preview-free` 已全部下线
 （`space-bunny-free` 更早已改成付费的 `space-bunny`）。所有默认模型改用 `beam-free`。
 
-实测 28 个模型（权威来源 `GET /zen/go/v1/models`）：
+实测 30 个模型（权威来源 `GET /zen/go/v1/models`）：
 
 | 分类 | 数量 | 说明 |
 | --- | --- | --- |
-| chat 可用 | **22** | 所有 chat agent |
-| responses 可用 | **12** | codex |
-| 两者并集 | **27** | LiteLLM 的 `ocg/` 必须按并集生成 |
+| chat 可用 | **24** | 所有 chat agent |
+| responses 可用 | **14** | codex |
+| 两者并集 | **29** | LiteLLM 的 `ocg/` 必须按并集生成 |
 | 两种都不可用 | 1 | `claude-haiku-5-5`（套餐外） |
+
+> 2026-11-07 刷新：清单 28→30，新增 `hy4`（Hy4 正式版，1M ctx / 64K out，多模态，
+> chat + responses 全通）、`crouton-alpha-free`（新的免费 stealth 推理模型，1M ctx /
+> 270K out，文本+图片+视频+PDF，chat + responses 全通）。无下线 → chat 22→24、
+> responses 12→14、并集 27→29。`hy4-preview` 仍在清单里，两者并存。
 
 > 2026-11-05 刷新：清单**无增减**（28 个，与上周一致），但 `gemini-4-argon`、
 > `iceman-contributor-free`（免费档，均为 chat + responses 全通）此前从未被纳入配置，
@@ -121,7 +126,7 @@ codeg 前端把 agent 上报的 model configOption 拆成「分组 + 条目」
 > 注意 `GET /zen/go/v1/models` **只返回 id**，不带上下文窗口；上下文要从
 > opencode 的 models.dev 缓存 `~/.cache/opencode/models.json` 取（provider `opencode-go`）。
 
-**LiteLLM 的 ocg/ 必须是 chat ∪ responses 的并集（27 个）**，不能只放 responses 子集——
+**LiteLLM 的 ocg/ 必须是 chat ∪ responses 的并集（29 个）**，不能只放 responses 子集——
 因为 cline / code_buddy / grok / deepseek 走的是 LiteLLM 的 **chat** 端点，
 只放 responses 子集会让它们连默认模型都找不到。
 
@@ -174,11 +179,16 @@ LiteLLM（:4000）另加了 `ds/` 两条（转发给 :8899）。
 
 | 用途 | 数量 | 备注 |
 | --- | --- | --- |
-| chat 可用 | **62** | 所有 chat agent（opencode/kimi/hermes/pi/cline/grok/deepseek） |
-| responses 可用 | **50** | codex（必须是 responses 的子集） |
+| chat 可用 | **61** | 所有 chat agent（opencode/kimi/hermes/pi/cline/grok/deepseek） |
+| responses 可用 | **49** | codex（必须是 responses 的子集） |
 | messages 可用 | **2** | `claude-sonnet-5-5`、`claude-haiku-5-5` |
 | 套餐外 | 17 | `gpt-5.5/5.4/6-sol/6-astra`、`gpt-6.1-terra`、`gemini-3.5/3.6`、`muse-spark-1.1` 等 |
-| 在套餐但上游不可用 | 8 | `MiniMax-M2.7`、`GLM-5.1`、`Step-3.5-Flash`、`inkling`×2、`ling-3.0-flash-sante:free`、`laguna-s-2.1-free`、`mimo-v2.5` |
+| 在套餐但上游不可用 | 7 | `MiniMax-M2.7`、`GLM-5.1`、`Step-3.5-Flash`、`inkling`×2、`ling-3.0-flash-sante:free`、`mimo-v2.5` |
+
+> 2026-11-07 刷新：清单 96→95，**下线 `poolside/laguna-s-2.1-free`**——不是权限问题，
+> 是官方把免费档关了（`permission_error / FORBIDDEN`："The free Laguna S 2.1 tier ended
+> on November 4, 2026"）。无新增 → chat 62→61、responses 50→49。所有配置里的
+> `ccg/poolside/laguna-s-2.1-free` 引用（LiteLLM/kimi/openclaw/cline）已一并清掉。
 
 > 2026-11-05 刷新：清单 94→96，新增 `stealth/crouton-alpha`、`inclusionai/ling-3.1-flash-1019`
 > （均仅 chat，实测通过）；顺手补上此前从未分类的 `ornith/ornith-1.5-122b`（仅 chat，可用）
@@ -198,17 +208,17 @@ LiteLLM（:4000）另加了 `ds/` 两条（转发给 :8899）。
 
 | Agent | OCG | CCG | 前缀形式 | 实测 |
 | --- | --- | --- | --- | --- |
-| opencode (`open_code`) | ✅ 28 | ✅ 59 | `ocg/` `ccg/` 别名 | ✅ |
-| kimi (`kimi_code`) | ✅ 28 | ✅ 59 | `ocg/` `ccg/` 别名 | ✅ |
-| hermes | ✅ 28 | ✅ 59 | `OCG`/`CCG` 名 | ✅ |
-| pi | ✅ 28 | ✅ 59 | provider `ocg`/`ccg` | ✅ |
-| claude_code | ✅ 36 | ✅ 47 | `ccg/`(LiteLLM :4000) | ✅ |
-| codex | ✅ 11 | ✅ 50 | catalog `OCG`/`CCG` | ✅ |
+| opencode (`open_code`) | ✅ 24 | ✅ 61 | `ocg/` `ccg/` 别名 | ✅ |
+| kimi (`kimi_code`) | ✅ 24 | ✅ 61 | `ocg/` `ccg/` 别名 | ✅ |
+| hermes | ✅ 24 | ✅ 61 | `OCG`/`CCG` 名 | ✅ |
+| pi | ✅ 24 | ✅ 61 | provider `ocg`/`ccg` | ✅ |
+| claude_code | ✅ 29 | ✅ 61 | `ccg/`(LiteLLM :4000) | ✅ |
+| codex | ✅ 14 | ✅ 49 | catalog `OCG`/`CCG` | ✅ |
 | grok | ✅ | ✅ `xai/grok-4.7` | 经 LiteLLM 前缀 | ✅ |
 | deepseek | ✅ | ✅ `deepseek-v4.1-flash` | 经 LiteLLM 前缀 | ✅ |
 | cline | ✅ | ✅ | 单 provider 指向 LiteLLM，改 model 字符串即可 | ✅ |
-| code_buddy | ✅ 28 | ✅ 59 | `~/.codebuddy/models.json` + `CODEBUDDY_BASE_URL` | ✅ |
-| **open_claw** | ✅ 28 | ✅ 59 | `models.providers` 自定义 `ocg`/`ccg` | ✅ |
+| code_buddy | ✅ 24 | ✅ 61 | `~/.codebuddy/models.json` + `CODEBUDDY_BASE_URL` | ✅ |
+| **open_claw** | ✅ 24 | ✅ 61 | `models.providers` 自定义 `ocg`/`ccg` | ✅ |
 | code_buddy | ~~❌~~ ✅ |  |  |  |
 
 > pi 的坑：`models-store.json` 只是**模型缓存**，provider 定义在 **`models.json`**

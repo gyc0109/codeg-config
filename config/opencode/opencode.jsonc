@@ -15,6 +15,12 @@
           "contextWindow": 262144,
           "maxTokens": 131072
         },
+        "crouton-alpha-free": {
+          "name": "OCG Crouton Alpha Free",
+          "id": "crouton-alpha-free",
+          "contextWindow": 1048576,
+          "maxTokens": 270000
+        },
         "deepseek-v4-pro": {
           "name": "OCG DeepSeek V4 Pro (New)",
           "id": "deepseek-v4-pro",
@@ -56,6 +62,12 @@
           "id": "hy3",
           "contextWindow": 256000,
           "maxTokens": 128000
+        },
+        "hy4": {
+          "name": "OCG Hy4",
+          "id": "hy4",
+          "contextWindow": 1048576,
+          "maxTokens": 65536
         },
         "hy4-preview": {
           "name": "OCG Hy4 preview",
@@ -401,12 +413,6 @@
           "name": "CCG Ornith 1.5 122B",
           "id": "ornith/ornith-1.5-122b",
           "contextWindow": 262144,
-          "maxTokens": 131072
-        },
-        "poolside/laguna-s-2.1-free": {
-          "name": "CCG Laguna S 2.1",
-          "id": "poolside/laguna-s-2.1-free",
-          "contextWindow": 256000,
           "maxTokens": 131072
         },
         "reflection/beam:free": {

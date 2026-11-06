@@ -792,19 +792,6 @@
             "streaming"
           ]
         },
-        "ccg/poolside/laguna-s-2.1-free": {
-          "id": "ccg/poolside/laguna-s-2.1-free",
-          "name": "CCG Laguna S 2.1",
-          "contextWindow": 256000,
-          "maxTokens": 131072,
-          "supportsReasoning": true,
-          "supportsVision": true,
-          "supportsAttachments": true,
-          "capabilities": [
-            "tools",
-            "streaming"
-          ]
-        },
         "ccg/reflection/beam:free": {
           "id": "ccg/reflection/beam:free",
           "name": "CCG Beam 1.0",
@@ -1309,7 +1296,6 @@
         "ccg/moonshotai/Kimi-K3.1-Pro",
         "ccg/nvidia/nemotron-3-ultra-550b-a55b",
         "ccg/nvidia/nemotron-3.5-super-vl",
-        "ccg/poolside/laguna-s-2.1-free",
         "ccg/reflection/beam:free",
         "ccg/stealth/glyph-cluster:free",
         "ccg/stepfun/Step-3.7-Flash",

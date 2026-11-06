@@ -18,6 +18,8 @@ model_list:
 
 
 
+
+
 - model_name: ocg/beam-free
   litellm_params:
     model: openai/beam-free
@@ -43,6 +45,14 @@ model_list:
         - max_tool_calls
   model_info:
     id: ocg/beam-free
+- model_name: ocg/crouton-alpha-free
+  litellm_params:
+    model: openai/crouton-alpha-free
+    api_base: http://127.0.0.1:8899/v1
+    api_key: local
+    additional_drop_params: *id001
+  model_info:
+    id: ocg/crouton-alpha-free
 - model_name: ocg/deepseek-v4-pro
   litellm_params:
     model: openai/deepseek-v4-pro
@@ -123,6 +133,14 @@ model_list:
     additional_drop_params: *id001
   model_info:
     id: ocg/hy3
+- model_name: ocg/hy4
+  litellm_params:
+    model: openai/hy4
+    api_base: http://127.0.0.1:8899/v1
+    api_key: local
+    additional_drop_params: *id001
+  model_info:
+    id: ocg/hy4
 - model_name: ocg/hy4-preview
   litellm_params:
     model: openai/hy4-preview
@@ -587,14 +605,6 @@ model_list:
     additional_drop_params: *id001
   model_info:
     id: ccg/ornith/ornith-1.5-122b
-- model_name: ccg/poolside/laguna-s-2.1-free
-  litellm_params:
-    model: openai/poolside/laguna-s-2.1-free
-    api_base: https://api.commandcode.ai/provider/v1
-    api_key: ${COMMANDCODE_API_KEY}
-    additional_drop_params: *id001
-  model_info:
-    id: ccg/poolside/laguna-s-2.1-free
 - model_name: ccg/reflection/beam:free
   litellm_params:
     model: openai/reflection/beam:free

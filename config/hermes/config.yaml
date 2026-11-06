@@ -5,6 +5,10 @@ custom_providers:
   base_url: http://127.0.0.1:8899/v1
   api_key: local
   model: beam-free
+- name: OCG Crouton Alpha Free
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: crouton-alpha-free
 - name: OCG DeepSeek V4 Pro (New)
   base_url: http://127.0.0.1:8899/v1
   api_key: local
@@ -33,6 +37,10 @@ custom_providers:
   base_url: http://127.0.0.1:8899/v1
   api_key: local
   model: hy3
+- name: OCG Hy4
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: hy4
 - name: OCG Hy4 preview
   base_url: http://127.0.0.1:8899/v1
   api_key: local
@@ -257,10 +265,6 @@ custom_providers:
   base_url: https://api.commandcode.ai/provider/v1
   api_key: ${COMMANDCODE_API_KEY}
   model: ornith/ornith-1.5-122b
-- name: CCG Laguna S 2.1
-  base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${COMMANDCODE_API_KEY}
-  model: poolside/laguna-s-2.1-free
 - name: CCG Beam 1.0
   base_url: https://api.commandcode.ai/provider/v1
   api_key: ${COMMANDCODE_API_KEY}

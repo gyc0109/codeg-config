@@ -11,6 +11,16 @@
       "supportsImages": true
     },
     {
+      "id": "ocg/crouton-alpha-free",
+      "name": "OCG Crouton Alpha Free",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 1048576,
+      "maxOutputTokens": 270000,
+      "supportsReasoning": true,
+      "supportsImages": true
+    },
+    {
       "id": "ocg/deepseek-v4-pro",
       "name": "OCG DeepSeek V4 Pro (New)",
       "url": "http://127.0.0.1:4000/v1",
@@ -77,6 +87,16 @@
       "apiKey": "local",
       "maxInputTokens": 256000,
       "maxOutputTokens": 128000,
+      "supportsReasoning": true,
+      "supportsImages": true
+    },
+    {
+      "id": "ocg/hy4",
+      "name": "OCG Hy4",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 1048576,
+      "maxOutputTokens": 65536,
       "supportsReasoning": true,
       "supportsImages": true
     },
@@ -641,16 +661,6 @@
       "supportsImages": true
     },
     {
-      "id": "ccg/poolside/laguna-s-2.1-free",
-      "name": "CCG Laguna S 2.1",
-      "url": "http://127.0.0.1:4000/v1",
-      "apiKey": "local",
-      "maxInputTokens": 256000,
-      "maxOutputTokens": 131072,
-      "supportsReasoning": true,
-      "supportsImages": true
-    },
-    {
       "id": "ccg/reflection/beam:free",
       "name": "CCG Beam 1.0",
       "url": "http://127.0.0.1:4000/v1",
@@ -1003,6 +1013,7 @@
   ],
   "availableModels": [
     "ocg/beam-free",
+    "ocg/crouton-alpha-free",
     "ocg/deepseek-v4-pro",
     "ocg/deepseek-v4.1-flash",
     "ocg/gemini-4-argon",
@@ -1010,6 +1021,7 @@
     "ocg/glm-5.3",
     "ocg/glm-5.3-flash",
     "ocg/hy3",
+    "ocg/hy4",
     "ocg/hy4-preview",
     "ocg/iceman-contributor-free",
     "ocg/kimi-k2.7-code",
@@ -1066,7 +1078,6 @@
     "ccg/nvidia/nemotron-3-ultra-550b-a55b",
     "ccg/nvidia/nemotron-3.5-super-vl",
     "ccg/ornith/ornith-1.5-122b",
-    "ccg/poolside/laguna-s-2.1-free",
     "ccg/reflection/beam:free",
     "ccg/stealth/crouton-alpha",
     "ccg/stealth/glyph-cluster:free",

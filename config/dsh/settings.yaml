@@ -11,6 +11,9 @@ llm-pi-ai:
         - id: ocg/beam-free
           name: OCG beam-free
           contextWindow: 262144
+        - id: ocg/crouton-alpha-free
+          name: OCG crouton-alpha-free
+          contextWindow: 1048576
         - id: ocg/deepseek-v4-pro
           name: OCG deepseek-v4-pro
           contextWindow: 1000000
@@ -32,6 +35,9 @@ llm-pi-ai:
         - id: ocg/hy3
           name: OCG hy3
           contextWindow: 256000
+        - id: ocg/hy4
+          name: OCG hy4
+          contextWindow: 1048576
         - id: ocg/hy4-preview
           name: OCG hy4-preview
           contextWindow: 1024000
@@ -206,9 +212,6 @@ llm-pi-ai:
         - id: ccg/ornith/ornith-1.5-122b
           name: CCG ornith/ornith-1.5-122b
           contextWindow: 262144
-        - id: ccg/poolside/laguna-s-2.1-free
-          name: CCG poolside/laguna-s-2.1-free
-          contextWindow: 256000
         - id: ccg/reflection/beam:free
           name: CCG reflection/beam:free
           contextWindow: 1048576

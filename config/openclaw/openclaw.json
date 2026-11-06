@@ -3,6 +3,7 @@
     "defaults": {
       "models": {
         "ocg/beam-free": {},
+        "ocg/crouton-alpha-free": {},
         "ocg/deepseek-v4-pro": {},
         "ocg/deepseek-v4.1-flash": {},
         "ocg/gemini-4-argon": {},
@@ -10,6 +11,7 @@
         "ocg/glm-5.3": {},
         "ocg/glm-5.3-flash": {},
         "ocg/hy3": {},
+        "ocg/hy4": {},
         "ocg/hy4-preview": {},
         "ocg/iceman-contributor-free": {},
         "ocg/kimi-k2.7-code": {},
@@ -66,7 +68,6 @@
         "ccg/nvidia/nemotron-3-ultra-550b-a55b": {},
         "ccg/nvidia/nemotron-3.5-super-vl": {},
         "ccg/ornith/ornith-1.5-122b": {},
-        "ccg/poolside/laguna-s-2.1-free": {},
         "ccg/reflection/beam:free": {},
         "ccg/stealth/crouton-alpha": {},
         "ccg/stealth/glyph-cluster:free": {},
@@ -106,6 +107,7 @@
       "modelPolicy": {
         "allow": [
           "ocg/beam-free",
+          "ocg/crouton-alpha-free",
           "ocg/deepseek-v4-pro",
           "ocg/deepseek-v4.1-flash",
           "ocg/gemini-4-argon",
@@ -113,6 +115,7 @@
           "ocg/glm-5.3",
           "ocg/glm-5.3-flash",
           "ocg/hy3",
+          "ocg/hy4",
           "ocg/hy4-preview",
           "ocg/iceman-contributor-free",
           "ocg/kimi-k2.7-code",
@@ -169,7 +172,6 @@
           "ccg/nvidia/nemotron-3-ultra-550b-a55b",
           "ccg/nvidia/nemotron-3.5-super-vl",
           "ccg/ornith/ornith-1.5-122b",
-          "ccg/poolside/laguna-s-2.1-free",
           "ccg/reflection/beam:free",
           "ccg/stealth/crouton-alpha",
           "ccg/stealth/glyph-cluster:free",
@@ -267,6 +269,18 @@
             "maxTokens": 131072
           },
           {
+            "id": "crouton-alpha-free",
+            "name": "OCG Crouton Alpha Free",
+            "api": "openai-completions",
+            "reasoning": true,
+            "input": [
+              "text",
+              "image"
+            ],
+            "contextWindow": 1048576,
+            "maxTokens": 270000
+          },
+          {
             "id": "deepseek-v4-pro",
             "name": "OCG DeepSeek V4 Pro (New)",
             "api": "openai-completions",
@@ -349,6 +363,18 @@
             ],
             "contextWindow": 256000,
             "maxTokens": 128000
+          },
+          {
+            "id": "hy4",
+            "name": "OCG Hy4",
+            "api": "openai-completions",
+            "reasoning": true,
+            "input": [
+              "text",
+              "image"
+            ],
+            "contextWindow": 1048576,
+            "maxTokens": 65536
           },
           {
             "id": "hy4-preview",
@@ -1027,18 +1053,6 @@
               "image"
             ],
             "contextWindow": 262144,
-            "maxTokens": 131072
-          },
-          {
-            "id": "poolside/laguna-s-2.1-free",
-            "name": "CCG Laguna S 2.1",
-            "api": "openai-completions",
-            "reasoning": true,
-            "input": [
-              "text",
-              "image"
-            ],
-            "contextWindow": 256000,
             "maxTokens": 131072
           },
           {

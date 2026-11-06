@@ -30,6 +30,11 @@ provider = "opencode-go"
 model = "beam-free"
 max_context_size = 262144
 
+[models."ocg/crouton-alpha-free"]
+provider = "opencode-go"
+model = "crouton-alpha-free"
+max_context_size = 1048576
+
 [models."ocg/deepseek-v4-pro"]
 provider = "opencode-go"
 model = "deepseek-v4-pro"
@@ -64,6 +69,11 @@ max_context_size = 1000000
 provider = "opencode-go"
 model = "hy3"
 max_context_size = 256000
+
+[models."ocg/hy4"]
+provider = "opencode-go"
+model = "hy4"
+max_context_size = 1048576
 
 [models."ocg/hy4-preview"]
 provider = "opencode-go"
@@ -344,11 +354,6 @@ max_context_size = 262144
 provider = "commandcode"
 model = "ornith/ornith-1.5-122b"
 max_context_size = 262144
-
-[models."ccg/poolside/laguna-s-2.1-free"]
-provider = "commandcode"
-model = "poolside/laguna-s-2.1-free"
-max_context_size = 256000
 
 [models."ccg/reflection/beam:free"]
 provider = "commandcode"

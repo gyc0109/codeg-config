@@ -27,6 +27,26 @@
           }
         },
         {
+          "id": "crouton-alpha-free",
+          "name": "OCG Crouton Alpha Free",
+          "provider": "ocg",
+          "baseUrl": "http://127.0.0.1:8899/v1",
+          "api": "openai-completions",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 1048576,
+          "maxTokens": 270000,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        },
+        {
           "id": "deepseek-v4-pro",
           "name": "OCG DeepSeek V4 Pro (New)",
           "provider": "ocg",
@@ -159,6 +179,26 @@
           ],
           "contextWindow": 256000,
           "maxTokens": 128000,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        },
+        {
+          "id": "hy4",
+          "name": "OCG Hy4",
+          "provider": "ocg",
+          "baseUrl": "http://127.0.0.1:8899/v1",
+          "api": "openai-completions",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 1048576,
+          "maxTokens": 65536,
           "cost": {
             "input": 0,
             "output": 0,
@@ -1286,26 +1326,6 @@
             "image"
           ],
           "contextWindow": 262144,
-          "maxTokens": 131072,
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          }
-        },
-        {
-          "id": "poolside/laguna-s-2.1-free",
-          "name": "CCG Laguna S 2.1",
-          "provider": "ccg",
-          "baseUrl": "https://api.commandcode.ai/provider/v1",
-          "api": "openai-completions",
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "contextWindow": 256000,
           "maxTokens": 131072,
           "cost": {
             "input": 0,
