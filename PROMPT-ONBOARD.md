@@ -84,9 +84,9 @@ codeg ──┬─ http://127.0.0.1:4000      → litellm（协议桥 + 105 个�
 | --- | --- | --- | --- |
 | `litellm` | **4000** | Anthropic↔OpenAI 协议互转；暴露全部 `ocg/ ccg/ ds/ ark/` 模型名 | `install/litellm/config.yaml` |
 | `opencode-go-proxy` | **8899**(ocg) / **8896**(ds) / **8897**(ark) | 剥前缀、给 OCG 注入 `x-opencode-session`、把 `role:developer` 改写成 `system` | `install/opencode-go-proxy` |
-| `commandcode-proxy` | **8898** | 把 messages 数组里的 `role:"system"` 提到顶层 `system` 字段，专供 Claude Code 走 CCG | `install/commandcode-proxy` |
+| `commandcode-proxy` | 8898 | **历史遗留，当前没有任何 agent 指向它**。把 messages 里的 `role:"system"` 提到顶层，原本给 Claude Code 走 CCG 用；现在 CCG 统一经 litellm 直连上游，这个进程可以不启动 | `install/commandcode-proxy` |
 
-> 8898 已被 commandcode-proxy 占用，所以 DeepSeek 用 **8896**，不是 8898。
+> DeepSeek 用 **8896**、Ark 用 **8897**，别和 8898 搞混（那个端口属于已停用的 commandcode-proxy）。
 > 端口全部 `127.0.0.1`，不对外。
 
 **只有一台机器、且不需要 Anthropic 协议时**，可以只跑 `opencode-go-proxy`，
