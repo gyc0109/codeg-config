@@ -206,6 +206,9 @@ codeg 的模型配置**全在 DB 里**，没有配置文件。
 
 ### 5.2 CCG
 
+⚠️ **`/provider/v1/models` 是公开端点，不带 key 也返回 200** —— 拿它判 key 有效性必然误判。
+key 只能用**真实 chat 请求**验（401 才算失效）。
+
 `GET https://api.commandcode.ai/provider/v1/models`，每项带 **`supported_endpoints`**，这是协议判定的权威依据：
 
 | `supported_endpoints` | 含义 |
@@ -333,6 +336,9 @@ PROMPT="Reply with exactly: PONG"
   `initialize` → `session/new` → `session/prompt`，收 `agent_message_chunk`。
   这跟 codeg 走同一条路，最权威。
 - 模型层面：把本机可用清单里的**每一个**都打一遍，列 OK/FAIL。
+- **验 key 一律用真实 chat，不要用 `/models`**：CCG 的 `/models` 不带 key 也 200。
+  另外注意推理模型在 `max_tokens` 太小时会 `finish_reason=length` 且 `content` 为空
+  —— 那是通过，不是失败，看 `usage.completion_tokens_details.reasoning_tokens`。
 - 区分失败原因：**未登录 / 缺 key**（跟配置无关）vs **模型侧拒答** vs **配置错误**。
 
 ---
