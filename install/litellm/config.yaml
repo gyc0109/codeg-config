@@ -20,6 +20,8 @@ model_list:
 
 
 
+
+
 - model_name: ocg/beam-free
   litellm_params:
     model: openai/beam-free
@@ -605,14 +607,6 @@ model_list:
     additional_drop_params: *id001
   model_info:
     id: ccg/ornith/ornith-1.5-122b
-- model_name: ccg/reflection/beam:free
-  litellm_params:
-    model: openai/reflection/beam:free
-    api_base: https://api.commandcode.ai/provider/v1
-    api_key: ${COMMANDCODE_API_KEY}
-    additional_drop_params: *id001
-  model_info:
-    id: ccg/reflection/beam:free
 - model_name: ccg/stealth/crouton-alpha
   litellm_params:
     model: openai/stealth/crouton-alpha

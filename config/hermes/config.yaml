@@ -265,10 +265,6 @@ custom_providers:
   base_url: https://api.commandcode.ai/provider/v1
   api_key: ${COMMANDCODE_API_KEY}
   model: ornith/ornith-1.5-122b
-- name: CCG Beam 1.0
-  base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${COMMANDCODE_API_KEY}
-  model: reflection/beam:free
 - name: CCG Crouton Alpha
   base_url: https://api.commandcode.ai/provider/v1
   api_key: ${COMMANDCODE_API_KEY}

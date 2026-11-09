@@ -68,7 +68,6 @@
         "ccg/nvidia/nemotron-3-ultra-550b-a55b": {},
         "ccg/nvidia/nemotron-3.5-super-vl": {},
         "ccg/ornith/ornith-1.5-122b": {},
-        "ccg/reflection/beam:free": {},
         "ccg/stealth/crouton-alpha": {},
         "ccg/stealth/glyph-cluster:free": {},
         "ccg/stepfun/Step-3.7-Flash": {},
@@ -172,7 +171,6 @@
           "ccg/nvidia/nemotron-3-ultra-550b-a55b",
           "ccg/nvidia/nemotron-3.5-super-vl",
           "ccg/ornith/ornith-1.5-122b",
-          "ccg/reflection/beam:free",
           "ccg/stealth/crouton-alpha",
           "ccg/stealth/glyph-cluster:free",
           "ccg/stepfun/Step-3.7-Flash",
@@ -1053,18 +1051,6 @@
               "image"
             ],
             "contextWindow": 262144,
-            "maxTokens": 131072
-          },
-          {
-            "id": "reflection/beam:free",
-            "name": "CCG Beam 1.0",
-            "api": "openai-completions",
-            "reasoning": true,
-            "input": [
-              "text",
-              "image"
-            ],
-            "contextWindow": 1048576,
             "maxTokens": 131072
           },
           {

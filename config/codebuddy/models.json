@@ -661,16 +661,6 @@
       "supportsImages": true
     },
     {
-      "id": "ccg/reflection/beam:free",
-      "name": "CCG Beam 1.0",
-      "url": "http://127.0.0.1:4000/v1",
-      "apiKey": "local",
-      "maxInputTokens": 1048576,
-      "maxOutputTokens": 131072,
-      "supportsReasoning": true,
-      "supportsImages": true
-    },
-    {
       "id": "ccg/stealth/crouton-alpha",
       "name": "CCG Crouton Alpha",
       "url": "http://127.0.0.1:4000/v1",
@@ -1078,7 +1068,6 @@
     "ccg/nvidia/nemotron-3-ultra-550b-a55b",
     "ccg/nvidia/nemotron-3.5-super-vl",
     "ccg/ornith/ornith-1.5-122b",
-    "ccg/reflection/beam:free",
     "ccg/stealth/crouton-alpha",
     "ccg/stealth/glyph-cluster:free",
     "ccg/stepfun/Step-3.7-Flash",

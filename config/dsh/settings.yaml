@@ -212,9 +212,6 @@ llm-pi-ai:
         - id: ccg/ornith/ornith-1.5-122b
           name: CCG ornith/ornith-1.5-122b
           contextWindow: 262144
-        - id: ccg/reflection/beam:free
-          name: CCG reflection/beam:free
-          contextWindow: 1048576
         - id: ccg/stealth/crouton-alpha
           name: CCG stealth/crouton-alpha
           contextWindow: 1048576

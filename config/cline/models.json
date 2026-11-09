@@ -792,19 +792,6 @@
             "streaming"
           ]
         },
-        "ccg/reflection/beam:free": {
-          "id": "ccg/reflection/beam:free",
-          "name": "CCG Beam 1.0",
-          "contextWindow": 1048576,
-          "maxTokens": 131072,
-          "supportsReasoning": true,
-          "supportsVision": true,
-          "supportsAttachments": true,
-          "capabilities": [
-            "tools",
-            "streaming"
-          ]
-        },
         "ccg/stealth/glyph-cluster:free": {
           "id": "ccg/stealth/glyph-cluster:free",
           "name": "CCG Glyph Cluster",
@@ -1296,7 +1283,6 @@
         "ccg/moonshotai/Kimi-K3.1-Pro",
         "ccg/nvidia/nemotron-3-ultra-550b-a55b",
         "ccg/nvidia/nemotron-3.5-super-vl",
-        "ccg/reflection/beam:free",
         "ccg/stealth/glyph-cluster:free",
         "ccg/stepfun/Step-3.7-Flash",
         "ccg/stepfun/Step-5-Preview",
