@@ -5,10 +5,10 @@
     "registry_id": "claude-acp",
     "enabled": 1,
     "sort_order": 1,
-    "installed_version": "0.93.0",
-    "env_json": "{\"ANTHROPIC_AUTH_TOKEN\":\"local\",\"ANTHROPIC_BASE_URL\":\"http://127.0.0.1:4000\",\"ANTHROPIC_CUSTOM_MODEL_OPTION\":\"ccg/gpt-6-luna\",\"ANTHROPIC_CUSTOM_MODEL_OPTION_DESCRIPTION\":\"Command Code GOAT · 备用均衡模型\",\"ANTHROPIC_CUSTOM_MODEL_OPTION_NAME\":\"CCG GPT-6 Luna\",\"ANTHROPIC_DEFAULT_HAIKU_MODEL\":\"ccg/deepseek/deepseek-v4.1-flash\",\"ANTHROPIC_DEFAULT_OPUS_MODEL\":\"ccg/xiaomi/mimo-v2.6-pro\",\"ANTHROPIC_DEFAULT_SONNET_MODEL\":\"ccg/z-ai/glm-5.3-flash\",\"ANTHROPIC_MODEL\":\"ccg/z-ai/glm-5.3-flash\",\"ANTHROPIC_REASONING_MODEL\":\"ccg/deepseek/deepseek-v4.1-flash\"}",
+    "installed_version": "0.106.0",
+    "env_json": "{\"ANTHROPIC_AUTH_TOKEN\": \"local\", \"ANTHROPIC_BASE_URL\": \"http://127.0.0.1:4000\", \"ANTHROPIC_CUSTOM_MODEL_OPTION\": \"ocg/gpt-6-luna\", \"ANTHROPIC_CUSTOM_MODEL_OPTION_DESCRIPTION\": \"OpenCode GO · 备用均衡模型\", \"ANTHROPIC_CUSTOM_MODEL_OPTION_NAME\": \"OCG GPT-6 Luna\", \"ANTHROPIC_DEFAULT_HAIKU_MODEL\": \"ocg/deepseek-v4.1-flash\", \"ANTHROPIC_DEFAULT_OPUS_MODEL\": \"ocg/qwen3.8-max\", \"ANTHROPIC_DEFAULT_SONNET_MODEL\": \"ocg/glm-5.3-flash\", \"ANTHROPIC_MODEL\": \"ocg/glm-5.3-flash\"}",
     "created_at": "2026-09-11T17:31:02.600197409+00:00",
-    "updated_at": "2026-10-18T16:08:32.580376985+00:00",
+    "updated_at": "2026-11-11T13:36:14.476460326+00:00",
     "model_provider_id": 5
   },
   {
@@ -17,10 +17,10 @@
     "registry_id": "codex-acp",
     "enabled": 1,
     "sort_order": 7,
-    "installed_version": "2.2.2",
+    "installed_version": "2.6.0",
     "env_json": "{\"OPENAI_BASE_URL\":\"http://127.0.0.1:4000/v1\",\"OPENAI_MODEL\":\"ocg/gpt-6-luna\",\"OPENCODE_GO_KEY\":\"local\"}",
     "created_at": "2026-09-11T17:31:02.602867301+00:00",
-    "updated_at": "2026-10-18T16:08:32.779546893+00:00",
+    "updated_at": "2026-11-11T13:36:15.412316703+00:00",
     "model_provider_id": null
   },
   {
@@ -29,10 +29,10 @@
     "registry_id": "gemini",
     "enabled": 1,
     "sort_order": 10,
-    "installed_version": "0.64.0",
+    "installed_version": "0.68.0",
     "env_json": null,
     "created_at": "2026-09-11T17:31:02.603695284+00:00",
-    "updated_at": "2026-10-18T16:08:32.580457996+00:00",
+    "updated_at": "2026-11-11T13:36:14.416261894+00:00",
     "model_provider_id": null
   },
   {
@@ -41,10 +41,10 @@
     "registry_id": "openclaw-acp",
     "enabled": 1,
     "sort_order": 9,
-    "installed_version": "2026.10.4",
+    "installed_version": "2026.11.3",
     "env_json": null,
     "created_at": "2026-09-11T17:31:02.605418334+00:00",
-    "updated_at": "2026-10-18T16:08:33.250697710+00:00",
+    "updated_at": "2026-11-11T13:36:15.449914353+00:00",
     "model_provider_id": null
   },
   {
@@ -53,10 +53,10 @@
     "registry_id": "opencode",
     "enabled": 1,
     "sort_order": 2,
-    "installed_version": "1.19.3",
+    "installed_version": "2.2.7",
     "env_json": null,
     "created_at": "2026-09-11T17:31:02.605936350+00:00",
-    "updated_at": "2026-10-23T19:57:12.657519166+00:00",
+    "updated_at": "2026-11-11T14:14:22.813764097+00:00",
     "model_provider_id": null
   },
   {
@@ -65,10 +65,10 @@
     "registry_id": "cline",
     "enabled": 1,
     "sort_order": 8,
-    "installed_version": "3.0.73",
+    "installed_version": "3.0.74",
     "env_json": "{\"CLINE_API_KEY\":\"local\",\"CLINE_BASE_URL\":\"http://127.0.0.1:4000/v1\",\"CLINE_MODEL\":\"ocg/beam-free\",\"CLINE_PROVIDER\":\"openai-compatible\"}",
     "created_at": "2026-09-11T17:31:02.608362155+00:00",
-    "updated_at": "2026-10-18T16:08:32.643332647+00:00",
+    "updated_at": "2026-11-11T13:36:15.218356971+00:00",
     "model_provider_id": null
   },
   {
@@ -77,10 +77,10 @@
     "registry_id": "hermes",
     "enabled": 1,
     "sort_order": 4,
-    "installed_version": "0.22.2",
+    "installed_version": "0.23.1",
     "env_json": "{\"HERMES_INFERENCE_MODEL\":\"beam-free\",\"HERMES_INFERENCE_PROVIDER\":\"custom:ocg-beam-free\"}",
     "created_at": "2026-09-11T17:31:02.609713809+00:00",
-    "updated_at": "2026-10-18T16:08:33.286731475+00:00",
+    "updated_at": "2026-11-11T13:36:15.131975615+00:00",
     "model_provider_id": null
   },
   {
@@ -89,10 +89,10 @@
     "registry_id": "codebuddy-code",
     "enabled": 1,
     "sort_order": 5,
-    "installed_version": "2.168.2",
-    "env_json": "{\"CODEBUDDY_API_KEY\":\"local\",\"CODEBUDDY_BASE_URL\":\"http://127.0.0.1:4000/v1\",\"CODEBUDDY_DISABLE_BUILTIN_MODELS\":\"1\",\"CODEBUDDY_MODEL\":\"ocg/beam-free\"}",
+    "installed_version": "2.183.0",
+    "env_json": "{\"CODEBUDDY_API_KEY\": \"local\", \"CODEBUDDY_BASE_URL\": \"http://127.0.0.1:4000/v1\", \"CODEBUDDY_DISABLE_BUILTIN_MODELS\": \"1\", \"CODEBUDDY_MODEL\": \"ocg/beam-free\"}",
     "created_at": "2026-09-11T17:31:02.611143292+00:00",
-    "updated_at": "2026-10-18T16:08:32.975595450+00:00",
+    "updated_at": "2026-11-11T13:36:15.323185497+00:00",
     "model_provider_id": null
   },
   {
@@ -101,10 +101,10 @@
     "registry_id": "kimi-code",
     "enabled": 1,
     "sort_order": 6,
-    "installed_version": "2.2.0",
+    "installed_version": "2.5.3",
     "env_json": "{\"KIMI_MODEL_API_KEY\":\"local\",\"KIMI_MODEL_BASE_URL\":\"http://127.0.0.1:4000/v1\",\"KIMI_MODEL_NAME\":\"ocg/beam-free\"}",
     "created_at": "2026-09-11T17:31:02.611707097+00:00",
-    "updated_at": "2026-10-18T16:08:32.643252205+00:00",
+    "updated_at": "2026-11-11T13:36:15.282077011+00:00",
     "model_provider_id": 1
   },
   {
@@ -116,7 +116,7 @@
     "installed_version": "0.0.34",
     "env_json": null,
     "created_at": "2026-09-11T17:31:02.613622583+00:00",
-    "updated_at": "2026-10-18T16:08:33.425379529+00:00",
+    "updated_at": "2026-11-11T13:36:15.600675236+00:00",
     "model_provider_id": null
   },
   {
@@ -125,10 +125,10 @@
     "registry_id": "grok-build",
     "enabled": 1,
     "sort_order": 11,
-    "installed_version": "1.0.62",
+    "installed_version": "1.0.77",
     "env_json": "{\"GROK_DEFAULT_MODEL\":\"ocg/beam-free\",\"GROK_XAI_API_BASE_URL\":\"http://127.0.0.1:4000/v1\",\"OPENAI_MODEL\":\"ocg/beam-free\",\"XAI_API_KEY\":\"local\"}",
     "created_at": "2026-09-11T17:31:02.615047110+00:00",
-    "updated_at": "2026-10-18T16:08:33.320798198+00:00",
+    "updated_at": "2026-11-11T13:36:15.391453891+00:00",
     "model_provider_id": 2
   },
   {
@@ -137,10 +137,10 @@
     "registry_id": "cursor",
     "enabled": 1,
     "sort_order": 12,
-    "installed_version": "2026.10.16-e3cb207",
+    "installed_version": "2026.11.05-86047df",
     "env_json": null,
     "created_at": "2026-09-11T17:31:02.616319730+00:00",
-    "updated_at": "2026-10-23T19:57:12.663747271+00:00",
+    "updated_at": "2026-11-11T14:14:22.820221471+00:00",
     "model_provider_id": null
   },
   {
@@ -152,7 +152,7 @@
     "installed_version": "0.9.0",
     "env_json": "{\"DEEPSEEK_ACP_MODEL\":\"ocg/beam-free\",\"DEEPSEEK_ACP_PROVIDER\":\"ocg\",\"DEEPSEEK_API_KEY\":\"local\",\"DEEPSEEK_BASE_URL\":\"http://127.0.0.1:4000/v1\"}",
     "created_at": "2026-09-11T17:31:02.616862301+00:00",
-    "updated_at": "2026-10-18T16:08:33.237875570+00:00",
+    "updated_at": "2026-11-11T13:36:15.433854101+00:00",
     "model_provider_id": 3
   },
   {
@@ -161,10 +161,10 @@
     "registry_id": "qoder-cli",
     "enabled": 1,
     "sort_order": 13,
-    "installed_version": "1.1.73",
+    "installed_version": "1.1.87",
     "env_json": null,
     "created_at": "2026-09-11T17:31:02.618996327+00:00",
-    "updated_at": "2026-10-18T16:08:33.428996176+00:00",
+    "updated_at": "2026-11-11T13:36:15.534150795+00:00",
     "model_provider_id": null
   },
   {
@@ -173,10 +173,10 @@
     "registry_id": "antigravity-acp",
     "enabled": 1,
     "sort_order": 14,
-    "installed_version": "1.4.1",
-    "env_json": null,
+    "installed_version": "1.4.5",
+    "env_json": "{\"AGY_LLM_GATEWAY_URL\":\"http://127.0.0.1:4000\"}",
     "created_at": "2026-09-11T17:31:02.620404896+00:00",
-    "updated_at": "2026-10-23T19:57:12.666348791+00:00",
+    "updated_at": "2026-11-11T14:14:22.822353231+00:00",
     "model_provider_id": null
   },
   {
@@ -185,10 +185,10 @@
     "registry_id": "kiro-cli",
     "enabled": 1,
     "sort_order": 15,
-    "installed_version": "2.31.1",
+    "installed_version": "2.36.0",
     "env_json": null,
     "created_at": "2026-10-16T16:17:18.608129223+00:00",
-    "updated_at": "2026-10-23T19:57:12.667812577+00:00",
+    "updated_at": "2026-11-11T14:14:22.823873473+00:00",
     "model_provider_id": null
   },
   {
@@ -197,10 +197,10 @@
     "registry_id": "codeg-zcode-acp",
     "enabled": 1,
     "sort_order": 16,
-    "installed_version": "0.72.0",
+    "installed_version": "0.83.3",
     "env_json": null,
     "created_at": "2026-10-16T16:17:18.609963094+00:00",
-    "updated_at": "2026-10-18T16:08:33.238025731+00:00",
+    "updated_at": "2026-11-11T13:36:15.623873200+00:00",
     "model_provider_id": null
   },
   {
@@ -209,10 +209,10 @@
     "registry_id": "codeg-trae-cli",
     "enabled": 1,
     "sort_order": 17,
-    "installed_version": null,
+    "installed_version": "0.213.1",
     "env_json": null,
     "created_at": "2026-10-18T07:29:10.302467201+00:00",
-    "updated_at": "2026-10-23T19:57:12.669407483+00:00",
+    "updated_at": "2026-11-11T14:14:22.825592860+00:00",
     "model_provider_id": null
   },
   {
@@ -221,10 +221,22 @@
     "registry_id": "codeg-command-code",
     "enabled": 1,
     "sort_order": 18,
-    "installed_version": null,
-    "env_json": null,
+    "installed_version": "1.88.5",
+    "env_json": "{\"COMMAND_CODE_API_KEY\": \"${COMMANDCODE_API_KEY}\"}",
     "created_at": "2026-10-18T07:29:10.305362016+00:00",
-    "updated_at": "2026-10-18T07:29:10.305362016+00:00",
+    "updated_at": "2026-11-11T13:36:15.187078077+00:00",
+    "model_provider_id": null
+  },
+  {
+    "id": 20,
+    "agent_type": "\"minimax_code\"",
+    "registry_id": "codeg-minimax-code",
+    "enabled": 1,
+    "sort_order": 19,
+    "installed_version": "0.7.6",
+    "env_json": null,
+    "created_at": "2026-10-28T16:06:27.019695796+00:00",
+    "updated_at": "2026-11-11T14:14:22.827413675+00:00",
     "model_provider_id": null
   }
 ]
