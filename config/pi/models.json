@@ -27,26 +27,6 @@
           }
         },
         {
-          "id": "crouton-alpha-free",
-          "name": "OCG Crouton Alpha Free",
-          "provider": "ocg",
-          "baseUrl": "http://127.0.0.1:8899/v1",
-          "api": "openai-completions",
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "contextWindow": 1048576,
-          "maxTokens": 270000,
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          }
-        },
-        {
           "id": "deepseek-v4-pro",
           "name": "OCG DeepSeek V4 Pro (New)",
           "provider": "ocg",
@@ -199,6 +179,26 @@
           ],
           "contextWindow": 1048576,
           "maxTokens": 65536,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        },
+        {
+          "id": "hy4-flash-free",
+          "name": "OCG hy4-flash-free",
+          "provider": "ocg",
+          "baseUrl": "http://127.0.0.1:8899/v1",
+          "api": "openai-completions",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 262144,
+          "maxTokens": 131072,
           "cost": {
             "input": 0,
             "output": 0,
@@ -467,6 +467,26 @@
           }
         },
         {
+          "id": "qwen4-max",
+          "name": "OCG qwen4-max",
+          "provider": "ocg",
+          "baseUrl": "http://127.0.0.1:8899/v1",
+          "api": "openai-completions",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 262144,
+          "maxTokens": 131072,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        },
+        {
           "id": "step-5-preview",
           "name": "OCG step-5-preview",
           "provider": "ocg",
@@ -491,7 +511,7 @@
     "ccg": {
       "name": "Command Code GOAT",
       "baseUrl": "https://api.commandcode.ai/provider/v1",
-      "apiKey": "${COMMANDCODE_API_KEY}",
+      "apiKey": "${REDACTED}",
       "api": "openai-completions",
       "models": [
         {
@@ -717,6 +737,26 @@
         {
           "id": "Qwen/Qwen3.8-Omni-Flash",
           "name": "CCG Qwen 3.8 Omni Flash",
+          "provider": "ccg",
+          "baseUrl": "https://api.commandcode.ai/provider/v1",
+          "api": "openai-completions",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 1000000,
+          "maxTokens": 131072,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        },
+        {
+          "id": "Qwen/Qwen4-Max",
+          "name": "CCG Qwen 4 Max",
           "provider": "ccg",
           "baseUrl": "https://api.commandcode.ai/provider/v1",
           "api": "openai-completions",
@@ -1335,26 +1375,6 @@
           }
         },
         {
-          "id": "stealth/crouton-alpha",
-          "name": "CCG Crouton Alpha",
-          "provider": "ccg",
-          "baseUrl": "https://api.commandcode.ai/provider/v1",
-          "api": "openai-completions",
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "contextWindow": 1048576,
-          "maxTokens": 131072,
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          }
-        },
-        {
           "id": "stealth/glyph-cluster:free",
           "name": "CCG Glyph Cluster",
           "provider": "ccg",
@@ -1426,6 +1446,26 @@
             "image"
           ],
           "contextWindow": 262144,
+          "maxTokens": 131072,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        },
+        {
+          "id": "tencent/hy4-flash",
+          "name": "CCG Tencent Hy4 Flash",
+          "provider": "ccg",
+          "baseUrl": "https://api.commandcode.ai/provider/v1",
+          "api": "openai-completions",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 1024000,
           "maxTokens": 131072,
           "cost": {
             "input": 0,

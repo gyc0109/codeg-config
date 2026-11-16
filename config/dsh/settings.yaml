@@ -11,9 +11,6 @@ llm-pi-ai:
         - id: ocg/beam-free
           name: OCG beam-free
           contextWindow: 262144
-        - id: ocg/crouton-alpha-free
-          name: OCG crouton-alpha-free
-          contextWindow: 1048576
         - id: ocg/deepseek-v4-pro
           name: OCG deepseek-v4-pro
           contextWindow: 1000000
@@ -38,6 +35,9 @@ llm-pi-ai:
         - id: ocg/hy4
           name: OCG hy4
           contextWindow: 1048576
+        - id: ocg/hy4-flash-free
+          name: OCG hy4-flash-free
+          contextWindow: 262144
         - id: ocg/hy4-preview
           name: OCG hy4-preview
           contextWindow: 1024000
@@ -77,6 +77,9 @@ llm-pi-ai:
         - id: ocg/qwen3.8-max
           name: OCG qwen3.8-max
           contextWindow: 1000000
+        - id: ocg/qwen4-max
+          name: OCG qwen4-max
+          contextWindow: 262144
         - id: ocg/step-5-preview
           name: OCG step-5-preview
           contextWindow: 262144
@@ -121,6 +124,9 @@ llm-pi-ai:
           contextWindow: 1000000
         - id: ccg/Qwen/Qwen3.8-Omni-Flash
           name: CCG Qwen/Qwen3.8-Omni-Flash
+          contextWindow: 1000000
+        - id: ccg/Qwen/Qwen4-Max
+          name: CCG Qwen/Qwen4-Max
           contextWindow: 1000000
         - id: ccg/deepseek/deepseek-v4-flash
           name: CCG deepseek/deepseek-v4-flash
@@ -212,9 +218,6 @@ llm-pi-ai:
         - id: ccg/ornith/ornith-1.5-122b
           name: CCG ornith/ornith-1.5-122b
           contextWindow: 262144
-        - id: ccg/stealth/crouton-alpha
-          name: CCG stealth/crouton-alpha
-          contextWindow: 1048576
         - id: ccg/stealth/glyph-cluster:free
           name: CCG stealth/glyph-cluster:free
           contextWindow: 256000
@@ -227,6 +230,9 @@ llm-pi-ai:
         - id: ccg/tencent/hy3-paid
           name: CCG tencent/hy3-paid
           contextWindow: 262144
+        - id: ccg/tencent/hy4-flash
+          name: CCG tencent/hy4-flash
+          contextWindow: 1024000
         - id: ccg/tencent/hy4-preview
           name: CCG tencent/hy4-preview
           contextWindow: 1048576

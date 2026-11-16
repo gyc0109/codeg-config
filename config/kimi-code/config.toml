@@ -10,7 +10,7 @@ default_model = "beam-free"
 [providers.commandcode]
 type = "openai"
 base_url = "https://api.commandcode.ai/provider/v1"
-api_key = "${COMMANDCODE_API_KEY}"
+api_key = "${REDACTED}"
 default_model = "stealth/glyph-cluster:free"
 
 [providers.deepseek]
@@ -29,11 +29,6 @@ default_model = "deepseek-v4-1-flash-260910"
 provider = "opencode-go"
 model = "beam-free"
 max_context_size = 262144
-
-[models."ocg/crouton-alpha-free"]
-provider = "opencode-go"
-model = "crouton-alpha-free"
-max_context_size = 1048576
 
 [models."ocg/deepseek-v4-pro"]
 provider = "opencode-go"
@@ -74,6 +69,11 @@ max_context_size = 256000
 provider = "opencode-go"
 model = "hy4"
 max_context_size = 1048576
+
+[models."ocg/hy4-flash-free"]
+provider = "opencode-go"
+model = "hy4-flash-free"
+max_context_size = 262144
 
 [models."ocg/hy4-preview"]
 provider = "opencode-go"
@@ -140,6 +140,11 @@ provider = "opencode-go"
 model = "qwen3.8-max"
 max_context_size = 1000000
 
+[models."ocg/qwen4-max"]
+provider = "opencode-go"
+model = "qwen4-max"
+max_context_size = 262144
+
 [models."ocg/step-5-preview"]
 provider = "opencode-go"
 model = "step-5-preview"
@@ -203,6 +208,11 @@ max_context_size = 1000000
 [models."ccg/Qwen/Qwen3.8-Omni-Flash"]
 provider = "commandcode"
 model = "Qwen/Qwen3.8-Omni-Flash"
+max_context_size = 1000000
+
+[models."ccg/Qwen/Qwen4-Max"]
+provider = "commandcode"
+model = "Qwen/Qwen4-Max"
 max_context_size = 1000000
 
 [models."ccg/deepseek/deepseek-v4-flash"]
@@ -355,11 +365,6 @@ provider = "commandcode"
 model = "ornith/ornith-1.5-122b"
 max_context_size = 262144
 
-[models."ccg/stealth/crouton-alpha"]
-provider = "commandcode"
-model = "stealth/crouton-alpha"
-max_context_size = 1048576
-
 [models."ccg/stealth/glyph-cluster:free"]
 provider = "commandcode"
 model = "stealth/glyph-cluster:free"
@@ -379,6 +384,11 @@ max_context_size = 1000000
 provider = "commandcode"
 model = "tencent/hy3-paid"
 max_context_size = 262144
+
+[models."ccg/tencent/hy4-flash"]
+provider = "commandcode"
+model = "tencent/hy4-flash"
+max_context_size = 1024000
 
 [models."ccg/tencent/hy4-preview"]
 provider = "commandcode"

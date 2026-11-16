@@ -17,5 +17,5 @@ wire_api = "responses"
 [model_providers.commandcode]
 name = "Command Code GOAT"
 base_url = "https://api.commandcode.ai/provider/v1"
-experimental_bearer_token = "${COMMANDCODE_API_KEY}"
+experimental_bearer_token = "${REDACTED}"
 wire_api = "responses"

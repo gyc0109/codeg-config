@@ -15,12 +15,6 @@
           "contextWindow": 262144,
           "maxTokens": 131072
         },
-        "crouton-alpha-free": {
-          "name": "OCG Crouton Alpha Free",
-          "id": "crouton-alpha-free",
-          "contextWindow": 1048576,
-          "maxTokens": 270000
-        },
         "deepseek-v4-pro": {
           "name": "OCG DeepSeek V4 Pro (New)",
           "id": "deepseek-v4-pro",
@@ -68,6 +62,12 @@
           "id": "hy4",
           "contextWindow": 1048576,
           "maxTokens": 65536
+        },
+        "hy4-flash-free": {
+          "name": "OCG hy4-flash-free",
+          "id": "hy4-flash-free",
+          "contextWindow": 262144,
+          "maxTokens": 131072
         },
         "hy4-preview": {
           "name": "OCG Hy4 preview",
@@ -147,6 +147,12 @@
           "contextWindow": 1000000,
           "maxTokens": 131072
         },
+        "qwen4-max": {
+          "name": "OCG qwen4-max",
+          "id": "qwen4-max",
+          "contextWindow": 262144,
+          "maxTokens": 131072
+        },
         "step-5-preview": {
           "name": "OCG step-5-preview",
           "id": "step-5-preview",
@@ -160,7 +166,7 @@
       "npm": "@ai-sdk/openai-compatible",
       "options": {
         "baseURL": "https://api.commandcode.ai/provider/v1",
-        "apiKey": "${COMMANDCODE_API_KEY}"
+        "apiKey": "${REDACTED}"
       },
       "models": {
         "MiniMaxAI/MiniMax-M2.5": {
@@ -232,6 +238,12 @@
         "Qwen/Qwen3.8-Omni-Flash": {
           "name": "CCG Qwen 3.8 Omni Flash",
           "id": "Qwen/Qwen3.8-Omni-Flash",
+          "contextWindow": 1000000,
+          "maxTokens": 131072
+        },
+        "Qwen/Qwen4-Max": {
+          "name": "CCG Qwen 4 Max",
+          "id": "Qwen/Qwen4-Max",
           "contextWindow": 1000000,
           "maxTokens": 131072
         },
@@ -415,18 +427,6 @@
           "contextWindow": 262144,
           "maxTokens": 131072
         },
-        "reflection/beam:free": {
-          "name": "CCG Beam 1.0",
-          "id": "reflection/beam:free",
-          "contextWindow": 1048576,
-          "maxTokens": 131072
-        },
-        "stealth/crouton-alpha": {
-          "name": "CCG Crouton Alpha",
-          "id": "stealth/crouton-alpha",
-          "contextWindow": 1048576,
-          "maxTokens": 131072
-        },
         "stealth/glyph-cluster:free": {
           "name": "CCG Glyph Cluster",
           "id": "stealth/glyph-cluster:free",
@@ -449,6 +449,12 @@
           "name": "CCG Tencent Hy3",
           "id": "tencent/hy3-paid",
           "contextWindow": 262144,
+          "maxTokens": 131072
+        },
+        "tencent/hy4-flash": {
+          "name": "CCG Tencent Hy4 Flash",
+          "id": "tencent/hy4-flash",
+          "contextWindow": 1024000,
           "maxTokens": 131072
         },
         "tencent/hy4-preview": {
