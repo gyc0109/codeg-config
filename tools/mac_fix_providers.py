@@ -13,7 +13,7 @@ DB = f'{H}/Library/Application Support/app.codeg/codeg.db'
 TOKEN = 'd1026ea824134bc0811e296bf59e644f'
 API = 'http://127.0.0.1:3080/api'
 PROXY = 'http://127.0.0.1:15825/v1'
-OCG_FREE = 'ocg/longcat-2.5-preview-free'
+OCG_FREE = 'ocg/beam-free'
 
 
 def rpc(method, params):
@@ -88,16 +88,16 @@ for at in ('claude_code', 'codex', 'deepseek', 'grok', 'kimi_code', 'cline', 'co
 print()
 print('═══ 3) 修复 agent env（失效模型）═══')
 ENVS = {
-    'deepseek': {'DEEPSEEK_ACP_MODEL': 'ocg/longcat-2.5-preview-free', 'DEEPSEEK_ACP_PROVIDER': 'ocg',
+    'deepseek': {'DEEPSEEK_ACP_MODEL': 'ocg/beam-free', 'DEEPSEEK_ACP_PROVIDER': 'ocg',
                  'DEEPSEEK_BASE_URL': PROXY, 'DEEPSEEK_API_KEY': 'local'},
-    'code_buddy': {'CODEBUDDY_MODEL': 'ocg/longcat-2.5-preview-free', 'CODEBUDDY_BASE_URL': PROXY,
+    'code_buddy': {'CODEBUDDY_MODEL': 'ocg/beam-free', 'CODEBUDDY_BASE_URL': PROXY,
                    'CODEBUDDY_API_KEY': 'local', 'CODEBUDDY_DISABLE_BUILTIN_MODELS': '1'},
-    'kimi_code': {'KIMI_MODEL_NAME': 'longcat-2.5-preview-free', 'KIMI_MODEL_BASE_URL': PROXY,
+    'kimi_code': {'KIMI_MODEL_NAME': 'beam-free', 'KIMI_MODEL_BASE_URL': PROXY,
                   'KIMI_MODEL_API_KEY': 'local'},
     'cline': {'CLINE_PROVIDER': 'openai-compatible', 'CLINE_BASE_URL': PROXY,
-              'CLINE_API_KEY': 'local', 'CLINE_MODEL': 'ocg/longcat-2.5-preview-free'},
-    'grok': {'GROK_DEFAULT_MODEL': 'ocg/longcat-2.5-preview-free',
-             'GROK_XAI_API_BASE_URL': PROXY, 'OPENAI_MODEL': 'ocg/longcat-2.5-preview-free',
+              'CLINE_API_KEY': 'local', 'CLINE_MODEL': 'ocg/beam-free'},
+    'grok': {'GROK_DEFAULT_MODEL': 'ocg/beam-free',
+             'GROK_XAI_API_BASE_URL': PROXY, 'OPENAI_MODEL': 'ocg/beam-free',
              'XAI_API_KEY': 'local'},
 }
 for at, env in ENVS.items():

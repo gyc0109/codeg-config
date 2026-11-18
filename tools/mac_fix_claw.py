@@ -22,7 +22,7 @@ defaults = ag.setdefault("defaults", {})
 old = defaults.get("model")
 print("  旧 model:", json.dumps(old, ensure_ascii=False))
 
-TARGET = "ocg/longcat-2.5-preview-free"
+TARGET = "ocg/beam-free"
 if isinstance(old, dict):
     old["primary"] = TARGET
     # 清掉指向失效 provider 的 fallback

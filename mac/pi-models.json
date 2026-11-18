@@ -583,7 +583,7 @@
           "type": "chat"
         },
         {
-          "id": "longcat-2.5-preview-free",
+          "id": "beam-free",
           "name": "OCG LongCat 2.5 Preview Free",
           "api": "openai-completions",
           "provider": "ocg",

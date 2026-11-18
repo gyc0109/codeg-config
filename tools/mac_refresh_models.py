@@ -26,7 +26,7 @@ CCMETA = {m['id']: m for m in (json.load(open(f'{M}/cc_models_new.json')).get('d
 CHAT, RESP = OG['chat'], OG['resp']
 CCHAT, CCRESP = CC['chat_ok'], CC['resp_ok']
 DS = ['deepseek-flash', 'deepseek-v4-pro']
-OCG_FREE = 'longcat-2.5-preview-free'
+OCG_FREE = 'beam-free'
 CC_FREE = 'stealth/glyph-cluster:free'
 FB = {'deepseek-flash': (1000000, 384000), 'step-5-preview-free': (1000000, 131072)}
 

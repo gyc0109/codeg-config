@@ -9,7 +9,7 @@ P = os.path.expanduser("~/.kimi-code/config.toml")
 shutil.copy2(P, P + ".bak." + str(int(time.time())))
 
 FIX = {
-    "opencode-go": "longcat-2.5-preview-free",
+    "opencode-go": "beam-free",
     "commandcode": "stealth/glyph-cluster:free",
 }
 

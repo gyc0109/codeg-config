@@ -7,7 +7,7 @@ os.makedirs(d, exist_ok=True)
 p = os.path.join(d, 'providers.json')
 doc = {'version': 1, 'lastUsedProvider': 'openai-compatible', 'modes': {}, 'providers': {
     'openai-compatible': {'settings': {'provider': 'openai-compatible', 'apiKey': 'local',
-                                        'model': 'ocg/longcat-2.5-preview-free',
+                                        'model': 'ocg/beam-free',
                                         'baseUrl': 'http://127.0.0.1:4000/v1'},
                           'updatedAt': time.strftime('%Y-%m-%dT%H:%M:%S.000Z', time.gmtime()),
                           'tokenSource': 'manual'}}}

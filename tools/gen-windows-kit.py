@@ -119,7 +119,7 @@ parts.append("""# codeg 配置交接包（来自服务器）
 
 | 供应商 | 默认 | 说明 |
 | --- | --- | --- |
-| OCG | `longcat-2.5-preview-free` | 免费档 |
+| OCG | `beam-free` | 免费档 |
 | CCG | `stealth/glyph-cluster:free` | 免费 stealth 模型 |
 | DS | `deepseek-flash` | |
 | ARK | `doubao-seed-2-1-pro-260915` | |
@@ -350,7 +350,7 @@ parts.append("""---
 # 通用探针
 curl.exe -s http://127.0.0.1:<端口>/v1/chat/completions `
   -H "Content-Type: application/json" `
-  -d '{{"model":"ocg/longcat-2.5-preview-free","messages":[{{"role":"user","content":"Reply with exactly: PONG"}}],"max_tokens":2000}}'
+  -d '{{"model":"ocg/beam-free","messages":[{{"role":"user","content":"Reply with exactly: PONG"}}],"max_tokens":2000}}'
 ```
 
 1. **代理四条链路**各测一次（ocg / ccg / ds / ark）

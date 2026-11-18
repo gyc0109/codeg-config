@@ -113,10 +113,10 @@ custom_providers:
   base_url: http://127.0.0.1:15825/v1
   api_key: local
   model: space-bunny-free
-- name: OCG longcat-2.5-preview-free
+- name: OCG beam-free
   base_url: http://127.0.0.1:15825/v1
   api_key: local
-  model: longcat-2.5-preview-free
+  model: beam-free
 - name: CCG MiniMax M2.5
   base_url: https://api.commandcode.ai/provider/v1
   api_key: ${COMMANDCODE_API_KEY_MAC}
