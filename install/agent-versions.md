@@ -1,4 +1,34 @@
-# agent 版本基线（2026-10-30 升级后）
+# agent 版本基线
+
+## 2026-11-19 升级后
+
+| agent | 版本 | 分发 |
+| --- | --- | --- |
+| pi | 0.0.34 | npx |
+| claude_code | 0.108.0 | npx |
+| open_code | 2.3.2 | binary |
+| deepseek | 0.11.0 | npx |
+| hermes | 0.23.2 | npx |
+| code_buddy | 2.185.0 | npx |
+| kimi_code | 2.6.3 | npx |
+| codex | 2.7.0 | npx |
+| cline | 3.0.74 | npx |
+| open_claw | 2026.11.4 | npx（本地超前 registry 2026.9.8，未降级） |
+| gemini | 0.68.0 | npx（本地超前 registry 0.60.0，未降级） |
+| grok | 1.0.89 | npx |
+| cursor | 2026.11.13-eacade1 | binary |
+| qoder | 1.1.91 | npx |
+| antigravity | 1.5.0 | binary |
+| kiro | 2.36.0 | system |
+| zcode | 0.88.1 | npx |
+| trae | 0.213.1 | system |
+| command_code | 1.90.0 | npx |
+| minimax_code | 0.7.7 | system |
+
+升级后已重新把 `~/.codex/config.toml` 的 `model` 改回带前缀的 `ocg/gpt-6-luna`
+（升级 codex 会重写该文件，见下文）。
+
+## 2026-10-30 升级后
 
 | agent | 版本 | 分发 | 备注 |
 | --- | --- | --- | --- |
