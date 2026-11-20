@@ -44,7 +44,7 @@ custom_providers:
 - name: OCG Glm 5.2
   base_url: http://127.0.0.1:15825/v1
   api_key: local
-  model: glm-5.2
+
 - name: OCG Glm 5.3 Flash
   base_url: http://127.0.0.1:15825/v1
   api_key: local

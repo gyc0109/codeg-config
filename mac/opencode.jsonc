@@ -251,7 +251,7 @@
           },
           "id": "glm-5.1"
         },
-        "glm-5.2": {
+
           "name": "Glm 5.2",
           "reasoning": true,
           "tool_call": true,
@@ -266,7 +266,7 @@
             "cache_read": 0.26,
             "cache_write": 0
           },
-          "id": "glm-5.2"
+
         },
         "hy3": {
           "name": "Hy3",

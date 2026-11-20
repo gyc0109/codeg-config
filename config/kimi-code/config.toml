@@ -10,7 +10,7 @@ default_model = "beam-free"
 [providers.commandcode]
 type = "openai"
 base_url = "https://api.commandcode.ai/provider/v1"
-api_key = "${REDACTED}"
+api_key = "${COMMANDCODE_API_KEY}"
 default_model = "stealth/glyph-cluster:free"
 
 [providers.deepseek]
@@ -44,11 +44,6 @@ max_context_size = 1000000
 provider = "opencode-go"
 model = "gemini-4-argon"
 max_context_size = 262144
-
-[models."ocg/glm-5.2"]
-provider = "opencode-go"
-model = "glm-5.2"
-max_context_size = 1000000
 
 [models."ocg/glm-5.3"]
 provider = "opencode-go"
@@ -104,6 +99,11 @@ max_context_size = 262144
 provider = "opencode-go"
 model = "longcat-2.0"
 max_context_size = 1000000
+
+[models."ocg/longcat-2.5-free"]
+provider = "opencode-go"
+model = "longcat-2.5-free"
+max_context_size = 262144
 
 [models."ocg/mimo-v2.6-flash"]
 provider = "opencode-go"

@@ -187,11 +187,11 @@ qoder login
 ## 新会话会继承上一次的模型（模型下线后会炸）
 
 ACP 的 `session/new` 不带模型时，agent 会沿用**上一次用过的模型**。2026-10-24 下线
-`longcat-2.5-preview-free` 之后，code_buddy 的新会话还拿着它，报：
+`longcat-2.5-free` 之后，code_buddy 的新会话还拿着它，报：
 
 ```
 invalid_request_error: /chat/completions: Invalid model name passed in
-model=ocg/longcat-2.5-preview-free. Call /v1/models to view available models for your key.
+model=ocg/longcat-2.5-free. Call /v1/models to view available models for your key.
 ```
 
 **这不是升级搞坏的**，是模型下线的余波，表现为两种情况：

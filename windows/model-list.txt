@@ -5,7 +5,7 @@ ocg/deepseek-v4-flash-vision-exp
 ocg/deepseek-v4-pro
 ocg/deepseek-v4.1-flash
 ocg/glm-5.1
-ocg/glm-5.2
+
 ocg/glm-5.3
 ocg/glm-5.3-flash
 ocg/hy3

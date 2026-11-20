@@ -17,10 +17,6 @@ custom_providers:
   base_url: http://127.0.0.1:8899/v1
   api_key: local
   model: gemini-4-argon
-- name: OCG GLM-5.2
-  base_url: http://127.0.0.1:8899/v1
-  api_key: local
-  model: glm-5.2
 - name: OCG GLM-5.3
   base_url: http://127.0.0.1:8899/v1
   api_key: local
@@ -65,6 +61,10 @@ custom_providers:
   base_url: http://127.0.0.1:8899/v1
   api_key: local
   model: longcat-2.0
+- name: OCG longcat-2.5-free
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: longcat-2.5-free
 - name: OCG MiMo-V2.6-Flash
   base_url: http://127.0.0.1:8899/v1
   api_key: local
@@ -103,247 +103,247 @@ custom_providers:
   model: step-5-preview
 - name: CCG MiniMax M2.5
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: MiniMaxAI/MiniMax-M2.5
 - name: CCG MiniMax M3
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: MiniMaxAI/MiniMax-M3
 - name: CCG Qwen 3.6 Plus
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: Qwen/Qwen3.6-Plus
 - name: CCG Qwen 3.7 Flash
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: Qwen/Qwen3.7-Flash
 - name: CCG Qwen 3.7 Max
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: Qwen/Qwen3.7-Max
 - name: CCG Qwen 3.7 Plus
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: Qwen/Qwen3.7-Plus
 - name: CCG Qwen 3.8 27B
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: Qwen/Qwen3.8-27B
 - name: CCG Qwen 3.8 Flash
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: Qwen/Qwen3.8-Flash
 - name: CCG Qwen 3.8 Max
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: Qwen/Qwen3.8-Max
 - name: CCG Qwen 3.8 Max 0902
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: Qwen/Qwen3.8-Max-0902
 - name: CCG Qwen 3.8 Max Prime
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: Qwen/Qwen3.8-Max-Prime
 - name: CCG Qwen 3.8 Omni Flash
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: Qwen/Qwen3.8-Omni-Flash
 - name: CCG Qwen 4 Max
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: Qwen/Qwen4-Max
 - name: CCG DeepSeek V4 Flash (latest)
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: deepseek/deepseek-v4-flash
 - name: CCG DeepSeek V4 Flash Fast
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: deepseek/deepseek-v4-flash-fast
 - name: CCG DeepSeek V4 Flash Vision (exp)
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: deepseek/deepseek-v4-flash-vision-exp
 - name: CCG DeepSeek V4 Pro (latest)
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: deepseek/deepseek-v4-pro
 - name: CCG DeepSeek V4.1 Flash (latest)
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: deepseek/deepseek-v4.1-flash
 - name: CCG DeepSeek V4.1 Flash Fast (latest)
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: deepseek/deepseek-v4.1-flash-fast
 - name: CCG Gemini 3.7 Flash
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: google/gemini-3.7-flash
 - name: CCG Gemini 3.8 Flash
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: google/gemini-3.8-flash
 - name: CCG GPT-5.6 Luna
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: gpt-5.6-luna
 - name: CCG GPT-5.6 Sol
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: gpt-5.6-sol
 - name: CCG GPT-6 Luna
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: gpt-6-luna
 - name: CCG Ling 3.1 Flash
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: inclusionai/ling-3.1-flash
 - name: CCG Ling 3.1 Flash 1019
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: inclusionai/ling-3.1-flash-1019
 - name: CCG LongCat 2.0
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: meituan/LongCat-2.0
 - name: CCG Muse Spark 1.2
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: meta/muse-spark-1.2
 - name: CCG Muse Spark 1.2 Contributor
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: meta/muse-spark-1.2-contributor
 - name: CCG Muse Spark 1.3
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: meta/muse-spark-1.3
 - name: CCG Muse Spark 1.3 Contributor
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: meta/muse-spark-1.3-contributor
 - name: CCG Muse Spark Open
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: meta/muse-spark-open
 - name: CCG MiniMax M3.1 Flash
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: minimax/minimax-m3.1-flash
 - name: CCG Mistral Large 4
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: mistral/mistral-large-4
 - name: CCG Kimi K2.5
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: moonshotai/Kimi-K2.5
 - name: CCG Kimi K2.6
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: moonshotai/Kimi-K2.6
 - name: CCG Kimi K2.7 Code
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: moonshotai/Kimi-K2.7-Code
 - name: CCG Kimi K2.7 Code HighSpeed
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: moonshotai/Kimi-K2.7-Code-Highspeed
 - name: CCG Kimi K3
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: moonshotai/Kimi-K3
 - name: CCG Kimi K3.1 Pro
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: moonshotai/Kimi-K3.1-Pro
 - name: CCG Nemotron 3 Ultra
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: nvidia/nemotron-3-ultra-550b-a55b
 - name: CCG Nemotron 3.5 Super VL
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: nvidia/nemotron-3.5-super-vl
 - name: CCG Ornith 1.5 122B
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: ornith/ornith-1.5-122b
 - name: CCG Glyph Cluster
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: stealth/glyph-cluster:free
 - name: CCG Step 3.7 Flash
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: stepfun/Step-3.7-Flash
 - name: CCG Step 5 Preview
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: stepfun/Step-5-Preview
 - name: CCG Tencent Hy3
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: tencent/hy3-paid
 - name: CCG Tencent Hy4 Flash
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: tencent/hy4-flash
 - name: CCG Tencent Hy4 Preview
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: tencent/hy4-preview
 - name: CCG Grok 4.5
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: xai/grok-4.5
 - name: CCG Grok 4.6
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: xai/grok-4.6
 - name: CCG Grok 4.7
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: xai/grok-4.7
 - name: CCG MiMo V2.6 Flash
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: xiaomi/mimo-v2.6-flash
 - name: CCG MiMo V2.6 Pro
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: xiaomi/mimo-v2.6-pro
 - name: CCG MiMo V2.6 Pro UltraSpeed
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: xiaomi/mimo-v2.6-pro-ultraspeed
 - name: CCG GLM-5.3 Flash
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: z-ai/glm-5.3-flash
 - name: CCG GLM-5.3 FlashX
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: z-ai/glm-5.3-flashx
 - name: CCG GLM-5
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: zai-org/GLM-5
 - name: CCG GLM-5.2
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: zai-org/GLM-5.2
 - name: CCG GLM-5.2 Fast
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: zai-org/GLM-5.2-Fast
 - name: CCG GLM-5.3
   base_url: https://api.commandcode.ai/provider/v1
-  api_key: ${REDACTED}
+  api_key: ${COMMANDCODE_API_KEY}
   model: zai-org/GLM-5.3
 - name: DS deepseek-flash
   base_url: http://127.0.0.1:8896/v1

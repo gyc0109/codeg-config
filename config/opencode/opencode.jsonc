@@ -33,12 +33,6 @@
           "contextWindow": 262144,
           "maxTokens": 131072
         },
-        "glm-5.2": {
-          "name": "OCG GLM-5.2",
-          "id": "glm-5.2",
-          "contextWindow": 1000000,
-          "maxTokens": 131072
-        },
         "glm-5.3": {
           "name": "OCG GLM-5.3",
           "id": "glm-5.3",
@@ -105,6 +99,12 @@
           "contextWindow": 1000000,
           "maxTokens": 131072
         },
+        "longcat-2.5-free": {
+          "name": "OCG longcat-2.5-free",
+          "id": "longcat-2.5-free",
+          "contextWindow": 262144,
+          "maxTokens": 131072
+        },
         "mimo-v2.6-flash": {
           "name": "OCG MiMo-V2.6-Flash",
           "id": "mimo-v2.6-flash",
@@ -166,7 +166,7 @@
       "npm": "@ai-sdk/openai-compatible",
       "options": {
         "baseURL": "https://api.commandcode.ai/provider/v1",
-        "apiKey": "${REDACTED}"
+        "apiKey": "${COMMANDCODE_API_KEY}"
       },
       "models": {
         "MiniMaxAI/MiniMax-M2.5": {

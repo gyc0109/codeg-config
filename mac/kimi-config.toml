@@ -33,11 +33,6 @@ provider = "opencode-go"
 model = "deepseek-v4.1-flash"
 max_context_size = 1000000
 
-[models."ocg/glm-5.2"]
-provider = "opencode-go"
-model = "glm-5.2"
-max_context_size = 1000000
-
 [models."ocg/glm-5.3"]
 provider = "opencode-go"
 model = "glm-5.3"

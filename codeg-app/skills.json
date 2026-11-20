@@ -1,5 +1,7 @@
 [
+  ".links.json",
   ".manifest.json",
+  ".manifest.office.json",
   ".manifest.science.json",
   "brainstorming",
   "citation-management",

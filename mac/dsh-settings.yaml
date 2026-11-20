@@ -22,7 +22,7 @@ llm-pi-ai:
         - id: ocg/deepseek-v4.1-flash
           name: OCG DeepSeek V4.1 Flash
           contextWindow: 1000000
-        - id: ocg/glm-5.2
+
           name: OCG GLM-5.2
           contextWindow: 1000000
         - id: ocg/glm-5.3

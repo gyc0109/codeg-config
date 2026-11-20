@@ -41,16 +41,6 @@
       "supportsImages": true
     },
     {
-      "id": "ocg/glm-5.2",
-      "name": "OCG GLM-5.2",
-      "url": "http://127.0.0.1:4000/v1",
-      "apiKey": "local",
-      "maxInputTokens": 1000000,
-      "maxOutputTokens": 131072,
-      "supportsReasoning": true,
-      "supportsImages": true
-    },
-    {
       "id": "ocg/glm-5.3",
       "name": "OCG GLM-5.3",
       "url": "http://127.0.0.1:4000/v1",
@@ -156,6 +146,16 @@
       "url": "http://127.0.0.1:4000/v1",
       "apiKey": "local",
       "maxInputTokens": 1000000,
+      "maxOutputTokens": 131072,
+      "supportsReasoning": true,
+      "supportsImages": true
+    },
+    {
+      "id": "ocg/longcat-2.5-free",
+      "name": "OCG longcat-2.5-free",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 262144,
       "maxOutputTokens": 131072,
       "supportsReasoning": true,
       "supportsImages": true
@@ -1026,7 +1026,6 @@
     "ocg/deepseek-v4-pro",
     "ocg/deepseek-v4.1-flash",
     "ocg/gemini-4-argon",
-    "ocg/glm-5.2",
     "ocg/glm-5.3",
     "ocg/glm-5.3-flash",
     "ocg/hy3",
@@ -1038,6 +1037,7 @@
     "ocg/kimi-k3",
     "ocg/kimi-k3.1-pro",
     "ocg/longcat-2.0",
+    "ocg/longcat-2.5-free",
     "ocg/mimo-v2.6-flash",
     "ocg/mimo-v2.6-pro",
     "ocg/minimax-m3",

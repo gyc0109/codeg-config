@@ -51,19 +51,6 @@
             "streaming"
           ]
         },
-        "ocg/glm-5.2": {
-          "id": "ocg/glm-5.2",
-          "name": "OCG GLM-5.2",
-          "contextWindow": 1000000,
-          "maxTokens": 131072,
-          "supportsReasoning": true,
-          "supportsVision": true,
-          "supportsAttachments": true,
-          "capabilities": [
-            "tools",
-            "streaming"
-          ]
-        },
         "ocg/glm-5.3": {
           "id": "ocg/glm-5.3",
           "name": "OCG GLM-5.3",
@@ -1226,7 +1213,6 @@
         "ocg/beam-free",
         "ocg/deepseek-v4-pro",
         "ocg/deepseek-v4.1-flash",
-        "ocg/glm-5.2",
         "ocg/glm-5.3",
         "ocg/glm-5.3-flash",
         "ocg/hy3",

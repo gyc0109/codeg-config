@@ -1,4 +1,4 @@
-model = "ocg/gpt-6-luna"
+model = "gpt-6-luna"
 model_provider = "litellm-bridge"
 model_catalog_json = "codeg-model-catalog.json"
 
@@ -17,5 +17,5 @@ wire_api = "responses"
 [model_providers.commandcode]
 name = "Command Code GOAT"
 base_url = "https://api.commandcode.ai/provider/v1"
-experimental_bearer_token = "${REDACTED}"
+experimental_bearer_token = "${COMMANDCODE_API_KEY}"
 wire_api = "responses"

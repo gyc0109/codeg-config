@@ -6,7 +6,6 @@
         "ocg/deepseek-v4-pro": {},
         "ocg/deepseek-v4.1-flash": {},
         "ocg/gemini-4-argon": {},
-        "ocg/glm-5.2": {},
         "ocg/glm-5.3": {},
         "ocg/glm-5.3-flash": {},
         "ocg/hy3": {},
@@ -18,6 +17,7 @@
         "ocg/kimi-k3": {},
         "ocg/kimi-k3.1-pro": {},
         "ocg/longcat-2.0": {},
+        "ocg/longcat-2.5-free": {},
         "ocg/mimo-v2.6-flash": {},
         "ocg/mimo-v2.6-pro": {},
         "ocg/minimax-m3": {},
@@ -111,7 +111,6 @@
           "ocg/deepseek-v4-pro",
           "ocg/deepseek-v4.1-flash",
           "ocg/gemini-4-argon",
-          "ocg/glm-5.2",
           "ocg/glm-5.3",
           "ocg/glm-5.3-flash",
           "ocg/hy3",
@@ -123,6 +122,7 @@
           "ocg/kimi-k3",
           "ocg/kimi-k3.1-pro",
           "ocg/longcat-2.0",
+          "ocg/longcat-2.5-free",
           "ocg/mimo-v2.6-flash",
           "ocg/mimo-v2.6-pro",
           "ocg/minimax-m3",
@@ -307,18 +307,6 @@
             "maxTokens": 131072
           },
           {
-            "id": "glm-5.2",
-            "name": "OCG GLM-5.2",
-            "api": "openai-completions",
-            "reasoning": true,
-            "input": [
-              "text",
-              "image"
-            ],
-            "contextWindow": 1000000,
-            "maxTokens": 131072
-          },
-          {
             "id": "glm-5.3",
             "name": "OCG GLM-5.3",
             "api": "openai-completions",
@@ -451,6 +439,18 @@
             "maxTokens": 131072
           },
           {
+            "id": "longcat-2.5-free",
+            "name": "OCG longcat-2.5-free",
+            "api": "openai-completions",
+            "reasoning": true,
+            "input": [
+              "text",
+              "image"
+            ],
+            "contextWindow": 262144,
+            "maxTokens": 131072
+          },
+          {
             "id": "mimo-v2.6-flash",
             "name": "OCG MiMo-V2.6-Flash",
             "api": "openai-completions",
@@ -562,7 +562,7 @@
       },
       "ccg": {
         "baseUrl": "https://api.commandcode.ai/provider/v1",
-        "apiKey": "${REDACTED}",
+        "apiKey": "${COMMANDCODE_API_KEY}",
         "api": "openai-completions",
         "models": [
           {

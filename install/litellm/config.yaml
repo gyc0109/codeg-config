@@ -22,6 +22,13 @@ model_list:
 
 
 
+
+
+
+
+
+
+
 - model_name: ocg/beam-free
   litellm_params:
     model: openai/beam-free
@@ -47,14 +54,6 @@ model_list:
         - max_tool_calls
   model_info:
     id: ocg/beam-free
-- model_name: ocg/crouton-alpha-free
-  litellm_params:
-    model: openai/crouton-alpha-free
-    api_base: http://127.0.0.1:8899/v1
-    api_key: local
-    additional_drop_params: *id001
-  model_info:
-    id: ocg/crouton-alpha-free
 - model_name: ocg/deepseek-v4-pro
   litellm_params:
     model: openai/deepseek-v4-pro
@@ -79,14 +78,6 @@ model_list:
     additional_drop_params: *id001
   model_info:
     id: ocg/gemini-4-argon
-- model_name: ocg/glm-5.2
-  litellm_params:
-    model: openai/glm-5.2
-    api_base: http://127.0.0.1:8899/v1
-    api_key: local
-    additional_drop_params: *id001
-  model_info:
-    id: ocg/glm-5.2
 - model_name: ocg/glm-5.3
   litellm_params:
     model: openai/glm-5.3
@@ -143,6 +134,14 @@ model_list:
     additional_drop_params: *id001
   model_info:
     id: ocg/hy4
+- model_name: ocg/hy4-flash-free
+  litellm_params:
+    model: openai/hy4-flash-free
+    api_base: http://127.0.0.1:8899/v1
+    api_key: local
+    additional_drop_params: *id001
+  model_info:
+    id: ocg/hy4-flash-free
 - model_name: ocg/hy4-preview
   litellm_params:
     model: openai/hy4-preview
@@ -191,6 +190,14 @@ model_list:
     additional_drop_params: *id001
   model_info:
     id: ocg/longcat-2.0
+- model_name: ocg/longcat-2.5-free
+  litellm_params:
+    model: openai/longcat-2.5-free
+    api_base: http://127.0.0.1:8899/v1
+    api_key: local
+    additional_drop_params: *id001
+  model_info:
+    id: ocg/longcat-2.5-free
 - model_name: ocg/mimo-v2.6-flash
   litellm_params:
     model: openai/mimo-v2.6-flash
@@ -263,6 +270,14 @@ model_list:
     additional_drop_params: *id001
   model_info:
     id: ocg/qwen3.8-max
+- model_name: ocg/qwen4-max
+  litellm_params:
+    model: openai/qwen4-max
+    api_base: http://127.0.0.1:8899/v1
+    api_key: local
+    additional_drop_params: *id001
+  model_info:
+    id: ocg/qwen4-max
 - model_name: ocg/step-5-preview
   litellm_params:
     model: openai/step-5-preview
@@ -367,6 +382,14 @@ model_list:
     additional_drop_params: *id001
   model_info:
     id: ccg/Qwen/Qwen3.8-Omni-Flash
+- model_name: ccg/Qwen/Qwen4-Max
+  litellm_params:
+    model: openai/Qwen/Qwen4-Max
+    api_base: https://api.commandcode.ai/provider/v1
+    api_key: ${COMMANDCODE_API_KEY}
+    additional_drop_params: *id001
+  model_info:
+    id: ccg/Qwen/Qwen4-Max
 - model_name: ccg/deepseek/deepseek-v4-flash
   litellm_params:
     model: openai/deepseek/deepseek-v4-flash
@@ -607,14 +630,6 @@ model_list:
     additional_drop_params: *id001
   model_info:
     id: ccg/ornith/ornith-1.5-122b
-- model_name: ccg/stealth/crouton-alpha
-  litellm_params:
-    model: openai/stealth/crouton-alpha
-    api_base: https://api.commandcode.ai/provider/v1
-    api_key: ${COMMANDCODE_API_KEY}
-    additional_drop_params: *id001
-  model_info:
-    id: ccg/stealth/crouton-alpha
 - model_name: ccg/stealth/glyph-cluster:free
   litellm_params:
     model: openai/stealth/glyph-cluster:free
@@ -647,6 +662,14 @@ model_list:
     additional_drop_params: *id001
   model_info:
     id: ccg/tencent/hy3-paid
+- model_name: ccg/tencent/hy4-flash
+  litellm_params:
+    model: openai/tencent/hy4-flash
+    api_base: https://api.commandcode.ai/provider/v1
+    api_key: ${COMMANDCODE_API_KEY}
+    additional_drop_params: *id001
+  model_info:
+    id: ccg/tencent/hy4-flash
 - model_name: ccg/tencent/hy4-preview
   litellm_params:
     model: openai/tencent/hy4-preview
