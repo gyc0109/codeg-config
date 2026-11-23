@@ -57,14 +57,6 @@ custom_providers:
   base_url: http://127.0.0.1:8899/v1
   api_key: local
   model: kimi-k3.1-pro
-- name: OCG LongCat-2.0
-  base_url: http://127.0.0.1:8899/v1
-  api_key: local
-  model: longcat-2.0
-- name: OCG longcat-2.5-free
-  base_url: http://127.0.0.1:8899/v1
-  api_key: local
-  model: longcat-2.5-free
 - name: OCG MiMo-V2.6-Flash
   base_url: http://127.0.0.1:8899/v1
   api_key: local
@@ -101,6 +93,10 @@ custom_providers:
   base_url: http://127.0.0.1:8899/v1
   api_key: local
   model: step-5-preview
+- name: OCG LongCat-2.5
+  base_url: http://127.0.0.1:8899/v1
+  api_key: local
+  model: longcat-2.5
 - name: CCG MiniMax M2.5
   base_url: https://api.commandcode.ai/provider/v1
   api_key: ${COMMANDCODE_API_KEY}

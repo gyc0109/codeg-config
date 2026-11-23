@@ -50,12 +50,6 @@ llm-pi-ai:
         - id: ocg/kimi-k3.1-pro
           name: OCG kimi-k3.1-pro
           contextWindow: 262144
-        - id: ocg/longcat-2.0
-          name: OCG longcat-2.0
-          contextWindow: 1000000
-        - id: ocg/longcat-2.5-free
-          name: OCG longcat-2.5-free
-          contextWindow: 262144
         - id: ocg/mimo-v2.6-flash
           name: OCG mimo-v2.6-flash
           contextWindow: 1048576
@@ -83,6 +77,9 @@ llm-pi-ai:
         - id: ocg/step-5-preview
           name: OCG step-5-preview
           contextWindow: 262144
+        - id: ocg/longcat-2.5
+          name: OCG longcat-2.5
+          contextWindow: 1000000
     ccg:
       displayName: Command Code GOAT
       api: openai-completions

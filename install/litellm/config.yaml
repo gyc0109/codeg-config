@@ -29,6 +29,8 @@ model_list:
 
 
 
+
+
 - model_name: ocg/beam-free
   litellm_params:
     model: openai/beam-free
@@ -182,22 +184,14 @@ model_list:
     additional_drop_params: *id001
   model_info:
     id: ocg/kimi-k3.1-pro
-- model_name: ocg/longcat-2.0
+- model_name: ocg/longcat-2.5
   litellm_params:
-    model: openai/longcat-2.0
+    model: openai/longcat-2.5
     api_base: http://127.0.0.1:8899/v1
     api_key: local
     additional_drop_params: *id001
   model_info:
-    id: ocg/longcat-2.0
-- model_name: ocg/longcat-2.5-free
-  litellm_params:
-    model: openai/longcat-2.5-free
-    api_base: http://127.0.0.1:8899/v1
-    api_key: local
-    additional_drop_params: *id001
-  model_info:
-    id: ocg/longcat-2.5-free
+    id: ocg/longcat-2.5
 - model_name: ocg/mimo-v2.6-flash
   litellm_params:
     model: openai/mimo-v2.6-flash

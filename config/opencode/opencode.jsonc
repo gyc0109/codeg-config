@@ -93,18 +93,6 @@
           "contextWindow": 262144,
           "maxTokens": 131072
         },
-        "longcat-2.0": {
-          "name": "OCG LongCat-2.0",
-          "id": "longcat-2.0",
-          "contextWindow": 1000000,
-          "maxTokens": 131072
-        },
-        "longcat-2.5-free": {
-          "name": "OCG longcat-2.5-free",
-          "id": "longcat-2.5-free",
-          "contextWindow": 262144,
-          "maxTokens": 131072
-        },
         "mimo-v2.6-flash": {
           "name": "OCG MiMo-V2.6-Flash",
           "id": "mimo-v2.6-flash",
@@ -158,6 +146,12 @@
           "id": "step-5-preview",
           "contextWindow": 262144,
           "maxTokens": 131072
+        },
+        "longcat-2.5": {
+          "name": "OCG LongCat-2.5",
+          "id": "longcat-2.5",
+          "contextWindow": 1000000,
+          "maxTokens": 262144
         }
       }
     },

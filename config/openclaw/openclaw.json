@@ -16,8 +16,6 @@
         "ocg/kimi-k2.7-code": {},
         "ocg/kimi-k3": {},
         "ocg/kimi-k3.1-pro": {},
-        "ocg/longcat-2.0": {},
-        "ocg/longcat-2.5-free": {},
         "ocg/mimo-v2.6-flash": {},
         "ocg/mimo-v2.6-pro": {},
         "ocg/minimax-m3": {},
@@ -27,6 +25,7 @@
         "ocg/qwen3.8-max": {},
         "ocg/qwen4-max": {},
         "ocg/step-5-preview": {},
+        "ocg/longcat-2.5": {},
         "ccg/MiniMaxAI/MiniMax-M2.5": {},
         "ccg/MiniMaxAI/MiniMax-M3": {},
         "ccg/Qwen/Qwen3.6-Plus": {},
@@ -121,8 +120,6 @@
           "ocg/kimi-k2.7-code",
           "ocg/kimi-k3",
           "ocg/kimi-k3.1-pro",
-          "ocg/longcat-2.0",
-          "ocg/longcat-2.5-free",
           "ocg/mimo-v2.6-flash",
           "ocg/mimo-v2.6-pro",
           "ocg/minimax-m3",
@@ -132,6 +129,7 @@
           "ocg/qwen3.8-max",
           "ocg/qwen4-max",
           "ocg/step-5-preview",
+          "ocg/longcat-2.5",
           "ccg/MiniMaxAI/MiniMax-M2.5",
           "ccg/MiniMaxAI/MiniMax-M3",
           "ccg/Qwen/Qwen3.6-Plus",
@@ -427,30 +425,6 @@
             "maxTokens": 131072
           },
           {
-            "id": "longcat-2.0",
-            "name": "OCG LongCat-2.0",
-            "api": "openai-completions",
-            "reasoning": true,
-            "input": [
-              "text",
-              "image"
-            ],
-            "contextWindow": 1000000,
-            "maxTokens": 131072
-          },
-          {
-            "id": "longcat-2.5-free",
-            "name": "OCG longcat-2.5-free",
-            "api": "openai-completions",
-            "reasoning": true,
-            "input": [
-              "text",
-              "image"
-            ],
-            "contextWindow": 262144,
-            "maxTokens": 131072
-          },
-          {
             "id": "mimo-v2.6-flash",
             "name": "OCG MiMo-V2.6-Flash",
             "api": "openai-completions",
@@ -557,6 +531,18 @@
             ],
             "contextWindow": 262144,
             "maxTokens": 131072
+          },
+          {
+            "id": "longcat-2.5",
+            "name": "OCG LongCat-2.5",
+            "api": "openai-completions",
+            "reasoning": true,
+            "input": [
+              "text",
+              "image"
+            ],
+            "contextWindow": 1000000,
+            "maxTokens": 262144
           }
         ]
       },
