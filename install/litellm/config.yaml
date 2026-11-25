@@ -31,6 +31,8 @@ model_list:
 
 
 
+
+
 - model_name: ocg/beam-free
   litellm_params:
     model: openai/beam-free
@@ -120,6 +122,14 @@ model_list:
     additional_drop_params: *id001
   model_info:
     id: ocg/grok-4.7
+- model_name: ocg/hungerg-free
+  litellm_params:
+    model: openai/hungerg-free
+    api_base: http://127.0.0.1:8899/v1
+    api_key: local
+    additional_drop_params: *id001
+  model_info:
+    id: ocg/hungerg-free
 - model_name: ocg/hy3
   litellm_params:
     model: openai/hy3

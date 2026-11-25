@@ -127,6 +127,26 @@
           }
         },
         {
+          "id": "hungerg-free",
+          "name": "OCG HungerG Free",
+          "provider": "ocg",
+          "baseUrl": "http://127.0.0.1:8899/v1",
+          "api": "openai-completions",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 1000000,
+          "maxTokens": 65536,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        },
+        {
           "id": "hy3",
           "name": "OCG Hy3",
           "provider": "ocg",
@@ -279,6 +299,26 @@
           ],
           "contextWindow": 262144,
           "maxTokens": 131072,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        },
+        {
+          "id": "longcat-2.5",
+          "name": "OCG LongCat-2.5",
+          "provider": "ocg",
+          "baseUrl": "http://127.0.0.1:8899/v1",
+          "api": "openai-completions",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 1000000,
+          "maxTokens": 262144,
           "cost": {
             "input": 0,
             "output": 0,
@@ -459,26 +499,6 @@
           ],
           "contextWindow": 262144,
           "maxTokens": 131072,
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          }
-        },
-        {
-          "id": "longcat-2.5",
-          "name": "OCG LongCat-2.5",
-          "provider": "ocg",
-          "baseUrl": "http://127.0.0.1:8899/v1",
-          "api": "openai-completions",
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "contextWindow": 1000000,
-          "maxTokens": 262144,
           "cost": {
             "input": 0,
             "output": 0,

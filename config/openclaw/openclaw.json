@@ -8,6 +8,7 @@
         "ocg/gemini-4-argon": {},
         "ocg/glm-5.3": {},
         "ocg/glm-5.3-flash": {},
+        "ocg/hungerg-free": {},
         "ocg/hy3": {},
         "ocg/hy4": {},
         "ocg/hy4-flash-free": {},
@@ -16,6 +17,7 @@
         "ocg/kimi-k2.7-code": {},
         "ocg/kimi-k3": {},
         "ocg/kimi-k3.1-pro": {},
+        "ocg/longcat-2.5": {},
         "ocg/mimo-v2.6-flash": {},
         "ocg/mimo-v2.6-pro": {},
         "ocg/minimax-m3": {},
@@ -25,7 +27,6 @@
         "ocg/qwen3.8-max": {},
         "ocg/qwen4-max": {},
         "ocg/step-5-preview": {},
-        "ocg/longcat-2.5": {},
         "ccg/MiniMaxAI/MiniMax-M2.5": {},
         "ccg/MiniMaxAI/MiniMax-M3": {},
         "ccg/Qwen/Qwen3.6-Plus": {},
@@ -112,6 +113,7 @@
           "ocg/gemini-4-argon",
           "ocg/glm-5.3",
           "ocg/glm-5.3-flash",
+          "ocg/hungerg-free",
           "ocg/hy3",
           "ocg/hy4",
           "ocg/hy4-flash-free",
@@ -120,6 +122,7 @@
           "ocg/kimi-k2.7-code",
           "ocg/kimi-k3",
           "ocg/kimi-k3.1-pro",
+          "ocg/longcat-2.5",
           "ocg/mimo-v2.6-flash",
           "ocg/mimo-v2.6-pro",
           "ocg/minimax-m3",
@@ -129,7 +132,6 @@
           "ocg/qwen3.8-max",
           "ocg/qwen4-max",
           "ocg/step-5-preview",
-          "ocg/longcat-2.5",
           "ccg/MiniMaxAI/MiniMax-M2.5",
           "ccg/MiniMaxAI/MiniMax-M3",
           "ccg/Qwen/Qwen3.6-Plus",
@@ -329,6 +331,18 @@
             "maxTokens": 131072
           },
           {
+            "id": "hungerg-free",
+            "name": "OCG HungerG Free",
+            "api": "openai-completions",
+            "reasoning": true,
+            "input": [
+              "text",
+              "image"
+            ],
+            "contextWindow": 1000000,
+            "maxTokens": 65536
+          },
+          {
             "id": "hy3",
             "name": "OCG Hy3",
             "api": "openai-completions",
@@ -423,6 +437,18 @@
             ],
             "contextWindow": 262144,
             "maxTokens": 131072
+          },
+          {
+            "id": "longcat-2.5",
+            "name": "OCG LongCat-2.5",
+            "api": "openai-completions",
+            "reasoning": true,
+            "input": [
+              "text",
+              "image"
+            ],
+            "contextWindow": 1000000,
+            "maxTokens": 262144
           },
           {
             "id": "mimo-v2.6-flash",
@@ -531,18 +557,6 @@
             ],
             "contextWindow": 262144,
             "maxTokens": 131072
-          },
-          {
-            "id": "longcat-2.5",
-            "name": "OCG LongCat-2.5",
-            "api": "openai-completions",
-            "reasoning": true,
-            "input": [
-              "text",
-              "image"
-            ],
-            "contextWindow": 1000000,
-            "maxTokens": 262144
           }
         ]
       },

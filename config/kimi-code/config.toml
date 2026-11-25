@@ -55,6 +55,11 @@ provider = "opencode-go"
 model = "glm-5.3-flash"
 max_context_size = 1000000
 
+[models."ocg/hungerg-free"]
+provider = "opencode-go"
+model = "hungerg-free"
+max_context_size = 1000000
+
 [models."ocg/hy3"]
 provider = "opencode-go"
 model = "hy3"
@@ -94,6 +99,11 @@ max_context_size = 1048576
 provider = "opencode-go"
 model = "kimi-k3.1-pro"
 max_context_size = 262144
+
+[models."ocg/longcat-2.5"]
+provider = "opencode-go"
+model = "longcat-2.5"
+max_context_size = 1000000
 
 [models."ocg/mimo-v2.6-flash"]
 provider = "opencode-go"
@@ -139,11 +149,6 @@ max_context_size = 262144
 provider = "opencode-go"
 model = "step-5-preview"
 max_context_size = 262144
-
-[models."ocg/longcat-2.5"]
-provider = "opencode-go"
-model = "longcat-2.5"
-max_context_size = 1000000
 
 [models."ccg/MiniMaxAI/MiniMax-M2.5"]
 provider = "commandcode"

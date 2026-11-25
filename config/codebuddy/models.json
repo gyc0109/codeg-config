@@ -61,6 +61,16 @@
       "supportsImages": true
     },
     {
+      "id": "ocg/hungerg-free",
+      "name": "OCG HungerG Free",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 1000000,
+      "maxOutputTokens": 65536,
+      "supportsReasoning": true,
+      "supportsImages": true
+    },
+    {
       "id": "ocg/hy3",
       "name": "OCG Hy3",
       "url": "http://127.0.0.1:4000/v1",
@@ -137,6 +147,16 @@
       "apiKey": "local",
       "maxInputTokens": 262144,
       "maxOutputTokens": 131072,
+      "supportsReasoning": true,
+      "supportsImages": true
+    },
+    {
+      "id": "ocg/longcat-2.5",
+      "name": "OCG LongCat-2.5",
+      "url": "http://127.0.0.1:4000/v1",
+      "apiKey": "local",
+      "maxInputTokens": 1000000,
+      "maxOutputTokens": 262144,
       "supportsReasoning": true,
       "supportsImages": true
     },
@@ -227,16 +247,6 @@
       "apiKey": "local",
       "maxInputTokens": 262144,
       "maxOutputTokens": 131072,
-      "supportsReasoning": true,
-      "supportsImages": true
-    },
-    {
-      "id": "ocg/longcat-2.5",
-      "name": "OCG LongCat-2.5",
-      "url": "http://127.0.0.1:4000/v1",
-      "apiKey": "local",
-      "maxInputTokens": 1000000,
-      "maxOutputTokens": 262144,
       "supportsReasoning": true,
       "supportsImages": true
     },
@@ -1018,6 +1028,7 @@
     "ocg/gemini-4-argon",
     "ocg/glm-5.3",
     "ocg/glm-5.3-flash",
+    "ocg/hungerg-free",
     "ocg/hy3",
     "ocg/hy4",
     "ocg/hy4-flash-free",
@@ -1026,6 +1037,7 @@
     "ocg/kimi-k2.7-code",
     "ocg/kimi-k3",
     "ocg/kimi-k3.1-pro",
+    "ocg/longcat-2.5",
     "ocg/mimo-v2.6-flash",
     "ocg/mimo-v2.6-pro",
     "ocg/minimax-m3",
@@ -1035,7 +1047,6 @@
     "ocg/qwen3.8-max",
     "ocg/qwen4-max",
     "ocg/step-5-preview",
-    "ocg/longcat-2.5",
     "ccg/MiniMaxAI/MiniMax-M2.5",
     "ccg/MiniMaxAI/MiniMax-M3",
     "ccg/Qwen/Qwen3.6-Plus",
